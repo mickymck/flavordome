@@ -152,3 +152,6 @@ WEBPACK_LOADER = {
     }
 }
 
+import django_heroku
+django_heroku.settings(locals())
+
