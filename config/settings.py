@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # user created
 
     'flavordome',
+    'frontend',
 
     # third party
     'webpack_loader',
