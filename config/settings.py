@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     # user created
 
     'flavordome',
+
+    # third party
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +138,17 @@ STATIC_URL = '/static/'
 # Vue assets directory (assetsDir)
 
 STATICFILES_DIRS = [
-    os.path.join(FRONTEND_DIR, 'dist/static')
+    os.path.join(FRONTEND_DIR, 'assets')
 ]
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
+        'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
+    }
+}
 

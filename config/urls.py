@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from flavordome import views
-from frontend import views
+from frontend import views as v
 
 urlpatterns = [
     path('', views.home, name='home'),
