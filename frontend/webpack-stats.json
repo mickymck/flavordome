@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main.js","path":"/Users/macuser/Momentum/homework/FlavorDome/frontend/assets/webpack_bundles/main.js"}]}}
+{"status":"done","error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve './ContestantList' in '/Users/ryan/Momentum/FlavorDome/frontend/src/components'","chunks":{"main":[{"name":"main.js","path":"/Users/ryan/Momentum/FlavorDome/frontend/assets/webpack_bundles/main.js"}]}}

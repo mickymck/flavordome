@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <ContestantsWrapper/>
+    
   </div>
 </template>
 
 <script>
-import ContestantsWrapper from './components/ContestantsWrapper'
 
 export default {
   name: 'app',
