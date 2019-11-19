@@ -14,14 +14,10 @@ export default {
   name: 'app',
   components: {
     Categories,
-  },
-
-export default {
-  name: 'app',
-  components: {
     HostWelcome,
     TasteTestSetup
   },
+
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
   data:() => {
     return {
