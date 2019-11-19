@@ -36,7 +36,8 @@ export default {
       form.reset()
       window.console.log()
       this.contestants.unshift(formData.get('contestant'))
-    }
+    },
+    handleDelete: function(event)
   }
 }
 </script>

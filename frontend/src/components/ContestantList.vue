@@ -1,6 +1,6 @@
 <template>
   <ul v-if="checkContestants">
-    <li v-for="(contestant, x) in contestants" v-bind:key='x'>{{contestant}}</li>
+    <li v-for="contestant in contestants" v-bind:key='contestant'>{{contestant}}</li>
   </ul>
 </template>
 
