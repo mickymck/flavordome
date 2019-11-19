@@ -6,8 +6,15 @@
 </template>
 
 <script>
+import Categories from './components/Categories.vue'
 import HostWelcome from './components/HostWelcome.vue'
 import TasteTestSetup from './components/TasteTestSetup.vue'
+
+export default {
+  name: 'app',
+  components: {
+    Categories,
+  },
 
 export default {
   name: 'app',
