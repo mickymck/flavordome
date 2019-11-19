@@ -1,23 +1,16 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld msg="Welcome to FLAVORDOME"/> -->
-    <Categories/>
-    <!-- <CategoryCard/> -->
+    <Categories></Categories>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Categories from './components/Categories.vue'
-// import CategoryCard from './components/CategoryCard.vue'
-
 export default {
   name: 'app',
   components: {
-    HelloWorld,
     Categories,
-    // CategoryCard,
-  }
+  },
 }
 </script>
 

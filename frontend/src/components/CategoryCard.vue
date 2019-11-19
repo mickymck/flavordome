@@ -1,6 +1,6 @@
 <template>
     <div class="category-card">
-        <h1>{{ categoryName }}</h1>
+        <h1 v-on:click="$emit('selectCategory',categoryName)">{{ categoryName }}</h1>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ module.exports = {
         return{
 
         }
-    }
+    },
 }
 </script>
 
