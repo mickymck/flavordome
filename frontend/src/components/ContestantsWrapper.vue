@@ -11,7 +11,7 @@
         </div>
       </form>
     </div>
-    <ContestantList v-bind:contestants='contestants' />
+    <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   name:'ContestantsWrapper',
   data() {
     return {
-      contestants: ['hello']
+      contestants: []
     }
   },
   components: {
@@ -34,10 +34,12 @@ export default {
       const form = event.target
       const formData = new FormData(form)
       form.reset()
-      window.console.log()
       this.contestants.unshift(formData.get('contestant'))
     },
-    handleDelete: function(event)
+    handleDelete: function(contestantToDelete){
+      let newContestants = this.contestants.filter(contestant => contestant !== contestantToDelete)
+      this.contestants = newContestants
+    }
   }
 }
 </script>

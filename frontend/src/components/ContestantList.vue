@@ -1,6 +1,11 @@
 <template>
   <ul v-if="checkContestants">
-    <li v-for="contestant in contestants" v-bind:key='contestant'>{{contestant}}</li>
+    <li v-for="contestant in contestants" v-bind:key='contestant'>
+      {{contestant}}
+      <button v-on:click="$emit('deleteContestant', contestant)">
+        Remove
+      </button>
+    </li>
   </ul>
 </template>
 
