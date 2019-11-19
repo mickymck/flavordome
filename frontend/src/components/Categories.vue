@@ -18,50 +18,50 @@
 </template>
 
 <script>
-import CategoryCard from './CategoryCard.vue'
-import ContestantsWrapper from './ContestantsWrapper.vue'
+  import CategoryCard from './CategoryCard.vue'
+  import ContestantsWrapper from './ContestantsWrapper.vue'
 
-const categoryNames = [
-  'Chips',
-  'Beers',
-  'Wines',
-  'Cheeses',
-  'Sauces',
-  'Pastas',
-  'Ice-cream',
-  'Donuts',
-  'Scotch',
-]
+  const categoryNames = [
+    'Chips',
+    'Beers',
+    'Wines',
+    'Cheeses',
+    'Sauces',
+    'Pastas',
+    'Ice-cream',
+    'Donuts',
+    'Scotch',
+  ]
 
-export default{
-  name:"Categories",
-  components:{
-      CategoryCard,
-      ContestantsWrapper,
-  },
-  data: function () {
-      return {
-        categories: categoryNames,
-        categorySelected: false,
-        category:"",
-
-      }
-  },
-  methods:{
-    handleSelection: function(categoryName){
-      this.categorySelected = !this.categorySelected
-      this.category = categoryName
+  export default {
+    name:"Categories",
+    components:{
+        CategoryCard,
+        ContestantsWrapper,
     },
-    createCustomCategory: function(event){
-      event.preventDefault();
-      const form = event.target
-      const formData = new FormData(form)
-      this.category = formData.get('customCategoryName')
-      this.categorySelected = !this.categorySelected
-    }
-  },
-    
-}
+    data: function () {
+        return {
+          categories: categoryNames,
+          categorySelected: false,
+          category:"",
+
+        }
+    },
+    methods:{
+      handleSelection: function(categoryName){
+        this.categorySelected = !this.categorySelected
+        this.category = categoryName
+      },
+      createCustomCategory: function(event){
+        event.preventDefault();
+        const form = event.target
+        const formData = new FormData(form)
+        this.category = formData.get('customCategoryName')
+        this.categorySelected = !this.categorySelected
+      }
+    },
+      
+  }
 </script>
 
 <style scoped>
