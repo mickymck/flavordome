@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- rendered component changes based on which one is dictated by fdComponent... moveToSetup method called by the listener on the setupScene event emitted on the Host button in HostWelcome -->
-    <component v-bind:is="fdComponent" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component>
+    <!-- <component v-bind:is="fdComponent" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component> -->
+    <Champions></Champions>
   </div>
 </template>
 
@@ -9,13 +10,15 @@
 import Categories from './components/Categories.vue'
 import HostWelcome from './components/HostWelcome.vue'
 import TasteTestSetup from './components/TasteTestSetup.vue'
+import Champions from './components/Champions.vue'
 
 export default {
   name: 'app',
   components: {
     Categories,
     HostWelcome,
-    TasteTestSetup
+    TasteTestSetup,
+    Champions,
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
