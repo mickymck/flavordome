@@ -24,11 +24,17 @@ export const store = new Vuex.Store({
       state.scene = scene
     },
     addScore(state, submission){
-      for (let card of state.challengers){
-        if (card.challenger === submission.challenger) {
-          card.scores.push(submission.rating)
+      for (let challenger of state.challengers){
+        if (challenger.challenger === submission.challenger) {
+          challenger.scores.push(submission.rating)
         }
       }
+    },
+    getTopFour(state){
+      
     }
   },
+  getters:{
+    
+  }
 })

@@ -36,6 +36,7 @@ export default {
       let formData = new FormData(form)
       this.augmentScore(formData.get('rating'))
       if (this.remainingCards.length === 0){
+        this.currentCard = null
         this.resolveMelee()
       } else {
         this.chooseCard()
@@ -46,15 +47,17 @@ export default {
       this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
     },
     augmentScore:function(rating){
-      this.currentCard.rating=rating
-      this.$store.commit('addScore',this.currentCard)
+      if (this.currentCard !== null){
+        this.currentCard.rating=rating
+        this.$store.commit('addScore',this.currentCard)
+      }
     },
     resolveMelee:function(){
-      console.log('weeee')
+      this.$store.commit('changeScene', "HeadToHead")
     }
   },
   created(){
-    this.remainingCards = this.$store.state.challengers
+    this.remainingCards = this.$store.state.challengers.slice()
     this.chooseCard()
   }
 }

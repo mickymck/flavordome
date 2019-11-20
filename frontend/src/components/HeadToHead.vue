@@ -70,6 +70,7 @@ export default {
     },
 
     created:function(){
+        
         this.challenger1 = this.draftChallenger()
         this.challenger2 = this.draftChallenger()
         this.challenger3 = this.draftChallenger()
