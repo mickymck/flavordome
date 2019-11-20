@@ -3,15 +3,17 @@
     <div>
       <form v-on:submit="this.handleSubmit">
         <div class="control">
-          <label>Add contestants</label>
-          <input type='text' name="contestant" />
+          <label>What will you be tasting?</label>
+          <input type='text' name="contestant" placeholder="lagavulin"/>
         </div>
         <div class="control">
-          <button action="submit">ENROLL CONTESTANT</button>
+          <button action="submit">ENROLL CHALLENGER</button>
         </div>
       </form>
     </div>
-    <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' />
+    <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' v-on:submitContestants='handleLaunch'/>
+    <div>
+    </div>
   </div>
 </template>
 
@@ -39,6 +41,10 @@ export default {
     handleDelete: function(contestantToDelete){
       let newContestants = this.contestants.filter(contestant => contestant !== contestantToDelete)
       this.contestants = newContestants
+    },
+    handleLaunch: function(){
+      this.$store.commit('addChallengers', this.contestants)
+      this.$store.commit('changeScene',"MeleeRating")
     }
   }
 }

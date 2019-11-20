@@ -48,13 +48,12 @@ export default {
     // returns taster to the Welcome screen by toggling back to false
     cancelTestName() {
       this.$emit('cancelTestName');
-      },
+    },
     pushTestName() {
       this.testNameLock = true;
       
-      }
     }
-
+  }
 };
 
 </script>

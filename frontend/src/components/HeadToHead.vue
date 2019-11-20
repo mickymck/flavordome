@@ -28,7 +28,6 @@
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
-import { of } from 'zen-observable'
 
 const challengerNames = [
     'beer',

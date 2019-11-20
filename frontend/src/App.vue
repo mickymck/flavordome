@@ -4,7 +4,7 @@
     <HeadToHead />
 
     <!-- rendered component changes based on which one is dictated by fdComponent... moveToSetup method called by the listener on the setupScene event emitted on the Host button in HostWelcome -->
-    <!-- <component v-bind:is="fdComponent" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component> -->
+    <component v-bind:is="this.scene" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ import HeadToHead from './components/HeadToHead.vue'
 import Categories from './components/Categories.vue'
 import HostWelcome from './components/HostWelcome.vue'
 import TasteTestSetup from './components/TasteTestSetup.vue'
+import MeleeRating from './components/MeleeRating.vue'
 
 export default {
   name: 'app',
@@ -20,23 +21,27 @@ export default {
     Categories,
     HostWelcome,
     TasteTestSetup,
-    HeadToHead
+    MeleeRating
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
   data:() => {
     return {
-      fdComponent: HostWelcome
     }
   },
   // method that toggles the rendered component to TasteTestSetup. currently being used when Host button is clicked, but can re-use this for going Back to the beginning of the setup, if desired
   methods: {
     moveToSetup() {
-      this.fdComponent = TasteTestSetup
+      this.$store.commit('changeScene',"TasteTestSetup")
     },
     backToWelcome() {
-      this.fdComponent = HostWelcome
+      this.$store.commit('changeScene', "HostWelcome")
     },
+  },
+  computed:{
+    scene (){
+      return this.$store.state.scene
+    }
   }
 }
 
