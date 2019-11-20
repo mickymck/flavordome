@@ -36,13 +36,16 @@ export default {
       if (this.remainingCards.length === 0){
         this.resolveMelee()
       } else {
-        randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
-        this.currentCard = this.remainingCards.splice(randCardIndex,1)
+        this.chooseCard()
       }
+    },
+    chooseCard:function(){
+      randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
+      this.currentCard = this.remainingCards.splice(randCardIndex,1)
     }
   },
   created(){
-    
+    this.remainingCards = this.$store.state.challengers
   }
 }
 </script>

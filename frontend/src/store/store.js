@@ -13,7 +13,9 @@ export const store = new Vuex.Store({
   },
   mutations:{
     addChallengers(state, challengers){
-      state.challengers=challengers
+      state.challengers = challengers.map(challenger => {
+        return {'challenger':challenger, 'score':[]}
+      })
     },
     maskChallengers(state){
       state.maskedChallengers = state.challengers.map(product => {})
