@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
   mutations:{
     addChallengers(state, challengers){
       state.challengers = challengers.map(challenger => {
-        return {'challenger':challenger, 'scores':[]}
+        return {'challenger':challenger, 'scores':[], average:null}
       })
     },
     maskChallengers(state){
@@ -27,14 +27,18 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers){
         if (challenger.challenger === submission.challenger) {
           challenger.scores.push(submission.rating)
+          challenger.average = challenger.scores.reduce((a, b) => a+b, 0)/challenger.scores.length
         }
       }
     },
-    getTopFour(state){
-      
+    setTopFour(state){
+      let sorted = state.challengers.sort((a, b) => (b.average - a.average))
+      state.topFour = sorted.slice(0,4)
     }
   },
   getters:{
-    
+    getTopFour(state){
+      return state.topFour.slice()
+    }
   }
 })

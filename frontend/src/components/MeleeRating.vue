@@ -53,6 +53,7 @@ export default {
       }
     },
     resolveMelee:function(){
+      this.$store.commit('setTopFour')
       this.$store.commit('changeScene', "HeadToHead")
     }
   },

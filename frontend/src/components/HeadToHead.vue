@@ -49,6 +49,7 @@ export default {
 
     data: () => {
         return {
+            challengers: [],
             challenger1: [],
             challenger2: [],
             challenger3: [],
@@ -59,10 +60,10 @@ export default {
 
     methods: {
         draftChallenger() {
-            const challenger1 = challengerNames[Math.floor(Math.random()*challengerNames.length)]
-            challengerNames.splice(challengerNames.indexOf(challenger1), 1)
-            console.log(challenger1)
-            return challenger1
+            const index = Math.floor(Math.random()*this.challengers.length)
+            const challenger = this.challengers.splice(index,1)
+            console.log(challenger)
+            return challenger[0]
         },
         advanceRound() {
             this.round += 1
@@ -70,7 +71,7 @@ export default {
     },
 
     created:function(){
-        
+        this.challengers = this.$store.getters.getTopFour
         this.challenger1 = this.draftChallenger()
         this.challenger2 = this.draftChallenger()
         this.challenger3 = this.draftChallenger()
