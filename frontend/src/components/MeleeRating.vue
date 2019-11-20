@@ -50,7 +50,7 @@ export default {
       this.$store.commit('addScore',this.currentCard)
     },
     resolveMelee:function(){
-      let finalists = this.$store.getters.getTopFour
+      console.log('weeee')
     }
   },
   created(){
