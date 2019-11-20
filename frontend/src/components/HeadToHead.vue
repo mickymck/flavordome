@@ -1,6 +1,9 @@
 <template>
 
 <div class='head-to-head-container'>
+    <div id='slider-value'>
+        score: {{ score }}
+    </div>
     <div class='challengers-container'>
         <div class='h2h-container' v-if='round === 1'>
             <ChallengerCard v-bind:challenger="challenger1"/>
@@ -18,6 +21,9 @@
             <h1>Choose Your Champion</h1>
         </div>
     </div>
+    <div class='slider'>
+        <input type="range" min="0" max="10" value="5" id="matchupRating" @input="log">
+    </div>
     <div class='semis-submit-div' v-if='round <= 3'>
         <button id="submit-h2h-button" @click="advanceRound">Submit</button>
     </div>
@@ -28,13 +34,6 @@
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
-
-const challengerNames = [
-    'beer',
-    'water',
-    'milk',
-    'gin'
-]
 
 export default {
     name: "HeadToHead",
@@ -50,11 +49,8 @@ export default {
     data: () => {
         return {
             challengers: [],
-            challenger1: [],
-            challenger2: [],
-            challenger3: [],
-            challenger4: [],
-            round: 1
+            round: 1,
+            score: ''
         }
     },
 
@@ -62,11 +58,13 @@ export default {
         draftChallenger() {
             const index = Math.floor(Math.random()*this.challengers.length)
             const challenger = this.challengers.splice(index,1)
-            console.log(challenger)
             return challenger[0]
         },
         advanceRound() {
             this.round += 1
+        },
+        log({target}) {
+            this.score = target.value
         }
     },
 
