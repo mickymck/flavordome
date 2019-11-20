@@ -21,7 +21,8 @@ export default {
     Categories,
     HostWelcome,
     TasteTestSetup,
-    MeleeRating
+    MeleeRating,
+    HeadToHead
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
