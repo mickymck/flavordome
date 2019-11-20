@@ -2,26 +2,26 @@
   <div>
     THIS IS THE MELEE
     <div class='arena'>
-      <!-- <Combatant card='currentCard'/> -->
+      <Combatant v-bind:card='this.currentCard'/>
     </div>
-    <div class='slider'>
-      <!-- <Slider /> -->
-    </div>
-    <div class='submit'>
-      <!-- <Submit /> -->
-    </div>
+    <form v-on:submit='handleSubmit'>
+      <div class='slider'>
+        <input type="range" min=0 max=10 name="rating" />
+      </div>
+      <div class='submit'>
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-
+import Combatant from './Combatant.vue'
 
 export default {
   name:'MeleeRating',
   components:{
-    // Combatant,
-    // Slider,
-    // Submit
+    Combatant
   },
   data: () => {
     return {
@@ -30,9 +30,11 @@ export default {
     }
   },
   methods:{
-    onSubmit:function(event){
+    handleSubmit:function(event){
       event.preventDefault()
-      this.augmentScore()
+      let form = event.target
+      let formData = new FormData(form)
+      this.augmentScore(formData.get('rating'))
       if (this.remainingCards.length === 0){
         this.resolveMelee()
       } else {
@@ -40,12 +42,20 @@ export default {
       }
     },
     chooseCard:function(){
-      randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
-      this.currentCard = this.remainingCards.splice(randCardIndex,1)
+      const randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
+      this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
+    },
+    augmentScore:function(rating){
+      this.currentCard.rating=rating
+      this.$store.commit('addScore',this.currentCard)
+    },
+    resolveMelee:function(){
+      let finalists = this.$store.getters.getTopFour
     }
   },
   created(){
     this.remainingCards = this.$store.state.challengers
+    this.chooseCard()
   }
 }
 </script>
