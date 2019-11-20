@@ -27,7 +27,9 @@ FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 SECRET_KEY = os.getenv('SECRET_KEY', 'r1l5v588s3o8*^&^!vmk%!@a&0@=h(2=qhbtpi$3(chnpx!+tt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+in_production = bool(os.getenv('PRODUCTION'))
+DEBUG = not in_production
+
 
 ALLOWED_HOSTS = []
 
