@@ -1,6 +1,9 @@
 <template>
 
 <div class='head-to-head-container'>
+    <div id='slider-value'>
+        score: {{ score }}
+    </div>
     <div class='challengers-container'>
         <div class='h2h-container' v-if='round === 1'>
             <ChallengerCard v-bind:challenger="challenger1"/>
@@ -18,8 +21,12 @@
             <h1>Choose Your Champion</h1>
         </div>
     </div>
+    <div class='slider'>
+        <input type="range" min="0" max="10" value="5" id="matchupRating" @input="log">
+    </div>
     <div class='semis-submit-div' v-if='round <= 3'>
-        <button id="submit-h2h-button" @click="advanceRound">Submit</button>
+        <button id="submit-h2h-button" @click="scoreMatchup(rating)">Submit</button>
+        <!-- <button id="submit-h2h-button" @click="advanceRound">Submit</button> -->
     </div>
 </div>
     
@@ -29,11 +36,11 @@
 
 import ChallengerCard from './ChallengerCard.vue'
 
-const challengerNames = [
-    'beer',
-    'water',
-    'milk',
-    'gin'
+const challengers = [
+    {name: 'beer', rating: 0},
+    {name: 'water', rating: 0},
+    {name: 'milk', rating: 0},
+    {name: 'gin', rating: 0}
 ]
 
 export default {
@@ -49,23 +56,25 @@ export default {
 
     data: () => {
         return {
-            challenger1: [],
-            challenger2: [],
-            challenger3: [],
-            challenger4: [],
-            round: 1
+            round: 1,
+            score: ''
         }
     },
 
     methods: {
         draftChallenger() {
-            const challenger1 = challengerNames[Math.floor(Math.random()*challengerNames.length)]
-            challengerNames.splice(challengerNames.indexOf(challenger1), 1)
+            const challenger1 = challengers[Math.floor(Math.random()*challengers.length)]
+            challengers.splice(challengers.indexOf(challenger1), 1)
             console.log(challenger1)
             return challenger1
         },
         advanceRound() {
             this.round += 1
+        },
+        log({target}) {
+            this.score = target.value
+            console.log(score)
+            return score
         }
     },
 
@@ -74,6 +83,7 @@ export default {
         this.challenger2 = this.draftChallenger()
         this.challenger3 = this.draftChallenger()
         this.challenger4 = this.draftChallenger()
+        this.getSliderValue()
     }
 }
 </script>
