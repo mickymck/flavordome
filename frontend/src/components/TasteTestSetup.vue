@@ -2,7 +2,10 @@
   <div class="container" id="taste-test-setup">
     <div>
       <!-- if the taste test name has been entered, this will render -->
-      <h1 v-if="testNameLock">{{ testName }}</h1>
+      <div v-if="testNameLock">
+        <h1>{{ testName }}</h1>
+        <Categories />
+      </div>
     </div>
 
     <!-- if the taste test name has not yet been submitted, you will have the field and buttons -->
@@ -23,10 +26,15 @@
 </template>
 
 <script>
+import Categories from './Categories.vue'
+
 export default {
   name: "TasteTestSetup",
   props: {
     testName: '',
+  },
+  components:{
+    Categories
   },
 
   // testNameLock determines whether the name renders or the form renders
@@ -40,13 +48,12 @@ export default {
     // returns taster to the Welcome screen by toggling back to false
     cancelTestName() {
       this.$emit('cancelTestName');
-      },
+    },
     pushTestName() {
       this.testNameLock = true;
       
-      }
     }
-
+  }
 };
 
 </script>
