@@ -1,31 +1,48 @@
 <template>
 
 <div class='head-to-head-container'>
-    <div id='slider-value'>
-        score: {{ score }}
-    </div>
     <div class='challengers-container'>
         <div class='h2h-container' v-if='round === 1'>
-            <ChallengerCard v-bind:challenger="challenger1"/>
-            <ChallengerCard v-bind:challenger="challenger2"/>
+            <div class='challenger-cards'>
+                <ChallengerCard v-bind:challenger="challenger1"/>
+                <ChallengerCard v-bind:challenger="challenger2"/>
+            </div>
+            <div class='slider'>
+                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
+            </div>
+            <div class='submit-div'>
+                <button id="submit-h2h-button" @click="collectSemiScores(challenger1, challenger2)">Submit</button>
+            </div>
         </div>
         <div class='h2h-container' v-if='round === 2'>
-            <ChallengerCard v-bind:challenger="challenger3"/>
-            <ChallengerCard v-bind:challenger="challenger4"/>
+            <div class='challenger-cards'>
+                <ChallengerCard v-bind:challenger="challenger3"/>
+                <ChallengerCard v-bind:challenger="challenger4"/>
+            </div>
+            <div class='slider'>
+                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
+            </div>
+            <div class='submit-div'>
+                <button id="submit-h2h-button" @click="collectSemiScores(challenger3, challenger4)">Submit</button>
+            </div>
         </div>
-        <div class='champ-container' v-if='round === 3'>
-            <div class='h2h-container'>
-                <ChallengerCard />
-                <ChallengerCard />
+        <div class='h2h-container' v-if='round === 3'>
+            <div class='challenger-cards'>
+                <ChallengerCard v-bind:challenger="finalist1"/>
+                <ChallengerCard v-bind:challenger="finalist2"/>
             </div>
             <h1>Choose Your Champion</h1>
+            <div class='slider'>
+                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
+            </div>
+            <div class='semis-submit-div'>
+                <button id="submit-h2h-button" @click="collectFinalistScores(finalist1, finalist2)">Submit</button>
+            </div>
         </div>
-    </div>
-    <div class='slider'>
-        <input type="range" min="0" max="10" value="5" id="matchupRating" @input="log">
-    </div>
-    <div class='semis-submit-div' v-if='round <= 3'>
-        <button id="submit-h2h-button" @click="advanceRound">Submit</button>
+        <div class='champ-container' v-if='round === 4'>
+            <strong>Your champion is</strong>
+            <strong>{{ champion[0].challenger }}</strong>
+        </div>
     </div>
 </div>
     
@@ -50,21 +67,77 @@ export default {
         return {
             challengers: [],
             round: 1,
-            score: ''
+            leftScore: null,
+            rightScore: null,
+            finalists: [],
+            champion: []
         }
     },
 
     methods: {
+
         draftChallenger() {
             const index = Math.floor(Math.random()*this.challengers.length)
             const challenger = this.challengers.splice(index,1)
             return challenger[0]
         },
-        advanceRound() {
-            this.round += 1
+
+        compileScores({target}) {
+            this.leftScore = 10 - target.value
+            this.rightScore = parseInt(target.value)
         },
-        log({target}) {
-            this.score = target.value
+
+        advanceRound() {
+            if (this.round === 2) {
+
+                this.resolveSemis()
+
+                this.finalist1 = this.finalists[0]
+                this.finalist2 = this.finalists[1]
+
+                this.round += 1
+            }
+
+            else if (this.round === 3) {
+
+                this.resolveFinals()
+
+                this.round += 1
+            }
+            else this.round += 1
+        },
+
+        collectSemiScores(challengerA, challengerB) {
+            challengerA.rating = this.leftScore
+            challengerB.rating = this.rightScore
+
+            this.$store.commit('addSemiScores', challengerA)
+            this.$store.commit('addSemiScores', challengerB)
+
+            this.challengers.push(challengerA)
+            this.challengers.push(challengerB)
+
+            this.advanceRound()
+        },
+
+        collectFinalistScores(finalistA, finalistB) {
+            finalistA.rating = this.leftScore
+            finalistB.rating = this.rightScore
+
+            this.$store.commit('addFinalistScores', finalistA)
+            this.$store.commit('addFinalistScores', finalistB)
+
+            this.advanceRound()
+        },
+
+        resolveSemis(){
+            this.$store.commit('setFinalists')
+            this.finalists = this.$store.getters.getFinalists
+        },
+
+        resolveFinals(){
+            this.$store.commit('setChampion')
+            this.champion = this.$store.getters.getChampion
         }
     },
 
@@ -74,6 +147,7 @@ export default {
         this.challenger2 = this.draftChallenger()
         this.challenger3 = this.draftChallenger()
         this.challenger4 = this.draftChallenger()
+        // this.currentChallengers = [this.challenger1, this.challenger2]
     }
 }
 </script>
@@ -82,20 +156,20 @@ export default {
 
 .h2h-container {
     display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
+    flex-direction: column;
 }
 
 .challengers-container {
-    margin: 150px auto 150px auto;
-}
-
-.champ-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: -87px;
+    margin: 150px auto 150px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.challenger-cards {
+    display: flex;
+    justify-content: space-between;
 }
 
 </style>
