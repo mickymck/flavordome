@@ -11,7 +11,7 @@
                 <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
             </div>
             <div class='submit-div'>
-                <button id="submit-h2h-button" @click="addScores(challenger1, challenger2)">Submit</button>
+                <button id="submit-h2h-button" @click="collectSemiScores(challenger1, challenger2)">Submit</button>
             </div>
         </div>
         <div class='h2h-container' v-if='round === 2'>
@@ -23,7 +23,7 @@
                 <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
             </div>
             <div class='submit-div'>
-                <button id="submit-h2h-button" @click="addScores(challenger3, challenger4)">Submit</button>
+                <button id="submit-h2h-button" @click="collectSemiScores(challenger3, challenger4)">Submit</button>
             </div>
         </div>
         <div class='h2h-container' v-if='round === 3'>
@@ -35,8 +35,8 @@
             <div class='slider'>
                 <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
             </div>
-            <div class='semis-submit-div' v-if='round <= 3'>
-                <button id="submit-h2h-button" @click="addScores(finalist1, finalist2)">Submit</button>
+            <div class='semis-submit-div'>
+                <button id="submit-h2h-button" @click="collectFinalistScores(finalist1, finalist2)">Submit</button>
             </div>
         </div>
         <div class='champ-container' v-if='round === 4'>
@@ -88,37 +88,56 @@ export default {
         },
 
         advanceRound() {
-            this.round += 1
-        },
-
-        advanceWinners() {
             if (this.round === 2) {
-                let sortedChallengers = this.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
-                this.finalists = sortedChallengers.slice(0,2)
+
+                this.resolveSemis()
 
                 this.finalist1 = this.finalists[0]
                 this.finalist2 = this.finalists[1]
+
+                this.round += 1
             }
 
-            if (this.round === 3) {
-                let sortedFinalists = this.finalists.sort((a, b) => (b.champAvg - a.champAvg))
-                this.champion = sortedFinalists.slice(0,1)
+            else if (this.round === 3) {
+
+                this.resolveFinals()
+
+                this.round += 1
             }
-            return
+            else this.round += 1
         },
 
-        addScores(challengerA, challengerB) {
-            challengerA.semiScores.push(this.leftScore)
-            challengerA.semiAvg = challengerA.semiScores.reduce((a, b) => a+b, 0)/challengerA.semiScores.length
-            this.challengers.push(challengerA)
+        collectSemiScores(challengerA, challengerB) {
+            challengerA.rating = this.leftScore
+            challengerB.rating = this.rightScore
 
-            challengerB.semiScores.push(this.rightScore)
-            challengerB.semiAvg = challengerB.semiScores.reduce((a, b) => a+b, 0)/challengerB.semiScores.length
+            this.$store.commit('addSemiScores', challengerA)
+            this.$store.commit('addSemiScores', challengerB)
+
+            this.challengers.push(challengerA)
             this.challengers.push(challengerB)
 
-            this.advanceWinners()
+            this.advanceRound()
+        },
+
+        collectFinalistScores(finalistA, finalistB) {
+            finalistA.rating = this.leftScore
+            finalistB.rating = this.rightScore
+
+            this.$store.commit('addFinalistScores', finalistA)
+            this.$store.commit('addFinalistScores', finalistB)
 
             this.advanceRound()
+        },
+
+        resolveSemis(){
+            this.$store.commit('setFinalists')
+            this.finalists = this.$store.getters.getFinalists
+        },
+
+        resolveFinals(){
+            this.$store.commit('setChampion')
+            this.champion = this.$store.getters.getChampion
         }
     },
 
