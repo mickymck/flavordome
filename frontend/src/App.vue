@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-
-    <HeadToHead />
-
     <!-- rendered component changes based on which one is dictated by fdComponent... moveToSetup method called by the listener on the setupScene event emitted on the Host button in HostWelcome -->
     <component v-bind:is="this.scene" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component>
   </div>

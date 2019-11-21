@@ -25,8 +25,7 @@
         <input type="range" min="0" max="10" value="5" id="matchupRating" @input="log">
     </div>
     <div class='semis-submit-div' v-if='round <= 3'>
-        <button id="submit-h2h-button" @click="scoreMatchup(rating)">Submit</button>
-        <!-- <button id="submit-h2h-button" @click="advanceRound">Submit</button> -->
+        <button id="submit-h2h-button" @click="advanceRound">Submit</button>
     </div>
 </div>
     
@@ -35,13 +34,6 @@
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
-
-const challengers = [
-    {name: 'beer', rating: 0},
-    {name: 'water', rating: 0},
-    {name: 'milk', rating: 0},
-    {name: 'gin', rating: 0}
-]
 
 export default {
     name: "HeadToHead",
@@ -56,6 +48,7 @@ export default {
 
     data: () => {
         return {
+            challengers: [],
             round: 1,
             score: ''
         }
@@ -63,27 +56,24 @@ export default {
 
     methods: {
         draftChallenger() {
-            const challenger1 = challengers[Math.floor(Math.random()*challengers.length)]
-            challengers.splice(challengers.indexOf(challenger1), 1)
-            console.log(challenger1)
-            return challenger1
+            const index = Math.floor(Math.random()*this.challengers.length)
+            const challenger = this.challengers.splice(index,1)
+            return challenger[0]
         },
         advanceRound() {
             this.round += 1
         },
         log({target}) {
             this.score = target.value
-            console.log(score)
-            return score
         }
     },
 
     created:function(){
+        this.challengers = this.$store.getters.getTopFour
         this.challenger1 = this.draftChallenger()
         this.challenger2 = this.draftChallenger()
         this.challenger3 = this.draftChallenger()
         this.challenger4 = this.draftChallenger()
-        this.getSliderValue()
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
 
     <div class="challenger-card">
-        {{ challenger }}
+        {{ challenger.challenger }}
     </div>
     
 </template>
@@ -10,7 +10,7 @@
 
 module.exports = {
     props: {
-        challenger:String
+        challenger:Object
     },
     data: () => {
         return {
