@@ -6,7 +6,50 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state:{
     testName:'',
-    challengers:[],
+    challengers:[
+      {challenger: 'beer',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'water',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'gin',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'milk',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'water',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'milkshake',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+      {challenger: 'scotch',
+        semiScores: [],
+        semiAvg: null,
+        champScores: [],
+        champAvg: null
+      },
+    ],
     scene:'HostWelcome',
     maskedChallengers:[],
     topFour:[],
@@ -59,6 +102,7 @@ export const store = new Vuex.Store({
     },
     setTopFour(state){
       let sorted = state.challengers.sort((a, b) => (b.average - a.average))
+      state.challengers = sorted
       state.topFour = sorted.slice(0,4)
     },
     setFinalists(state){
@@ -79,6 +123,8 @@ export const store = new Vuex.Store({
     },
     getChampion(state){
       return state.champion.slice()
+    getChallengers(state){
+      return state.challengers.slice()
     }
   }
 })
