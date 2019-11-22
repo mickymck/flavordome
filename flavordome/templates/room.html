@@ -18,7 +18,8 @@
 
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
-        var message = data['message'];
+        var message = data.payload;
+        console.log(data)
         document.querySelector('#chat-log').value += (message + '\n');
     };
 
@@ -36,9 +37,12 @@
     document.querySelector('#chat-message-submit').onclick = function(e) {
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
-        chatSocket.send(JSON.stringify({
-            'message': message
-        }));
+        var data = JSON.stringify({
+            'method': 'printData',
+            'payload': message
+        })
+        console.log(data)
+        chatSocket.send(data);
 
         messageInputDom.value = '';
     };

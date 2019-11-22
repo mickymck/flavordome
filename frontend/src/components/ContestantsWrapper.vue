@@ -44,6 +44,7 @@ export default {
     },
     handleLaunch: function(){
       this.$store.commit('addChallengers', this.contestants)
+      this.$store.dispatch('createSocket')
       this.$store.commit('changeScene',"MeleeRating")
     }
   }
