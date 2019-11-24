@@ -45,7 +45,7 @@ export default {
     handleLaunch: function(){
       this.$store.commit('addChallengers', this.contestants)
       this.$store.commit('maskChallengers')
-      this.$store.commit('changeScene',"MeleeRating")
+      this.$store.commit('changeScene',"HostInstructions")
     }
   }
 }

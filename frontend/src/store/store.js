@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
     testName:'',
     challengers:[],
     scene:'HostWelcome',
-    maskedChallengers:[],
+    numberMask:[],
+    letterMask:[],
     topFour:[],
     finalists: [],
     champion: []
@@ -39,28 +40,24 @@ export const store = new Vuex.Store({
       while (challengerGoBetween.length > 0) {
         let randomChallengerIndex = Math.floor(Math.random()*challengerGoBetween.length)
         let selectedChallenger = challengerGoBetween[randomChallengerIndex]
-        state.maskedChallengers.push(selectedChallenger)
+        state.numberMask.push(selectedChallenger)
         challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1)
 
         for (let challenger of state.challengers) {
-          challenger.challengerNumber = state.maskedChallengers.indexOf(challenger)+1
+          challenger.challengerNumber = state.numberMask.indexOf(challenger)+1
         }
       }
 
-      let letterGoBetween = state.maskedChallengers.slice(0)
-
-      let letterMask = []
+      let letterGoBetween = state.numberMask.slice(0)
 
       while (letterGoBetween.length > 0) {
         let randomChallengerIndex = Math.floor(Math.random()*letterGoBetween.length)
         let selectedChallenger = letterGoBetween[randomChallengerIndex]
-        letterMask.push(selectedChallenger)
+        state.letterMask.push(selectedChallenger)
         letterGoBetween.splice(letterGoBetween.indexOf(selectedChallenger), 1)
 
-        console.log(letterMask)
-
         for (let challenger of state.challengers) {
-          challenger.challengerLetter = alphabet[letterMask.indexOf(challenger)]
+          challenger.challengerLetter = alphabet[state.letterMask.indexOf(challenger)]
         }
       }
     },
