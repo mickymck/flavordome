@@ -31,10 +31,6 @@ export const store = new Vuex.Store({
     },
     maskChallengers(state){
       // state.maskedChallengers = state.challengers.map(product => {})
-      // state.maskedChallengers = state.challengers.slice(0)
-
-      // const challengerIndex = Math.floor(Math.random()*this.remainingCards.length)
-      // this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
 
       let challengerGoBetween = state.challengers.slice(0)
 
