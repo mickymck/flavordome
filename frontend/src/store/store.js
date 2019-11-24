@@ -34,20 +34,35 @@ export const store = new Vuex.Store({
 
       let challengerGoBetween = state.challengers.slice(0)
 
+      let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
       while (challengerGoBetween.length > 0) {
         let randomChallengerIndex = Math.floor(Math.random()*challengerGoBetween.length)
         let selectedChallenger = challengerGoBetween[randomChallengerIndex]
         state.maskedChallengers.push(selectedChallenger)
         challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerNumber = state.maskedChallengers.indexOf(challenger)+1
+        }
       }
 
-      for (let challenger of state.challengers) {
-        challenger.challengerNumber = state.maskedChallengers.indexOf(challenger)+1
-        challenger.challengerLetter = 'b'
+      let letterGoBetween = state.maskedChallengers.slice(0)
+
+      let letterMask = []
+
+      while (letterGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*letterGoBetween.length)
+        let selectedChallenger = letterGoBetween[randomChallengerIndex]
+        letterMask.push(selectedChallenger)
+        letterGoBetween.splice(letterGoBetween.indexOf(selectedChallenger), 1)
+
+        console.log(letterMask)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerLetter = alphabet[letterMask.indexOf(challenger)]
+        }
       }
-
-      // let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
     },
     changeScene(state, scene){
       state.scene = scene
