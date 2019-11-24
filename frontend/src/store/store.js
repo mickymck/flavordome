@@ -19,6 +19,8 @@ export const store = new Vuex.Store({
         return {
           'challenger':challenger,
           'scores':[],
+          challengerNumber: null,
+          challengerLetter: '',
           average: null,
           semiScores: [],
           semiAvg: null,
@@ -28,7 +30,45 @@ export const store = new Vuex.Store({
       })
     },
     maskChallengers(state){
-      state.maskedChallengers = state.challengers.map(product => {})
+      // state.maskedChallengers = state.challengers.map(product => {})
+      // state.maskedChallengers = state.challengers.slice(0)
+
+      // const challengerIndex = Math.floor(Math.random()*this.remainingCards.length)
+      // this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
+
+      let challengerGoBetween = state.challengers.slice(0)
+      let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+      while (challengerGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*challengerGoBetween.length)
+        let selectedChallenger = challengerGoBetween[randomChallengerIndex]
+        state.maskedChallengers.push(selectedChallenger)
+        challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1)
+      }
+
+      for (let challenger of state.challengers) {
+        challenger.challengerNumber = state.maskedChallengers.indexOf(challenger)+1
+      }
+
+      while (state.maskedChallengers.length > 0) {
+        let randomLetterIndex = Math.floor(Math.random()*state.maskedChallengers.length)
+        let selectedLetter = alphabet[randomLetterIndex]
+        console.log(selectedLetter)
+        for (let challenger of state.challengers) {
+          challenger.challengerLetter = selectedLetter
+        }
+        state.maskedChallengers.splice(state.maskedChallengers.indexOf(selectedLetter), 1)
+      }
+
+      // for (let challenger of challengerGoBetween) {
+      //   // if (selectedChallenger === state.maskedChallengers[-1]) {
+      //   //   challengerGoBetween.splice(challengerGoBetween.indexOf(challenger, 1))
+      //   // }
+      //   // challengerGoBetween.splice(challengerGoBetween.indexOf('state.maskedChallengers[-1]', 1))
+      //   challengerGoBetween.splice(selectedChallenger, 1)
+
+        // state.maskedChallengers.splice((randomChallengerIndex),1)
+        // challenger.challengerNumber = state.maskedChallengers.indexOf(challenger)+1
     },
     changeScene(state, scene){
       state.scene = scene
