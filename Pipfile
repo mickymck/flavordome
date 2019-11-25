@@ -8,9 +8,15 @@ verify_ssl = true
 [packages]
 django = "*"
 django-webpack-loader = "*"
-psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
+channels = "*"
+channels-redis = "*"
+djangorestframework = "*"
+psycopg2-binary = "*"
+libpq-dev = "==9.4.3"
+psycopg2 = "*"
+libqp-dev = "==9.4.3"
 
 [requires]
 python_version = "3.7"

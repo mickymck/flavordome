@@ -14,6 +14,8 @@ import TasteTestSetup from './components/TasteTestSetup.vue'
 import Champions from './components/Champions.vue'
 import MeleeRating from './components/MeleeRating.vue'
 import FinalRankings from './components/FinalRankings.vue'
+import HostInstructions from './components/HostInstructions.vue'
+import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 
 export default {
   name: 'app',
@@ -25,6 +27,8 @@ export default {
     MeleeRating,
     HeadToHead,
     FinalRankings,
+    HostInstructions,
+    HostInstructionsTwo
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -40,6 +44,9 @@ export default {
     backToWelcome() {
       this.$store.commit('changeScene', "HostWelcome")
     },
+    moveToHostInstructions() {
+      this.$store.commit('changeScene',"HostInstructions")
+    }
   },
   computed:{
     scene (){

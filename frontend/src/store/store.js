@@ -4,88 +4,73 @@ import Vuex, { Store } from 'vuex'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  state: {
-    testName: '',
-    challengers: [
-      {
-        challenger: 'beer',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'water',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'gin',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'milk',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'water',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'milkshake',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-      {
-        challenger: 'scotch',
-        semiScores: [],
-        semiAvg: null,
-        champScores: [],
-        champAvg: null
-      },
-    ],
-    scene: 'HostWelcome',
-    maskedChallengers: [],
-    topFour: [
-    ],
+  state:{
+    testName:'',
+    challengers:[],
+    scene:'HostWelcome',
+    numberMask:[],
+    letterMask:[],
+    topFour:[],
     finalists: [],
-    champion: []
+    champion: [],
+    playerCount = 1
   },
   mutations: {
     addChallengers(state, challengers) {
       state.challengers = challengers.map(challenger => {
         return {
-          'challenger': challenger,
-          'scores': [],
+          'challenger':challenger,
+          'scores':[],
+          challengerNumber: null,
+          challengerLetter: '',
           average: null,
           semiScores: [],
           semiAvg: null,
           finalScores: [],
-          finalAvg: null
+          finalAvg: null,
+          rank:'',
         }
       })
     },
-    maskChallengers(state) {
-      state.maskedChallengers = state.challengers.map(product => { })
+    maskChallengers(state){
+      // state.maskedChallengers = state.challengers.map(product => {})
+
+      let challengerGoBetween = state.challengers.slice(0)
+
+      let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+      while (challengerGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*challengerGoBetween.length)
+        let selectedChallenger = challengerGoBetween[randomChallengerIndex]
+        state.numberMask.push(selectedChallenger)
+        challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerNumber = state.numberMask.indexOf(challenger)+1
+        }
+      }
+
+      let letterGoBetween = state.numberMask.slice(0)
+
+      while (letterGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*letterGoBetween.length)
+        let selectedChallenger = letterGoBetween[randomChallengerIndex]
+        state.letterMask.push(selectedChallenger)
+        letterGoBetween.splice(letterGoBetween.indexOf(selectedChallenger), 1)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerLetter = alphabet[state.letterMask.indexOf(challenger)]
+        }
+      }
     },
     changeScene(state, scene) {
       state.scene = scene
     },
-    addScore(state, submission) {
-      for (let challenger of state.challengers) {
+    addPlayer(state){
+      state.playerCount += 1
+    },
+    addScore(state, submission){
+      for (let challenger of state.challengers){
         if (challenger.challenger === submission.challenger) {
           challenger.scores.push(submission.rating)
           challenger.average = challenger.scores.reduce((a, b) => a + b, 0) / challenger.scores.length
@@ -113,14 +98,24 @@ export const store = new Vuex.Store({
       state.challengers = sorted
       state.topFour = sorted.slice(0, 4)
     },
-    setFinalists(state) {
+    openSocket(state, socket){
+      state.newSocket = socket
+    },
+    printData(state, payload){
+      console.log(payload)
+    },
+    setFinalists(state){
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.finalists = sorted.slice(0, 2)
     },
     setChampion(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      state.champion = sorted.slice(0, 1)
+      state.champion = sorted.slice(0,1) 
     },
+    setupState(state, payload){
+    state.testName = payload.testName
+    state.challengers = payload.challengers
+    }
   },
   getters: {
     getTopFour(state) {
@@ -132,8 +127,25 @@ export const store = new Vuex.Store({
     getChampion(state) {
       return state.champion.slice()
     },
-    getChallengers(state) {
-      return state.challengers.slice()
+    getChallengersByNumber(state){
+      return state.challengers.sort((a,b)=> (a.challengerNumber - b.challengerNumber)).slice()
+    }
+  },
+  actions:{
+    createSocket({commit, dispatch, state}){
+      const newSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/' + '1234' + '/'
+      )
+      newSocket.onmessage = function(event) {
+        dispatch('handleSocket', (JSON.parse(event.data)))
+      }
+      commit('openSocket', newSocket)
+    },
+    handleSocket({commit, state}, data){
+      console.log("now logging")
+      console.log(data)
+      commit(data.method, data.payload)
     }
   }
 })

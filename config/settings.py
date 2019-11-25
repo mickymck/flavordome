@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # third party
     'webpack_loader',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,17 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+# Channels
+ASGI_APPLICATION = 'config.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Database
@@ -152,6 +164,8 @@ WEBPACK_LOADER = {
         'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
     }
 }
+
+AUTH_USER_MODEL = 'flavordome.User'
 
 import django_heroku
 django_heroku.settings(locals())
