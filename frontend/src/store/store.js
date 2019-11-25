@@ -132,7 +132,7 @@ export const store = new Vuex.Store({
   actions:{
     createSocket({commit, dispatch, state}){
       const newSocket = new WebSocket(
-        'ws://' + window.location.host +
+        'wss://' + window.location.host +
         '/ws/' + '1234' + '/'
       )
       newSocket.onmessage = function(event) {
