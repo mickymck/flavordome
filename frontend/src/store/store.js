@@ -29,6 +29,7 @@ export const store = new Vuex.Store({
           finalAvg: null
       }
       })
+      this.maskChallengers(state)
     },
     maskChallengers(state){
       // state.maskedChallengers = state.challengers.map(product => {})
@@ -63,6 +64,9 @@ export const store = new Vuex.Store({
     },
     changeScene(state, scene){
       state.scene = scene
+    },
+    addPlayer(state){
+      state.playerCount += 1
     },
     addScore(state, submission){
       for (let challenger of state.challengers){
@@ -105,6 +109,10 @@ export const store = new Vuex.Store({
     setChampion(state){
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
       state.champion = sorted.slice(0,1) 
+    },
+    setupState(state, payload){
+    state.testName = payload.testName
+    state.challengers = payload.challengers
     }
   },
   getters:{
@@ -116,6 +124,9 @@ export const store = new Vuex.Store({
     },
     getChampion(state){
       return state.champion.slice()
+    },
+    getChallengersByNumber(state){
+      return state.challengers.sort((a,b)=> (a.challengerNumber - b.challengerNumber)).slice()
     }
   },
   actions:{

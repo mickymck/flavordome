@@ -1,7 +1,7 @@
 <template>
 
     <div class="challenger-card">
-        {{ challenger.challenger }}
+        {{ challenger.challengerLetter }}
     </div>
     
 </template>
@@ -14,6 +14,7 @@ module.exports = {
     },
     data: () => {
         return {
+            
         }
     },
 }

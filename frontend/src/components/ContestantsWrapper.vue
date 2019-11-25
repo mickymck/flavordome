@@ -43,10 +43,18 @@ export default {
       this.contestants = newContestants
     },
     handleLaunch: function(){
-      this.$store.commit('addChallengers', this.contestants)
-      this.$store.dispatch('createSocket')
-      this.$store.commit('maskChallengers')
-      this.$store.commit('changeScene',"HostInstructions")
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method': 'addChallengers',
+        'payload': this.contestants
+      }))
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method': 'maskChallengers',
+        'payload': null
+      }))
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method': 'changeScene',
+        'payload': "HostInstructions"
+      }))
     }
   }
 }
