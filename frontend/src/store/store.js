@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
     testName:'',
     challengers:[],
     scene:'HostWelcome',
-    maskedChallengers:[],
+    numberMask:[],
+    letterMask:[],
     topFour:[],
     finalists: [],
     champion: []
@@ -19,6 +20,8 @@ export const store = new Vuex.Store({
         return {
           'challenger':challenger,
           'scores':[],
+          challengerNumber: null,
+          challengerLetter: '',
           average: null,
           semiScores: [],
           semiAvg: null,
@@ -28,7 +31,35 @@ export const store = new Vuex.Store({
       })
     },
     maskChallengers(state){
-      state.maskedChallengers = state.challengers.map(product => {})
+      // state.maskedChallengers = state.challengers.map(product => {})
+
+      let challengerGoBetween = state.challengers.slice(0)
+
+      let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+      while (challengerGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*challengerGoBetween.length)
+        let selectedChallenger = challengerGoBetween[randomChallengerIndex]
+        state.numberMask.push(selectedChallenger)
+        challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerNumber = state.numberMask.indexOf(challenger)+1
+        }
+      }
+
+      let letterGoBetween = state.numberMask.slice(0)
+
+      while (letterGoBetween.length > 0) {
+        let randomChallengerIndex = Math.floor(Math.random()*letterGoBetween.length)
+        let selectedChallenger = letterGoBetween[randomChallengerIndex]
+        state.letterMask.push(selectedChallenger)
+        letterGoBetween.splice(letterGoBetween.indexOf(selectedChallenger), 1)
+
+        for (let challenger of state.challengers) {
+          challenger.challengerLetter = alphabet[state.letterMask.indexOf(challenger)]
+        }
+      }
     },
     changeScene(state, scene){
       state.scene = scene
