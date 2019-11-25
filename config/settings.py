@@ -165,6 +165,8 @@ WEBPACK_LOADER = {
     }
 }
 
+AUTH_USER_MODEL = 'flavordome.User'
+
 import django_heroku
 django_heroku.settings(locals())
 
