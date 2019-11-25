@@ -6,7 +6,7 @@
         <div>
             <ul>
                 <li v-for='challenger in letterMask' v-bind:key='challenger'>
-                    {{challenger.challengerLetter}} ----------> {{challenger.challengerNumber}}
+                    {{challenger.challengerNumber}} ----------> {{challenger.challengerLetter}}
                 </li>
             </ul>
         </div>
@@ -26,7 +26,8 @@ export default {
 
     methods:{
         startMelee: function() {
-            this.$store.commit('changeScene',"MeleeRating")
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'changeScene', 'payload':"MeleeRating"}))
         }
     },
 

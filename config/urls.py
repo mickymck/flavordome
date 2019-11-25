@@ -21,4 +21,6 @@ from frontend import views as v
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
+    path('test/', views.test, name='test'),
+    path('<str:room_name>/', views.room, name='room')
 ]

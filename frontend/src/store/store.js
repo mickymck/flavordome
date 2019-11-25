@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
     letterMask:[],
     topFour:[],
     finalists: [],
-    champion: []
+    champion: [],
+    playerCount = 1
   },
   mutations:{
     addChallengers(state, challengers){
@@ -64,6 +65,9 @@ export const store = new Vuex.Store({
     changeScene(state, scene){
       state.scene = scene
     },
+    addPlayer(state){
+      state.playerCount += 1
+    },
     addScore(state, submission){
       for (let challenger of state.challengers){
         if (challenger.challenger === submission.challenger) {
@@ -92,6 +96,12 @@ export const store = new Vuex.Store({
       let sorted = state.challengers.sort((a, b) => (b.average - a.average))
       state.topFour = sorted.slice(0,4)
     },
+    openSocket(state, socket){
+      state.newSocket = socket
+    },
+    printData(state, payload){
+      console.log(payload)
+    },
     setFinalists(state){
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.finalists = sorted.slice(0,2) 
@@ -99,6 +109,10 @@ export const store = new Vuex.Store({
     setChampion(state){
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
       state.champion = sorted.slice(0,1) 
+    },
+    setupState(state, payload){
+    state.testName = payload.testName
+    state.challengers = payload.challengers
     }
   },
   getters:{
@@ -110,6 +124,26 @@ export const store = new Vuex.Store({
     },
     getChampion(state){
       return state.champion.slice()
+    },
+    getChallengersByNumber(state){
+      return state.challengers.sort((a,b)=> (a.challengerNumber - b.challengerNumber)).slice()
+    }
+  },
+  actions:{
+    createSocket({commit, dispatch, state}){
+      const newSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/' + '1234' + '/'
+      )
+      newSocket.onmessage = function(event) {
+        dispatch('handleSocket', (JSON.parse(event.data)))
+      }
+      commit('openSocket', newSocket)
+    },
+    handleSocket({commit, state}, data){
+      console.log("now logging")
+      console.log(data)
+      commit(data.method, data.payload)
     }
   }
 })

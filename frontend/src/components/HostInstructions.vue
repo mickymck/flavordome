@@ -5,8 +5,8 @@
         </div>
         <div>
             <ul>
-                <li v-for='challenger in challengersToMask' v-bind:key='challenger'>
-                    {{challenger.challengerNumber}} ----------> {{challenger.challenger}}
+                <li v-for='challenger in challengersToMask' v-bind:key='challenger.challenger'>
+                    {{challenger.challenger}} ----------> {{challenger.challengerNumber}}
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@ export default {
     },
 
     created(){
-        this.challengersToMask = this.$store.state.numberMask.slice()
+        this.challengersToMask = this.$store.getters.getChallengersByNumber
     }
 }
 </script>

@@ -11,6 +11,8 @@ django-webpack-loader = "*"
 psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
+channels = "*"
+channels-redis = "*"
 djangorestframework = "*"
 
 [requires]

@@ -36,17 +36,20 @@ export default {
   methods: {
     // event emitter added to the Host button, which speaks to the App.vue and tells it to moveToSetup
     setupScene() {
-        this.$emit('setupScene')
+      this.$emit('setupScene')
     },
     // toggles tasterJoin to render the text field div
     promptJoin: function() {
-        this.tasterJoin = true;
-        },
+      this.tasterJoin = true;
+    },
     // returns taster to the Welcome screen by toggling back to false
     cancelJoin: function() {
-        this.tasterJoin = false;
-        }
+      this.tasterJoin = false;
+    },
+    submitCode: function() {
+      this.$store.dispatch('createSocket')
     }
+  }
 };
 </script>
 
