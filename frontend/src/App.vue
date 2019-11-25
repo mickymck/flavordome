@@ -13,6 +13,7 @@ import TasteTestSetup from './components/TasteTestSetup.vue'
 import MeleeRating from './components/MeleeRating.vue'
 import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
+import WaitingRoom from './components/WaitingRoom.vue'
 
 export default {
   name: 'app',
@@ -23,7 +24,8 @@ export default {
     MeleeRating,
     HeadToHead,
     HostInstructions,
-    HostInstructionsTwo
+    HostInstructionsTwo,
+    WaitingRoom
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
