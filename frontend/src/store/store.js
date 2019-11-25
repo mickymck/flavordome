@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
     letterMask:[],
     topFour:[],
     finalists: [],
-    champion: []
+    champion: [],
+    playerCount = 1
   },
   mutations:{
     addChallengers(state, challengers){
@@ -29,7 +30,6 @@ export const store = new Vuex.Store({
           finalAvg: null
       }
       })
-      this.maskChallengers(state)
     },
     maskChallengers(state){
       // state.maskedChallengers = state.challengers.map(product => {})
