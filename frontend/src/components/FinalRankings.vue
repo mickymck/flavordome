@@ -34,11 +34,14 @@
 
 require("animate.css/animate.min.css")
 
+const rankStrings = [
+
+]
 export default {
   name:'FinalRankings',
   data: function () {
         return {
-            contestants:[
+            contestantsRanks:[
                 {rank:'1st',name:'Skinny Pop'},
                 {rank:'2nd',name:'Butter Popcorn'},
                 {rank:'3rd',name:'Loser Popcorn'},
@@ -51,9 +54,28 @@ export default {
         }
     },
   methods: {
+    ordinal_suffix:function(i) {
+        var j = i % 10
+            k = i % 100
+        if (j == 1 && k != 11) {
+            return i + "st"
+        }
+        if (j == 2 && k != 12) {
+            return i + "nd"
+        }
+        if (j == 3 && k != 13) {
+            return i + "rd"
+        }
+        return i + "th"
+    },
   },
-  props: ['sortedChallengers']
-
+  created: function(){
+     contestants = this.$store.getters.getChampions
+     console.log(contestants) 
+     for(contestant of contestants){
+         
+     }
+  }
 }
 </script>
 

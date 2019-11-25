@@ -4,27 +4,27 @@
             <h1>Champions!</h1>
         <div class='champion'>
             <transition name="champion-transition" enter-active-class="animated bounceInUp">
-                <h2 v-show="contestantsShowArray[3]">Champion: {{ sortedChallengers[0] }}
+                <h2 v-show="contestantsShowArray[3]">Champion: {{ topFour[0].challenger }}</h2>
             </transition>
         </div>
         <div class='second'>
             <transition name="fade" enter-active-class="animated bounceInUp">
-                <h3 v-show="contestantsShowArray[2]">2nd: {{ sortedChallengers[1] }}</h3>
+                <h3 v-show="contestantsShowArray[2]">2nd: {{ topFour[1].challenger }}</h3>
             </transition>
         </div>
         <div class='third'>
             <transition name="fade" enter-active-class="animated bounceInUp">
-                <h4 v-show="contestantsShowArray[1]">3rd: {{ sortedChallengers[2] }} </h4>
+                <h4 v-show="contestantsShowArray[1]">3rd: {{ topFour[2].challenger }} </h4>
             </transition>
         </div>
         <div class='fourth'>
             <transition name="fade" enter-active-class="animated bounceInUp">
-                <h4 v-show="contestantsShowArray[0]">Loser: {{ sortedChallengers[sortedChallengers.length - 1] }}</h4>
+                <h4 v-show="contestantsShowArray[0]">Loser: {{ topFour[topFour.length - 1].challenger }}</h4>
             </transition>
         </div>
         <button class="next-champion-button" @click="presentChampion">Next</button>
     </div>
-    <FinalRankings v-show="finalRankingsShow" v-bind:sortedChallengers="sortedChallengers"></FinalRankings>
+    <FinalRankings v-show="finalRankingsShow"></FinalRankings>
 </div>
 </template>
 
@@ -41,7 +41,7 @@ require("animate.css/animate.min.css")
         return {
             contestantsShowArray: [false,false,false,false],
             count: 0,
-            sortedChallengers:[],
+            topFour:[],
             exampleContestants:[
                 //eventually receive these as props
                 //I also want champion to infinitely flash
@@ -50,6 +50,7 @@ require("animate.css/animate.min.css")
                 'Butter Popcorn',
                 'Loser Popcorn',
             ],
+            challengers:[],
             finalRankingsShow:false,
             
         }
@@ -67,10 +68,11 @@ require("animate.css/animate.min.css")
         },
     },
     created:function(){
-        this.sortedChallengers = this.$store.getters.getChallengers
-        console.log(sortedChallengers)
+        this.topFour = this.$store.getters.getTopFour
+        console.log(this.topFour)
+        this.challengers = this.$store.getters.getChallengers
+        console.log(this.challengers)
     }
-      
   }
 </script>
 

@@ -40,8 +40,9 @@
             </div>
         </div>
         <div class='champ-container' v-if='round === 4'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
+            <Champions></Champions>
+            <!-- <strong>Your champion is</strong>
+            <strong>{{ champion[0].challenger }}</strong> -->
         </div>
     </div>
 </div>
@@ -51,12 +52,14 @@
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
+import Champions from './Champions.vue'
 
 export default {
     name: "HeadToHead",
 
     components: {
         ChallengerCard,
+        Champions,
     },
 
     props: [

@@ -4,83 +4,91 @@ import Vuex, { Store } from 'vuex'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  state:{
-    testName:'',
-    challengers:[
-      {challenger: 'beer',
+  state: {
+    testName: '',
+    challengers: [
+      {
+        challenger: 'beer',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'water',
+      {
+        challenger: 'water',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'gin',
+      {
+        challenger: 'gin',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'milk',
+      {
+        challenger: 'milk',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'water',
+      {
+        challenger: 'water',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'milkshake',
+      {
+        challenger: 'milkshake',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
-      {challenger: 'scotch',
+      {
+        challenger: 'scotch',
         semiScores: [],
         semiAvg: null,
         champScores: [],
         champAvg: null
       },
     ],
-    scene:'HostWelcome',
-    maskedChallengers:[],
-    topFour:[],
+    scene: 'HostWelcome',
+    maskedChallengers: [],
+    topFour: [
+    ],
     finalists: [],
     champion: []
   },
-  mutations:{
-    addChallengers(state, challengers){
+  mutations: {
+    addChallengers(state, challengers) {
       state.challengers = challengers.map(challenger => {
         return {
-          'challenger':challenger,
-          'scores':[],
+          'challenger': challenger,
+          'scores': [],
           average: null,
           semiScores: [],
           semiAvg: null,
           finalScores: [],
           finalAvg: null
-      }
+        }
       })
     },
-    maskChallengers(state){
-      state.maskedChallengers = state.challengers.map(product => {})
+    maskChallengers(state) {
+      state.maskedChallengers = state.challengers.map(product => { })
     },
-    changeScene(state, scene){
+    changeScene(state, scene) {
       state.scene = scene
     },
-    addScore(state, submission){
-      for (let challenger of state.challengers){
+    addScore(state, submission) {
+      for (let challenger of state.challengers) {
         if (challenger.challenger === submission.challenger) {
           challenger.scores.push(submission.rating)
-          challenger.average = challenger.scores.reduce((a, b) => a+b, 0)/challenger.scores.length
+          challenger.average = challenger.scores.reduce((a, b) => a + b, 0) / challenger.scores.length
         }
       }
     },
@@ -88,7 +96,7 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers) {
         if (challenger.challenger === semiChallenger.challenger) {
           challenger.semiScores.push(semiChallenger.rating)
-          challenger.semiAvg = challenger.semiScores.reduce((a, b) => a+b, 0)/challenger.semiScores.length
+          challenger.semiAvg = challenger.semiScores.reduce((a, b) => a + b, 0) / challenger.semiScores.length
         }
       }
     },
@@ -96,34 +104,35 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers) {
         if (challenger.challenger === finalChallenger.challenger) {
           challenger.finalScores.push(finalChallenger.rating)
-          challenger.finalAvg = challenger.finalScores.reduce((a, b) => a+b, 0)/challenger.finalScores.length
+          challenger.finalAvg = challenger.finalScores.reduce((a, b) => a + b, 0) / challenger.finalScores.length
         }
       }
     },
-    setTopFour(state){
+    setTopFour(state) {
       let sorted = state.challengers.sort((a, b) => (b.average - a.average))
       state.challengers = sorted
-      state.topFour = sorted.slice(0,4)
+      state.topFour = sorted.slice(0, 4)
     },
-    setFinalists(state){
+    setFinalists(state) {
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
-      state.finalists = sorted.slice(0,2) 
+      state.finalists = sorted.slice(0, 2)
     },
-    setChampion(state){
+    setChampion(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      state.champion = sorted.slice(0,1) 
-    }
+      state.champion = sorted.slice(0, 1)
+    },
   },
-  getters:{
-    getTopFour(state){
+  getters: {
+    getTopFour(state) {
       return state.topFour.slice()
     },
-    getFinalists(state){
+    getFinalists(state) {
       return state.finalists.slice()
     },
-    getChampion(state){
+    getChampion(state) {
       return state.champion.slice()
-    getChallengers(state){
+    },
+    getChallengers(state) {
       return state.challengers.slice()
     }
   }
