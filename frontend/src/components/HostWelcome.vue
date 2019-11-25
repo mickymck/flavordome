@@ -9,7 +9,7 @@
       </div>
       <!-- if the Join button is clicked, this is the div that will be rendered, while the previous div is hidden -->
       <div v-if="tasterJoin" class='join-code-div'>
-        <input type="input" id="enter-code-field" placeholder="Enter Code" />
+        <input type="input" id="enter-code-field" v-model='roomNum' placeholder="Enter Code" />
         <div class='join-buttons'>
           <button id="submit-code-button" @click="submitCode">Submit</button>
           <button id="cancel-button" @click="cancelJoin">Cancel</button>
@@ -29,7 +29,8 @@ export default {
   // default setting for the Host/Join decision... can be toggled if the user wishes to Join
   data: () => {
     return {
-      tasterJoin: false
+      tasterJoin: false, 
+      roomNum:null
     };
   },
 
@@ -47,7 +48,8 @@ export default {
       this.tasterJoin = false;
     },
     submitCode: function() {
-      this.$store.dispatch('createSocket')
+      const roomNum = this.roomNum
+      this.$store.dispatch('joinSocket', roomNum)
     }
   }
 };

@@ -1,11 +1,14 @@
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.security.websocket import AllowedHostsOriginValidator
 import flavordome.routing
 
 application = ProtocolTypeRouter({
-  'websocket':AuthMiddlewareStack(
-    URLRouter(
-      flavordome.routing.websocket_urlpatterns
+  'websocket':AllowedHostsOriginValidator(
+    AuthMiddlewareStack(
+      URLRouter(
+        flavordome.routing.websocket_urlpatterns
+      )
     )
   )
 })
