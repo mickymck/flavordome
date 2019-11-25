@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
     topFour:[],
     finalists: [],
     champion: [],
-    playerCount = 1
+    playerCount: 1
   },
   mutations:{
     addChallengers(state, challengers){
