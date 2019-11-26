@@ -60,11 +60,53 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 40px;
+}
+
+h1 {
+  margin: 0 auto;
 }
 
 button {
-  font-size: 32px;
+  font-size: 30px;
+  color: #a600d8;
+  background: #eaeaea;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+}
+
+.user-input-field {
+  font-size: 20px;
+  width: 90%;
+  height: 50px;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #a600d8;
+  color: #a600d8;
+  margin: 50px auto 40px auto;
+}
+
+.challenger-card {
+  margin: 10px 0;
+  background-color: #fbfbfb;
+  box-shadow: -1px 2px 4px #d3d3d3;
+  padding-left: 5px;
+  padding-right: 20px;
+}
+
+.scream-text {
+    font-weight: 900;
+    font-size: 60px;
+    color: #ff73d5;
+    margin: 30px auto;
 }
 
 </style>

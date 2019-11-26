@@ -1,13 +1,15 @@
 <template>
   <div class="contestants-wrapper">
     <div>
+      <div class='challenger-instructions'>
+        What are you tasting?
+      </div>
       <form v-on:submit="this.handleSubmit">
         <div class="control">
-          <label>What will you be tasting?</label>
-          <input type='text' name="contestant" placeholder="lagavulin"/>
+          <input type='text' name="contestant" class="user-input-field" placeholder="ex: Eagle Rare, Manchego, Krispy Kreme glazed, etc."/>
         </div>
         <div class="control">
-          <button action="submit">ENROLL CHALLENGER</button>
+          <button action="submit">Add Challenger</button>
         </div>
       </form>
     </div>
@@ -67,3 +69,32 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.control {
+  margin: 20px;
+}
+
+.contestants-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto 50px auto;
+}
+
+.challenger-instructions{
+  font-size: 20px;
+  text-align: center;
+  margin: 20px auto 0 auto;
+}
+
+button {
+font-size: 20px;
+}
+
+input.user-input-field {
+  margin: 0;
+}
+
+</style>

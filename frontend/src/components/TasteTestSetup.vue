@@ -11,8 +11,12 @@
     <!-- if the taste test name has not yet been submitted, you will have the field and buttons -->
     <div v-if="!testNameLock">
 
+      <div class='name-instructions'>
+        Name your taste test:
+      </div>
+
       <!-- the input field delivers testName, which I render in the header once it is submitted -->
-        <input type="input" v-model="testName" id="taste-test-name-field" placeholder="Taste Test Name" @keyup.enter="pushTestName" />
+        <input type="input" v-model="testName" class="user-input-field" placeholder="ex: The Great Cheese Off" @keyup.enter="pushTestName" />
         <div class='test-name-buttons'>
 
           <!-- the submit button only displays when there is content in the field. once submit is clicked, pushTestName method is run, which locks the testName and renders it -->
@@ -61,21 +65,17 @@ export default {
 
 <style scoped>
 
-#taste-test-name-field {
-  font-size: 28px;
-  width: 80%;
-  height: 50px;
-  max-width: 400px;
+.name-instructions{
+  font-size: 20px;
   text-align: center;
-  border: 4px solid #45c3f6;
-  color: #a600d8;
-  margin: 200px auto 40px auto;
+  margin: 150px auto 0 auto;
 }
 
 .test-name-buttons {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  max-width: 150px;
 }
 
 #submit-test-name-button {
