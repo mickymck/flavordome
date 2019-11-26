@@ -1,12 +1,15 @@
 <template>
   <div>
-    THIS IS THE MELEE
+    <h1>PLEASE OBJECTIVELY RATE THE COMBATANT DISPLAYED BELOW</h1>
     <div class='arena'>
       <Combatant v-bind:card='this.currentCard'/>
     </div>
     <form v-on:submit='handleSubmit'>
       <div class='slider'>
-        <input type="range" min=0 max=10 name="rating" />
+        <div class='rating-tag'>
+          Your Rating:
+        </div>
+        <vue-slider v-model='cardRating' :min='0' :max='10' tooltip='always' :interval='0.5' />
       </div>
       <div class='submit'>
         <button type="submit">SUBMIT</button>
@@ -17,24 +20,26 @@
 
 <script>
 import Combatant from './Combatant.vue'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/material.css'
 
 export default {
   name:'MeleeRating',
   components:{
-    Combatant
+    Combatant,
+    VueSlider
   },
   data: () => {
     return {
       currentCard:null,
-      remainingCards:[]
+      remainingCards:[],
+      cardRating:5
     }
   },
   methods:{
     handleSubmit:function(event){
       event.preventDefault()
-      let form = event.target
-      let formData = new FormData(form)
-      this.augmentScore(formData.get('rating'))
+      this.augmentScore(this.cardRating)
       if (this.remainingCards.length === 0){
         this.currentCard = null
         this.resolveMelee()
@@ -63,3 +68,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.slider{
+  width:50vw;
+  margin:1rem auto;
+}
+.rating-tag{
+  margin-bottom: 2.5rem
+}
+.vue-slider-rail{
+  background-color:#ff73d5
+}
+</style>
+
+<style scoped>
+h1{
+  color:#45c3f6
+}
+</style>

@@ -29,7 +29,8 @@ export const store = new Vuex.Store({
           semiScores: [],
           semiAvg: null,
           finalScores: [],
-          finalAvg: null
+          finalAvg: null,
+          roomNum:''
       }
       })
     },
@@ -69,6 +70,9 @@ export const store = new Vuex.Store({
     },
     addPlayer(state){
       state.playerCount += 1
+    },
+    removePlayer(state){
+      state.playerCount -= 1
     },
     addScore(state, submission){
       for (let challenger of state.challengers){
@@ -135,6 +139,12 @@ export const store = new Vuex.Store({
     },
     getRole(state){
       return state.role
+    },
+    getPlayerCount(state){
+      return state.playerCount
+    },
+    getRoomNum(state){
+      return state.roomNum
     }
   },
   actions:{

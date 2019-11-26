@@ -6,7 +6,7 @@
     <div>
       <h3>Waiting for other users</h3>
     </div>
-    <div>
+    <div v-if="role==='host'">
       YOURE THE HOST
       <button @click ='forceNext'>Force Next Round</button>
     </div>
@@ -29,8 +29,8 @@ export default {
   methods:{
     forceNext:(event) => {
       this.$store.state.newSocket.send(JSON.stringify({
-        'method':'changeScene',
-        'payload':''
+        'method':'advanceRound',
+        'payload':null
       }))
     }
   }
