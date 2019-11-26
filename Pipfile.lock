@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "75b0cecc464b5e1a6fb1080b5c0f6e823c39afcaa922de4a08cced7eb925de5a"
+            "sha256": "76355144666d038df43fcc8fd9a941940cb109cb0848fdc7fc0a59438e78d839"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -175,6 +175,14 @@
             "index": "pypi",
             "version": "==0.3.1"
         },
+        "django-redis-cache": {
+            "hashes": [
+                "sha256:5c581743de5994e6b15abfd5b3dbcb8bf00e42d97658c96b7218bcb6a63f863b",
+                "sha256:bc0eaf20d275708e0437cbea28f9965e1922c15291f6206edbef3966c029836b"
+            ],
+            "index": "pypi",
+            "version": "==2.1.0"
+        },
         "django-webpack-loader": {
             "hashes": [
                 "sha256:60bab6b9a037a5346fad12d2a70a6bc046afb33154cf75ed640b93d3ebd5f520",
@@ -193,11 +201,19 @@
         },
         "gunicorn": {
             "hashes": [
+<<<<<<< HEAD
                 "sha256:5a3bf56a1d44c2ed15dae2f9d2a9e7c87acc3517f7225e27e4ece3098a2b5efc",
                 "sha256:fe457b7093b353cefcb2ebc40d192fc7c8a62bba49da648c9e1fa0671fa654d1"
             ],
             "index": "pypi",
             "version": "==20.0.2"
+=======
+                "sha256:1d8012b859f4cd9e45753f1ccb33a94df1ab9e1b7af4f81ac871680b4042b08b",
+                "sha256:5c6f119298dd692ba49d83ea351aeefdb63d33e32179d91d173d942525115890"
+            ],
+            "index": "pypi",
+            "version": "==20.0.3"
+>>>>>>> 5e19f8bd1cc7e68fd67e1ded5f81c4e575326b9c
         },
         "hiredis": {
             "hashes": [
@@ -388,6 +404,14 @@
                 "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
             ],
             "version": "==2019.3"
+        },
+        "redis": {
+            "hashes": [
+                "sha256:3613daad9ce5951e426f460deddd5caf469e08a3af633e9578fc77d362becf62",
+                "sha256:8d0fc278d3f5e1249967cba2eb4a5632d19e45ce5c09442b8422d15ee2c22cc2"
+            ],
+            "index": "pypi",
+            "version": "==3.3.11"
         },
         "service-identity": {
             "hashes": [

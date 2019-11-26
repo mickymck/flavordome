@@ -13,10 +13,8 @@ gunicorn = "*"
 channels = "*"
 channels-redis = "*"
 djangorestframework = "*"
-psycopg2-binary = "*"
-libpq-dev = "==9.4.3"
-psycopg2 = "*"
-libqp-dev = "==9.4.3"
+redis = "*"
+django-redis-cache = "*"
 
 [requires]
 python_version = "3.7"

@@ -16,6 +16,7 @@ import MeleeRating from './components/MeleeRating.vue'
 import FinalRankings from './components/FinalRankings.vue'
 import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
+import WaitingRoom from './components/WaitingRoom.vue'
 
 export default {
   name: 'app',
@@ -28,7 +29,8 @@ export default {
     HeadToHead,
     FinalRankings,
     HostInstructions,
-    HostInstructionsTwo
+    HostInstructionsTwo,
+    WaitingRoom
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -65,11 +67,55 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 40px;
+}
+
+h1 {
+  margin: 0 auto;
 }
 
 button {
-  font-size: 32px;
+  font-size: 30px;
+  color: #a600d8;
+  background: #eaeaea;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0;
+}
+
+.user-input-field {
+  font-size: 20px;
+  width: 90%;
+  height: 50px;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #a600d8;
+  color: #a600d8;
+  margin: 50px auto 40px auto;
+}
+
+.challenger-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  background-color: #fbfbfb;
+  box-shadow: -1px 2px 4px #d3d3d3;
+  padding-left: 5px;
+  padding-right: 20px;
+}
+
+.scream-text {
+    font-weight: 900;
+    font-size: 60px;
+    color: #ff73d5;
+    margin: 30px auto;
 }
 
 </style>
