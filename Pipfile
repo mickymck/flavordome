@@ -15,6 +15,7 @@ channels = "*"
 channels-redis = "*"
 djangorestframework = "*"
 redis = "*"
+django-redis-cache = "*"
 
 [requires]
 python_version = "3.7"

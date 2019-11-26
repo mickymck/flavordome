@@ -13,10 +13,12 @@ export const store = new Vuex.Store({
     topFour:[],
     finalists: [],
     champion: [],
-    playerCount: 1
+    playerCount: 1,
+    role:'guest'
   },
   mutations:{
     addChallengers(state, challengers){
+      state.role = 'host'
       state.challengers = challengers.map(challenger => {
         return {
           'challenger':challenger,
@@ -113,6 +115,9 @@ export const store = new Vuex.Store({
     setupState(state, payload){
     state.testName = payload.testName
     state.challengers = payload.challengers
+    }, 
+    saveRoomNumber(state, roomNum){
+      state.roomNum = roomNum
     }
   },
   getters:{
@@ -127,15 +132,39 @@ export const store = new Vuex.Store({
     },
     getChallengersByNumber(state){
       return state.challengers.sort((a,b)=> (a.challengerNumber - b.challengerNumber)).slice()
+    },
+    getRole(state){
+      return state.role
     }
   },
   actions:{
     createSocket({commit, dispatch, state}){
+      const roomNum = Math.floor(100000 + Math.random()*900000)
+      
       const newSocket = new WebSocket(
-        'wss://' + window.location.host +
-        '/ws/' + '1234' + '/'
+        'ws://' + window.location.host +
+        '/ws/' + roomNum + '/'
       )
+      newSocket.onopen = function(event){
+        commit('saveRoomNumber', roomNum)
+      }
       newSocket.onmessage = function(event) {
+        dispatch('handleSocket', (JSON.parse(event.data)))
+      }
+      commit('openSocket', newSocket)
+    },
+    joinSocket({commit, dispatch}, roomNum){
+      const newSocket = new WebSocket(
+        'ws://'+ window.location.host + 
+        '/ws/' + roomNum + '/'
+      )
+      newSocket.onopen = function(event){
+        newSocket.send(JSON.stringify({
+          'method':'addPlayer',
+          'payload':null
+        }))
+      }
+      newSocket.onmessage = function(event){
         dispatch('handleSocket', (JSON.parse(event.data)))
       }
       commit('openSocket', newSocket)
