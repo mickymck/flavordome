@@ -97,6 +97,8 @@ li {
 }
 
 .challenger-card {
+  display: flex;
+  justify-content: space-between;
   margin: 10px 0;
   background-color: #fbfbfb;
   box-shadow: -1px 2px 4px #d3d3d3;

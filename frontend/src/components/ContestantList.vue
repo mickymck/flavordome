@@ -55,7 +55,7 @@ export default {
 }
 
 #delete-button {
-  position: absolute;
+  /* position: absolute; */
   right: 30px;
   font-size: 14px;
   background: none;
