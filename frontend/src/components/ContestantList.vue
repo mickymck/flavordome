@@ -15,7 +15,7 @@
         </ul>
       </div>
     </div>
-    <div class='bottom-taste-button' v-if="contestants.length > 0">
+    <div class='bottom-taste-button' v-if="contestants.length > 1">
       <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button>
     </div>
   </div>
