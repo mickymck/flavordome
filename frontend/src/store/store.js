@@ -29,7 +29,8 @@ export const store = new Vuex.Store({
           semiScores: [],
           semiAvg: null,
           finalScores: [],
-          finalAvg: null
+          finalAvg: null,
+          roomNum:''
       }
       })
     },
@@ -68,7 +69,27 @@ export const store = new Vuex.Store({
       state.scene = scene
     },
     addPlayer(state){
-      state.playerCount += 1
+      if (state.role === 'host'){
+        state.playerCount += 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
+    },
+    removePlayer(state){
+      if (state.role === 'host'){
+        state.playerCount -= 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
+    },
+    setPlayers(state, hostCount){
+      if (state.role !== 'host'){
+        state.playerCount = hostCount
+      }
     },
     addScore(state, submission){
       for (let challenger of state.challengers){
@@ -142,6 +163,12 @@ export const store = new Vuex.Store({
     },
     getRole(state){
       return state.role
+    },
+    getPlayerCount(state){
+      return state.playerCount
+    },
+    getRoomNum(state){
+      return state.roomNum
     }
   },
   actions:{

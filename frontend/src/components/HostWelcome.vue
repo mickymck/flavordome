@@ -50,6 +50,7 @@ export default {
     submitCode: function() {
       const roomNum = this.roomNum
       this.$store.dispatch('joinSocket', roomNum)
+      this.$store.commit('changeScene', 'WaitingRoom')
     }
   }
 };

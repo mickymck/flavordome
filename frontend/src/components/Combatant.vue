@@ -1,6 +1,8 @@
 <template>
   <div class='combatant'>
-    {{card.challengerLetter}}
+    <div>
+      {{card.challengerLetter}}
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,11 @@ export default {
     margin:auto;
     height:60vw;
     font-size: 5rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items:center;
   }
 
 
