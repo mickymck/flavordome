@@ -95,8 +95,11 @@ export const store = new Vuex.Store({
       }
     },
     setTopFour(state){
-      let sorted = state.challengers.sort((a, b) => (b.average - a.average))
-      state.topFour = sorted.slice(0,4)
+        let sorted = state.challengers.sort((a, b) => (b.average - a.average))
+        state.topFour = sorted.slice(0,4)
+    },
+    setDirectHeadToHead(state){
+      state.topFour = state.challengers.slice()
     },
     openSocket(state, socket){
       state.newSocket = socket
@@ -110,7 +113,11 @@ export const store = new Vuex.Store({
     },
     setChampion(state){
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      state.champion = sorted.slice(0,1) 
+      state.champion = sorted.slice(0,2) 
+    },
+    setShortChallengeChamp(state){
+      let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
+      state.champion = sorted.slice()
     },
     setupState(state, payload){
     state.testName = payload.testName

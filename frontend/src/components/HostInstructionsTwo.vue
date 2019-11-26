@@ -20,7 +20,9 @@
         </div>
         <div v-show='setupComplete' class='final-host-message'>
             <p class='scream-text'>IT IS TIME...</p>
-            <button @click='startMelee' id='enter-flavordome-button'>Enter Flavordome</button>
+            <button v-show='this.letterMask.length >= 4' @click='startMelee' class='enter-flavordome-button'>Enter Flavordome</button>
+
+            <button v-show='this.letterMask.length < 4' @click='straightToHeadToHead' class='enter-flavordome-button-small'>Enter Flavordome</button>
         </div>
     </div>
 </template>
@@ -42,6 +44,11 @@ export default {
             this.$store.commit('changeScene', "MeleeRating")
             // this.$store.state.newSocket.send(JSON.stringify({
             //     'method':'changeScene', 'payload':"MeleeRating"}))
+        },
+
+        straightToHeadToHead: function() {
+            this.$store.commit('setDirectHeadToHead')
+            this.$store.commit('changeScene', "HeadToHead")
         },
 
         readyForLetterSetup: function() {
@@ -87,7 +94,7 @@ ul {
     margin-top: 80px;
 }
 
-#enter-flavordome-button {
+.enter-flavordome-button {
     margin: 80px auto;
 }
 
