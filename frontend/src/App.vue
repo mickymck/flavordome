@@ -14,10 +14,12 @@ import MeleeRating from './components/MeleeRating.vue'
 import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
+import PreFinals from './components/PreFinals.vue'
 
 export default {
   name: 'app',
   components: {
+    PreFinals,
     Categories,
     HostWelcome,
     TasteTestSetup,
