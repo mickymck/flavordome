@@ -69,10 +69,27 @@ export const store = new Vuex.Store({
       state.scene = scene
     },
     addPlayer(state){
-      state.playerCount += 1
+      if (state.role === 'host'){
+        state.playerCount += 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
     },
     removePlayer(state){
-      state.playerCount -= 1
+      if (state.role === 'host'){
+        state.playerCount -= 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
+    },
+    setPlayers(state, hostCount){
+      if (state.role !== 'host'){
+        state.playerCount = hostCount
+      }
     },
     addScore(state, submission){
       for (let challenger of state.challengers){

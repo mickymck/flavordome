@@ -54,11 +54,17 @@ export default {
     augmentScore:function(rating){
       if (this.currentCard !== null){
         this.currentCard.rating=rating
-        this.$store.commit('addScore',this.currentCard)
+        this.$store.state.newSocket.send(JSON.stringify({
+          'method':'addScore',
+          'payload':this.currentCard
+        }))
       }
     },
     resolveMelee:function(){
-      this.$store.commit('setTopFour')
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'notifyReady',
+        'payload':null
+      }))
       this.$store.commit('changeScene', "HeadToHead")
     }
   },

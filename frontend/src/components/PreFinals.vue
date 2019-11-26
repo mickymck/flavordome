@@ -4,9 +4,8 @@
       <p> logo here? something animated? </p>
     </div>
     <div>
-      <h3>Waiting for other users</h3>
+      <h3>Prepare for the Semifinals</h3>
       <h4>There are currently {{players}} judges for this taste test</h4>
-      <p>If you are the only current judge then something went wrong</p>
     </div>
     <div v-if="role==='host'">
       YOURE THE HOST
@@ -17,7 +16,7 @@
 
 <script>
 export default {
-  name:'WaitingRoom',
+  name:'PreFinals',
   data:() =>{
     return{
       
@@ -29,13 +28,17 @@ export default {
     },
     players(){
       return this.$store.getters.getPlayerCount
+    },
+    ready(){
+      return this.$store.getters.getReadyPlayers
     }
   },
   methods:{
     forceNext:(event) => {
+      this.$store.commit('setTopFour')
       this.$store.state.newSocket.send(JSON.stringify({
-        'method':'advanceRound',
-        'payload':null
+        'method':'changeScene',
+        'payload':"HeadToHead"
       }))
     }
   }
