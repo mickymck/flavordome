@@ -41,8 +41,6 @@
         </div>
         <div class='champ-container' v-if='round === 4'>
             <Champions></Champions>
-            <!-- <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong> -->
         </div>
     </div>
 
@@ -163,8 +161,7 @@
             </div>
         </div>
         <div class='champ-container' v-if='round === 4'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
+            <Champions></Champions>
         </div>
     </div>
 
@@ -182,8 +179,7 @@
             </div>
         </div>
         <div class='champ-container' v-if='round === 2'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
+            <Champions></Champions>
         </div>
     </div>
 
@@ -311,15 +307,11 @@ export default {
         resolveFinals(){
             this.$store.commit('setChampion')
             this.champion = this.$store.getters.getChampion
-<<<<<<< HEAD
-            console.log(this.champion)
-=======
         },
 
         resolveShortChallenge(){
             this.$store.commit('setShortChallengeChamp')
             this.champion = this.$store.getters.getChampion
->>>>>>> master
         }
     },
 

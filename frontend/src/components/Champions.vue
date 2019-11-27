@@ -3,21 +3,52 @@
     <div class="top-four-rankings" v-show="!finalRankingsShow">
             <h1>Champions!</h1>
         <div class='champion'>
-            <transition name="champion-transition" enter-active-class="animated bounceInUp">
-                <h2 v-show="contestantsShowArray[3]">Champion: {{ sortedChallengers[0].challenger }}</h2>
-            </transition>
+            <div v-if="contestantsShowArray.length <= 2">
+                <transition name="fade" enter-active-class="animated bounceInUp">
+                    <h2 v-show="contestantsShowArray[1]">Champion: {{ sortedChallengers[0].challenger }}</h2>
+                </transition>
+            </div>
+            <div v-if="contestantsShowArray.length === 3">
+                <transition name="fade" enter-active-class="animated bounceInUp">
+                    <h2 v-show="contestantsShowArray[2]">Champion: {{ sortedChallengers[0].challenger }}</h2>
+                </transition>
+            </div>
+            <div v-else>
+                <transition name="fade" enter-active-class="animated bounceInUp">
+                    <h2 v-show="contestantsShowArray[3]">Champion: {{ sortedChallengers[0].challenger }}</h2>
+                </transition>
+            </div>
         </div>
         <div class='second'>
-            <transition name="fade" enter-active-class="animated bounceInUp">
-                <h3 v-show="contestantsShowArray[2]">2nd: {{ sortedChallengers[1].challenger }}</h3>
-            </transition>
+                <div v-if="contestantsShowArray.length <= 2">
+                    <transition name="fade" enter-active-class="animated bounceInUp">
+                        <h3 v-show="contestantsShowArray[0]">2nd: {{ sortedChallengers[1].challenger }}</h3>
+                    </transition>
+                </div>
+                <div v-if="contestantsShowArray.length === 3">
+                    <transition name="fade" enter-active-class="animated bounceInUp">
+                        <h3 v-show="contestantsShowArray[1]">2nd: {{ sortedChallengers[1].challenger }}</h3>
+                    </transition>
+                </div>
+                <div v-else>
+                    <transition name="fade" enter-active-class="animated bounceInUp">
+                        <h3 v-show="contestantsShowArray[2]">2nd: {{ sortedChallengers[1].challenger }}</h3>
+                    </transition>
+                </div>
         </div>
-        <div class='third'>
-            <transition name="fade" enter-active-class="animated bounceInUp">
-                <h4 v-show="contestantsShowArray[1]">3rd: {{ sortedChallengers[2].challenger }} </h4>
-            </transition>
+        <div class='third' v-if='gteThreeChallengers'>
+            <div v-if="contestantsShowArray.length === 3">
+                <transition name="fade" enter-active-class="animated bounceInUp">
+                    <h4 v-show="contestantsShowArray[0]">3rd: {{ sortedChallengers[2].challenger }}</h4>
+                </transition>
+            </div>
+            <div v-else>
+                <transition name="fade" enter-active-class="animated bounceInUp">
+                    <h4 v-show="contestantsShowArray[1]">3rd: {{ sortedChallengers[2].challenger }}</h4>
+                </transition>
+            </div>
         </div>
-        <div class='fourth'>
+        <div class='fourth' v-if='gteFourChallengers'>
             <transition name="fade" enter-active-class="animated bounceInUp">
                 <h4 v-show="contestantsShowArray[0]">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }}</h4>
             </transition>
@@ -39,13 +70,15 @@ require("animate.css/animate.min.css")
     },
     data: function () {
         return {
-            contestantsShowArray: [false,false,false,false],
+            contestantsShowArray: [],
             count: 0,
             topFour:[],
             sortedChallengers:[],
             challengers:[],
             finalRankingsShow:false,
             champions:[],
+            gteThreeChallengers:false,
+            gteFourChallengers:false,
             
         }
     },
@@ -65,18 +98,31 @@ require("animate.css/animate.min.css")
         // this.topFour = this.$store.getters.getTopFour
         this.champions = this.$store.getters.getChampion
         this.sortedChallengers = this.$store.getters.getChallengers
-        console.log(this.champions)
-        let champ1Index= -1, champ2Index= -1
-        for(let i = 0; i < this.sortedChallengers.length; i++){
-            if(this.sortedChallengers[i].challenger === this.champions[0].challenger) champ1Index = i
-            if(this.sortedChallengers[i].challenger === this.champions[1].challenger) champ2Index = i
+        let numToShow = 2
+        if(this.sortedChallengers.length === 3){
+            this.gteThreeChallengers = true;
+            numToShow = 3
         }
+        else if(this.sortedChallengers.length > 3){
+            this.gteThreeChallengers = true;
+            this.gteFourChallengers = true;
+            numToShow = 4
+        }
+        let champ1Index= -1, champ2Index= -1
+        if(this.sortedChallengers.length > 2){
+            for(let i = 0; i < this.sortedChallengers.length; i++){
+                if(this.sortedChallengers[i].challenger === this.champions[0].challenger) champ1Index = i
+                if(this.sortedChallengers[i].challenger === this.champions[1].challenger) champ2Index = i
+            }
+            let firstPlace = this.sortedChallengers.splice(champ1Index,1)
+            let secondPlace = this.sortedChallengers.splice(champ2Index,1)
+            this.sortedChallengers.unshift(secondPlace[0])
+            this.sortedChallengers.unshift(firstPlace[0])
+        }
+        for(let i = 0; i < numToShow; i++) this.contestantsShowArray.push(false)
+
         //shifts the first and second place to the beginning of the challenger array
-        let firstPlace = this.sortedChallengers.splice(champ1Index,1)
-        let secondPlace = this.sortedChallengers.splice(champ2Index,1)
-        this.sortedChallengers.unshift(secondPlace[0])
-        this.sortedChallengers.unshift(firstPlace[0])
-        console.log(this.sortedChallengers) 
+        console.log(this.contestantsShowArray) 
     }
   }
 </script>
