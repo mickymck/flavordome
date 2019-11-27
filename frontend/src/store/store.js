@@ -14,7 +14,9 @@ export const store = new Vuex.Store({
     finalists: [],
     champion: [],
     playerCount: 1,
-    role:'guest'
+    role:'guest',
+    roomNum:'',
+    readyCount:0
   },
   mutations:{
     addChallengers(state, challengers){
@@ -30,7 +32,6 @@ export const store = new Vuex.Store({
           semiAvg: null,
           finalScores: [],
           finalAvg: null,
-          roomNum:''
       }
       })
     },
@@ -67,6 +68,9 @@ export const store = new Vuex.Store({
     },
     changeScene(state, scene){
       state.scene = scene
+    },
+    notifyReady(state){
+      state.readyCount += 1
     },
     addPlayer(state){
       if (state.role === 'host'){
@@ -169,6 +173,9 @@ export const store = new Vuex.Store({
     },
     getRoomNum(state){
       return state.roomNum
+    },
+    getReadyPlayers(state){
+      return state.readyCount
     }
   },
   actions:{

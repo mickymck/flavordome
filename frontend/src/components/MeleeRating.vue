@@ -65,7 +65,7 @@ export default {
         'method':'notifyReady',
         'payload':null
       }))
-      this.$store.commit('changeScene', "HeadToHead")
+      this.$store.commit('changeScene', "PreFinals")
     }
   },
   created(){
