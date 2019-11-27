@@ -30,7 +30,8 @@ export const store = new Vuex.Store({
           semiAvg: null,
           finalScores: [],
           finalAvg: null,
-        }
+          roomNum:''
+      }
       })
     },
     maskChallengers(state){
@@ -68,7 +69,27 @@ export const store = new Vuex.Store({
       state.scene = scene
     },
     addPlayer(state){
-      state.playerCount += 1
+      if (state.role === 'host'){
+        state.playerCount += 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
+    },
+    removePlayer(state){
+      if (state.role === 'host'){
+        state.playerCount -= 1
+        state.newSocket.send(JSON.stringify({
+          'method':'setPlayers',
+          'payload':state.playerCount
+        }))
+      }
+    },
+    setPlayers(state, hostCount){
+      if (state.role !== 'host'){
+        state.playerCount = hostCount
+      }
     },
     addScore(state, submission){
       for (let challenger of state.challengers){
@@ -94,10 +115,13 @@ export const store = new Vuex.Store({
         }
       }
     },
-    setTopFour(state) {
-      let sorted = state.challengers.sort((a, b) => (b.average - a.average))
-      state.challengers = sorted
-      state.topFour = sorted.slice(0, 4)
+    setTopFour(state){
+        let sorted = state.challengers.sort((a, b) => (b.average - a.average))
+        state.challengers = sorted
+        state.topFour = sorted.slice(0,4)
+    },
+    setDirectHeadToHead(state){
+      state.topFour = state.challengers.slice()
     },
     openSocket(state, socket){
       state.newSocket = socket
@@ -111,6 +135,10 @@ export const store = new Vuex.Store({
     },
     setChampion(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
+      state.champion = sorted.slice(0,2) 
+    },
+    setShortChallengeChamp(state){
+      let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.champion = sorted.slice()
     },
     setupState(state, payload){
@@ -142,7 +170,13 @@ export const store = new Vuex.Store({
       // challengers.splice(challengers.indexOf(state.champion[0],1))
       // challengers.unshift(state.champion[0])
       return state.challengers.slice()
-    }
+    },
+    getPlayerCount(state){
+      return state.playerCount
+    },
+    getRoomNum(state){
+      return state.roomNum
+    },
   },
   actions:{
     createSocket({commit, dispatch, state}){

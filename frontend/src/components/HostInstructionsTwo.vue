@@ -10,7 +10,7 @@
             <div>
                 <p>Move each numbered container to go with the corresponding letter:</p>
                 <ul>
-                    <li v-for='challenger in letterMask' v-bind:key='challenger' class='challenger-card' id='number-to-letter-card'>
+                    <li v-for='challenger in letterMask' v-bind:key='challenger.challenger' class='challenger-card' id='number-to-letter-card'>
                         {{challenger.challengerLetter}}) {{challenger.challengerNumber}}
                     </li>
                 </ul>
@@ -20,7 +20,13 @@
         </div>
         <div v-show='setupComplete' class='final-host-message'>
             <p class='scream-text'>IT IS TIME...</p>
-            <button @click='startMelee' id='enter-flavordome-button'>Enter Flavordome</button>
+            <h2>...for your friends to join!</h2>
+            <h1>Your taste test code is:  {{this.testCode}}</h1>
+            <div><h3>Current Judge Count: {{this.playerCount}}</h3></div>
+            
+            <button v-show='this.letterMask.length >= 4' @click='startMelee' class='enter-flavordome-button'>Enter Flavordome</button>
+
+            <button v-show='this.letterMask.length < 4' @click='straightToHeadToHead' class='enter-flavordome-button-small'>Enter Flavordome</button>
         </div>
     </div>
 </template>
@@ -31,9 +37,9 @@ export default {
     
     data: () => {
         return {
-        challengersToMask:[],
-        friendReadyClicked: false,
-        setupComplete: false
+            challengersToMask:[],
+            friendReadyClicked: false,
+            setupComplete: false,
         }
     },
 
@@ -41,7 +47,16 @@ export default {
         startMelee: function() {
             // this.$store.commit('changeScene', "MeleeRating")
             this.$store.state.newSocket.send(JSON.stringify({
+                'method':'setupState',
+                'payload':this.$store.state
+            }))
+            this.$store.state.newSocket.send(JSON.stringify({
                 'method':'changeScene', 'payload':"MeleeRating"}))
+        },
+
+        straightToHeadToHead: function() {
+            this.$store.commit('setDirectHeadToHead')
+            this.$store.commit('changeScene', "HeadToHead")
         },
 
         readyForLetterSetup: function() {
@@ -52,7 +67,14 @@ export default {
             this.setupComplete = true;
         }
     },
-
+    computed:{
+        playerCount:function(){
+            return this.$store.getters.getPlayerCount
+        },
+        testCode:function(){
+            return this.$store.getters.getRoomNum
+        }
+    },
     created(){
         this.letterMask = this.$store.state.letterMask.slice()
     }
@@ -87,7 +109,7 @@ ul {
     margin-top: 80px;
 }
 
-#enter-flavordome-button {
+.enter-flavordome-button {
     margin: 80px auto;
 }
 

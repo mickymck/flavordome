@@ -15,6 +15,14 @@ class RoomConsumer(WebsocketConsumer) :
     self.accept()
 
   def disconnect(self, close_code):
+    async_to_sync(self.channel_layer.group_send)(
+      self.room_group_name,
+      {
+        'type':'chat_message',
+        'method':'removePlayer',
+        'payload': None
+      }
+    )
     async_to_sync(self.channel_layer.group_discard)(
       self.room_group_name,
       self.channel_name
