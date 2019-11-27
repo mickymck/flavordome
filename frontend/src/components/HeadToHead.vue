@@ -141,6 +141,7 @@ export default {
         resolveFinals(){
             this.$store.commit('setChampion')
             this.champion = this.$store.getters.getChampion
+            console.log(this.champion)
         }
     },
 

@@ -12,18 +12,13 @@ export const store = new Vuex.Store({
     letterMask:[],
     topFour:[],
     finalists: [],
-    champion: [],
+    champion: [],//the top two challengers
     playerCount: 1,
     role:'guest'
   },
-<<<<<<< HEAD
-  mutations: {
-    addChallengers(state, challengers) {
-=======
   mutations:{
     addChallengers(state, challengers){
       state.role = 'host'
->>>>>>> 5e19f8bd1cc7e68fd67e1ded5f81c4e575326b9c
       state.challengers = challengers.map(challenger => {
         return {
           'challenger':challenger,
@@ -35,7 +30,6 @@ export const store = new Vuex.Store({
           semiAvg: null,
           finalScores: [],
           finalAvg: null,
-          rank:'',
         }
       })
     },
@@ -117,11 +111,11 @@ export const store = new Vuex.Store({
     },
     setChampion(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      state.champion = sorted.slice(0,1) 
+      state.champion = sorted.slice()
     },
     setupState(state, payload){
-    state.testName = payload.testName
-    state.challengers = payload.challengers
+      state.testName = payload.testName
+      state.challengers = payload.challengers
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
@@ -142,6 +136,12 @@ export const store = new Vuex.Store({
     },
     getRole(state){
       return state.role
+    },
+    getChallengers(state){
+      // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()
+      // challengers.splice(challengers.indexOf(state.champion[0],1))
+      // challengers.unshift(state.champion[0])
+      return state.challengers.slice()
     }
   },
   actions:{

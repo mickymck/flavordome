@@ -1,7 +1,7 @@
 <template>
 
     <div class="challenger-card">
-        {{ challenger.challengerLetter }}
+        {{ challenger.challenger }}
     </div>
     
 </template>

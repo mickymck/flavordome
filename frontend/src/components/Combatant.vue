@@ -1,6 +1,6 @@
 <template>
   <div class='combatant'>
-    {{card.challengerLetter}}
+    {{card.challenger}}
   </div>
 </template>
 
