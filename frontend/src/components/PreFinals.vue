@@ -5,11 +5,20 @@
     </div>
     <div>
       <h3>Prepare for the Semifinals</h3>
-      <h4>There are currently {{players}} judges for this taste test</h4>
+      <h4>Currently waiting on {{this.players - this.ready}} results to be submitted</h4>
     </div>
+    <div v-if='players === ready'>
+      <button @click='forceNext'>On To The Finals</button>
+    </div>
+    
     <div v-if="role==='host'">
       YOURE THE HOST
-      <button @click ='forceNext'>Force Next Round</button>
+      <div v-if='players === ready'>
+        <button @click='forceNext'>On To The Finals</button>
+      </div>
+      <div v-if='players !== ready'>
+        <button @click='forceNext'>Force Next Round</button>
+      </div>
     </div>
   </div>
 </template>
@@ -34,8 +43,11 @@ export default {
     }
   },
   methods:{
-    forceNext:(event) => {
-      this.$store.commit('setTopFour')
+    forceNext:function(event) {
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'setTopFour',
+        'payload':null
+      }))
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'changeScene',
         'payload':"HeadToHead"
