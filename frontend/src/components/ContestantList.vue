@@ -1,22 +1,24 @@
 <template>
-  <div class='contestants-list-wrapper'>
-    <div v-if="contestants.length > 0">
-      <!-- <div v-if="contestants.length >= 4"> -->
-        <!-- <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button> -->
+  <div class='contestant-list-container'>
+    <div class='contestants-list-wrapper'>
+      <div v-if="contestants.length > 0">
+        <!-- <div v-if="contestants.length >= 4"> -->
+          <!-- <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button> -->
 
-      <div class='contestant-list'>
-        <ul>
-          <li v-for="contestant in contestants" v-bind:key='contestant' class='challenger-card'>
-            {{contestant}}
-            <button id='delete-button' v-on:click="$emit('deleteContestant', contestant)">
-              X
-            </button>
-          </li>
-        </ul>
+        <div class='contestant-list'>
+          <ul>
+            <li v-for="contestant in contestants" v-bind:key='contestant' class='challenger-card'>
+              {{contestant}}
+              <button id='delete-button' v-on:click="$emit('deleteContestant', contestant)">
+                X
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class='bottom-taste-button' v-if="contestants.length > 1">
-      <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button>
+      <div class='bottom-taste-button' v-if="contestants.length > 1">
+        <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,27 +43,38 @@ export default {
   flex-direction: column;
 }
 
+.challenger-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto 0 auto;
+  color: #a600d8;
+  background-color: #fbfbfb;
+  box-shadow: -1px 2px 4px #b4b4b4;
+  padding: 10px;
+  max-width: 800px;
+}
+
 .bottom-taste-button {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
 }
 
 #ready-to-taste-button {
   position: absolute;
-  bottom: 10px;
+  bottom: 40px;
   font-size: 20px;
-  background-color: #eaeaea;
 }
 
 #delete-button {
-  /* position: absolute; */
   right: 30px;
   font-size: 14px;
   background: none;
   border: none;
   color: #a600d8;
   font-weight: 800;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 
 #delete-button:hover {
@@ -76,7 +89,7 @@ export default {
   text-align: left;
   font-size: 20px;
   overflow: scroll;
-  height: 195px;
+  height: 250px;
 }
 
 </style>

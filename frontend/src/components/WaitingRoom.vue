@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='waiting-room-container'>
     <div>
       <p> logo here? something animated? </p>
     </div>

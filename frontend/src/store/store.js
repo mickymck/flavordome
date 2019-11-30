@@ -16,7 +16,8 @@ export const store = new Vuex.Store({
     playerCount: 1,
     role:'guest',
     roomNum:'',
-    readyCount:0
+    readyCount:0,
+    categoryChoice:[]
   },
   mutations:{
     addChallengers(state, challengers){
@@ -69,6 +70,9 @@ export const store = new Vuex.Store({
     changeScene(state, scene){
       state.scene = scene
     },
+    grabCategory(state, category){
+      state.categoryChoice = category
+    },
     notifyReady(state){
       state.readyCount += 1
     },
@@ -89,6 +93,9 @@ export const store = new Vuex.Store({
           'payload':state.playerCount
         }))
       }
+    },
+    setCategory(state, category){
+      state.category = category
     },
     setPlayers(state, hostCount){
       if (state.role !== 'host'){

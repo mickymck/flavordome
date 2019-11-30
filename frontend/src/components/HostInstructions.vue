@@ -1,15 +1,17 @@
 <template>
-    <div class="container">
-        <div v-show="!readyClicked">
-            <h1>Set Up the Taste Test</h1>
-            <p>Line up your serving containers (plates, bowls, cups, etc.) and number each one, starting with #1. Now...</p>
-            <p class='scream-text'>MAKE EVERYONE LEAVE THE ROOM</p>
-            <button id='ready-for-setup' @click='readyForSetup'>Ready</button>
+    <div class="host-instructions-container">
+        <div class='first-instructions'>
+            <div v-show="!readyClicked">
+                <h1>Taste Test Setup</h1>
+                <p class='instruction-text'>Line up your serving containers (plates, bowls, cups) and number each one, starting with #1. Now...</p>
+                <p class='scream-text'>MAKE EVERYONE LEAVE THE ROOM</p>
+                <button id='ready-for-setup' @click='readyForSetup'>Ready</button>
+            </div>
         </div>
         <div v-show="readyClicked">
             <div class='challenger-number-sorting'>
-                <p>Here's where to put each of your challengers:</p>
-                <ul>
+                <p class='instruction-text'>Here's where to put each of your challengers:</p>
+                <ul class='numbered-challenger-cards'>
                     <li v-for='challenger in challengersToMask' v-bind:key='challenger.challenger' class='challenger-card'>
                         {{challenger.challengerNumber}}) {{challenger.challenger}}
                     </li>
@@ -49,15 +51,36 @@ export default {
 
 <style scoped>
 
-.challenger-number-sorting {
-    width: 90%;
-    margin: 20px auto 0 auto;
-    text-align: left;
-    font-size: 20px;
+h1 {
+    padding-top: 20px;
 }
 
-#ready-for-step-two-button {
+.first-instructions {
+    font-size: 20px;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.challenger-number-sorting {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    max-width: 800px;
+}
+
+.numbered-challenger-cards {
     margin-top: 20px;
+}
+
+.number-assignment-text {
+    color: white;
+    padding-top: 20px;
+}
+
+.challenger-number-sorting p {
+    margin-top: 0;
 }
 
 </style>

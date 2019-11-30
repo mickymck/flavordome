@@ -1,20 +1,25 @@
 <template>
-  <div>
-    <h1>PLEASE OBJECTIVELY RATE THE COMBATANT DISPLAYED BELOW</h1>
-    <div class='arena'>
-      <Combatant v-bind:card='this.currentCard'/>
+  <div class='melee-rating-container'>
+    <div class='logo-wrapper'>
+      <div class='flavordome-logo'></div>
     </div>
-    <form v-on:submit='handleSubmit'>
-      <div class='slider'>
-        <div class='rating-tag'>
-          Your Rating:
+    <div>
+      <p class='instruction-text'>Test the taste of challenger {{this.currentCard.challengerLetter}}</p>
+      <div class='arena'>
+        <Combatant v-bind:card='this.currentCard'/>
+      </div>
+      <form v-on:submit='handleSubmit'>
+        <div class='slider'>
+          <div class='rating-tag'>
+            Your Rating:
+          </div>
+          <vue-slider v-model='cardRating' :min='0' :max='10' tooltip='always' :interval='0.5' />
         </div>
-        <vue-slider v-model='cardRating' :min='0' :max='10' tooltip='always' :interval='0.5' />
-      </div>
-      <div class='submit'>
-        <button type="submit">SUBMIT</button>
-      </div>
-    </form>
+        <div class='submit'>
+          <button type="submit">SUBMIT</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -75,7 +80,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.arena {
+  margin-top: 20px;
+}
+
 .slider{
   width:50vw;
   margin:1rem auto;
@@ -86,10 +96,10 @@ export default {
 .vue-slider-rail{
   background-color:#ff73d5
 }
-</style>
 
-<style scoped>
-h1{
-  color:#45c3f6
+.melee-top-text {
+  margin-top: 0;
+  padding-top: 20px;
 }
+
 </style>

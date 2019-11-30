@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div class='pre-finals-container'>
     <div>
       <p> logo here? something animated? </p>
     </div>
     <div>
       <h3>Prepare for the Semifinals</h3>
       <h4>Currently waiting on {{this.players - this.ready}} results to be submitted</h4>
-    </div>
-    <div v-if='players === ready'>
-      <button @click='forceNext'>On To The Finals</button>
     </div>
     
     <div v-if="role==='host'">
@@ -58,5 +55,9 @@ export default {
 </script>
 
 <style scoped>
+
+.pre-finals-container p {
+  margin-top: 0;
+}
 
 </style>
