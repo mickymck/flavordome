@@ -1,204 +1,187 @@
 <template>
 
-<div class='head-to-head-container'>
-    <div class='challengers-container' id='five-plus-challengers' v-if='this.meleeWinners.length === 4'>
-        <div class='h2h-container' v-if='round === 1'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="challenger1"/>
-                <ChallengerCard v-bind:challenger="challenger2"/>
+    <div class='head-to-head-container'>
+        <div class='logo-wrapper'>
+            <div class='flavordome-logo'></div>
+        </div>
+        <div class='challengers-container' id='four-plus-challengers' v-if='this.meleeWinners.length === 4'>
+            <div class='h2h-container' v-if='round === 1'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.challenger1.challengerLetter}} and {{this.challenger2.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="challenger1"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="challenger2"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='submit-div'>
+                    <button id="submit-h2h-button" @click="collectSemiScores(challenger1, challenger2)">Submit</button>
+                </div>
             </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
+            <div class='h2h-container' v-if='round === 2'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.challenger3.challengerLetter}} and {{this.challenger4.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="challenger3"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="challenger4"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='submit-div'>
+                    <button id="submit-h2h-button" @click="collectSemiScores(challenger3, challenger4)">Submit</button>
+                </div>
             </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(challenger1, challenger2)">Submit</button>
+            <div class='h2h-container' v-if='round === 3'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="finalist1"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="finalist2"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <h1>Choose Your Champion</h1>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='semis-submit-div'>
+                    <button id="submit-h2h-button" @click="collectFinalistScores(finalist1, finalist2)">Submit</button>
+                </div>
+            </div>
+            <div class='champ-container' v-if='round === 4'>
+                <strong>Your champion is</strong>
+                <strong>{{ champion[0].challenger }}</strong>
             </div>
         </div>
-        <div class='h2h-container' v-if='round === 2'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="challenger3"/>
-                <ChallengerCard v-bind:challenger="challenger4"/>
+
+        <div class='challengers-container' id='three-challengers' v-if='this.meleeWinners.length === 3'>
+            <div class='h2h-container' v-if='round === 1'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.shortChallenger1.challengerLetter}} and {{this.shortChallenger2.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger1"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger2"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='submit-div'>
+                    <button id="submit-h2h-button" @click="collectShortScores(shortChallenger1, shortChallenger2)">Submit</button>
+                </div>
             </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
+            <div class='h2h-container' v-if='round === 2'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.shortChallenger1.challengerLetter}} and {{this.shortChallenger3.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger1"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger3"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='submit-div'>
+                    <button id="submit-h2h-button" @click="collectShortScores(shortChallenger1, shortChallenger3)">Submit</button>
+                </div>
             </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(challenger3, challenger4)">Submit</button>
+            <div class='h2h-container' v-if='round === 3'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.shortChallenger2.challengerLetter}} and {{this.shortChallenger3.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger2"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger3"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='semis-submit-div'>
+                    <button id="submit-h2h-button" @click="collectShortScores(shortChallenger2, shortChallenger3)">Submit</button>
+                </div>
+            </div>
+            <div class='champ-container' v-if='round === 4'>
+                <strong>Your champion is</strong>
+                <strong>{{ champion[0].challenger }}</strong>
             </div>
         </div>
-        <div class='h2h-container' v-if='round === 3'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="finalist1"/>
-                <ChallengerCard v-bind:challenger="finalist2"/>
+
+        <div class='challengers-container' id='two-challengers' v-if='this.meleeWinners.length === 2'>
+            <div class='h2h-container' v-if='round === 1'>
+            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.shortChallenger1.challengerLetter}} and {{this.shortChallenger2.challengerLetter}}?</p>
+                <div class='challenger-cards'>
+                    <div class='left-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger1"/>
+                        <p class='head-to-head-score'>Score: {{ 10 - value }}</p>
+                    </div>
+                    <p>vs</p>
+                    <div class='right-challenger-section'>
+                        <ChallengerCard v-bind:challenger="shortChallenger2"/>
+                        <p class='head-to-head-score'>Score: {{ value }}</p>
+                    </div>
+                </div>
+                <div class='slider'>
+                    <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
+                </div>
+                <div class='submit-div'>
+                    <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger1, shortChallenger2)">Submit</button>
+                </div>
             </div>
-            <h1>Choose Your Champion</h1>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='semis-submit-div'>
-                <button id="submit-h2h-button" @click="collectFinalistScores(finalist1, finalist2)">Submit</button>
+            <div class='champ-container' v-if='round === 2'>
+                <strong>Your champion is</strong>
+                <strong>{{ champion[0].challenger }}</strong>
             </div>
         </div>
-        <div class='champ-container' v-if='round === 4'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
-        </div>
+
     </div>
-
-    <!-- <div class='challengers-container' id='four-challengers' v-if='this.shortChallengers.length === 4'>
-        <div class='h2h-container' v-if='round === 1'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger1, shortChallenger2)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 2'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger3"/>
-                <ChallengerCard v-bind:challenger="shortChallenger4"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger3, shortChallenger4)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 3'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger3"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger1, shortChallenger3)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 4'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-                <ChallengerCard v-bind:challenger="shortChallenger4"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger2, shortChallenger4)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 5'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger4"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger1, shortChallenger4)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 6'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-                <ChallengerCard v-bind:challenger="shortChallenger3"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger2, shortChallenger3)">Submit</button>
-            </div>
-        </div>
-        <div class='champ-container' v-if='round === 7'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
-        </div>
-    </div> -->
-
-    <div class='challengers-container' id='three-challengers' v-if='this.meleeWinners.length === 3'>
-        <div class='h2h-container' v-if='round === 1'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectShortScores(shortChallenger1, shortChallenger2)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 2'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger3"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectShortScores(shortChallenger1, shortChallenger3)">Submit</button>
-            </div>
-        </div>
-        <div class='h2h-container' v-if='round === 3'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-                <ChallengerCard v-bind:challenger="shortChallenger3"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='semis-submit-div'>
-                <button id="submit-h2h-button" @click="collectShortScores(shortChallenger2, shortChallenger3)">Submit</button>
-            </div>
-        </div>
-        <div class='champ-container' v-if='round === 4'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
-        </div>
-    </div>
-
-    <div class='challengers-container' id='two-challengers' v-if='this.meleeWinners.length === 2'>
-        <div class='h2h-container' v-if='round === 1'>
-            <div class='challenger-cards'>
-                <ChallengerCard v-bind:challenger="shortChallenger1"/>
-                <ChallengerCard v-bind:challenger="shortChallenger2"/>
-            </div>
-            <div class='slider'>
-                <input type="range" min="0" max="10" value="5" id="matchupRating" @input="compileScores">
-            </div>
-            <div class='submit-div'>
-                <button id="submit-h2h-button" @click="collectSemiScores(shortChallenger1, shortChallenger2)">Submit</button>
-            </div>
-        </div>
-        <div class='champ-container' v-if='round === 2'>
-            <strong>Your champion is</strong>
-            <strong>{{ champion[0].challenger }}</strong>
-        </div>
-    </div>
-
-</div>
     
 </template>
 
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/material.css'
 
 export default {
     name: "HeadToHead",
 
     components: {
         ChallengerCard,
+        VueSlider
     },
 
     props: [
@@ -211,10 +194,10 @@ export default {
             shortChallengers: [],
             meleeWinners: [],
             round: 1,
-            leftScore: null,
-            rightScore: null,
+            value: 5,
             finalists: [],
-            champion: []
+            champion: [],
+            scale: 100
         }
     },
 
@@ -230,11 +213,6 @@ export default {
             const index = Math.floor(Math.random()*this.shortChallengers.length)
             const shortChallenger = this.shortChallengers.splice(index,1)
             return shortChallenger[0]
-        },
-
-        compileScores({target}) {
-            this.leftScore = 10 - target.value
-            this.rightScore = parseInt(target.value)
         },
 
         advanceRound() {
@@ -268,8 +246,8 @@ export default {
         },
 
         collectSemiScores(challengerA, challengerB) {
-            challengerA.rating = this.leftScore
-            challengerB.rating = this.rightScore
+            challengerA.rating = 10 - this.value
+            challengerB.rating = this.value
 
             this.$store.commit('addSemiScores', challengerA)
             this.$store.commit('addSemiScores', challengerB)
@@ -281,8 +259,8 @@ export default {
         },
 
         collectShortScores(challengerA, challengerB) {
-            challengerA.rating = this.leftScore
-            challengerB.rating = this.rightScore
+            challengerA.rating = 10 - this.value
+            challengerB.rating = this.value
 
             this.$store.commit('addSemiScores', challengerA)
             this.$store.commit('addSemiScores', challengerB)
@@ -344,22 +322,47 @@ export default {
 
 <style scoped>
 
+.slider{
+  width:50vw;
+  margin:1rem auto;
+}
+.vue-slider-rail{
+  background-color:#ff73d5;
+}
+
 .h2h-container {
     display: flex;
     flex-direction: column;
 }
 
+.matchup-text {
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.head-to-head-score {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 .challengers-container {
     display: flex;
     flex-direction: column;
-    margin: 150px auto 150px auto;
-    width: 90%;
+    margin: 20px auto 150px auto;
+    width: 95%;
     max-width: 800px;
 }
 
 .challenger-cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
 }
 
 </style>

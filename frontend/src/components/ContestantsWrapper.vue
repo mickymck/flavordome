@@ -1,29 +1,37 @@
 <template>
-  <div class="contestants-wrapper">
-    <div>
-      <div class='challenger-instructions'>
-        What are you tasting?
+  <div class='contestants-wrapper-container'>
+    <div class="contestants-wrapper">
+      <div>
+        <div class='challenger-instructions'>
+          <h1>What are you tasting?</h1>
+        </div>
+        <form v-on:submit="this.handleSubmit">
+          <div class="control">
+            <input type='text' name="contestant" class="user-input-field" v-if='category.message' :placeholder="[[category.message]]">
+            <input type='text' name="contestant" class="user-input-field" v-if='!category.message' placeholder="ex: Mom's Famous Beef Chili">
+          </div>
+          <div class="control">
+            <button action="submit">Add Challenger</button>
+          </div>
+        </form>
       </div>
-      <form v-on:submit="this.handleSubmit">
-        <div class="control">
-          <input type='text' name="contestant" class="user-input-field" placeholder="ex: Eagle Rare, Manchego, Krispy Kreme glazed, etc."/>
-        </div>
-        <div class="control">
-          <button action="submit">Add Challenger</button>
-        </div>
-      </form>
-    </div>
-    <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' v-on:submitContestants='handleLaunch'/>
-    <div>
+      <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' v-on:submitContestants='handleLaunch'/>
+      <div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ContestantList from './ContestantList.vue'
+import CategoryCard from './CategoryCard.vue'
+import Categories from './Categories.vue'
 
 export default {
   name:'ContestantsWrapper',
+
+  props:['category'],
+
   data() {
     return {
       contestants: []
@@ -33,6 +41,7 @@ export default {
     ContestantList
   },
   methods: {
+
     handleSubmit: function(event){
       event.preventDefault()
       const form = event.target
@@ -72,10 +81,6 @@ export default {
 
 <style scoped>
 
-.control {
-  margin: 20px;
-}
-
 .contestants-wrapper {
   display: flex;
   flex-direction: column;
@@ -94,7 +99,7 @@ font-size: 20px;
 }
 
 input.user-input-field {
-  margin: 0;
+  margin-top: 50px;
 }
 
 </style>
