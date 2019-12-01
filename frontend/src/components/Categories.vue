@@ -23,7 +23,7 @@
       </div>
       <div class='contestants' v-show="categorySelected">
           <!-- <h1>{{ category }}</h1> -->
-        <ContestantsWrapper></ContestantsWrapper>
+        <ContestantsWrapper v-bind:category="category"></ContestantsWrapper>
       </div>
     </div>
   </div>
@@ -82,8 +82,7 @@
         return {
           categories: categoryNames,
           categorySelected: false,
-          category:"",
-
+          category:""
         }
     },
     methods:{
@@ -115,9 +114,11 @@
 
 .categories{
   width: 100%;
+  max-width: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
   /* align-content: space-around; */
 }
 
@@ -141,7 +142,7 @@
   margin-top:10px;
 } */
 
-input.user-input-field {
+/* input.user-input-field {
   font-size: 20px;
   width: 90%;
   height: 50px;
@@ -151,6 +152,10 @@ input.user-input-field {
   color: #a600d8;
   margin: 20px auto 0 auto;
 }
+
+input.user-input-field:focus {
+  background-color: #ff73d5;
+} */
 
 .contestants {
   margin: 0;

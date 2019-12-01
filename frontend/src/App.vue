@@ -63,7 +63,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #707070;
+  /* color: #2c3e50; */
   margin-top: 0;
   background: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-background-longer-3.png') no-repeat;
   background-position: center top;
@@ -93,13 +94,19 @@ button {
   font-size: 30px;
   text-align: center;
   padding: 5px 20px;
-  background: white;
-  border: 2px solid #32ebe6;
-  color: #a600d8;
+  background-color: #45c3f6;
+  border: 2px solid white;
+  color: white;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: transform .1s ease-out;
   margin-top: 30px;
+}
+
+.cancel-button {
+  background-color: white;
+  border: 2px solid #ff73d5;
+  color: #ff73d5;
 }
 
 button:hover {
@@ -118,7 +125,7 @@ li {
   padding: 5px 0;
 }
 
-.user-input-field {
+input.user-input-field {
   font-size: 20px;
   width: 90%;
   height: 50px;
@@ -128,6 +135,14 @@ li {
   color: #a600d8;
   margin: 50px auto 0 auto;
   border-radius: 5px;
+}
+
+input.user-input-field:focus {
+  border-color: #ff73d5;
+}
+
+::placeholder {
+  color: #bbbbbb;
 }
 
 .challenger-card {
@@ -161,7 +176,7 @@ li {
 }
 
 .instruction-text-dark {
-  color: #2c3e50;
+  color: #707070;
   font-weight: 700;
   padding-top: 20px;
   font-size: 20px;

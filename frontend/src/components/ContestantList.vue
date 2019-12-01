@@ -9,7 +9,7 @@
           <ul>
             <li v-for="contestant in contestants" v-bind:key='contestant' class='challenger-card'>
               {{contestant}}
-              <button id='delete-button' v-on:click="$emit('deleteContestant', contestant)">
+              <button class='delete-x' v-on:click="$emit('deleteContestant', contestant)">
                 X
               </button>
             </li>
@@ -65,12 +65,12 @@ export default {
   font-size: 20px;
 }
 
-#delete-button {
+.delete-x {
   right: 30px;
   font-size: 14px;
   background: none;
   border: none;
-  color: #a600d8;
+  color: #ff73d5;
   font-weight: 800;
   box-shadow: none;
   padding: 0;

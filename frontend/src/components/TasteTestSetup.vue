@@ -24,7 +24,7 @@
             <button id="submit-test-name-button" @click="pushTestName" v-if="testName">Submit</button>
 
             <!-- if cancel button is clicked, cancelTestName is the event that our App.vue receives, and renders the HostWelcome page again -->
-            <button id="cancel-button" @click="cancelTestName">Cancel</button>
+            <button class="cancel-button" @click="cancelTestName">Cancel</button>
           </div>
         </div>
       </div>

@@ -12,10 +12,10 @@
         </div>
         <!-- if the Join button is clicked, this is the div that will be rendered, while the previous div is hidden -->
         <div v-if="tasterJoin" class='join-code-div'>
-          <input type="input" id="enter-code-field" v-model='roomNum' placeholder="Enter Code" />
+          <input type="input" class='user-input-field' id="enter-code-field" v-model='roomNum' placeholder="Enter Code" />
           <div class='join-buttons'>
             <button id="submit-code-button" @click="submitCode">Submit</button>
-            <button id="cancel-button" @click="cancelJoin">Cancel</button>
+            <button class="cancel-button" @click="cancelJoin">Cancel</button>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default {
   min-width: 100px;
   margin-top: 80px;
 }
-
+/* 
 #enter-code-field {
   font-size: 32px;
   width: 80%;
@@ -101,7 +101,7 @@ export default {
   border: 4px solid #45c3f6;
   color: #a600d8;
   margin: 0 auto 40px auto;
-}
+} */
 
 .join-code-div {
   display: flex;
@@ -115,9 +115,9 @@ export default {
   margin: 0 auto;
 }
 
-#submit-code-button {
+/* #submit-code-button {
   margin-bottom: 40px;
-}
+} */
 
 
 </style>

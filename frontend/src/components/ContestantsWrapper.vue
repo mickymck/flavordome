@@ -7,7 +7,8 @@
         </div>
         <form v-on:submit="this.handleSubmit">
           <div class="control">
-            <input type='text' name="contestant" class="user-input-field" :placeholder="[[this.placeholderMessage]]">
+            <input type='text' name="contestant" class="user-input-field" v-if='category.message' :placeholder="[[category.message]]">
+            <input type='text' name="contestant" class="user-input-field" v-if='!category.message' placeholder="ex: Mom's Famous Beef Chili">
           </div>
           <div class="control">
             <button action="submit">Add Challenger</button>
@@ -33,8 +34,7 @@ export default {
 
   data() {
     return {
-      contestants: [],
-      placeholderMessage:'byebye'
+      contestants: []
     }
   },
   components: {

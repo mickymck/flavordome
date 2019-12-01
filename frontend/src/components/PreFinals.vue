@@ -1,15 +1,15 @@
 <template>
   <div class='pre-finals-container'>
-    <div>
-      <p> logo here? something animated? </p>
+    <div class='logo-wrapper'>
+      <div class='flavordome-logo'></div>
     </div>
     <div>
-      <h3>Prepare for the Semifinals</h3>
-      <h4>Currently waiting on {{this.players - this.ready}} results to be submitted</h4>
+      <h1>Prepare for the Semifinals</h1>
+      <p class='instruction-text-dark'>Currently waiting on {{this.players - this.ready}} results to be submitted</p>
     </div>
     
     <div v-if="role==='host'">
-      YOURE THE HOST
+      <!-- YOURE THE HOST -->
       <div v-if='players === ready'>
         <button @click='forceNext'>On To The Finals</button>
       </div>
@@ -55,6 +55,11 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+    padding-top: 20px;
+    color: white;
+}
 
 .pre-finals-container p {
   margin-top: 0;
