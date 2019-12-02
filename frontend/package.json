@@ -12,6 +12,7 @@
     "core-js": "^3.3.2",
     "vue": "^2.6.10",
     "vue-slider-component": "^3.0.43",
+    "vuedraggable": "^2.23.2",
     "vuex": "^3.1.2",
     "webpack-bundle-tracker": "^0.4.3"
   },

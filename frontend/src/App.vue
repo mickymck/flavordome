@@ -15,6 +15,7 @@ import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
 import PreFinals from './components/PreFinals.vue'
+import Beyond from './components/Beyond.vue'
 
 export default {
   name: 'app',
@@ -27,7 +28,8 @@ export default {
     HeadToHead,
     HostInstructions,
     HostInstructionsTwo,
-    WaitingRoom
+    WaitingRoom,
+    Beyond
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -87,6 +89,11 @@ export default {
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
+}
+
+.logo-wrapper {
+  max-height: 180px;
+  padding-top: 20px;
 }
 
 h1 {

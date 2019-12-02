@@ -152,8 +152,8 @@ export const store = new Vuex.Store({
       state.champion = sorted.slice()
     },
     setupState(state, payload){
-    state.testName = payload.testName
-    state.challengers = payload.challengers
+      state.testName = payload.testName
+      state.challengers = payload.challengers
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
