@@ -66,7 +66,7 @@ export default {
   color: #707070;
   /* color: #2c3e50; */
   margin-top: 0;
-  background: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-background-longer-3.png') no-repeat;
+  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;
   background-position: center top;
   background-size: 100%;
   height: 700px;
