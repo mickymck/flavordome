@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class='contestants' v-show="categorySelected">
-          <h1>{{ category }}</h1>
+          <!-- <h1>{{ category }}</h1> -->
         <ContestantsWrapper v-bind:category="category"></ContestantsWrapper>
       </div>
     </div>
