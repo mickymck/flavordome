@@ -1,1 +1,1 @@
-{"status":"error","error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve 'animate.css/animate.min.css' in '/Users/ryan/Momentum/FlavorDome/frontend/src/components'"}
+{"status":"done","error":"ModuleNotFoundError","message":"Module not found: Error: Can't resolve 'animate.css/animate.min.css' in '/Users/ryan/Momentum/FlavorDome/frontend/src/components'","chunks":{"main":[{"name":"main.js","path":"/Users/ryan/Momentum/FlavorDome/frontend/assets/webpack_bundles/main.js"}]}}
