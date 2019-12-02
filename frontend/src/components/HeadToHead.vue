@@ -67,8 +67,8 @@
                 </div>
             </div>
             <div class='champ-container' v-if='round === 4'>
-                <strong>Your champion is</strong>
-                <strong>{{ champion[0].challenger }}</strong>
+                <Champions></Champions>
+                
             </div>
         </div>
 
@@ -134,8 +134,7 @@
                 </div>
             </div>
             <div class='champ-container' v-if='round === 4'>
-                <strong>Your champion is</strong>
-                <strong>{{ champion[0].challenger }}</strong>
+                <Champions></Champions>
             </div>
         </div>
 
@@ -161,11 +160,9 @@
                 </div>
             </div>
             <div class='champ-container' v-if='round === 2'>
-                <strong>Your champion is</strong>
-                <strong>{{ champion[0].challenger }}</strong>
+                <Champions></Champions>
             </div>
         </div>
-
     </div>
     
 </template>
@@ -173,6 +170,7 @@
 <script>
 
 import ChallengerCard from './ChallengerCard.vue'
+import Champions from './Champions.vue'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/material.css'
 
@@ -181,6 +179,7 @@ export default {
 
     components: {
         ChallengerCard,
+        Champions,
         VueSlider
     },
 

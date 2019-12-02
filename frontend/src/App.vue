@@ -2,6 +2,7 @@
   <div id="app">
     <!-- rendered component changes based on which one is dictated by fdComponent... moveToSetup method called by the listener on the setupScene event emitted on the Host button in HostWelcome -->
     <component v-bind:is="this.scene" @setupScene='moveToSetup' @cancelTestName='backToWelcome'></component>
+    <!-- <Champions></Champions> -->
   </div>
 </template>
 
@@ -10,7 +11,9 @@ import HeadToHead from './components/HeadToHead.vue'
 import Categories from './components/Categories.vue'
 import HostWelcome from './components/HostWelcome.vue'
 import TasteTestSetup from './components/TasteTestSetup.vue'
+import Champions from './components/Champions.vue'
 import MeleeRating from './components/MeleeRating.vue'
+import FinalRankings from './components/FinalRankings.vue'
 import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
@@ -24,8 +27,10 @@ export default {
     Categories,
     HostWelcome,
     TasteTestSetup,
+    Champions,
     MeleeRating,
     HeadToHead,
+    FinalRankings,
     HostInstructions,
     HostInstructionsTwo,
     WaitingRoom,
