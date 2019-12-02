@@ -1,7 +1,9 @@
 <template>
-  <div class='combatant'>
-    <div>
-      {{card.challenger}}
+  <div class='combatant-container'>
+    <div class='combatant'>
+      <div>
+        {{card.challengerLetter}}
+      </div>
     </div>
   </div>
 </template>
@@ -17,16 +19,24 @@ export default {
 
 <style scoped>
   .combatant{
-    background:#32ebe6;
-    width:60vw;
+    width:30vw;
     margin:auto;
-    height:60vw;
+    height:30vw;
+    max-width: 300px;
+    max-height: 300px;
     font-size: 5rem;
     display:flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items:center;
+    
+    background: white;
+    border-top: 60px solid #a600d8;
+    border-right: 60px solid #32ebe6;
+    border-bottom: 60px solid #ff73d5;
+    border-left: 60px solid #45c3f6;
+    color: #a600d8;
   }
 
 

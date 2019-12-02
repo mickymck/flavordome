@@ -1,26 +1,30 @@
 <template>
-  <div class='cat-and-challenger-wrapper'>
-    <div class="category-wrapper">
-      <div class='cat-instructions' v-show="!categorySelected">
-        Choose a category, or create your own:
-      </div>
-      <div class='categories'>
-        <div class="category-card" v-show="!categorySelected" v-for="category in categories" :key="category">
-          <CategoryCard v-bind:categoryName="category" v-on:selectCategory='handleSelection'></CategoryCard>
+  <div class='categories-container'>
+    <div class='cat-and-challenger-wrapper'>
+      <div class="category-wrapper">
+
+        <!-- if a category has not been selected, show this cat selection message -->
+        <div class='cat-instructions' v-show="!categorySelected">
+          <h1>Choose a category,<br>or create your own:</h1>
+        </div>
+        <div class='categories'>
+          <div class="category-card" v-show="!categorySelected" v-for="category in categories" :key="category">
+            <CategoryCard v-bind:categoryName="category" v-on:selectCategory='handleSelection'></CategoryCard>
+          </div>
+        </div>
+        <div class="custom-card" v-show="!categorySelected">
+          <form v-on:submit="this.createCustomCategory">
+            <input type="text" name="customCategoryName" class="user-input-field" placeholder="Create Category" maxlength="20">
+            <br>
+            <button id="submit-button" type="submit">Submit</button>
+            <!-- <input type="submit" value="Submit"> -->
+          </form>
         </div>
       </div>
-      <div class="custom-card" v-show="!categorySelected">
-        <form v-on:submit="this.createCustomCategory">
-          <input type="text" name="customCategoryName" class="user-input-field" placeholder="Create Category" maxlength="20">
-          <br>
-          <button id="submit-button" type="submit">Submit</button>
-          <!-- <input type="submit" value="Submit"> -->
-        </form>
+      <div class='contestants' v-show="categorySelected">
+          <!-- <h1>{{ category }}</h1> -->
+        <ContestantsWrapper v-bind:category="category"></ContestantsWrapper>
       </div>
-    </div>
-    <div class='contestants' v-show="categorySelected">
-        <!-- <h1>{{ category }}</h1> -->
-      <ContestantsWrapper></ContestantsWrapper>
     </div>
   </div>
 </template>
@@ -30,15 +34,42 @@
   import ContestantsWrapper from './ContestantsWrapper.vue'
 
   const categoryNames = [
-    'Chips',
-    'Beer',
-    'Hot Dogs',
-    'Cheese',
-    'BBQ Sauce',
-    'Chocolate',
-    'Ice-cream',
-    'Donuts',
-    'Bourbon',
+    {name: 'Chips',
+    message: 'ex: Cape Cod Salt and Vinegar'},
+
+    {name: 'Bourbon',
+    message: 'ex: Eagle Rare'},
+
+    {name: 'Cheese',
+    message: 'ex: Aged Cheddar'},
+
+    {name: 'Gummies',
+    message: 'ex: Haribo Gummy Fruit Salad'},
+
+    {name: 'BBQ Sauce',
+    message: "ex: Stubb's Original"},
+
+    {name: 'Chocolate',
+    message: 'ex: Godiva 70% Dark'},
+
+    {name: 'Ice Cream',
+    message: 'ex: Turkey Hill Naturals Vanilla Bean'},
+
+    {name: 'Hot Dogs',
+    message: 'ex: Hebrew National'},
+
+    {name: 'Beer',
+    message: 'ex: Wicked Weed Pernicious IPA'}
+
+    // 'Chips',
+    // 'Bourbon',
+    // 'Cheese',
+    // 'Gummies',
+    // 'BBQ Sauce',
+    // 'Chocolate',
+    // 'Ice-cream',
+    // 'Hot Dogs',
+    // 'Gummies',
   ]
 
   export default {
@@ -51,8 +82,7 @@
         return {
           categories: categoryNames,
           categorySelected: false,
-          category:"",
-
+          category:""
         }
     },
     methods:{
@@ -84,9 +114,11 @@
 
 .categories{
   width: 100%;
+  max-width: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
   /* align-content: space-around; */
 }
 
@@ -96,19 +128,21 @@
   text-align: center;
   width: 100%;
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .cat-instructions {
   font-size: 20px;
   text-align: center;
   margin: 0 auto 20px auto;
+  padding-top: 20px;
 }
 
 /* form{
   margin-top:10px;
 } */
 
-input.user-input-field {
+/* input.user-input-field {
   font-size: 20px;
   width: 90%;
   height: 50px;
@@ -116,8 +150,12 @@ input.user-input-field {
   text-align: center;
   border: 2px solid #a600d8;
   color: #a600d8;
-  margin: 50px auto 40px auto;
+  margin: 20px auto 0 auto;
 }
+
+input.user-input-field:focus {
+  background-color: #ff73d5;
+} */
 
 .contestants {
   margin: 0;
