@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style>
+*{
+  margin:0;
+  padding:0;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -82,7 +86,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
 }
 
 h1 {
