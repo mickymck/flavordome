@@ -26,6 +26,10 @@
                         </div>
                 </li> 
             </ul>
+            <h2>Send Results to your email!</h2>
+            <label for="user_email">Email: </label>
+            <input id="user_email" type="text" name="user_email" ref="email"><br>
+            <button @click="send_results">Send Results</button>
     </div>
     </transition>
 </template>
@@ -33,6 +37,8 @@
 <script>
 
 require("animate.css/animate.min.css")
+// axios.defaults.xsrfCookieName = 'csrftoken' //need this for method:post
+// axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN' //need this for method:post
 
 export default {
   name:'FinalRankings',
@@ -51,6 +57,33 @@ export default {
             return i + "rd"
         }
         return i + "th"
+    },
+    send_results:function(){
+        let rankedSortedChallengers = []
+        let component = this
+        this.$props.sortedChallengers.forEach(function(challenger,index) {
+            let rank = index+1
+            rankedSortedChallengers.push(component.ordinal_suffix(rank) + " " + challenger.challenger)
+        })
+        console.log(rankedSortedChallengers)
+        
+        fetch('email/',{
+          method:'POST',
+          headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: JSON.stringify({
+            'email':this.$refs.email.value,
+            'email-string':rankedSortedChallengers,
+          })
+        }).then(res =>JSON.parse(res))
+        .then(res=>{
+            if(res['ok']){
+                console.log("email sent!")
+            }
+        })
     },
   },
 }

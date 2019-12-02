@@ -181,12 +181,9 @@ export const store = new Vuex.Store({
     getRoomNum(state){
       return state.roomNum
     },
-<<<<<<< HEAD
-=======
     getReadyPlayers(state){
       return state.readyCount
     }
->>>>>>> master
   },
   actions:{
     createSocket({commit, dispatch, state}){
