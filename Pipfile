@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 django = "*"
 django-webpack-loader = "*"
-psycopg2 = "*"
 django-heroku = "*"
 gunicorn = "*"
 channels = "*"

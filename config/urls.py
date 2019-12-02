@@ -19,6 +19,7 @@ from flavordome import views
 from frontend import views as v
 
 urlpatterns = [
+    path('email/', views.send_results, name='email'),
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('test/', views.test, name='test'),

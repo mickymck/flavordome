@@ -135,4 +135,8 @@ psd
 thumb
 sketch
 
+### webpack ###
+main.js
+webpack-stats.json
+
 # End of https://www.gitignore.io/api/vue,django

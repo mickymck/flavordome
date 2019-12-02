@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
     letterMask:[],
     topFour:[],
     finalists: [],
-    champion: [],
+    champion: [],//the top two challengers
     playerCount: 1,
     role:'guest',
     roomNum:'',
@@ -67,7 +67,7 @@ export const store = new Vuex.Store({
         }
       }
     },
-    changeScene(state, scene){
+    changeScene(state, scene) {
       state.scene = scene
     },
     grabCategory(state, category){
@@ -106,7 +106,7 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers){
         if (challenger.challenger === submission.challenger) {
           challenger.scores.push(submission.rating)
-          challenger.average = challenger.scores.reduce((a, b) => a+b, 0)/challenger.scores.length
+          challenger.average = challenger.scores.reduce((a, b) => a + b, 0) / challenger.scores.length
         }
       }
     },
@@ -114,7 +114,7 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers) {
         if (challenger.challenger === semiChallenger.challenger) {
           challenger.semiScores.push(semiChallenger.rating)
-          challenger.semiAvg = challenger.semiScores.reduce((a, b) => a+b, 0)/challenger.semiScores.length
+          challenger.semiAvg = challenger.semiScores.reduce((a, b) => a + b, 0) / challenger.semiScores.length
         }
       }
     },
@@ -122,12 +122,13 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers) {
         if (challenger.challenger === finalChallenger.challenger) {
           challenger.finalScores.push(finalChallenger.rating)
-          challenger.finalAvg = challenger.finalScores.reduce((a, b) => a+b, 0)/challenger.finalScores.length
+          challenger.finalAvg = challenger.finalScores.reduce((a, b) => a + b, 0) / challenger.finalScores.length
         }
       }
     },
     setTopFour(state){
         let sorted = state.challengers.sort((a, b) => (b.average - a.average))
+        state.challengers = sorted
         state.topFour = sorted.slice(0,4)
     },
     setDirectHeadToHead(state){
@@ -141,9 +142,9 @@ export const store = new Vuex.Store({
     },
     setFinalists(state){
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
-      state.finalists = sorted.slice(0,2) 
+      state.finalists = sorted.slice(0, 2)
     },
-    setChampion(state){
+    setChampion(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
       state.champion = sorted.slice(0,2) 
     },
@@ -152,21 +153,21 @@ export const store = new Vuex.Store({
       state.champion = sorted.slice()
     },
     setupState(state, payload){
-    state.testName = payload.testName
-    state.challengers = payload.challengers
+      state.testName = payload.testName
+      state.challengers = payload.challengers
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
     }
   },
-  getters:{
-    getTopFour(state){
+  getters: {
+    getTopFour(state) {
       return state.topFour.slice()
     },
-    getFinalists(state){
+    getFinalists(state) {
       return state.finalists.slice()
     },
-    getChampion(state){
+    getChampion(state) {
       return state.champion.slice()
     },
     getChallengersByNumber(state){
@@ -174,6 +175,12 @@ export const store = new Vuex.Store({
     },
     getRole(state){
       return state.role
+    },
+    getChallengers(state){
+      // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()
+      // challengers.splice(challengers.indexOf(state.champion[0],1))
+      // challengers.unshift(state.champion[0])
+      return state.challengers.slice()
     },
     getPlayerCount(state){
       return state.playerCount
