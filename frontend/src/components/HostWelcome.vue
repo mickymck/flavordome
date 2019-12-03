@@ -72,9 +72,6 @@ export default {
   justify-content: center;
 }
 
-.logo-wrapper {
-  max-height: 180px;
-}
 
 .welcome-buttons {
   width: 80%;

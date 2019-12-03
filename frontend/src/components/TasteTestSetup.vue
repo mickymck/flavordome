@@ -4,7 +4,7 @@
       <div>
         <!-- if the taste test name has been entered, this will render -->
         <div class='taste-test-name' v-if="testNameLock">
-          <!-- <h1>{{ testName }}</h1> -->
+          <h1>{{ testName }}</h1>
           <Categories />
         </div>
       </div>
@@ -36,9 +36,6 @@ import Categories from './Categories.vue'
 
 export default {
   name: "TasteTestSetup",
-  props: {
-    testName: '',
-  },
   components:{
     Categories
   },
@@ -46,7 +43,8 @@ export default {
   // testNameLock determines whether the name renders or the form renders
   data: () => {
     return {
-    testNameLock: false
+      testName:'',
+      testNameLock: false
     }
   },
 
