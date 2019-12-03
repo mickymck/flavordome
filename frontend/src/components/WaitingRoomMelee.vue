@@ -46,10 +46,14 @@ export default {
     
     forceNextMelee:function() {
       this.resetMeleeScoreCount()
-      this.$store.commit('changeScene', "MeleeRating")
-
+      let nextChallenger = this.$store.commit('getNextChallenger')
+      this.$store.commit('setNextChallenger')
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'setNextChallenger', 
+        'payload':nextChallenger
+      })) 
+      this.$store.commit('changeScene', "MeleeRating") 
     }
-
   }
 }
 </script>

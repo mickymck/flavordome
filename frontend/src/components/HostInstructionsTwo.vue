@@ -46,7 +46,7 @@ export default {
 
     methods:{
         startMelee: function() {
-            // this.$store.commit('changeScene', "MeleeRating")
+            this.$store.commit('changeScene', "MeleeRating")
             this.$store.state.newSocket.send(JSON.stringify({
                 'method':'setupState',
                 'payload':this.$store.state

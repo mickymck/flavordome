@@ -19,7 +19,7 @@ export const store = new Vuex.Store({
     readyCount:0,
     categoryChoice:[],
     remainingChallengers:[], //remaining challengers to rate in Melee rating populates in stateSetup
-    currentChallenger:[],
+    currentChallenger:null,
     finalReveal: {
       'loser':false,
       'third':false,
@@ -77,6 +77,17 @@ export const store = new Vuex.Store({
           challenger.challengerLetter = alphabet[state.letterMask.indexOf(challenger)]
         }
       }
+      //setup state.remainingChalleters
+      // Durstenfield Shuffle algorithm
+      let shuffledArray = state.challengers.slice()
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+      }
+      console.log(shuffledArray)
+      //setup state.currentChallenger
+      state.currentChallenger = shuffledArray.pop()
+      state.remainingChallengers = shuffledArray
     },
     changeScene(state, scene) {
       state.scene = scene
@@ -169,21 +180,14 @@ export const store = new Vuex.Store({
     setupState(state, payload){
       state.testName = payload.testName
       state.challengers = payload.challengers
-      // Durstenfield Shuffle algorithm
-      let array = payload.challengers.slice()
-      for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-        for(i of array){console.log(i.challenger)}
-      }
-      console.log(array)
-      state.remainingChallengers = array
+      state.remainingChallengers = payload.remainingChallengers 
+      state.currentChallenger = payload.currentChallenger
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
     },
     setNextChallenger(state,nextChallenger){
-      state.currentChallenger[0] = nextChallenger
+      state.currentChallenger = nextChallenger
     },
     setupFinalReveal(state, total, sortedChallengers){
       // if(total >= 3) state.finalReveal['third'] = false
@@ -232,6 +236,10 @@ export const store = new Vuex.Store({
     },
     getReadyPlayers(state){
       return state.readyCount
+    },
+    getCurrentChallenger(state){
+      console.log(state.currentChallenger)
+      return state.currentChallenger
     },
     getNextChallenger(state){
       //if remaining challengers.length === 0 it returns undefined

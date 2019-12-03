@@ -4,9 +4,9 @@
       <div class='flavordome-logo'></div>
     </div>
     <div>
-      <p class='instruction-text'>Test the taste of Challenger {{this.currentCard.challengerLetter}}</p>
+      <p class='instruction-text'>Test the taste of Challenger {{currentCard.challengerLetter}}</p>
       <div class='arena'>
-        <Combatant v-bind:card='this.currentCard'/>
+        <Combatant v-bind:card='currentCard'/>
       </div>
       <form v-on:submit='handleSubmit'>
         <div class='slider'>
@@ -38,7 +38,7 @@ export default {
   data: () => {
     return {
       currentCard:null,
-      remainingCards:[],
+      // remainingCards:[],
       cardRating:5
     }
   },
@@ -49,17 +49,17 @@ export default {
       this.augmentScore(this.cardRating)
       this.countMeleeScores()
       this.cardRating = 5
-      if (this.remainingCards.length === 0){
-        this.currentCard = null
-        this.resolveMelee()
-      } else {
-        this.chooseCard()
-      }
+      // if (this.remainingCards.length === 0){
+      //   this.currentCard = null
+      //   this.resolveMelee()
+      // } else {
+      //   this.chooseCard()
+      // }
     },
-    chooseCard:function(){
-      const randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
-      this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
-    },
+    // chooseCard:function(){
+    //   const randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
+    //   this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
+    // },
     augmentScore:function(rating){
       if (this.currentCard !== null){
         this.currentCard.rating=rating
@@ -99,9 +99,11 @@ export default {
       this.$store.commit('changeScene', "PreFinals")
     }
   },
-  created(){
-    this.remainingCards = this.$store.state.challengers.slice()
-    this.chooseCard()
+  created:function(){
+    // this.remainingCards = this.$store.state.challengers.slice()
+    // this.chooseCard()
+    this.currentCard = this.$store.getters.getCurrentChallenger
+    console.log(this.currentCard)
   }
 }
 </script>
