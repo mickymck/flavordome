@@ -8,7 +8,7 @@
           <h1>Choose a category,<br>or create your own:</h1>
         </div>
         <div class='categories'>
-          <div class="category-card" v-show="!categorySelected" v-for="category in categories" :key="category">
+          <div class="category-card" v-show="!categorySelected" v-for="category in categories" :key="category.name">
             <CategoryCard v-bind:categoryName="category" v-on:selectCategory='handleSelection'></CategoryCard>
           </div>
         </div>

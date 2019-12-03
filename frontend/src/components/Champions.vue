@@ -177,7 +177,7 @@ require("animate.css/animate.min.css")
     font-size: 1rem;
 }
 .next-champion-button{
-    margin-top: 20rem;
+    margin-top: 5rem;
     justify-self:center;
 }
 </style>

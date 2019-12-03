@@ -86,6 +86,87 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/array/is-array.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/array/is-array.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! core-js-pure/features/array/is-array */ \"./node_modules/core-js-pure/features/array/is-array.js\");\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/core-js/array/is-array.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/get-iterator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/get-iterator.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! core-js-pure/features/get-iterator */ \"./node_modules/core-js-pure/features/get-iterator.js\");\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/core-js/get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/is-iterable.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/is-iterable.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! core-js-pure/features/is-iterable */ \"./node_modules/core-js-pure/features/is-iterable.js\");\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/core-js/is-iterable.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/arrayWithHoles.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/arrayWithHoles.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _arrayWithHoles; });\n/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/array/is-array */ \"./node_modules/@babel/runtime-corejs3/core-js/array/is-array.js\");\n/* harmony import */ var _core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction _arrayWithHoles(arr) {\n  if (_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_0___default()(arr)) return arr;\n}\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/helpers/esm/arrayWithHoles.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/iterableToArrayLimit.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/iterableToArrayLimit.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _iterableToArrayLimit; });\n/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/get-iterator */ \"./node_modules/@babel/runtime-corejs3/core-js/get-iterator.js\");\n/* harmony import */ var _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/is-iterable */ \"./node_modules/@babel/runtime-corejs3/core-js/is-iterable.js\");\n/* harmony import */ var _core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction _iterableToArrayLimit(arr, i) {\n  if (!(_core_js_is_iterable__WEBPACK_IMPORTED_MODULE_1___default()(Object(arr)) || Object.prototype.toString.call(arr) === \"[object Arguments]\")) {\n    return;\n  }\n\n  var _arr = [];\n  var _n = true;\n  var _d = false;\n  var _e = undefined;\n\n  try {\n    for (var _i = _core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {\n      _arr.push(_s.value);\n\n      if (i && _arr.length === i) break;\n    }\n  } catch (err) {\n    _d = true;\n    _e = err;\n  } finally {\n    try {\n      if (!_n && _i[\"return\"] != null) _i[\"return\"]();\n    } finally {\n      if (_d) throw _e;\n    }\n  }\n\n  return _arr;\n}\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/helpers/esm/iterableToArrayLimit.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/nonIterableRest.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/nonIterableRest.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _nonIterableRest; });\nfunction _nonIterableRest() {\n  throw new TypeError(\"Invalid attempt to destructure non-iterable instance\");\n}\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/helpers/esm/nonIterableRest.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return _slicedToArray; });\n/* harmony import */ var _arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./arrayWithHoles */ \"./node_modules/@babel/runtime-corejs3/helpers/esm/arrayWithHoles.js\");\n/* harmony import */ var _iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./iterableToArrayLimit */ \"./node_modules/@babel/runtime-corejs3/helpers/esm/iterableToArrayLimit.js\");\n/* harmony import */ var _nonIterableRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nonIterableRest */ \"./node_modules/@babel/runtime-corejs3/helpers/esm/nonIterableRest.js\");\n\n\n\nfunction _slicedToArray(arr, i) {\n  return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n}\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js?");
+
+/***/ }),
+
 /***/ "./node_modules/animate.css/animate.min.css":
 /*!**************************************************!*\
   !*** ./node_modules/animate.css/animate.min.css ***!
@@ -105,7 +186,19 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_HeadToHead_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeadToHead.vue */ \"./src/components/HeadToHead.vue\");\n/* harmony import */ var _components_Categories_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Categories.vue */ \"./src/components/Categories.vue\");\n/* harmony import */ var _components_HostWelcome_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/HostWelcome.vue */ \"./src/components/HostWelcome.vue\");\n/* harmony import */ var _components_TasteTestSetup_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TasteTestSetup.vue */ \"./src/components/TasteTestSetup.vue\");\n/* harmony import */ var _components_Champions_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Champions.vue */ \"./src/components/Champions.vue\");\n/* harmony import */ var _components_MeleeRating_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/MeleeRating.vue */ \"./src/components/MeleeRating.vue\");\n/* harmony import */ var _components_FinalRankings_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FinalRankings.vue */ \"./src/components/FinalRankings.vue\");\n/* harmony import */ var _components_HostInstructions_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/HostInstructions.vue */ \"./src/components/HostInstructions.vue\");\n/* harmony import */ var _components_HostInstructionsTwo_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/HostInstructionsTwo.vue */ \"./src/components/HostInstructionsTwo.vue\");\n/* harmony import */ var _components_WaitingRoom_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/WaitingRoom.vue */ \"./src/components/WaitingRoom.vue\");\n/* harmony import */ var _components_PreFinals_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/PreFinals.vue */ \"./src/components/PreFinals.vue\");\n/* harmony import */ var _components_WaitingRoomMelee_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/WaitingRoomMelee.vue */ \"./src/components/WaitingRoomMelee.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\n\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'app',\n  components: {\n    PreFinals: _components_PreFinals_vue__WEBPACK_IMPORTED_MODULE_10__[\"default\"],\n    Categories: _components_Categories_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n    HostWelcome: _components_HostWelcome_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    TasteTestSetup: _components_TasteTestSetup_vue__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n    Champions: _components_Champions_vue__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n    MeleeRating: _components_MeleeRating_vue__WEBPACK_IMPORTED_MODULE_5__[\"default\"],\n    HeadToHead: _components_HeadToHead_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n    FinalRankings: _components_FinalRankings_vue__WEBPACK_IMPORTED_MODULE_6__[\"default\"],\n    HostInstructions: _components_HostInstructions_vue__WEBPACK_IMPORTED_MODULE_7__[\"default\"],\n    HostInstructionsTwo: _components_HostInstructionsTwo_vue__WEBPACK_IMPORTED_MODULE_8__[\"default\"],\n    WaitingRoom: _components_WaitingRoom_vue__WEBPACK_IMPORTED_MODULE_9__[\"default\"],\n    WaitingRoomMelee: _components_WaitingRoomMelee_vue__WEBPACK_IMPORTED_MODULE_11__[\"default\"]\n  },\n  // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled\n  data: function data() {\n    return {};\n  },\n  // method that toggles the rendered component to TasteTestSetup. currently being used when Host button is clicked, but can re-use this for going Back to the beginning of the setup, if desired\n  methods: {\n    moveToSetup: function moveToSetup() {\n      this.$store.commit('changeScene', \"TasteTestSetup\");\n    },\n    backToWelcome: function backToWelcome() {\n      this.$store.commit('changeScene', \"HostWelcome\");\n    },\n    moveToHostInstructions: function moveToHostInstructions() {\n      this.$store.commit('changeScene', \"HostInstructions\");\n    },\n    waitForNextMeleeRound: function waitForNextMeleeRound() {\n      this.$store.commit('changeScene', \"MeleeWaitingRoom\");\n    }\n  },\n  computed: {\n    scene: function scene() {\n      return this.$store.state.scene;\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_HeadToHead_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeadToHead.vue */ \"./src/components/HeadToHead.vue\");\n/* harmony import */ var _components_Categories_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Categories.vue */ \"./src/components/Categories.vue\");\n/* harmony import */ var _components_HostWelcome_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/HostWelcome.vue */ \"./src/components/HostWelcome.vue\");\n/* harmony import */ var _components_TasteTestSetup_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TasteTestSetup.vue */ \"./src/components/TasteTestSetup.vue\");\n/* harmony import */ var _components_Champions_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Champions.vue */ \"./src/components/Champions.vue\");\n/* harmony import */ var _components_MeleeRating_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/MeleeRating.vue */ \"./src/components/MeleeRating.vue\");\n/* harmony import */ var _components_FinalRankings_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FinalRankings.vue */ \"./src/components/FinalRankings.vue\");\n/* harmony import */ var _components_HostInstructions_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/HostInstructions.vue */ \"./src/components/HostInstructions.vue\");\n/* harmony import */ var _components_HostInstructionsTwo_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/HostInstructionsTwo.vue */ \"./src/components/HostInstructionsTwo.vue\");\n/* harmony import */ var _components_WaitingRoom_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/WaitingRoom.vue */ \"./src/components/WaitingRoom.vue\");\n/* harmony import */ var _components_PreFinals_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/PreFinals.vue */ \"./src/components/PreFinals.vue\");\n/* harmony import */ var _components_WaitingRoomMelee_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/WaitingRoomMelee.vue */ \"./src/components/WaitingRoomMelee.vue\");\n/* harmony import */ var _components_Beyond_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Beyond.vue */ \"./src/components/Beyond.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'app',\n  components: {\n    PreFinals: _components_PreFinals_vue__WEBPACK_IMPORTED_MODULE_10__[\"default\"],\n    Categories: _components_Categories_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n    HostWelcome: _components_HostWelcome_vue__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    TasteTestSetup: _components_TasteTestSetup_vue__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n    Champions: _components_Champions_vue__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n    MeleeRating: _components_MeleeRating_vue__WEBPACK_IMPORTED_MODULE_5__[\"default\"],\n    HeadToHead: _components_HeadToHead_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n    FinalRankings: _components_FinalRankings_vue__WEBPACK_IMPORTED_MODULE_6__[\"default\"],\n    HostInstructions: _components_HostInstructions_vue__WEBPACK_IMPORTED_MODULE_7__[\"default\"],\n    HostInstructionsTwo: _components_HostInstructionsTwo_vue__WEBPACK_IMPORTED_MODULE_8__[\"default\"],\n    WaitingRoom: _components_WaitingRoom_vue__WEBPACK_IMPORTED_MODULE_9__[\"default\"],\n    WaitingRoomMelee: _components_WaitingRoomMelee_vue__WEBPACK_IMPORTED_MODULE_11__[\"default\"],\n    Beyond: _components_Beyond_vue__WEBPACK_IMPORTED_MODULE_12__[\"default\"]\n  },\n  // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled\n  data: function data() {\n    return {};\n  },\n  // method that toggles the rendered component to TasteTestSetup. currently being used when Host button is clicked, but can re-use this for going Back to the beginning of the setup, if desired\n  methods: {\n    moveToSetup: function moveToSetup() {\n      this.$store.commit('changeScene', \"TasteTestSetup\");\n    },\n    backToWelcome: function backToWelcome() {\n      this.$store.commit('changeScene', \"HostWelcome\");\n    },\n    moveToHostInstructions: function moveToHostInstructions() {\n      this.$store.commit('changeScene', \"HostInstructions\");\n    },\n    waitForNextMeleeRound: function waitForNextMeleeRound() {\n      this.$store.commit('changeScene', \"MeleeWaitingRoom\");\n    }\n  },\n  computed: {\n    scene: function scene() {\n      return this.$store.state.scene;\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Beyond.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.symbol */ \"./node_modules/core-js/modules/es.symbol.js\");\n/* harmony import */ var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.symbol.description */ \"./node_modules/core-js/modules/es.symbol.description.js\");\n/* harmony import */ var core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator */ \"./node_modules/core-js/modules/es.symbol.iterator.js\");\n/* harmony import */ var core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.map */ \"./node_modules/core-js/modules/es.array.map.js\");\n/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.string.iterator */ \"./node_modules/core-js/modules/es.string.iterator.js\");\n/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _Users_stephenkwan_Desktop_MyOwnPrograms_FlavorDome_frontend_node_modules_babel_runtime_corejs3_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray */ \"./node_modules/@babel/runtime-corejs3/helpers/esm/slicedToArray.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'vuedraggable'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _Chart_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Chart.vue */ \"./src/components/Chart.vue\");\n\n\n\n\n\n\n\n\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  components: {\n    draggable: !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'vuedraggable'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),\n    Chart: _Chart_vue__WEBPACK_IMPORTED_MODULE_9__[\"default\"]\n  },\n  data: function data() {\n    return {\n      options: {\n        responsive: true,\n        scales: {\n          xAxes: [{\n            ticks: {\n              beginAtZero: true\n            }\n          }]\n        }\n      },\n      challengers: []\n    };\n  },\n  methods: {\n    sendRankings: function sendRankings(event) {\n      var length = this.challengers.length;\n      var _iteratorNormalCompletion = true;\n      var _didIteratorError = false;\n      var _iteratorError = undefined;\n\n      try {\n        for (var _iterator = this.challengers.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n          var _step$value = Object(_Users_stephenkwan_Desktop_MyOwnPrograms_FlavorDome_frontend_node_modules_babel_runtime_corejs3_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_7__[\"default\"])(_step.value, 2),\n              i = _step$value[0],\n              challenger = _step$value[1];\n\n          challenger.rating = length - i;\n        }\n      } catch (err) {\n        _didIteratorError = true;\n        _iteratorError = err;\n      } finally {\n        try {\n          if (!_iteratorNormalCompletion && _iterator.return != null) {\n            _iterator.return();\n          }\n        } finally {\n          if (_didIteratorError) {\n            throw _iteratorError;\n          }\n        }\n      }\n\n      this.$store.state.newSocket.send(JSON.stringify({\n        method: \"bulkRanking\",\n        payload: this.challengers\n      }));\n    }\n  },\n  created: function created() {\n    this.challengers = this.$store.getters.getChallengers.map(function (a) {\n      return a;\n    });\n  },\n  computed: {\n    chartData: function chartData() {\n      return {\n        labels: this.$store.getters.getChallengers.map(function (a) {\n          return a.challenger;\n        }),\n        datasets: [{\n          data: this.$store.getters.getAvgScore\n        }]\n      };\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -152,6 +245,18 @@ eval("//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nmodule.exports = {\n  props: {\n  
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.splice */ \"./node_modules/core-js/modules/es.array.splice.js\");\n/* harmony import */ var core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _FinalRankings_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FinalRankings.vue */ \"./src/components/FinalRankings.vue\");\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n\n\n__webpack_require__(/*! animate.css/animate.min.css */ \"./node_modules/animate.css/animate.min.css\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: \"Champions\",\n  components: {\n    FinalRankings: _FinalRankings_vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n  },\n  data: function data() {\n    return {\n      contestantsShowArray: [],\n      count: 0,\n      topFour: [],\n      sortedChallengers: [],\n      challengers: [],\n      finalRankingsShow: false,\n      champions: [],\n      gteThreeChallengers: false,\n      gteFourChallengers: false\n    };\n  },\n  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_2__[\"mapState\"])({\n    // revealLoser: 'finalReveal[\"loser\"]',\n    revealLoser: function revealLoser(state) {\n      return state.finalReveal['loser'];\n    },\n    revealThird: function revealThird(state) {\n      return state.finalReveal['third'];\n    },\n    revealSecond: function revealSecond(state) {\n      return state.finalReveal['second'];\n    },\n    revealFirst: function revealFirst(state) {\n      return state.finalReveal['first'];\n    }\n  }),\n  // revealLoser () {\n  //     return this.$store.state.finalReveal['loser']\n  // }\n  methods: {\n    presentChampion: function presentChampion() {\n      this.$store.commit(\"revealNext\"); // if(this.count !== this.contestantsShowArray.length){\n      //     this.$set(this.contestantsShowArray, this.count, !this.contestantsShowArray[this.count])\n      //     this.count++\n      // }\n      // else{\n      //     //move to the next screen\n      //     this.finalRankingsShow = true;\n      // }\n    }\n  },\n  created: function created() {\n    var _this = this;\n\n    // this.topFour = this.$store.getters.getTopFour\n    var champions = this.$store.getters.getChampion; //returns top two challengers\n\n    var sortedChallengers = this.$store.getters.getChallengers;\n    var totalShown = 2;\n\n    if (this.sortedChallengers.length === 3) {\n      this.gteThreeChallengers = true;\n      totalShown = 3;\n    } else if (this.sortedChallengers.length > 3) {\n      this.gteThreeChallengers = true;\n      this.gteFourChallengers = true;\n      totalShown = 4;\n      console.log(totalShown);\n    }\n\n    var champ1Index = -1,\n        champ2Index = -1; //shifts the first and second place to the beginning of the challenger array\n\n    if (this.sortedChallengers.length > 2) {\n      for (var i = 0; i < sortedChallengers.length; i++) {\n        if (sortedChallengers[i].challenger === champions[0].challenger) champ1Index = i;\n        if (sortedChallengers[i].challenger === champions[1].challenger) champ2Index = i;\n      }\n\n      var firstPlace = sortedChallengers.splice(champ1Index, 1);\n      var secondPlace = sortedChallengers.splice(champ2Index, 1);\n      sortedChallengers.unshift(secondPlace[0]);\n      sortedChallengers.unshift(firstPlace[0]);\n    }\n\n    this.$store.commit(\"setupFinalReveal\", totalShown, sortedChallengers);\n    this.$store.watch(function (state) {\n      return _this.$store.state.finalReveal['loser'];\n    }); // for(let i = 0; i < totalShown; i++) this.contestantsShowArray.push(false)\n\n    this.sortedChallengers = sortedChallengers;\n    console.log(this.$store.finalRankingsShow);\n    console.log(this.$store.finalRevealChallengers);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/Champions.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./src/components/Chart.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Chart.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'vue-chartjs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n//\n//\n\nvar reactiveProp = !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'vue-chartjs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).reactiveProp;\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'Chart',\n  extends: !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'vue-chartjs'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),\n  mixins: [reactiveProp],\n  props: {\n    chartData: {\n      type: Object,\n      default: null\n    },\n    options: {\n      type: Object,\n      default: null\n    }\n  },\n  mounted: function mounted() {\n    this.renderChart(this.chartData, this.options);\n  }\n});\n\n//# sourceURL=webpack:///./src/components/Chart.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -223,7 +328,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'HostInstructions',\n  data: function data() {\n    return {\n      challengersToMask: [],\n      readyClicked: false\n    };\n  },\n  methods: {\n    instructionsStepTwo: function instructionsStepTwo() {\n      this.$store.commit('changeScene', \"HostInstructionsTwo\");\n    },\n    readyForSetup: function readyForSetup() {\n      this.readyClicked = true;\n    }\n  },\n  created: function created() {\n    this.challengersToMask = this.$store.getters.getChallengersByNumber;\n  }\n});\n\n//# sourceURL=webpack:///./src/components/HostInstructions.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'HostInstructions',\n  data: function data() {\n    return {\n      challengersToMask: [],\n      readyClicked: false\n    };\n  },\n  methods: {\n    instructionsStepTwo: function instructionsStepTwo() {\n      this.$store.commit('changeScene', \"HostInstructionsTwo\");\n    },\n    readyForSetup: function readyForSetup() {\n      this.readyClicked = true;\n    },\n    goBeyond: function goBeyond() {\n      this.$store.state.newSocket.send(JSON.stringify({\n        method: 'changeScene',\n        payload: \"Beyond\"\n      }));\n    }\n  },\n  created: function created() {\n    this.challengersToMask = this.$store.getters.getChallengersByNumber;\n  }\n});\n\n//# sourceURL=webpack:///./src/components/HostInstructions.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -283,7 +388,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Categories_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue */ \"./src/components/Categories.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: \"TasteTestSetup\",\n  props: {\n    testName: ''\n  },\n  components: {\n    Categories: _Categories_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n  },\n  // testNameLock determines whether the name renders or the form renders\n  data: function data() {\n    return {\n      testNameLock: false\n    };\n  },\n  methods: {\n    // returns taster to the Welcome screen by toggling back to false\n    cancelTestName: function cancelTestName() {\n      this.$emit('cancelTestName');\n    },\n    pushTestName: function pushTestName() {\n      this.testNameLock = true;\n      this.$store.dispatch('createSocket');\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/TasteTestSetup.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Categories_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Categories.vue */ \"./src/components/Categories.vue\");\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: \"TasteTestSetup\",\n  components: {\n    Categories: _Categories_vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n  },\n  // testNameLock determines whether the name renders or the form renders\n  data: function data() {\n    return {\n      testName: '',\n      testNameLock: false\n    };\n  },\n  methods: {\n    // returns taster to the Welcome screen by toggling back to false\n    cancelTestName: function cancelTestName() {\n      this.$emit('cancelTestName');\n    },\n    pushTestName: function pushTestName() {\n      this.testNameLock = true;\n      this.$store.dispatch('createSocket');\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/TasteTestSetup.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -308,6 +413,828 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar _this = undefined;\n\n//\
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  name: 'WaitingRoomMelee',\n  data: function data() {\n    return {};\n  },\n  computed: {\n    role: function role() {\n      return this.$store.getters.getRole;\n    },\n    players: function players() {\n      return this.$store.getters.getPlayerCount;\n    },\n    readyPlayers: function readyPlayers() {\n      return this.$store.getters.getReadyPlayers;\n    }\n  },\n  methods: {\n    resetMeleeScoreCount: function resetMeleeScoreCount() {\n      this.$store.state.newSocket.send(JSON.stringify({\n        'method': 'resetMeleeScoreCount',\n        'payload': null\n      }));\n    },\n    forceNextMelee: function forceNextMelee() {\n      this.resetMeleeScoreCount();\n      this.$store.commit('chooseNextChallenger');\n      var nextChallenger = this.$store.getters.getCurrentChallenger;\n\n      if (nextChallenger === undefined) {\n        this.$store.state.newSocket.send(JSON.stringify({\n          'method': 'changeScene',\n          'payload': 'HeadToHead'\n        }));\n      }\n\n      this.$store.state.newSocket.send(JSON.stringify({\n        'method': 'sendNextChallenger',\n        'payload': nextChallenger\n      }));\n      this.$store.state.newSocket.send(JSON.stringify({\n        'method': 'changeScene',\n        'payload': 'MeleeRating'\n      }));\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/components/WaitingRoomMelee.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/array/is-array.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js-pure/es/array/is-array.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../../modules/es.array.is-array */ \"./node_modules/core-js-pure/modules/es.array.is-array.js\");\nvar path = __webpack_require__(/*! ../../internals/path */ \"./node_modules/core-js-pure/internals/path.js\");\n\nmodule.exports = path.Array.isArray;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/es/array/is-array.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/array/is-array.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/array/is-array.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! ../../es/array/is-array */ \"./node_modules/core-js-pure/es/array/is-array.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/features/array/is-array.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/get-iterator.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/get-iterator.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../modules/web.dom-collections.iterator */ \"./node_modules/core-js-pure/modules/web.dom-collections.iterator.js\");\n__webpack_require__(/*! ../modules/es.string.iterator */ \"./node_modules/core-js-pure/modules/es.string.iterator.js\");\n\nmodule.exports = __webpack_require__(/*! ../internals/get-iterator */ \"./node_modules/core-js-pure/internals/get-iterator.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/features/get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/is-iterable.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/features/is-iterable.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ../modules/web.dom-collections.iterator */ \"./node_modules/core-js-pure/modules/web.dom-collections.iterator.js\");\n__webpack_require__(/*! ../modules/es.string.iterator */ \"./node_modules/core-js-pure/modules/es.string.iterator.js\");\n\nmodule.exports = __webpack_require__(/*! ../internals/is-iterable */ \"./node_modules/core-js-pure/internals/is-iterable.js\");\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/features/is-iterable.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/a-function.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/a-function.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function (it) {\n  if (typeof it != 'function') {\n    throw TypeError(String(it) + ' is not a function');\n  } return it;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/a-function.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/a-possible-prototype.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/a-possible-prototype.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js-pure/internals/is-object.js\");\n\nmodule.exports = function (it) {\n  if (!isObject(it) && it !== null) {\n    throw TypeError(\"Can't set \" + String(it) + ' as a prototype');\n  } return it;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/a-possible-prototype.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/add-to-unscopables.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/add-to-unscopables.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function () { /* empty */ };\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/add-to-unscopables.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/an-object.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/an-object.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js-pure/internals/is-object.js\");\n\nmodule.exports = function (it) {\n  if (!isObject(it)) {\n    throw TypeError(String(it) + ' is not an object');\n  } return it;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/an-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/array-includes.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/array-includes.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js-pure/internals/to-indexed-object.js\");\nvar toLength = __webpack_require__(/*! ../internals/to-length */ \"./node_modules/core-js-pure/internals/to-length.js\");\nvar toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ \"./node_modules/core-js-pure/internals/to-absolute-index.js\");\n\n// `Array.prototype.{ indexOf, includes }` methods implementation\nvar createMethod = function (IS_INCLUDES) {\n  return function ($this, el, fromIndex) {\n    var O = toIndexedObject($this);\n    var length = toLength(O.length);\n    var index = toAbsoluteIndex(fromIndex, length);\n    var value;\n    // Array#includes uses SameValueZero equality algorithm\n    // eslint-disable-next-line no-self-compare\n    if (IS_INCLUDES && el != el) while (length > index) {\n      value = O[index++];\n      // eslint-disable-next-line no-self-compare\n      if (value != value) return true;\n    // Array#indexOf ignores holes, Array#includes - not\n    } else for (;length > index; index++) {\n      if ((IS_INCLUDES || index in O) && O[index] === el) return IS_INCLUDES || index || 0;\n    } return !IS_INCLUDES && -1;\n  };\n};\n\nmodule.exports = {\n  // `Array.prototype.includes` method\n  // https://tc39.github.io/ecma262/#sec-array.prototype.includes\n  includes: createMethod(true),\n  // `Array.prototype.indexOf` method\n  // https://tc39.github.io/ecma262/#sec-array.prototype.indexof\n  indexOf: createMethod(false)\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/array-includes.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/bind-context.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/bind-context.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var aFunction = __webpack_require__(/*! ../internals/a-function */ \"./node_modules/core-js-pure/internals/a-function.js\");\n\n// optional / simple context binding\nmodule.exports = function (fn, that, length) {\n  aFunction(fn);\n  if (that === undefined) return fn;\n  switch (length) {\n    case 0: return function () {\n      return fn.call(that);\n    };\n    case 1: return function (a) {\n      return fn.call(that, a);\n    };\n    case 2: return function (a, b) {\n      return fn.call(that, a, b);\n    };\n    case 3: return function (a, b, c) {\n      return fn.call(that, a, b, c);\n    };\n  }\n  return function (/* ...args */) {\n    return fn.apply(that, arguments);\n  };\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/bind-context.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/classof-raw.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/classof-raw.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var toString = {}.toString;\n\nmodule.exports = function (it) {\n  return toString.call(it).slice(8, -1);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/classof-raw.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/classof.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/classof.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classofRaw = __webpack_require__(/*! ../internals/classof-raw */ \"./node_modules/core-js-pure/internals/classof-raw.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar TO_STRING_TAG = wellKnownSymbol('toStringTag');\n// ES3 wrong here\nvar CORRECT_ARGUMENTS = classofRaw(function () { return arguments; }()) == 'Arguments';\n\n// fallback for IE11 Script Access Denied error\nvar tryGet = function (it, key) {\n  try {\n    return it[key];\n  } catch (error) { /* empty */ }\n};\n\n// getting tag from ES6+ `Object.prototype.toString`\nmodule.exports = function (it) {\n  var O, tag, result;\n  return it === undefined ? 'Undefined' : it === null ? 'Null'\n    // @@toStringTag case\n    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag\n    // builtinTag case\n    : CORRECT_ARGUMENTS ? classofRaw(O)\n    // ES3 arguments fallback\n    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/classof.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/correct-prototype-getter.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/correct-prototype-getter.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\n\nmodule.exports = !fails(function () {\n  function F() { /* empty */ }\n  F.prototype.constructor = null;\n  return Object.getPrototypeOf(new F()) !== F.prototype;\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/correct-prototype-getter.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/create-iterator-constructor.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/create-iterator-constructor.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar IteratorPrototype = __webpack_require__(/*! ../internals/iterators-core */ \"./node_modules/core-js-pure/internals/iterators-core.js\").IteratorPrototype;\nvar create = __webpack_require__(/*! ../internals/object-create */ \"./node_modules/core-js-pure/internals/object-create.js\");\nvar createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ \"./node_modules/core-js-pure/internals/create-property-descriptor.js\");\nvar setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ \"./node_modules/core-js-pure/internals/set-to-string-tag.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\n\nvar returnThis = function () { return this; };\n\nmodule.exports = function (IteratorConstructor, NAME, next) {\n  var TO_STRING_TAG = NAME + ' Iterator';\n  IteratorConstructor.prototype = create(IteratorPrototype, { next: createPropertyDescriptor(1, next) });\n  setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);\n  Iterators[TO_STRING_TAG] = returnThis;\n  return IteratorConstructor;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/create-iterator-constructor.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/create-non-enumerable-property.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/create-non-enumerable-property.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js-pure/internals/descriptors.js\");\nvar definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ \"./node_modules/core-js-pure/internals/object-define-property.js\");\nvar createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ \"./node_modules/core-js-pure/internals/create-property-descriptor.js\");\n\nmodule.exports = DESCRIPTORS ? function (object, key, value) {\n  return definePropertyModule.f(object, key, createPropertyDescriptor(1, value));\n} : function (object, key, value) {\n  object[key] = value;\n  return object;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/create-non-enumerable-property.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/create-property-descriptor.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/create-property-descriptor.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function (bitmap, value) {\n  return {\n    enumerable: !(bitmap & 1),\n    configurable: !(bitmap & 2),\n    writable: !(bitmap & 4),\n    value: value\n  };\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/create-property-descriptor.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/define-iterator.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/define-iterator.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js-pure/internals/export.js\");\nvar createIteratorConstructor = __webpack_require__(/*! ../internals/create-iterator-constructor */ \"./node_modules/core-js-pure/internals/create-iterator-constructor.js\");\nvar getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ \"./node_modules/core-js-pure/internals/object-get-prototype-of.js\");\nvar setPrototypeOf = __webpack_require__(/*! ../internals/object-set-prototype-of */ \"./node_modules/core-js-pure/internals/object-set-prototype-of.js\");\nvar setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ \"./node_modules/core-js-pure/internals/set-to-string-tag.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar redefine = __webpack_require__(/*! ../internals/redefine */ \"./node_modules/core-js-pure/internals/redefine.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\nvar IS_PURE = __webpack_require__(/*! ../internals/is-pure */ \"./node_modules/core-js-pure/internals/is-pure.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\nvar IteratorsCore = __webpack_require__(/*! ../internals/iterators-core */ \"./node_modules/core-js-pure/internals/iterators-core.js\");\n\nvar IteratorPrototype = IteratorsCore.IteratorPrototype;\nvar BUGGY_SAFARI_ITERATORS = IteratorsCore.BUGGY_SAFARI_ITERATORS;\nvar ITERATOR = wellKnownSymbol('iterator');\nvar KEYS = 'keys';\nvar VALUES = 'values';\nvar ENTRIES = 'entries';\n\nvar returnThis = function () { return this; };\n\nmodule.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, IS_SET, FORCED) {\n  createIteratorConstructor(IteratorConstructor, NAME, next);\n\n  var getIterationMethod = function (KIND) {\n    if (KIND === DEFAULT && defaultIterator) return defaultIterator;\n    if (!BUGGY_SAFARI_ITERATORS && KIND in IterablePrototype) return IterablePrototype[KIND];\n    switch (KIND) {\n      case KEYS: return function keys() { return new IteratorConstructor(this, KIND); };\n      case VALUES: return function values() { return new IteratorConstructor(this, KIND); };\n      case ENTRIES: return function entries() { return new IteratorConstructor(this, KIND); };\n    } return function () { return new IteratorConstructor(this); };\n  };\n\n  var TO_STRING_TAG = NAME + ' Iterator';\n  var INCORRECT_VALUES_NAME = false;\n  var IterablePrototype = Iterable.prototype;\n  var nativeIterator = IterablePrototype[ITERATOR]\n    || IterablePrototype['@@iterator']\n    || DEFAULT && IterablePrototype[DEFAULT];\n  var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);\n  var anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;\n  var CurrentIteratorPrototype, methods, KEY;\n\n  // fix native\n  if (anyNativeIterator) {\n    CurrentIteratorPrototype = getPrototypeOf(anyNativeIterator.call(new Iterable()));\n    if (IteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {\n      if (!IS_PURE && getPrototypeOf(CurrentIteratorPrototype) !== IteratorPrototype) {\n        if (setPrototypeOf) {\n          setPrototypeOf(CurrentIteratorPrototype, IteratorPrototype);\n        } else if (typeof CurrentIteratorPrototype[ITERATOR] != 'function') {\n          createNonEnumerableProperty(CurrentIteratorPrototype, ITERATOR, returnThis);\n        }\n      }\n      // Set @@toStringTag to native iterators\n      setToStringTag(CurrentIteratorPrototype, TO_STRING_TAG, true, true);\n      if (IS_PURE) Iterators[TO_STRING_TAG] = returnThis;\n    }\n  }\n\n  // fix Array#{values, @@iterator}.name in V8 / FF\n  if (DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) {\n    INCORRECT_VALUES_NAME = true;\n    defaultIterator = function values() { return nativeIterator.call(this); };\n  }\n\n  // define iterator\n  if ((!IS_PURE || FORCED) && IterablePrototype[ITERATOR] !== defaultIterator) {\n    createNonEnumerableProperty(IterablePrototype, ITERATOR, defaultIterator);\n  }\n  Iterators[NAME] = defaultIterator;\n\n  // export additional methods\n  if (DEFAULT) {\n    methods = {\n      values: getIterationMethod(VALUES),\n      keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),\n      entries: getIterationMethod(ENTRIES)\n    };\n    if (FORCED) for (KEY in methods) {\n      if (BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME || !(KEY in IterablePrototype)) {\n        redefine(IterablePrototype, KEY, methods[KEY]);\n      }\n    } else $({ target: NAME, proto: true, forced: BUGGY_SAFARI_ITERATORS || INCORRECT_VALUES_NAME }, methods);\n  }\n\n  return methods;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/define-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/descriptors.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/descriptors.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\n\n// Thank's IE8 for his funny defineProperty\nmodule.exports = !fails(function () {\n  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/descriptors.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/document-create-element.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/document-create-element.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js-pure/internals/is-object.js\");\n\nvar document = global.document;\n// typeof document.createElement is 'object' in old IE\nvar EXISTS = isObject(document) && isObject(document.createElement);\n\nmodule.exports = function (it) {\n  return EXISTS ? document.createElement(it) : {};\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/document-create-element.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/dom-iterables.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/dom-iterables.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// iterable DOM collections\n// flag - `iterable` interface - 'entries', 'keys', 'values', 'forEach' methods\nmodule.exports = {\n  CSSRuleList: 0,\n  CSSStyleDeclaration: 0,\n  CSSValueList: 0,\n  ClientRectList: 0,\n  DOMRectList: 0,\n  DOMStringList: 0,\n  DOMTokenList: 1,\n  DataTransferItemList: 0,\n  FileList: 0,\n  HTMLAllCollection: 0,\n  HTMLCollection: 0,\n  HTMLFormElement: 0,\n  HTMLSelectElement: 0,\n  MediaList: 0,\n  MimeTypeArray: 0,\n  NamedNodeMap: 0,\n  NodeList: 1,\n  PaintRequestList: 0,\n  Plugin: 0,\n  PluginArray: 0,\n  SVGLengthList: 0,\n  SVGNumberList: 0,\n  SVGPathSegList: 0,\n  SVGPointList: 0,\n  SVGStringList: 0,\n  SVGTransformList: 0,\n  SourceBufferList: 0,\n  StyleSheetList: 0,\n  TextTrackCueList: 0,\n  TextTrackList: 0,\n  TouchList: 0\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/dom-iterables.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/enum-bug-keys.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/enum-bug-keys.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// IE8- don't enum bug keys\nmodule.exports = [\n  'constructor',\n  'hasOwnProperty',\n  'isPrototypeOf',\n  'propertyIsEnumerable',\n  'toLocaleString',\n  'toString',\n  'valueOf'\n];\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/enum-bug-keys.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/export.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/export.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar getOwnPropertyDescriptor = __webpack_require__(/*! ../internals/object-get-own-property-descriptor */ \"./node_modules/core-js-pure/internals/object-get-own-property-descriptor.js\").f;\nvar isForced = __webpack_require__(/*! ../internals/is-forced */ \"./node_modules/core-js-pure/internals/is-forced.js\");\nvar path = __webpack_require__(/*! ../internals/path */ \"./node_modules/core-js-pure/internals/path.js\");\nvar bind = __webpack_require__(/*! ../internals/bind-context */ \"./node_modules/core-js-pure/internals/bind-context.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\n\nvar wrapConstructor = function (NativeConstructor) {\n  var Wrapper = function (a, b, c) {\n    if (this instanceof NativeConstructor) {\n      switch (arguments.length) {\n        case 0: return new NativeConstructor();\n        case 1: return new NativeConstructor(a);\n        case 2: return new NativeConstructor(a, b);\n      } return new NativeConstructor(a, b, c);\n    } return NativeConstructor.apply(this, arguments);\n  };\n  Wrapper.prototype = NativeConstructor.prototype;\n  return Wrapper;\n};\n\n/*\n  options.target      - name of the target object\n  options.global      - target is the global object\n  options.stat        - export as static methods of target\n  options.proto       - export as prototype methods of target\n  options.real        - real prototype method for the `pure` version\n  options.forced      - export even if the native feature is available\n  options.bind        - bind methods to the target, required for the `pure` version\n  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version\n  options.unsafe      - use the simple assignment of property instead of delete + defineProperty\n  options.sham        - add a flag to not completely full polyfills\n  options.enumerable  - export as enumerable property\n  options.noTargetGet - prevent calling a getter on target\n*/\nmodule.exports = function (options, source) {\n  var TARGET = options.target;\n  var GLOBAL = options.global;\n  var STATIC = options.stat;\n  var PROTO = options.proto;\n\n  var nativeSource = GLOBAL ? global : STATIC ? global[TARGET] : (global[TARGET] || {}).prototype;\n\n  var target = GLOBAL ? path : path[TARGET] || (path[TARGET] = {});\n  var targetPrototype = target.prototype;\n\n  var FORCED, USE_NATIVE, VIRTUAL_PROTOTYPE;\n  var key, sourceProperty, targetProperty, nativeProperty, resultProperty, descriptor;\n\n  for (key in source) {\n    FORCED = isForced(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);\n    // contains in native\n    USE_NATIVE = !FORCED && nativeSource && has(nativeSource, key);\n\n    targetProperty = target[key];\n\n    if (USE_NATIVE) if (options.noTargetGet) {\n      descriptor = getOwnPropertyDescriptor(nativeSource, key);\n      nativeProperty = descriptor && descriptor.value;\n    } else nativeProperty = nativeSource[key];\n\n    // export native or implementation\n    sourceProperty = (USE_NATIVE && nativeProperty) ? nativeProperty : source[key];\n\n    if (USE_NATIVE && typeof targetProperty === typeof sourceProperty) continue;\n\n    // bind timers to global for call from export context\n    if (options.bind && USE_NATIVE) resultProperty = bind(sourceProperty, global);\n    // wrap global constructors for prevent changs in this version\n    else if (options.wrap && USE_NATIVE) resultProperty = wrapConstructor(sourceProperty);\n    // make static versions for prototype methods\n    else if (PROTO && typeof sourceProperty == 'function') resultProperty = bind(Function.call, sourceProperty);\n    // default case\n    else resultProperty = sourceProperty;\n\n    // add a flag to not completely full polyfills\n    if (options.sham || (sourceProperty && sourceProperty.sham) || (targetProperty && targetProperty.sham)) {\n      createNonEnumerableProperty(resultProperty, 'sham', true);\n    }\n\n    target[key] = resultProperty;\n\n    if (PROTO) {\n      VIRTUAL_PROTOTYPE = TARGET + 'Prototype';\n      if (!has(path, VIRTUAL_PROTOTYPE)) {\n        createNonEnumerableProperty(path, VIRTUAL_PROTOTYPE, {});\n      }\n      // export virtual prototype methods\n      path[VIRTUAL_PROTOTYPE][key] = sourceProperty;\n      // export real prototype methods\n      if (options.real && targetPrototype && !targetPrototype[key]) {\n        createNonEnumerableProperty(targetPrototype, key, sourceProperty);\n      }\n    }\n  }\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/export.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/fails.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/fails.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function (exec) {\n  try {\n    return !!exec();\n  } catch (error) {\n    return true;\n  }\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/fails.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/function-to-string.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/function-to-string.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var shared = __webpack_require__(/*! ../internals/shared */ \"./node_modules/core-js-pure/internals/shared.js\");\n\nmodule.exports = shared('native-function-to-string', Function.toString);\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/function-to-string.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/get-built-in.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/get-built-in.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var path = __webpack_require__(/*! ../internals/path */ \"./node_modules/core-js-pure/internals/path.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\n\nvar aFunction = function (variable) {\n  return typeof variable == 'function' ? variable : undefined;\n};\n\nmodule.exports = function (namespace, method) {\n  return arguments.length < 2 ? aFunction(path[namespace]) || aFunction(global[namespace])\n    : path[namespace] && path[namespace][method] || global[namespace] && global[namespace][method];\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/get-built-in.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/get-iterator-method.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/get-iterator-method.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classof = __webpack_require__(/*! ../internals/classof */ \"./node_modules/core-js-pure/internals/classof.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar ITERATOR = wellKnownSymbol('iterator');\n\nmodule.exports = function (it) {\n  if (it != undefined) return it[ITERATOR]\n    || it['@@iterator']\n    || Iterators[classof(it)];\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/get-iterator-method.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/get-iterator.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/get-iterator.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/core-js-pure/internals/an-object.js\");\nvar getIteratorMethod = __webpack_require__(/*! ../internals/get-iterator-method */ \"./node_modules/core-js-pure/internals/get-iterator-method.js\");\n\nmodule.exports = function (it) {\n  var iteratorMethod = getIteratorMethod(it);\n  if (typeof iteratorMethod != 'function') {\n    throw TypeError(String(it) + ' is not iterable');\n  } return anObject(iteratorMethod.call(it));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/get-iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/global.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/global.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/* WEBPACK VAR INJECTION */(function(global) {var check = function (it) {\n  return it && it.Math == Math && it;\n};\n\n// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028\nmodule.exports =\n  // eslint-disable-next-line no-undef\n  check(typeof globalThis == 'object' && globalThis) ||\n  check(typeof window == 'object' && window) ||\n  check(typeof self == 'object' && self) ||\n  check(typeof global == 'object' && global) ||\n  // eslint-disable-next-line no-new-func\n  Function('return this')();\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ \"./node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/global.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/has.js":
+/*!****************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/has.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var hasOwnProperty = {}.hasOwnProperty;\n\nmodule.exports = function (it, key) {\n  return hasOwnProperty.call(it, key);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/has.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/hidden-keys.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/hidden-keys.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/hidden-keys.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/html.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/html.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var getBuiltIn = __webpack_require__(/*! ../internals/get-built-in */ \"./node_modules/core-js-pure/internals/get-built-in.js\");\n\nmodule.exports = getBuiltIn('document', 'documentElement');\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/html.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/ie8-dom-define.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/ie8-dom-define.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js-pure/internals/descriptors.js\");\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\nvar createElement = __webpack_require__(/*! ../internals/document-create-element */ \"./node_modules/core-js-pure/internals/document-create-element.js\");\n\n// Thank's IE8 for his funny defineProperty\nmodule.exports = !DESCRIPTORS && !fails(function () {\n  return Object.defineProperty(createElement('div'), 'a', {\n    get: function () { return 7; }\n  }).a != 7;\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/ie8-dom-define.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/indexed-object.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/indexed-object.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\nvar classof = __webpack_require__(/*! ../internals/classof-raw */ \"./node_modules/core-js-pure/internals/classof-raw.js\");\n\nvar split = ''.split;\n\n// fallback for non-array-like ES3 and non-enumerable old V8 strings\nmodule.exports = fails(function () {\n  // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346\n  // eslint-disable-next-line no-prototype-builtins\n  return !Object('z').propertyIsEnumerable(0);\n}) ? function (it) {\n  return classof(it) == 'String' ? split.call(it, '') : Object(it);\n} : Object;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/indexed-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/internal-state.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/internal-state.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/native-weak-map */ \"./node_modules/core-js-pure/internals/native-weak-map.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js-pure/internals/is-object.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar objectHas = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar sharedKey = __webpack_require__(/*! ../internals/shared-key */ \"./node_modules/core-js-pure/internals/shared-key.js\");\nvar hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ \"./node_modules/core-js-pure/internals/hidden-keys.js\");\n\nvar WeakMap = global.WeakMap;\nvar set, get, has;\n\nvar enforce = function (it) {\n  return has(it) ? get(it) : set(it, {});\n};\n\nvar getterFor = function (TYPE) {\n  return function (it) {\n    var state;\n    if (!isObject(it) || (state = get(it)).type !== TYPE) {\n      throw TypeError('Incompatible receiver, ' + TYPE + ' required');\n    } return state;\n  };\n};\n\nif (NATIVE_WEAK_MAP) {\n  var store = new WeakMap();\n  var wmget = store.get;\n  var wmhas = store.has;\n  var wmset = store.set;\n  set = function (it, metadata) {\n    wmset.call(store, it, metadata);\n    return metadata;\n  };\n  get = function (it) {\n    return wmget.call(store, it) || {};\n  };\n  has = function (it) {\n    return wmhas.call(store, it);\n  };\n} else {\n  var STATE = sharedKey('state');\n  hiddenKeys[STATE] = true;\n  set = function (it, metadata) {\n    createNonEnumerableProperty(it, STATE, metadata);\n    return metadata;\n  };\n  get = function (it) {\n    return objectHas(it, STATE) ? it[STATE] : {};\n  };\n  has = function (it) {\n    return objectHas(it, STATE);\n  };\n}\n\nmodule.exports = {\n  set: set,\n  get: get,\n  has: has,\n  enforce: enforce,\n  getterFor: getterFor\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/internal-state.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/is-array.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/is-array.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classof = __webpack_require__(/*! ../internals/classof-raw */ \"./node_modules/core-js-pure/internals/classof-raw.js\");\n\n// `IsArray` abstract operation\n// https://tc39.github.io/ecma262/#sec-isarray\nmodule.exports = Array.isArray || function isArray(arg) {\n  return classof(arg) == 'Array';\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/is-array.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/is-forced.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/is-forced.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\n\nvar replacement = /#|\\.prototype\\./;\n\nvar isForced = function (feature, detection) {\n  var value = data[normalize(feature)];\n  return value == POLYFILL ? true\n    : value == NATIVE ? false\n    : typeof detection == 'function' ? fails(detection)\n    : !!detection;\n};\n\nvar normalize = isForced.normalize = function (string) {\n  return String(string).replace(replacement, '.').toLowerCase();\n};\n\nvar data = isForced.data = {};\nvar NATIVE = isForced.NATIVE = 'N';\nvar POLYFILL = isForced.POLYFILL = 'P';\n\nmodule.exports = isForced;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/is-forced.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/is-iterable.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/is-iterable.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var classof = __webpack_require__(/*! ../internals/classof */ \"./node_modules/core-js-pure/internals/classof.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\n\nvar ITERATOR = wellKnownSymbol('iterator');\n\nmodule.exports = function (it) {\n  var O = Object(it);\n  return O[ITERATOR] !== undefined\n    || '@@iterator' in O\n    // eslint-disable-next-line no-prototype-builtins\n    || Iterators.hasOwnProperty(classof(O));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/is-iterable.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/is-object.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/is-object.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function (it) {\n  return typeof it === 'object' ? it !== null : typeof it === 'function';\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/is-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/is-pure.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/is-pure.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = true;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/is-pure.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/iterators-core.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/iterators-core.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar getPrototypeOf = __webpack_require__(/*! ../internals/object-get-prototype-of */ \"./node_modules/core-js-pure/internals/object-get-prototype-of.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\nvar IS_PURE = __webpack_require__(/*! ../internals/is-pure */ \"./node_modules/core-js-pure/internals/is-pure.js\");\n\nvar ITERATOR = wellKnownSymbol('iterator');\nvar BUGGY_SAFARI_ITERATORS = false;\n\nvar returnThis = function () { return this; };\n\n// `%IteratorPrototype%` object\n// https://tc39.github.io/ecma262/#sec-%iteratorprototype%-object\nvar IteratorPrototype, PrototypeOfArrayIteratorPrototype, arrayIterator;\n\nif ([].keys) {\n  arrayIterator = [].keys();\n  // Safari 8 has buggy iterators w/o `next`\n  if (!('next' in arrayIterator)) BUGGY_SAFARI_ITERATORS = true;\n  else {\n    PrototypeOfArrayIteratorPrototype = getPrototypeOf(getPrototypeOf(arrayIterator));\n    if (PrototypeOfArrayIteratorPrototype !== Object.prototype) IteratorPrototype = PrototypeOfArrayIteratorPrototype;\n  }\n}\n\nif (IteratorPrototype == undefined) IteratorPrototype = {};\n\n// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()\nif (!IS_PURE && !has(IteratorPrototype, ITERATOR)) {\n  createNonEnumerableProperty(IteratorPrototype, ITERATOR, returnThis);\n}\n\nmodule.exports = {\n  IteratorPrototype: IteratorPrototype,\n  BUGGY_SAFARI_ITERATORS: BUGGY_SAFARI_ITERATORS\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/iterators-core.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/iterators.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/iterators.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/iterators.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/native-symbol.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/native-symbol.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js-pure/internals/fails.js\");\n\nmodule.exports = !!Object.getOwnPropertySymbols && !fails(function () {\n  // Chrome 38 Symbol has incorrect toString conversion\n  // eslint-disable-next-line no-undef\n  return !String(Symbol());\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/native-symbol.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/native-weak-map.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/native-weak-map.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar nativeFunctionToString = __webpack_require__(/*! ../internals/function-to-string */ \"./node_modules/core-js-pure/internals/function-to-string.js\");\n\nvar WeakMap = global.WeakMap;\n\nmodule.exports = typeof WeakMap === 'function' && /native code/.test(nativeFunctionToString.call(WeakMap));\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/native-weak-map.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-create.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-create.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/core-js-pure/internals/an-object.js\");\nvar defineProperties = __webpack_require__(/*! ../internals/object-define-properties */ \"./node_modules/core-js-pure/internals/object-define-properties.js\");\nvar enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ \"./node_modules/core-js-pure/internals/enum-bug-keys.js\");\nvar hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ \"./node_modules/core-js-pure/internals/hidden-keys.js\");\nvar html = __webpack_require__(/*! ../internals/html */ \"./node_modules/core-js-pure/internals/html.js\");\nvar documentCreateElement = __webpack_require__(/*! ../internals/document-create-element */ \"./node_modules/core-js-pure/internals/document-create-element.js\");\nvar sharedKey = __webpack_require__(/*! ../internals/shared-key */ \"./node_modules/core-js-pure/internals/shared-key.js\");\nvar IE_PROTO = sharedKey('IE_PROTO');\n\nvar PROTOTYPE = 'prototype';\nvar Empty = function () { /* empty */ };\n\n// Create object with fake `null` prototype: use iframe Object with cleared prototype\nvar createDict = function () {\n  // Thrash, waste and sodomy: IE GC bug\n  var iframe = documentCreateElement('iframe');\n  var length = enumBugKeys.length;\n  var lt = '<';\n  var script = 'script';\n  var gt = '>';\n  var js = 'java' + script + ':';\n  var iframeDocument;\n  iframe.style.display = 'none';\n  html.appendChild(iframe);\n  iframe.src = String(js);\n  iframeDocument = iframe.contentWindow.document;\n  iframeDocument.open();\n  iframeDocument.write(lt + script + gt + 'document.F=Object' + lt + '/' + script + gt);\n  iframeDocument.close();\n  createDict = iframeDocument.F;\n  while (length--) delete createDict[PROTOTYPE][enumBugKeys[length]];\n  return createDict();\n};\n\n// `Object.create` method\n// https://tc39.github.io/ecma262/#sec-object.create\nmodule.exports = Object.create || function create(O, Properties) {\n  var result;\n  if (O !== null) {\n    Empty[PROTOTYPE] = anObject(O);\n    result = new Empty();\n    Empty[PROTOTYPE] = null;\n    // add \"__proto__\" for Object.getPrototypeOf polyfill\n    result[IE_PROTO] = O;\n  } else result = createDict();\n  return Properties === undefined ? result : defineProperties(result, Properties);\n};\n\nhiddenKeys[IE_PROTO] = true;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-create.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-define-properties.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-define-properties.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js-pure/internals/descriptors.js\");\nvar definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ \"./node_modules/core-js-pure/internals/object-define-property.js\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/core-js-pure/internals/an-object.js\");\nvar objectKeys = __webpack_require__(/*! ../internals/object-keys */ \"./node_modules/core-js-pure/internals/object-keys.js\");\n\n// `Object.defineProperties` method\n// https://tc39.github.io/ecma262/#sec-object.defineproperties\nmodule.exports = DESCRIPTORS ? Object.defineProperties : function defineProperties(O, Properties) {\n  anObject(O);\n  var keys = objectKeys(Properties);\n  var length = keys.length;\n  var index = 0;\n  var key;\n  while (length > index) definePropertyModule.f(O, key = keys[index++], Properties[key]);\n  return O;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-define-properties.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-define-property.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-define-property.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js-pure/internals/descriptors.js\");\nvar IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ \"./node_modules/core-js-pure/internals/ie8-dom-define.js\");\nvar anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/core-js-pure/internals/an-object.js\");\nvar toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ \"./node_modules/core-js-pure/internals/to-primitive.js\");\n\nvar nativeDefineProperty = Object.defineProperty;\n\n// `Object.defineProperty` method\n// https://tc39.github.io/ecma262/#sec-object.defineproperty\nexports.f = DESCRIPTORS ? nativeDefineProperty : function defineProperty(O, P, Attributes) {\n  anObject(O);\n  P = toPrimitive(P, true);\n  anObject(Attributes);\n  if (IE8_DOM_DEFINE) try {\n    return nativeDefineProperty(O, P, Attributes);\n  } catch (error) { /* empty */ }\n  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported');\n  if ('value' in Attributes) O[P] = Attributes.value;\n  return O;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-define-property.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-get-own-property-descriptor.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-get-own-property-descriptor.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js-pure/internals/descriptors.js\");\nvar propertyIsEnumerableModule = __webpack_require__(/*! ../internals/object-property-is-enumerable */ \"./node_modules/core-js-pure/internals/object-property-is-enumerable.js\");\nvar createPropertyDescriptor = __webpack_require__(/*! ../internals/create-property-descriptor */ \"./node_modules/core-js-pure/internals/create-property-descriptor.js\");\nvar toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js-pure/internals/to-indexed-object.js\");\nvar toPrimitive = __webpack_require__(/*! ../internals/to-primitive */ \"./node_modules/core-js-pure/internals/to-primitive.js\");\nvar has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ \"./node_modules/core-js-pure/internals/ie8-dom-define.js\");\n\nvar nativeGetOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;\n\n// `Object.getOwnPropertyDescriptor` method\n// https://tc39.github.io/ecma262/#sec-object.getownpropertydescriptor\nexports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {\n  O = toIndexedObject(O);\n  P = toPrimitive(P, true);\n  if (IE8_DOM_DEFINE) try {\n    return nativeGetOwnPropertyDescriptor(O, P);\n  } catch (error) { /* empty */ }\n  if (has(O, P)) return createPropertyDescriptor(!propertyIsEnumerableModule.f.call(O, P), O[P]);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-get-own-property-descriptor.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-get-prototype-of.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-get-prototype-of.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar toObject = __webpack_require__(/*! ../internals/to-object */ \"./node_modules/core-js-pure/internals/to-object.js\");\nvar sharedKey = __webpack_require__(/*! ../internals/shared-key */ \"./node_modules/core-js-pure/internals/shared-key.js\");\nvar CORRECT_PROTOTYPE_GETTER = __webpack_require__(/*! ../internals/correct-prototype-getter */ \"./node_modules/core-js-pure/internals/correct-prototype-getter.js\");\n\nvar IE_PROTO = sharedKey('IE_PROTO');\nvar ObjectPrototype = Object.prototype;\n\n// `Object.getPrototypeOf` method\n// https://tc39.github.io/ecma262/#sec-object.getprototypeof\nmodule.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O) {\n  O = toObject(O);\n  if (has(O, IE_PROTO)) return O[IE_PROTO];\n  if (typeof O.constructor == 'function' && O instanceof O.constructor) {\n    return O.constructor.prototype;\n  } return O instanceof Object ? ObjectPrototype : null;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-get-prototype-of.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-keys-internal.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-keys-internal.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js-pure/internals/to-indexed-object.js\");\nvar indexOf = __webpack_require__(/*! ../internals/array-includes */ \"./node_modules/core-js-pure/internals/array-includes.js\").indexOf;\nvar hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ \"./node_modules/core-js-pure/internals/hidden-keys.js\");\n\nmodule.exports = function (object, names) {\n  var O = toIndexedObject(object);\n  var i = 0;\n  var result = [];\n  var key;\n  for (key in O) !has(hiddenKeys, key) && has(O, key) && result.push(key);\n  // Don't enum bug & hidden keys\n  while (names.length > i) if (has(O, key = names[i++])) {\n    ~indexOf(result, key) || result.push(key);\n  }\n  return result;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-keys-internal.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-keys.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-keys.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var internalObjectKeys = __webpack_require__(/*! ../internals/object-keys-internal */ \"./node_modules/core-js-pure/internals/object-keys-internal.js\");\nvar enumBugKeys = __webpack_require__(/*! ../internals/enum-bug-keys */ \"./node_modules/core-js-pure/internals/enum-bug-keys.js\");\n\n// `Object.keys` method\n// https://tc39.github.io/ecma262/#sec-object.keys\nmodule.exports = Object.keys || function keys(O) {\n  return internalObjectKeys(O, enumBugKeys);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-keys.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-property-is-enumerable.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-property-is-enumerable.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar nativePropertyIsEnumerable = {}.propertyIsEnumerable;\nvar getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;\n\n// Nashorn ~ JDK8 bug\nvar NASHORN_BUG = getOwnPropertyDescriptor && !nativePropertyIsEnumerable.call({ 1: 2 }, 1);\n\n// `Object.prototype.propertyIsEnumerable` method implementation\n// https://tc39.github.io/ecma262/#sec-object.prototype.propertyisenumerable\nexports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {\n  var descriptor = getOwnPropertyDescriptor(this, V);\n  return !!descriptor && descriptor.enumerable;\n} : nativePropertyIsEnumerable;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-property-is-enumerable.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-set-prototype-of.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-set-prototype-of.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_modules/core-js-pure/internals/an-object.js\");\nvar aPossiblePrototype = __webpack_require__(/*! ../internals/a-possible-prototype */ \"./node_modules/core-js-pure/internals/a-possible-prototype.js\");\n\n// `Object.setPrototypeOf` method\n// https://tc39.github.io/ecma262/#sec-object.setprototypeof\n// Works with __proto__ only. Old v8 can't work with null proto objects.\n/* eslint-disable no-proto */\nmodule.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {\n  var CORRECT_SETTER = false;\n  var test = {};\n  var setter;\n  try {\n    setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;\n    setter.call(test, []);\n    CORRECT_SETTER = test instanceof Array;\n  } catch (error) { /* empty */ }\n  return function setPrototypeOf(O, proto) {\n    anObject(O);\n    aPossiblePrototype(proto);\n    if (CORRECT_SETTER) setter.call(O, proto);\n    else O.__proto__ = proto;\n    return O;\n  };\n}() : undefined);\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-set-prototype-of.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/object-to-string.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/object-to-string.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar classof = __webpack_require__(/*! ../internals/classof */ \"./node_modules/core-js-pure/internals/classof.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar TO_STRING_TAG = wellKnownSymbol('toStringTag');\nvar test = {};\n\ntest[TO_STRING_TAG] = 'z';\n\n// `Object.prototype.toString` method implementation\n// https://tc39.github.io/ecma262/#sec-object.prototype.tostring\nmodule.exports = String(test) !== '[object z]' ? function toString() {\n  return '[object ' + classof(this) + ']';\n} : test.toString;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/object-to-string.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/path.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/path.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/path.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/redefine.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/redefine.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\n\nmodule.exports = function (target, key, value, options) {\n  if (options && options.enumerable) target[key] = value;\n  else createNonEnumerableProperty(target, key, value);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/redefine.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/require-object-coercible.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/require-object-coercible.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// `RequireObjectCoercible` abstract operation\n// https://tc39.github.io/ecma262/#sec-requireobjectcoercible\nmodule.exports = function (it) {\n  if (it == undefined) throw TypeError(\"Can't call method on \" + it);\n  return it;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/require-object-coercible.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/set-global.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/set-global.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\n\nmodule.exports = function (key, value) {\n  try {\n    createNonEnumerableProperty(global, key, value);\n  } catch (error) {\n    global[key] = value;\n  } return value;\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/set-global.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/set-to-string-tag.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/set-to-string-tag.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ \"./node_modules/core-js-pure/internals/object-define-property.js\").f;\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar has = __webpack_require__(/*! ../internals/has */ \"./node_modules/core-js-pure/internals/has.js\");\nvar toString = __webpack_require__(/*! ../internals/object-to-string */ \"./node_modules/core-js-pure/internals/object-to-string.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar TO_STRING_TAG = wellKnownSymbol('toStringTag');\nvar METHOD_REQUIRED = toString !== ({}).toString;\n\nmodule.exports = function (it, TAG, STATIC, SET_METHOD) {\n  if (it) {\n    var target = STATIC ? it : it.prototype;\n    if (!has(target, TO_STRING_TAG)) {\n      defineProperty(target, TO_STRING_TAG, { configurable: true, value: TAG });\n    }\n    if (SET_METHOD && METHOD_REQUIRED) {\n      createNonEnumerableProperty(target, 'toString', toString);\n    }\n  }\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/set-to-string-tag.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/shared-key.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/shared-key.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var shared = __webpack_require__(/*! ../internals/shared */ \"./node_modules/core-js-pure/internals/shared.js\");\nvar uid = __webpack_require__(/*! ../internals/uid */ \"./node_modules/core-js-pure/internals/uid.js\");\n\nvar keys = shared('keys');\n\nmodule.exports = function (key) {\n  return keys[key] || (keys[key] = uid(key));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/shared-key.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/shared-store.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/shared-store.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar setGlobal = __webpack_require__(/*! ../internals/set-global */ \"./node_modules/core-js-pure/internals/set-global.js\");\n\nvar SHARED = '__core-js_shared__';\nvar store = global[SHARED] || setGlobal(SHARED, {});\n\nmodule.exports = store;\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/shared-store.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/shared.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/shared.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var IS_PURE = __webpack_require__(/*! ../internals/is-pure */ \"./node_modules/core-js-pure/internals/is-pure.js\");\nvar store = __webpack_require__(/*! ../internals/shared-store */ \"./node_modules/core-js-pure/internals/shared-store.js\");\n\n(module.exports = function (key, value) {\n  return store[key] || (store[key] = value !== undefined ? value : {});\n})('versions', []).push({\n  version: '3.4.1',\n  mode: IS_PURE ? 'pure' : 'global',\n  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/shared.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/string-multibyte.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/string-multibyte.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toInteger = __webpack_require__(/*! ../internals/to-integer */ \"./node_modules/core-js-pure/internals/to-integer.js\");\nvar requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ \"./node_modules/core-js-pure/internals/require-object-coercible.js\");\n\n// `String.prototype.{ codePointAt, at }` methods implementation\nvar createMethod = function (CONVERT_TO_STRING) {\n  return function ($this, pos) {\n    var S = String(requireObjectCoercible($this));\n    var position = toInteger(pos);\n    var size = S.length;\n    var first, second;\n    if (position < 0 || position >= size) return CONVERT_TO_STRING ? '' : undefined;\n    first = S.charCodeAt(position);\n    return first < 0xD800 || first > 0xDBFF || position + 1 === size\n      || (second = S.charCodeAt(position + 1)) < 0xDC00 || second > 0xDFFF\n        ? CONVERT_TO_STRING ? S.charAt(position) : first\n        : CONVERT_TO_STRING ? S.slice(position, position + 2) : (first - 0xD800 << 10) + (second - 0xDC00) + 0x10000;\n  };\n};\n\nmodule.exports = {\n  // `String.prototype.codePointAt` method\n  // https://tc39.github.io/ecma262/#sec-string.prototype.codepointat\n  codeAt: createMethod(false),\n  // `String.prototype.at` method\n  // https://github.com/mathiasbynens/String.prototype.at\n  charAt: createMethod(true)\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/string-multibyte.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-absolute-index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-absolute-index.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toInteger = __webpack_require__(/*! ../internals/to-integer */ \"./node_modules/core-js-pure/internals/to-integer.js\");\n\nvar max = Math.max;\nvar min = Math.min;\n\n// Helper for a popular repeating case of the spec:\n// Let integer be ? ToInteger(index).\n// If integer < 0, let result be max((length + integer), 0); else let result be min(length, length).\nmodule.exports = function (index, length) {\n  var integer = toInteger(index);\n  return integer < 0 ? max(integer + length, 0) : min(integer, length);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-absolute-index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-indexed-object.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-indexed-object.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// toObject with fallback for non-array-like ES3 strings\nvar IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ \"./node_modules/core-js-pure/internals/indexed-object.js\");\nvar requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ \"./node_modules/core-js-pure/internals/require-object-coercible.js\");\n\nmodule.exports = function (it) {\n  return IndexedObject(requireObjectCoercible(it));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-indexed-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-integer.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-integer.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var ceil = Math.ceil;\nvar floor = Math.floor;\n\n// `ToInteger` abstract operation\n// https://tc39.github.io/ecma262/#sec-tointeger\nmodule.exports = function (argument) {\n  return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-integer.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-length.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-length.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var toInteger = __webpack_require__(/*! ../internals/to-integer */ \"./node_modules/core-js-pure/internals/to-integer.js\");\n\nvar min = Math.min;\n\n// `ToLength` abstract operation\n// https://tc39.github.io/ecma262/#sec-tolength\nmodule.exports = function (argument) {\n  return argument > 0 ? min(toInteger(argument), 0x1FFFFFFFFFFFFF) : 0; // 2 ** 53 - 1 == 9007199254740991\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-length.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-object.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-object.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ \"./node_modules/core-js-pure/internals/require-object-coercible.js\");\n\n// `ToObject` abstract operation\n// https://tc39.github.io/ecma262/#sec-toobject\nmodule.exports = function (argument) {\n  return Object(requireObjectCoercible(argument));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-object.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/to-primitive.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/to-primitive.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js-pure/internals/is-object.js\");\n\n// `ToPrimitive` abstract operation\n// https://tc39.github.io/ecma262/#sec-toprimitive\n// instead of the ES6 spec version, we didn't implement @@toPrimitive case\n// and the second argument - flag - preferred type is a string\nmodule.exports = function (input, PREFERRED_STRING) {\n  if (!isObject(input)) return input;\n  var fn, val;\n  if (PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;\n  if (typeof (fn = input.valueOf) == 'function' && !isObject(val = fn.call(input))) return val;\n  if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;\n  throw TypeError(\"Can't convert object to primitive value\");\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/to-primitive.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/uid.js":
+/*!****************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/uid.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var id = 0;\nvar postfix = Math.random();\n\nmodule.exports = function (key) {\n  return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/uid.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/internals/well-known-symbol.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js-pure/internals/well-known-symbol.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar shared = __webpack_require__(/*! ../internals/shared */ \"./node_modules/core-js-pure/internals/shared.js\");\nvar uid = __webpack_require__(/*! ../internals/uid */ \"./node_modules/core-js-pure/internals/uid.js\");\nvar NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ \"./node_modules/core-js-pure/internals/native-symbol.js\");\n\nvar Symbol = global.Symbol;\nvar store = shared('wks');\n\nmodule.exports = function (name) {\n  return store[name] || (store[name] = NATIVE_SYMBOL && Symbol[name]\n    || (NATIVE_SYMBOL ? Symbol : uid)('Symbol.' + name));\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/internals/well-known-symbol.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/es.array.is-array.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.array.is-array.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js-pure/internals/export.js\");\nvar isArray = __webpack_require__(/*! ../internals/is-array */ \"./node_modules/core-js-pure/internals/is-array.js\");\n\n// `Array.isArray` method\n// https://tc39.github.io/ecma262/#sec-array.isarray\n$({ target: 'Array', stat: true }, {\n  isArray: isArray\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/modules/es.array.is-array.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/es.array.iterator.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.array.iterator.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js-pure/internals/to-indexed-object.js\");\nvar addToUnscopables = __webpack_require__(/*! ../internals/add-to-unscopables */ \"./node_modules/core-js-pure/internals/add-to-unscopables.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\nvar InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ \"./node_modules/core-js-pure/internals/internal-state.js\");\nvar defineIterator = __webpack_require__(/*! ../internals/define-iterator */ \"./node_modules/core-js-pure/internals/define-iterator.js\");\n\nvar ARRAY_ITERATOR = 'Array Iterator';\nvar setInternalState = InternalStateModule.set;\nvar getInternalState = InternalStateModule.getterFor(ARRAY_ITERATOR);\n\n// `Array.prototype.entries` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.entries\n// `Array.prototype.keys` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.keys\n// `Array.prototype.values` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.values\n// `Array.prototype[@@iterator]` method\n// https://tc39.github.io/ecma262/#sec-array.prototype-@@iterator\n// `CreateArrayIterator` internal method\n// https://tc39.github.io/ecma262/#sec-createarrayiterator\nmodule.exports = defineIterator(Array, 'Array', function (iterated, kind) {\n  setInternalState(this, {\n    type: ARRAY_ITERATOR,\n    target: toIndexedObject(iterated), // target\n    index: 0,                          // next index\n    kind: kind                         // kind\n  });\n// `%ArrayIteratorPrototype%.next` method\n// https://tc39.github.io/ecma262/#sec-%arrayiteratorprototype%.next\n}, function () {\n  var state = getInternalState(this);\n  var target = state.target;\n  var kind = state.kind;\n  var index = state.index++;\n  if (!target || index >= target.length) {\n    state.target = undefined;\n    return { value: undefined, done: true };\n  }\n  if (kind == 'keys') return { value: index, done: false };\n  if (kind == 'values') return { value: target[index], done: false };\n  return { value: [index, target[index]], done: false };\n}, 'values');\n\n// argumentsList[@@iterator] is %ArrayProto_values%\n// https://tc39.github.io/ecma262/#sec-createunmappedargumentsobject\n// https://tc39.github.io/ecma262/#sec-createmappedargumentsobject\nIterators.Arguments = Iterators.Array;\n\n// https://tc39.github.io/ecma262/#sec-array.prototype-@@unscopables\naddToUnscopables('keys');\naddToUnscopables('values');\naddToUnscopables('entries');\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/modules/es.array.iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/es.string.iterator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.string.iterator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar charAt = __webpack_require__(/*! ../internals/string-multibyte */ \"./node_modules/core-js-pure/internals/string-multibyte.js\").charAt;\nvar InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ \"./node_modules/core-js-pure/internals/internal-state.js\");\nvar defineIterator = __webpack_require__(/*! ../internals/define-iterator */ \"./node_modules/core-js-pure/internals/define-iterator.js\");\n\nvar STRING_ITERATOR = 'String Iterator';\nvar setInternalState = InternalStateModule.set;\nvar getInternalState = InternalStateModule.getterFor(STRING_ITERATOR);\n\n// `String.prototype[@@iterator]` method\n// https://tc39.github.io/ecma262/#sec-string.prototype-@@iterator\ndefineIterator(String, 'String', function (iterated) {\n  setInternalState(this, {\n    type: STRING_ITERATOR,\n    string: String(iterated),\n    index: 0\n  });\n// `%StringIteratorPrototype%.next` method\n// https://tc39.github.io/ecma262/#sec-%stringiteratorprototype%.next\n}, function next() {\n  var state = getInternalState(this);\n  var string = state.string;\n  var index = state.index;\n  var point;\n  if (index >= string.length) return { value: undefined, done: true };\n  point = charAt(string, index);\n  state.index += point.length;\n  return { value: point, done: false };\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/modules/es.string.iterator.js?");
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/modules/web.dom-collections.iterator.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/web.dom-collections.iterator.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ./es.array.iterator */ \"./node_modules/core-js-pure/modules/es.array.iterator.js\");\nvar DOMIterables = __webpack_require__(/*! ../internals/dom-iterables */ \"./node_modules/core-js-pure/internals/dom-iterables.js\");\nvar global = __webpack_require__(/*! ../internals/global */ \"./node_modules/core-js-pure/internals/global.js\");\nvar createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ \"./node_modules/core-js-pure/internals/create-non-enumerable-property.js\");\nvar Iterators = __webpack_require__(/*! ../internals/iterators */ \"./node_modules/core-js-pure/internals/iterators.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js-pure/internals/well-known-symbol.js\");\n\nvar TO_STRING_TAG = wellKnownSymbol('toStringTag');\n\nfor (var COLLECTION_NAME in DOMIterables) {\n  var Collection = global[COLLECTION_NAME];\n  var CollectionPrototype = Collection && Collection.prototype;\n  if (CollectionPrototype && !CollectionPrototype[TO_STRING_TAG]) {\n    createNonEnumerableProperty(CollectionPrototype, TO_STRING_TAG, COLLECTION_NAME);\n  }\n  Iterators[COLLECTION_NAME] = Iterators.Array;\n}\n\n\n//# sourceURL=webpack:///./node_modules/core-js-pure/modules/web.dom-collections.iterator.js?");
 
 /***/ }),
 
@@ -397,17 +1324,6 @@ eval("var bind = __webpack_require__(/*! ../internals/bind-context */ \"./node_m
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js/internals/fails.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js/internals/well-known-symbol.js\");\nvar V8_VERSION = __webpack_require__(/*! ../internals/v8-version */ \"./node_modules/core-js/internals/v8-version.js\");\n\nvar SPECIES = wellKnownSymbol('species');\n\nmodule.exports = function (METHOD_NAME) {\n  // We can't use this feature detection in V8 since it causes\n  // deoptimization and serious performance degradation\n  // https://github.com/zloirock/core-js/issues/677\n  return V8_VERSION >= 51 || !fails(function () {\n    var array = [];\n    var constructor = array.constructor = {};\n    constructor[SPECIES] = function () {\n      return { foo: 1 };\n    };\n    return array[METHOD_NAME](Boolean).foo !== 1;\n  });\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/internals/array-method-has-species-support.js?");
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/array-reduce.js":
-/*!********************************************************!*\
-  !*** ./node_modules/core-js/internals/array-reduce.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var aFunction = __webpack_require__(/*! ../internals/a-function */ \"./node_modules/core-js/internals/a-function.js\");\nvar toObject = __webpack_require__(/*! ../internals/to-object */ \"./node_modules/core-js/internals/to-object.js\");\nvar IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ \"./node_modules/core-js/internals/indexed-object.js\");\nvar toLength = __webpack_require__(/*! ../internals/to-length */ \"./node_modules/core-js/internals/to-length.js\");\n\n// `Array.prototype.{ reduce, reduceRight }` methods implementation\nvar createMethod = function (IS_RIGHT) {\n  return function (that, callbackfn, argumentsLength, memo) {\n    aFunction(callbackfn);\n    var O = toObject(that);\n    var self = IndexedObject(O);\n    var length = toLength(O.length);\n    var index = IS_RIGHT ? length - 1 : 0;\n    var i = IS_RIGHT ? -1 : 1;\n    if (argumentsLength < 2) while (true) {\n      if (index in self) {\n        memo = self[index];\n        index += i;\n        break;\n      }\n      index += i;\n      if (IS_RIGHT ? index < 0 : length <= index) {\n        throw TypeError('Reduce of empty array with no initial value');\n      }\n    }\n    for (;IS_RIGHT ? index >= 0 : length > index; index += i) if (index in self) {\n      memo = callbackfn(memo, self[index], index, O);\n    }\n    return memo;\n  };\n};\n\nmodule.exports = {\n  // `Array.prototype.reduce` method\n  // https://tc39.github.io/ecma262/#sec-array.prototype.reduce\n  left: createMethod(false),\n  // `Array.prototype.reduceRight` method\n  // https://tc39.github.io/ecma262/#sec-array.prototype.reduceright\n  right: createMethod(true)\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/internals/array-reduce.js?");
 
 /***/ }),
 
@@ -1212,18 +2128,6 @@ eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.array.index-of.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.index-of.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js/internals/export.js\");\nvar $indexOf = __webpack_require__(/*! ../internals/array-includes */ \"./node_modules/core-js/internals/array-includes.js\").indexOf;\nvar sloppyArrayMethod = __webpack_require__(/*! ../internals/sloppy-array-method */ \"./node_modules/core-js/internals/sloppy-array-method.js\");\n\nvar nativeIndexOf = [].indexOf;\n\nvar NEGATIVE_ZERO = !!nativeIndexOf && 1 / [1].indexOf(1, -0) < 0;\nvar SLOPPY_METHOD = sloppyArrayMethod('indexOf');\n\n// `Array.prototype.indexOf` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.indexof\n$({ target: 'Array', proto: true, forced: NEGATIVE_ZERO || SLOPPY_METHOD }, {\n  indexOf: function indexOf(searchElement /* , fromIndex = 0 */) {\n    return NEGATIVE_ZERO\n      // convert -0 to +0\n      ? nativeIndexOf.apply(this, arguments) || 0\n      : $indexOf(this, searchElement, arguments.length > 1 ? arguments[1] : undefined);\n  }\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.array.index-of.js?");
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.array.iterator.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.iterator.js ***!
@@ -1248,18 +2152,6 @@ eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/core-js/modules/es.array.reduce.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.reduce.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js/internals/export.js\");\nvar $reduce = __webpack_require__(/*! ../internals/array-reduce */ \"./node_modules/core-js/internals/array-reduce.js\").left;\nvar sloppyArrayMethod = __webpack_require__(/*! ../internals/sloppy-array-method */ \"./node_modules/core-js/internals/sloppy-array-method.js\");\n\n// `Array.prototype.reduce` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.reduce\n$({ target: 'Array', proto: true, forced: sloppyArrayMethod('reduce') }, {\n  reduce: function reduce(callbackfn /* , initialValue */) {\n    return $reduce(this, callbackfn, arguments.length, arguments.length > 1 ? arguments[1] : undefined);\n  }\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.array.reduce.js?");
-
-/***/ }),
-
 /***/ "./node_modules/core-js/modules/es.array.slice.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.slice.js ***!
@@ -1269,18 +2161,6 @@ eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/
 
 "use strict";
 eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js/internals/export.js\");\nvar isObject = __webpack_require__(/*! ../internals/is-object */ \"./node_modules/core-js/internals/is-object.js\");\nvar isArray = __webpack_require__(/*! ../internals/is-array */ \"./node_modules/core-js/internals/is-array.js\");\nvar toAbsoluteIndex = __webpack_require__(/*! ../internals/to-absolute-index */ \"./node_modules/core-js/internals/to-absolute-index.js\");\nvar toLength = __webpack_require__(/*! ../internals/to-length */ \"./node_modules/core-js/internals/to-length.js\");\nvar toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js/internals/to-indexed-object.js\");\nvar createProperty = __webpack_require__(/*! ../internals/create-property */ \"./node_modules/core-js/internals/create-property.js\");\nvar arrayMethodHasSpeciesSupport = __webpack_require__(/*! ../internals/array-method-has-species-support */ \"./node_modules/core-js/internals/array-method-has-species-support.js\");\nvar wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ \"./node_modules/core-js/internals/well-known-symbol.js\");\n\nvar SPECIES = wellKnownSymbol('species');\nvar nativeSlice = [].slice;\nvar max = Math.max;\n\n// `Array.prototype.slice` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.slice\n// fallback for not array-like ES3 strings and DOM objects\n$({ target: 'Array', proto: true, forced: !arrayMethodHasSpeciesSupport('slice') }, {\n  slice: function slice(start, end) {\n    var O = toIndexedObject(this);\n    var length = toLength(O.length);\n    var k = toAbsoluteIndex(start, length);\n    var fin = toAbsoluteIndex(end === undefined ? length : end, length);\n    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible\n    var Constructor, result, n;\n    if (isArray(O)) {\n      Constructor = O.constructor;\n      // cross-realm fallback\n      if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {\n        Constructor = undefined;\n      } else if (isObject(Constructor)) {\n        Constructor = Constructor[SPECIES];\n        if (Constructor === null) Constructor = undefined;\n      }\n      if (Constructor === Array || Constructor === undefined) {\n        return nativeSlice.call(O, k, fin);\n      }\n    }\n    result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));\n    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);\n    result.length = n;\n    return result;\n  }\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.array.slice.js?");
-
-/***/ }),
-
-/***/ "./node_modules/core-js/modules/es.array.sort.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/core-js/modules/es.array.sort.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nvar $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js/internals/export.js\");\nvar aFunction = __webpack_require__(/*! ../internals/a-function */ \"./node_modules/core-js/internals/a-function.js\");\nvar toObject = __webpack_require__(/*! ../internals/to-object */ \"./node_modules/core-js/internals/to-object.js\");\nvar fails = __webpack_require__(/*! ../internals/fails */ \"./node_modules/core-js/internals/fails.js\");\nvar sloppyArrayMethod = __webpack_require__(/*! ../internals/sloppy-array-method */ \"./node_modules/core-js/internals/sloppy-array-method.js\");\n\nvar test = [];\nvar nativeSort = test.sort;\n\n// IE8-\nvar FAILS_ON_UNDEFINED = fails(function () {\n  test.sort(undefined);\n});\n// V8 bug\nvar FAILS_ON_NULL = fails(function () {\n  test.sort(null);\n});\n// Old WebKit\nvar SLOPPY_METHOD = sloppyArrayMethod('sort');\n\nvar FORCED = FAILS_ON_UNDEFINED || !FAILS_ON_NULL || SLOPPY_METHOD;\n\n// `Array.prototype.sort` method\n// https://tc39.github.io/ecma262/#sec-array.prototype.sort\n$({ target: 'Array', proto: true, forced: FORCED }, {\n  sort: function sort(comparefn) {\n    return comparefn === undefined\n      ? nativeSort.call(toObject(this))\n      : nativeSort.call(toObject(this), aFunction(comparefn));\n  }\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.array.sort.js?");
 
 /***/ }),
 
@@ -1394,7 +2274,18 @@ eval("exports = module.exports = __webpack_require__(/*! ../css-loader/dist/runt
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n#app {\\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\\n  -webkit-font-smoothing: antialiased;\\n  -moz-osx-font-smoothing: grayscale;\\n  text-align: center;\\n  color: #707070;\\n  /* color: #2c3e50; */\\n  margin-top: 0;\\n  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;\\n  background-position: center top;\\n  background-size: 100%;\\n  height: 700px;\\n}\\n.flavordome-logo {\\n  width: 80%;\\n  min-width: 250px;\\n  max-width: 500px;\\n  height: 100px;\\n  max-height: 210px;\\n  background-image: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-logo-green-2.png');\\n  background-position: center center;\\n  background-repeat: no-repeat;\\n  background-size: contain;\\n  margin: 20px auto 0 auto;\\n}\\nh1 {\\n  margin: 0 auto;\\n  font-size: 30px;\\n  color: white;\\n}\\nbutton {\\n  font-size: 30px;\\n  text-align: center;\\n  padding: 5px 20px;\\n  background-color: #45c3f6;\\n  border: 2px solid white;\\n  color: white;\\n  border-radius: 5px;\\n  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\\n  transition: transform .1s ease-out;\\n  margin-top: 30px;\\n}\\n.cancel-button {\\n  background-color: white;\\n  border: 2px solid #ff73d5;\\n  color: #ff73d5;\\n}\\nbutton:hover {\\n  cursor: pointer;\\n  transform: scale(1.1);\\n  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\\n}\\nul {\\n  list-style-type: none;\\n  margin: 0;\\n  padding: 0;\\n}\\nli {\\n  padding: 5px 0;\\n}\\ninput.user-input-field {\\n  font-size: 20px;\\n  width: 90%;\\n  height: 50px;\\n  max-width: 400px;\\n  text-align: center;\\n  border: 2px solid #a600d8;\\n  color: #a600d8;\\n  margin: 50px auto 0 auto;\\n  border-radius: 5px;\\n}\\ninput.user-input-field:focus {\\n  border-color: #ff73d5;\\n}\\n::placeholder {\\n  color: #bbbbbb;\\n}\\n.challenger-card {\\n  display: flex;\\n  justify-content: space-between;\\n  margin-top: 10px;\\n  background-color: #fbfbfb;\\n  box-shadow: -1px 2px 4px #d3d3d3;\\n  padding-left: 5px;\\n  padding-right: 20px;\\n}\\n.scream-text {\\n    font-weight: 900;\\n    font-size: 48px;\\n    color: #ff73d5;\\n    margin: 0 auto;\\n    padding-top: 30px;\\n    width: 90%;\\n    max-width: 800px;\\n}\\n.instruction-text {\\n  color: white;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n.instruction-text-dark {\\n  color: #707070;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n.instruction-text-pink {\\n  color: #ff73d5;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n*{\\n  margin:0;\\n  padding:0;\\n}\\n#app {\\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\\n  -webkit-font-smoothing: antialiased;\\n  -moz-osx-font-smoothing: grayscale;\\n  text-align: center;\\n  color: #707070;\\n  /* color: #2c3e50; */\\n  margin-top: 0;\\n  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;\\n  background-position: center top;\\n  background-size: 100%;\\n  height: 700px;\\n}\\n.flavordome-logo {\\n  width: 80%;\\n  min-width: 250px;\\n  max-width: 500px;\\n  height: 100px;\\n  max-height: 210px;\\n  background-image: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-logo-green-2.png');\\n  background-position: center center;\\n  background-repeat: no-repeat;\\n  background-size: contain;\\n  margin: 0 auto;\\n}\\n.logo-wrapper {\\n  max-height: 180px;\\n  padding-top: 20px;\\n}\\nh1 {\\n  margin: 0 auto;\\n  font-size: 30px;\\n  color: white;\\n}\\nbutton {\\n  font-size: 30px;\\n  text-align: center;\\n  padding: 5px 20px;\\n  background-color: #45c3f6;\\n  border: 2px solid white;\\n  color: white;\\n  border-radius: 5px;\\n  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\\n  transition: transform .1s ease-out;\\n  margin-top: 30px;\\n}\\n.cancel-button {\\n  background-color: white;\\n  border: 2px solid #ff73d5;\\n  color: #ff73d5;\\n}\\nbutton:hover {\\n  cursor: pointer;\\n  transform: scale(1.1);\\n  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\\n}\\nul {\\n  list-style-type: none;\\n  margin: 0;\\n  padding: 0;\\n}\\nli {\\n  padding: 5px 0;\\n}\\ninput.user-input-field {\\n  font-size: 20px;\\n  width: 90%;\\n  height: 50px;\\n  max-width: 400px;\\n  text-align: center;\\n  border: 2px solid #a600d8;\\n  color: #a600d8;\\n  margin: 50px auto 0 auto;\\n  border-radius: 5px;\\n}\\ninput.user-input-field:focus {\\n  border-color: #ff73d5;\\n}\\n::placeholder {\\n  color: #bbbbbb;\\n}\\n.challenger-card {\\n  display: flex;\\n  justify-content: space-between;\\n  margin-top: 10px;\\n  background-color: #fbfbfb;\\n  box-shadow: -1px 2px 4px #d3d3d3;\\n  padding-left: 5px;\\n  padding-right: 20px;\\n}\\n.scream-text {\\n    font-weight: 900;\\n    font-size: 48px;\\n    color: #ff73d5;\\n    margin: 0 auto;\\n    padding-top: 30px;\\n    width: 90%;\\n    max-width: 800px;\\n}\\n.instruction-text {\\n  color: white;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n.instruction-text-dark {\\n  color: #707070;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n.instruction-text-pink {\\n  color: #ff73d5;\\n  font-weight: 700;\\n  padding-top: 20px;\\n  font-size: 20px;\\n  width: 90%;\\n  max-width: 800px;\\n  margin: 0 auto;\\n}\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n.draggee[data-v-8c882e82]{\\n  background:white;\\n  padding:.5rem;\\n  margin-bottom:.5rem;\\n}\\n.drag-list[data-v-8c882e82]{\\n  padding-top:2rem;\\n}\\n.chart-wrapper[data-v-8c882e82]{\\n  max-height:10rem;\\n  max-width:50vw;\\n  margin:auto;\\n  position:relative;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1438,7 +2329,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n*[data-v-6b6047ac]{\\n    box-sizing:border-box;\\n    margin:0;\\n    padding:0;\\n}\\n.rankings-container[data-v-6b6047ac]{\\n    padding: 1rem 2rem 2rem 1rem;\\n    width:100%;\\n    height:100%;\\n}\\n.champion[data-v-6b6047ac],.second[data-v-6b6047ac],.third[data-v-6b6047ac],.loser[data-v-6b6047ac]{\\n    text-align: left;\\n    position: absolute;\\n    width:100%;\\n    height:5rem;\\n    position:relative;\\n}\\n.loser[data-v-6b6047ac]{\\n    height: 1rem;\\n    font-size: 1rem;\\n}\\n.next-champion-button[data-v-6b6047ac]{\\n    margin-top: 20rem;\\n    justify-self:center;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Champions.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n*[data-v-6b6047ac]{\\n    box-sizing:border-box;\\n    margin:0;\\n    padding:0;\\n}\\n.rankings-container[data-v-6b6047ac]{\\n    padding: 1rem 2rem 2rem 1rem;\\n    width:100%;\\n    height:100%;\\n}\\n.champion[data-v-6b6047ac],.second[data-v-6b6047ac],.third[data-v-6b6047ac],.loser[data-v-6b6047ac]{\\n    text-align: left;\\n    position: absolute;\\n    width:100%;\\n    height:5rem;\\n    position:relative;\\n}\\n.loser[data-v-6b6047ac]{\\n    height: 1rem;\\n    font-size: 1rem;\\n}\\n.next-champion-button[data-v-6b6047ac]{\\n    margin-top: 5rem;\\n    justify-self:center;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Champions.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1526,7 +2417,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n#host-welcome[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  width: 100%;\\n  text-align: center;\\n  align-content: center;\\n  justify-content: center;\\n}\\n.logo-wrapper[data-v-6718719a] {\\n  max-height: 180px;\\n}\\n.welcome-buttons[data-v-6718719a] {\\n  width: 80%;\\n  max-width: 400px;\\n  display: flex;\\n  justify-content: space-around;\\n  margin: 0 auto;\\n}\\n#host-button[data-v-6718719a] {\\n  min-width: 100px;\\n  margin-top: 80px;\\n}\\n#join-button[data-v-6718719a] {\\n  min-width: 100px;\\n  margin-top: 80px;\\n}\\n/* \\n#enter-code-field {\\n  font-size: 32px;\\n  width: 80%;\\n  max-width: 400px;\\n  text-align: center;\\n  border: 4px solid #45c3f6;\\n  color: #a600d8;\\n  margin: 0 auto 40px auto;\\n} */\\n.join-code-div[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  margin: 0 auto;\\n}\\n.join-buttons[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  margin: 0 auto;\\n}\\n\\n/* #submit-code-button {\\n  margin-bottom: 40px;\\n} */\\n\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/HostWelcome.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\n#host-welcome[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  width: 100%;\\n  text-align: center;\\n  align-content: center;\\n  justify-content: center;\\n}\\n.welcome-buttons[data-v-6718719a] {\\n  width: 80%;\\n  max-width: 400px;\\n  display: flex;\\n  justify-content: space-around;\\n  margin: 0 auto;\\n}\\n#host-button[data-v-6718719a] {\\n  min-width: 100px;\\n  margin-top: 80px;\\n}\\n#join-button[data-v-6718719a] {\\n  min-width: 100px;\\n  margin-top: 80px;\\n}\\n/* \\n#enter-code-field {\\n  font-size: 32px;\\n  width: 80%;\\n  max-width: 400px;\\n  text-align: center;\\n  border: 4px solid #45c3f6;\\n  color: #a600d8;\\n  margin: 0 auto 40px auto;\\n} */\\n.join-code-div[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  margin: 0 auto;\\n}\\n.join-buttons[data-v-6718719a] {\\n  display: flex;\\n  flex-direction: column;\\n  margin: 0 auto;\\n}\\n\\n/* #submit-code-button {\\n  margin-bottom: 40px;\\n} */\\n\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/HostWelcome.vue?./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1653,6 +2544,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticClass: \"drag-list\" },\n    [\n      _c(\n        \"draggable\",\n        { attrs: { list: _vm.challengers } },\n        _vm._l(_vm.challengers, function(challenger) {\n          return _c(\"div\", { key: challenger.challenger }, [\n            _c(\"span\", { staticClass: \"draggee\" }, [\n              _vm._v(_vm._s(challenger.challenger))\n            ])\n          ])\n        }),\n        0\n      ),\n      _vm._v(\" \"),\n      _c(\"button\", { on: { click: _vm.sendRankings } }, [\n        _vm._v(\"Submit Rankings\")\n      ]),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        { staticClass: \"chart-wrapper\" },\n        [\n          _c(\"Chart\", {\n            attrs: { chartData: _vm.chartData, options: _vm.options }\n          })\n        ],\n        1\n      )\n    ],\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/Categories.vue?vue&type=template&id=39dc1b68&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Categories.vue?vue&type=template&id=39dc1b68&scoped=true& ***!
@@ -1661,7 +2564,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"categories-container\" }, [\n    _c(\"div\", { staticClass: \"cat-and-challenger-wrapper\" }, [\n      _c(\"div\", { staticClass: \"category-wrapper\" }, [\n        _c(\n          \"div\",\n          {\n            directives: [\n              {\n                name: \"show\",\n                rawName: \"v-show\",\n                value: !_vm.categorySelected,\n                expression: \"!categorySelected\"\n              }\n            ],\n            staticClass: \"cat-instructions\"\n          },\n          [_vm._m(0)]\n        ),\n        _vm._v(\" \"),\n        _c(\n          \"div\",\n          { staticClass: \"categories\" },\n          _vm._l(_vm.categories, function(category) {\n            return _c(\n              \"div\",\n              {\n                directives: [\n                  {\n                    name: \"show\",\n                    rawName: \"v-show\",\n                    value: !_vm.categorySelected,\n                    expression: \"!categorySelected\"\n                  }\n                ],\n                key: category,\n                staticClass: \"category-card\"\n              },\n              [\n                _c(\"CategoryCard\", {\n                  attrs: { categoryName: category },\n                  on: { selectCategory: _vm.handleSelection }\n                })\n              ],\n              1\n            )\n          }),\n          0\n        ),\n        _vm._v(\" \"),\n        _c(\n          \"div\",\n          {\n            directives: [\n              {\n                name: \"show\",\n                rawName: \"v-show\",\n                value: !_vm.categorySelected,\n                expression: \"!categorySelected\"\n              }\n            ],\n            staticClass: \"custom-card\"\n          },\n          [\n            _c(\"form\", { on: { submit: this.createCustomCategory } }, [\n              _c(\"input\", {\n                staticClass: \"user-input-field\",\n                attrs: {\n                  type: \"text\",\n                  name: \"customCategoryName\",\n                  placeholder: \"Create Category\",\n                  maxlength: \"20\"\n                }\n              }),\n              _vm._v(\" \"),\n              _c(\"br\"),\n              _vm._v(\" \"),\n              _c(\"button\", { attrs: { id: \"submit-button\", type: \"submit\" } }, [\n                _vm._v(\"Submit\")\n              ])\n            ])\n          ]\n        )\n      ]),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          directives: [\n            {\n              name: \"show\",\n              rawName: \"v-show\",\n              value: _vm.categorySelected,\n              expression: \"categorySelected\"\n            }\n          ],\n          staticClass: \"contestants\"\n        },\n        [_c(\"ContestantsWrapper\", { attrs: { category: _vm.category } })],\n        1\n      )\n    ])\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"h1\", [\n      _vm._v(\"Choose a category,\"),\n      _c(\"br\"),\n      _vm._v(\"or create your own:\")\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/Categories.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"categories-container\" }, [\n    _c(\"div\", { staticClass: \"cat-and-challenger-wrapper\" }, [\n      _c(\"div\", { staticClass: \"category-wrapper\" }, [\n        _c(\n          \"div\",\n          {\n            directives: [\n              {\n                name: \"show\",\n                rawName: \"v-show\",\n                value: !_vm.categorySelected,\n                expression: \"!categorySelected\"\n              }\n            ],\n            staticClass: \"cat-instructions\"\n          },\n          [_vm._m(0)]\n        ),\n        _vm._v(\" \"),\n        _c(\n          \"div\",\n          { staticClass: \"categories\" },\n          _vm._l(_vm.categories, function(category) {\n            return _c(\n              \"div\",\n              {\n                directives: [\n                  {\n                    name: \"show\",\n                    rawName: \"v-show\",\n                    value: !_vm.categorySelected,\n                    expression: \"!categorySelected\"\n                  }\n                ],\n                key: category.name,\n                staticClass: \"category-card\"\n              },\n              [\n                _c(\"CategoryCard\", {\n                  attrs: { categoryName: category },\n                  on: { selectCategory: _vm.handleSelection }\n                })\n              ],\n              1\n            )\n          }),\n          0\n        ),\n        _vm._v(\" \"),\n        _c(\n          \"div\",\n          {\n            directives: [\n              {\n                name: \"show\",\n                rawName: \"v-show\",\n                value: !_vm.categorySelected,\n                expression: \"!categorySelected\"\n              }\n            ],\n            staticClass: \"custom-card\"\n          },\n          [\n            _c(\"form\", { on: { submit: this.createCustomCategory } }, [\n              _c(\"input\", {\n                staticClass: \"user-input-field\",\n                attrs: {\n                  type: \"text\",\n                  name: \"customCategoryName\",\n                  placeholder: \"Create Category\",\n                  maxlength: \"20\"\n                }\n              }),\n              _vm._v(\" \"),\n              _c(\"br\"),\n              _vm._v(\" \"),\n              _c(\"button\", { attrs: { id: \"submit-button\", type: \"submit\" } }, [\n                _vm._v(\"Submit\")\n              ])\n            ])\n          ]\n        )\n      ]),\n      _vm._v(\" \"),\n      _c(\n        \"div\",\n        {\n          directives: [\n            {\n              name: \"show\",\n              rawName: \"v-show\",\n              value: _vm.categorySelected,\n              expression: \"categorySelected\"\n            }\n          ],\n          staticClass: \"contestants\"\n        },\n        [_c(\"ContestantsWrapper\", { attrs: { category: _vm.category } })],\n        1\n      )\n    ])\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"h1\", [\n      _vm._v(\"Choose a category,\"),\n      _c(\"br\"),\n      _vm._v(\"or create your own:\")\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/Categories.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1769,7 +2672,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"host-instructions-container\" }, [\n    _c(\"div\", { staticClass: \"first-instructions\" }, [\n      _c(\n        \"div\",\n        {\n          directives: [\n            {\n              name: \"show\",\n              rawName: \"v-show\",\n              value: !_vm.readyClicked,\n              expression: \"!readyClicked\"\n            }\n          ]\n        },\n        [\n          _c(\"h1\", [_vm._v(\"Taste Test Setup\")]),\n          _vm._v(\" \"),\n          _c(\"p\", { staticClass: \"instruction-text\" }, [\n            _vm._v(\n              \"Line up your serving containers (plates, bowls, cups) and number each one, starting with #1. Now...\"\n            )\n          ]),\n          _vm._v(\" \"),\n          _c(\"p\", { staticClass: \"scream-text\" }, [\n            _vm._v(\"MAKE EVERYONE LEAVE THE ROOM\")\n          ]),\n          _vm._v(\" \"),\n          _c(\n            \"button\",\n            {\n              attrs: { id: \"ready-for-setup\" },\n              on: { click: _vm.readyForSetup }\n            },\n            [_vm._v(\"Ready\")]\n          )\n        ]\n      )\n    ]),\n    _vm._v(\" \"),\n    _c(\n      \"div\",\n      {\n        directives: [\n          {\n            name: \"show\",\n            rawName: \"v-show\",\n            value: _vm.readyClicked,\n            expression: \"readyClicked\"\n          }\n        ]\n      },\n      [\n        _c(\"div\", { staticClass: \"challenger-number-sorting\" }, [\n          _c(\"p\", { staticClass: \"instruction-text\" }, [\n            _vm._v(\"Here's where to put each of your challengers:\")\n          ]),\n          _vm._v(\" \"),\n          _c(\n            \"ul\",\n            { staticClass: \"numbered-challenger-cards\" },\n            _vm._l(_vm.challengersToMask, function(challenger) {\n              return _c(\n                \"li\",\n                { key: challenger.challenger, staticClass: \"challenger-card\" },\n                [\n                  _vm._v(\n                    \"\\n                    \" +\n                      _vm._s(challenger.challengerNumber) +\n                      \") \" +\n                      _vm._s(challenger.challenger) +\n                      \"\\n                \"\n                  )\n                ]\n              )\n            }),\n            0\n          )\n        ]),\n        _vm._v(\" \"),\n        _c(\n          \"button\",\n          {\n            attrs: { id: \"ready-for-step-two-button\" },\n            on: { click: _vm.instructionsStepTwo }\n          },\n          [_vm._v(\"Step Two\")]\n        )\n      ]\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/HostInstructions.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"host-instructions-container\" }, [\n    _c(\"div\", { staticClass: \"first-instructions\" }, [\n      _c(\n        \"div\",\n        {\n          directives: [\n            {\n              name: \"show\",\n              rawName: \"v-show\",\n              value: !_vm.readyClicked,\n              expression: \"!readyClicked\"\n            }\n          ]\n        },\n        [\n          _c(\"h1\", [_vm._v(\"Taste Test Setup\")]),\n          _vm._v(\" \"),\n          _c(\"p\", { staticClass: \"instruction-text\" }, [\n            _vm._v(\n              \"Line up your serving containers (plates, bowls, cups) and number each one, starting with #1. Now...\"\n            )\n          ]),\n          _vm._v(\" \"),\n          _c(\"p\", { staticClass: \"scream-text\" }, [\n            _vm._v(\"MAKE EVERYONE LEAVE THE ROOM\")\n          ]),\n          _vm._v(\" \"),\n          _c(\n            \"button\",\n            {\n              attrs: { id: \"ready-for-setup\" },\n              on: { click: _vm.readyForSetup }\n            },\n            [_vm._v(\"Ready\")]\n          )\n        ]\n      )\n    ]),\n    _vm._v(\" \"),\n    _c(\n      \"div\",\n      {\n        directives: [\n          {\n            name: \"show\",\n            rawName: \"v-show\",\n            value: _vm.readyClicked,\n            expression: \"readyClicked\"\n          }\n        ]\n      },\n      [\n        _c(\"div\", { staticClass: \"challenger-number-sorting\" }, [\n          _c(\"p\", { staticClass: \"instruction-text\" }, [\n            _vm._v(\"Here's where to put each of your challengers:\")\n          ]),\n          _vm._v(\" \"),\n          _c(\n            \"ul\",\n            { staticClass: \"numbered-challenger-cards\" },\n            _vm._l(_vm.challengersToMask, function(challenger) {\n              return _c(\n                \"li\",\n                { key: challenger.challenger, staticClass: \"challenger-card\" },\n                [\n                  _vm._v(\n                    \"\\n                    \" +\n                      _vm._s(challenger.challengerNumber) +\n                      \") \" +\n                      _vm._s(challenger.challenger) +\n                      \"\\n                \"\n                  )\n                ]\n              )\n            }),\n            0\n          )\n        ]),\n        _vm._v(\" \"),\n        _c(\n          \"button\",\n          {\n            attrs: { id: \"ready-for-step-two-button\" },\n            on: { click: _vm.instructionsStepTwo }\n          },\n          [_vm._v(\"Step Two\")]\n        ),\n        _vm._v(\" \"),\n        _c(\"button\", { on: { click: _vm.goBeyond } }, [_vm._v(\"Beyond\")])\n      ]\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/HostInstructions.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1829,7 +2732,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"taste-test-setup-container\" }, [\n    _c(\"div\", { attrs: { id: \"taste-test-setup\" } }, [\n      _c(\"div\", [\n        _vm.testNameLock\n          ? _c(\"div\", { staticClass: \"taste-test-name\" }, [_c(\"Categories\")], 1)\n          : _vm._e()\n      ]),\n      _vm._v(\" \"),\n      !_vm.testNameLock\n        ? _c(\"div\", [\n            _vm._m(0),\n            _vm._v(\" \"),\n            _c(\"input\", {\n              directives: [\n                {\n                  name: \"model\",\n                  rawName: \"v-model\",\n                  value: _vm.testName,\n                  expression: \"testName\"\n                }\n              ],\n              staticClass: \"user-input-field\",\n              attrs: { type: \"input\", placeholder: \"ex: The Great Cheese Off\" },\n              domProps: { value: _vm.testName },\n              on: {\n                keyup: function($event) {\n                  if (\n                    !$event.type.indexOf(\"key\") &&\n                    _vm._k($event.keyCode, \"enter\", 13, $event.key, \"Enter\")\n                  ) {\n                    return null\n                  }\n                  return _vm.pushTestName($event)\n                },\n                input: function($event) {\n                  if ($event.target.composing) {\n                    return\n                  }\n                  _vm.testName = $event.target.value\n                }\n              }\n            }),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"test-name-buttons\" }, [\n              _vm.testName\n                ? _c(\n                    \"button\",\n                    {\n                      attrs: { id: \"submit-test-name-button\" },\n                      on: { click: _vm.pushTestName }\n                    },\n                    [_vm._v(\"Submit\")]\n                  )\n                : _vm._e(),\n              _vm._v(\" \"),\n              _c(\n                \"button\",\n                {\n                  staticClass: \"cancel-button\",\n                  on: { click: _vm.cancelTestName }\n                },\n                [_vm._v(\"Cancel\")]\n              )\n            ])\n          ])\n        : _vm._e()\n    ])\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { staticClass: \"name-instructions\" }, [\n      _c(\"h1\", [_vm._v(\"Name your taste test:\")])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/TasteTestSetup.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"taste-test-setup-container\" }, [\n    _c(\"div\", { attrs: { id: \"taste-test-setup\" } }, [\n      _c(\"div\", [\n        _vm.testNameLock\n          ? _c(\n              \"div\",\n              { staticClass: \"taste-test-name\" },\n              [\n                _c(\"h1\", [_vm._v(_vm._s(_vm.testName))]),\n                _vm._v(\" \"),\n                _c(\"Categories\")\n              ],\n              1\n            )\n          : _vm._e()\n      ]),\n      _vm._v(\" \"),\n      !_vm.testNameLock\n        ? _c(\"div\", [\n            _vm._m(0),\n            _vm._v(\" \"),\n            _c(\"input\", {\n              directives: [\n                {\n                  name: \"model\",\n                  rawName: \"v-model\",\n                  value: _vm.testName,\n                  expression: \"testName\"\n                }\n              ],\n              staticClass: \"user-input-field\",\n              attrs: { type: \"input\", placeholder: \"ex: The Great Cheese Off\" },\n              domProps: { value: _vm.testName },\n              on: {\n                keyup: function($event) {\n                  if (\n                    !$event.type.indexOf(\"key\") &&\n                    _vm._k($event.keyCode, \"enter\", 13, $event.key, \"Enter\")\n                  ) {\n                    return null\n                  }\n                  return _vm.pushTestName($event)\n                },\n                input: function($event) {\n                  if ($event.target.composing) {\n                    return\n                  }\n                  _vm.testName = $event.target.value\n                }\n              }\n            }),\n            _vm._v(\" \"),\n            _c(\"div\", { staticClass: \"test-name-buttons\" }, [\n              _vm.testName\n                ? _c(\n                    \"button\",\n                    {\n                      attrs: { id: \"submit-test-name-button\" },\n                      on: { click: _vm.pushTestName }\n                    },\n                    [_vm._v(\"Submit\")]\n                  )\n                : _vm._e(),\n              _vm._v(\" \"),\n              _c(\n                \"button\",\n                {\n                  staticClass: \"cancel-button\",\n                  on: { click: _vm.cancelTestName }\n                },\n                [_vm._v(\"Cancel\")]\n              )\n            ])\n          ])\n        : _vm._e()\n    ])\n  ])\n}\nvar staticRenderFns = [\n  function() {\n    var _vm = this\n    var _h = _vm.$createElement\n    var _c = _vm._self._c || _h\n    return _c(\"div\", { staticClass: \"name-instructions\" }, [\n      _c(\"h1\", [_vm._v(\"Name your taste test:\")])\n    ])\n  }\n]\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./src/components/TasteTestSetup.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -1899,6 +2802,17 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js!../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=style&index=0&lang=css& */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./src/App.vue?vue&type=style&index=0&lang=css&\");\nif(typeof content === 'string') content = [[module.i, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = __webpack_require__(/*! ../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\").default\nvar update = add(\"03ada772\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack:///./src/App.vue?./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib??vue-loader-options!./Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&\");\nif(typeof content === 'string') content = [[module.i, content, '']];\nif(content.locals) module.exports = content.locals;\n// add the styles to the DOM\nvar add = __webpack_require__(/*! ../../node_modules/vue-style-loader/lib/addStylesClient.js */ \"./node_modules/vue-style-loader/lib/addStylesClient.js\").default\nvar update = add(\"5c6f2714\", content, false, {});\n// Hot Module Replacement\nif(false) {}\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?./node_modules/vue-style-loader!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -2196,6 +3110,54 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 /***/ }),
 
+/***/ "./src/components/Beyond.vue":
+/*!***********************************!*\
+  !*** ./src/components/Beyond.vue ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Beyond.vue?vue&type=template&id=8c882e82&scoped=true& */ \"./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true&\");\n/* harmony import */ var _Beyond_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Beyond.vue?vue&type=script&lang=js& */ \"./src/components/Beyond.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& */ \"./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&\");\n/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(\n  _Beyond_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  \"8c882e82\",\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/components/Beyond.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?");
+
+/***/ }),
+
+/***/ "./src/components/Beyond.vue?vue&type=script&lang=js&":
+/*!************************************************************!*\
+  !*** ./src/components/Beyond.vue?vue&type=script&lang=js& ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib!../../node_modules/vue-loader/lib??vue-loader-options!./Beyond.vue?vue&type=script&lang=js& */ \"./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/components/Beyond.vue?");
+
+/***/ }),
+
+/***/ "./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&":
+/*!********************************************************************************************!*\
+  !*** ./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-style-loader!../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/vue-loader/lib??vue-loader-options!./Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css& */ \"./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=style&index=0&id=8c882e82&scoped=true&lang=css&\");\n/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));\n /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_style_index_0_id_8c882e82_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); \n\n//# sourceURL=webpack:///./src/components/Beyond.vue?");
+
+/***/ }),
+
+/***/ "./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true&":
+/*!******************************************************************************!*\
+  !*** ./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./Beyond.vue?vue&type=template&id=8c882e82&scoped=true& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/Beyond.vue?vue&type=template&id=8c882e82&scoped=true&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beyond_vue_vue_type_template_id_8c882e82_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/components/Beyond.vue?");
+
+/***/ }),
+
 /***/ "./src/components/Categories.vue":
 /*!***************************************!*\
   !*** ./src/components/Categories.vue ***!
@@ -2385,6 +3347,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Champions_vue_vue_type_template_id_6b6047ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./Champions.vue?vue&type=template&id=6b6047ac&scoped=true& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./src/components/Champions.vue?vue&type=template&id=6b6047ac&scoped=true&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Champions_vue_vue_type_template_id_6b6047ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Champions_vue_vue_type_template_id_6b6047ac_scoped_true___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./src/components/Champions.vue?");
+
+/***/ }),
+
+/***/ "./src/components/Chart.vue":
+/*!**********************************!*\
+  !*** ./src/components/Chart.vue ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Chart.vue?vue&type=script&lang=js& */ \"./src/components/Chart.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\nvar render, staticRenderFns\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\n  _Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  render,\n  staticRenderFns,\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (false) { var api; }\ncomponent.options.__file = \"src/components/Chart.vue\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./src/components/Chart.vue?");
+
+/***/ }),
+
+/***/ "./src/components/Chart.vue?vue&type=script&lang=js&":
+/*!***********************************************************!*\
+  !*** ./src/components/Chart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib!../../node_modules/vue-loader/lib??vue-loader-options!./Chart.vue?vue&type=script&lang=js& */ \"./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./src/components/Chart.vue?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Chart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./src/components/Chart.vue?");
 
 /***/ }),
 
@@ -3029,10 +4015,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue_
   !*** ./src/store/store.js ***!
   \****************************/
 /*! exports provided: store */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"store\", function() { return store; });\n/* harmony import */ var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.symbol */ \"./node_modules/core-js/modules/es.symbol.js\");\n/* harmony import */ var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.symbol.description */ \"./node_modules/core-js/modules/es.symbol.description.js\");\n/* harmony import */ var core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator */ \"./node_modules/core-js/modules/es.symbol.iterator.js\");\n/* harmony import */ var core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.index-of */ \"./node_modules/core-js/modules/es.array.index-of.js\");\n/* harmony import */ var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.map */ \"./node_modules/core-js/modules/es.array.map.js\");\n/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.reduce */ \"./node_modules/core-js/modules/es.array.reduce.js\");\n/* harmony import */ var core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.slice */ \"./node_modules/core-js/modules/es.array.slice.js\");\n/* harmony import */ var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.array.sort */ \"./node_modules/core-js/modules/es.array.sort.js\");\n/* harmony import */ var core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_sort__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.splice */ \"./node_modules/core-js/modules/es.array.splice.js\");\n/* harmony import */ var core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_splice__WEBPACK_IMPORTED_MODULE_8__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_9__);\n/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.string.iterator */ \"./node_modules/core-js/modules/es.string.iterator.js\");\n/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_10__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_11__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex */ \"./node_modules/vuex/dist/vuex.esm.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvue__WEBPACK_IMPORTED_MODULE_12__[\"default\"].use(vuex__WEBPACK_IMPORTED_MODULE_13__[\"default\"]);\nvar store = new vuex__WEBPACK_IMPORTED_MODULE_13__[\"default\"].Store({\n  state: {\n    testName: '',\n    challengers: [],\n    scene: 'HostWelcome',\n    numberMask: [],\n    letterMask: [],\n    topFour: [],\n    finalists: [],\n    champion: [],\n    //the top two challengers\n    playerCount: 1,\n    role: 'guest',\n    roomNum: '',\n    readyCount: 0,\n    categoryChoice: [],\n    remainingChallengers: [],\n    //remaining challengers to rate in Melee rating populates in stateSetup\n    currentChallenger: null,\n    finalReveal: {\n      'loser': false,\n      'third': false,\n      'second': false,\n      'first': false\n    },\n    finalRevealChallengers: []\n  },\n  mutations: {\n    addChallengers: function addChallengers(state, challengers) {\n      state.role = 'host';\n      state.challengers = challengers.map(function (challenger) {\n        return {\n          'challenger': challenger,\n          'scores': [],\n          challengerNumber: null,\n          challengerLetter: '',\n          average: null,\n          semiScores: [],\n          semiAvg: null,\n          finalScores: [],\n          finalAvg: null\n        };\n      });\n    },\n    maskChallengers: function maskChallengers(state) {\n      // state.maskedChallengers = state.challengers.map(product => {})\n      var challengerGoBetween = state.challengers.slice(0);\n      var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];\n\n      while (challengerGoBetween.length > 0) {\n        var randomChallengerIndex = Math.floor(Math.random() * challengerGoBetween.length);\n        var selectedChallenger = challengerGoBetween[randomChallengerIndex];\n        state.numberMask.push(selectedChallenger);\n        challengerGoBetween.splice(challengerGoBetween.indexOf(selectedChallenger), 1);\n        var _iteratorNormalCompletion = true;\n        var _didIteratorError = false;\n        var _iteratorError = undefined;\n\n        try {\n          for (var _iterator = state.challengers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n            var challenger = _step.value;\n            challenger.challengerNumber = state.numberMask.indexOf(challenger) + 1;\n          }\n        } catch (err) {\n          _didIteratorError = true;\n          _iteratorError = err;\n        } finally {\n          try {\n            if (!_iteratorNormalCompletion && _iterator.return != null) {\n              _iterator.return();\n            }\n          } finally {\n            if (_didIteratorError) {\n              throw _iteratorError;\n            }\n          }\n        }\n      }\n\n      var letterGoBetween = state.numberMask.slice(0);\n\n      while (letterGoBetween.length > 0) {\n        var _randomChallengerIndex = Math.floor(Math.random() * letterGoBetween.length);\n\n        var _selectedChallenger = letterGoBetween[_randomChallengerIndex];\n        state.letterMask.push(_selectedChallenger);\n        letterGoBetween.splice(letterGoBetween.indexOf(_selectedChallenger), 1);\n        var _iteratorNormalCompletion2 = true;\n        var _didIteratorError2 = false;\n        var _iteratorError2 = undefined;\n\n        try {\n          for (var _iterator2 = state.challengers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {\n            var _challenger = _step2.value;\n            _challenger.challengerLetter = alphabet[state.letterMask.indexOf(_challenger)];\n          }\n        } catch (err) {\n          _didIteratorError2 = true;\n          _iteratorError2 = err;\n        } finally {\n          try {\n            if (!_iteratorNormalCompletion2 && _iterator2.return != null) {\n              _iterator2.return();\n            }\n          } finally {\n            if (_didIteratorError2) {\n              throw _iteratorError2;\n            }\n          }\n        }\n      } //setup state.remainingChalleters\n      // Durstenfield Shuffle algorithm\n\n\n      var shuffledArray = state.challengers.slice();\n\n      for (var i = shuffledArray.length - 1; i > 0; i--) {\n        var j = Math.floor(Math.random() * (i + 1));\n        var _ref = [shuffledArray[j], shuffledArray[i]];\n        shuffledArray[i] = _ref[0];\n        shuffledArray[j] = _ref[1];\n      }\n\n      console.log(shuffledArray); //setup state.currentChallenger\n\n      state.currentChallenger = shuffledArray.pop();\n      state.remainingChallengers = shuffledArray;\n    },\n    changeScene: function changeScene(state, scene) {\n      state.scene = scene;\n    },\n    grabCategory: function grabCategory(state, category) {\n      state.categoryChoice = category;\n    },\n    notifyReady: function notifyReady(state) {\n      state.readyCount += 1;\n    },\n    addPlayer: function addPlayer(state) {\n      if (state.role === 'host') {\n        state.playerCount += 1;\n        state.newSocket.send(JSON.stringify({\n          'method': 'setPlayers',\n          'payload': state.playerCount\n        }));\n      }\n    },\n    removePlayer: function removePlayer(state) {\n      if (state.role === 'host') {\n        state.playerCount -= 1;\n        state.newSocket.send(JSON.stringify({\n          'method': 'setPlayers',\n          'payload': state.playerCount\n        }));\n      }\n    },\n    setCategory: function setCategory(state, category) {\n      state.category = category;\n    },\n    setPlayers: function setPlayers(state, hostCount) {\n      if (state.role !== 'host') {\n        state.playerCount = hostCount;\n      }\n    },\n    addScore: function addScore(state, submission) {\n      var _iteratorNormalCompletion3 = true;\n      var _didIteratorError3 = false;\n      var _iteratorError3 = undefined;\n\n      try {\n        for (var _iterator3 = state.challengers[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {\n          var challenger = _step3.value;\n\n          if (challenger.challenger === submission.challenger) {\n            challenger.scores.push(submission.rating);\n            challenger.average = challenger.scores.reduce(function (a, b) {\n              return a + b;\n            }, 0) / challenger.scores.length;\n          }\n        }\n      } catch (err) {\n        _didIteratorError3 = true;\n        _iteratorError3 = err;\n      } finally {\n        try {\n          if (!_iteratorNormalCompletion3 && _iterator3.return != null) {\n            _iterator3.return();\n          }\n        } finally {\n          if (_didIteratorError3) {\n            throw _iteratorError3;\n          }\n        }\n      }\n    },\n    resetMeleeScoreCount: function resetMeleeScoreCount(state) {\n      state.readyCount = 0;\n    },\n    addSemiScores: function addSemiScores(state, semiChallenger) {\n      var _iteratorNormalCompletion4 = true;\n      var _didIteratorError4 = false;\n      var _iteratorError4 = undefined;\n\n      try {\n        for (var _iterator4 = state.challengers[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {\n          var challenger = _step4.value;\n\n          if (challenger.challenger === semiChallenger.challenger) {\n            challenger.semiScores.push(semiChallenger.rating);\n            challenger.semiAvg = challenger.semiScores.reduce(function (a, b) {\n              return a + b;\n            }, 0) / challenger.semiScores.length;\n          }\n        }\n      } catch (err) {\n        _didIteratorError4 = true;\n        _iteratorError4 = err;\n      } finally {\n        try {\n          if (!_iteratorNormalCompletion4 && _iterator4.return != null) {\n            _iterator4.return();\n          }\n        } finally {\n          if (_didIteratorError4) {\n            throw _iteratorError4;\n          }\n        }\n      }\n    },\n    addFinalistScores: function addFinalistScores(state, finalChallenger) {\n      var _iteratorNormalCompletion5 = true;\n      var _didIteratorError5 = false;\n      var _iteratorError5 = undefined;\n\n      try {\n        for (var _iterator5 = state.challengers[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {\n          var challenger = _step5.value;\n\n          if (challenger.challenger === finalChallenger.challenger) {\n            challenger.finalScores.push(finalChallenger.rating);\n            challenger.finalAvg = challenger.finalScores.reduce(function (a, b) {\n              return a + b;\n            }, 0) / challenger.finalScores.length;\n          }\n        }\n      } catch (err) {\n        _didIteratorError5 = true;\n        _iteratorError5 = err;\n      } finally {\n        try {\n          if (!_iteratorNormalCompletion5 && _iterator5.return != null) {\n            _iterator5.return();\n          }\n        } finally {\n          if (_didIteratorError5) {\n            throw _iteratorError5;\n          }\n        }\n      }\n    },\n    setTopFour: function setTopFour(state) {\n      var sorted = state.challengers.sort(function (a, b) {\n        return b.average - a.average;\n      });\n      state.challengers = sorted;\n      state.topFour = sorted.slice(0, 4);\n    },\n    setDirectHeadToHead: function setDirectHeadToHead(state) {\n      state.topFour = state.challengers.slice();\n    },\n    openSocket: function openSocket(state, socket) {\n      state.newSocket = socket;\n    },\n    printData: function printData(state, payload) {\n      console.log(payload);\n    },\n    setFinalists: function setFinalists(state) {\n      var sorted = state.challengers.sort(function (a, b) {\n        return b.semiAvg - a.semiAvg;\n      });\n      state.finalists = sorted.slice(0, 2);\n    },\n    setChampion: function setChampion(state) {\n      var sorted = state.finalists.sort(function (a, b) {\n        return b.finalAvg - a.finalAvg;\n      });\n      state.champion = sorted.slice(0, 2);\n    },\n    setShortChallengeChamp: function setShortChallengeChamp(state) {\n      var sorted = state.challengers.sort(function (a, b) {\n        return b.semiAvg - a.semiAvg;\n      });\n      state.champion = sorted.slice();\n    },\n    setupState: function setupState(state, payload) {\n      state.testName = payload.testName;\n      state.challengers = payload.challengers;\n      state.remainingChallengers = payload.remainingChallengers;\n      state.currentChallenger = payload.currentChallenger;\n    },\n    saveRoomNumber: function saveRoomNumber(state, roomNum) {\n      state.roomNum = roomNum;\n    },\n    sendNextChallenger: function sendNextChallenger(state, nextChallenger) {\n      state.currentChallenger = nextChallenger;\n    },\n    chooseNextChallenger: function chooseNextChallenger(state) {\n      state.currentChallenger = state.remainingChallengers.pop();\n    },\n    setupFinalReveal: function setupFinalReveal(state, total, sortedChallengers) {\n      // if(total >= 3) state.finalReveal['third'] = false\n      // if(total >= 4) state.finalReveal['loser'] = false\n      state.finalRevealChallengers = sortedChallengers;\n    },\n    revealNext: function revealNext(state) {\n      // console.log(state.finalReveal)\n      // state.finalReveal['loser'] = !state.finalReveal['loser']\n      for (var index in state.finalReveal) {\n        if (state.finalReveal[index] === false) {\n          state.finalReveal[index] = true;\n          break;\n        }\n      }\n    }\n  },\n  getters: {\n    getTopFour: function getTopFour(state) {\n      return state.topFour.slice();\n    },\n    getFinalists: function getFinalists(state) {\n      return state.finalists.slice();\n    },\n    getChampion: function getChampion(state) {\n      return state.champion.slice();\n    },\n    getChallengersByNumber: function getChallengersByNumber(state) {\n      return state.challengers.sort(function (a, b) {\n        return a.challengerNumber - b.challengerNumber;\n      }).slice();\n    },\n    getRole: function getRole(state) {\n      return state.role;\n    },\n    getChallengers: function getChallengers(state) {\n      // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()\n      // challengers.splice(challengers.indexOf(state.champion[0],1))\n      // challengers.unshift(state.champion[0])\n      return state.challengers.slice();\n    },\n    getPlayerCount: function getPlayerCount(state) {\n      return state.playerCount;\n    },\n    getRoomNum: function getRoomNum(state) {\n      return state.roomNum;\n    },\n    getReadyPlayers: function getReadyPlayers(state) {\n      return state.readyCount;\n    },\n    getCurrentChallenger: function getCurrentChallenger(state) {\n      console.log(state.currentChallenger);\n      return state.currentChallenger;\n    },\n    // getNextChallenger(state){\n    //   //if remaining challengers.length === 0 it returns undefined\n    //   return state.remainingChallengers.pop()\n    // },\n    getFinalRevealChallengers: function getFinalRevealChallengers(state) {\n      return state.finalRevealChallengers;\n    },\n    getFirstReveal: function getFirstReveal(state) {\n      return state.finalReveal['first'];\n    },\n    getSecondReveal: function getSecondReveal(state) {\n      return state.finalReveal['second'];\n    },\n    getThirdReveal: function getThirdReveal(state) {\n      return state.finalReveal['third'];\n    },\n    getLoserReveal: function getLoserReveal(state) {\n      return state.finalReveal['loser'];\n    }\n  },\n  actions: {\n    createSocket: function createSocket(_ref2) {\n      var commit = _ref2.commit,\n          dispatch = _ref2.dispatch,\n          state = _ref2.state;\n      var roomNum = Math.floor(100000 + Math.random() * 900000);\n      var newSocket = new WebSocket('ws://' + window.location.host + '/ws/' + roomNum + '/');\n\n      newSocket.onopen = function (event) {\n        commit('saveRoomNumber', roomNum);\n      };\n\n      newSocket.onmessage = function (event) {\n        dispatch('handleSocket', JSON.parse(event.data));\n      };\n\n      commit('openSocket', newSocket);\n    },\n    joinSocket: function joinSocket(_ref3, roomNum) {\n      var commit = _ref3.commit,\n          dispatch = _ref3.dispatch;\n      var newSocket = new WebSocket('ws://' + window.location.host + '/ws/' + roomNum + '/');\n\n      newSocket.onopen = function (event) {\n        newSocket.send(JSON.stringify({\n          'method': 'addPlayer',\n          'payload': null\n        }));\n      };\n\n      newSocket.onmessage = function (event) {\n        dispatch('handleSocket', JSON.parse(event.data));\n      };\n\n      commit('openSocket', newSocket);\n    },\n    handleSocket: function handleSocket(_ref4, data) {\n      var commit = _ref4.commit,\n          state = _ref4.state;\n      console.log(\"now logging\");\n      console.log(data);\n      commit(data.method, data.payload);\n    }\n  }\n});\n\n//# sourceURL=webpack:///./src/store/store.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: /Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/src/store/store.js: Unexpected token, expected \\\";\\\" (141:41)\\n\\n\\u001b[0m \\u001b[90m 139 | \\u001b[39m    resetMeleeScoreCount(state){\\u001b[0m\\n\\u001b[0m \\u001b[90m 140 | \\u001b[39m      state\\u001b[33m.\\u001b[39mreadyCount \\u001b[33m=\\u001b[39m \\u001b[35m0\\u001b[39m\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 141 | \\u001b[39m    bulkRanking(state\\u001b[33m,\\u001b[39m rankedChallengers){\\u001b[0m\\n\\u001b[0m \\u001b[90m     | \\u001b[39m                                         \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 142 | \\u001b[39m      state\\u001b[33m.\\u001b[39mchallengers\\u001b[33m.\\u001b[39mmap(challenger \\u001b[33m=>\\u001b[39m {\\u001b[0m\\n\\u001b[0m \\u001b[90m 143 | \\u001b[39m        \\u001b[36mfor\\u001b[39m (let incoming of rankedChallengers){\\u001b[0m\\n\\u001b[0m \\u001b[90m 144 | \\u001b[39m          \\u001b[36mif\\u001b[39m (challenger\\u001b[33m.\\u001b[39mchallenger \\u001b[33m===\\u001b[39m incoming\\u001b[33m.\\u001b[39mchallenger){\\u001b[0m\\n    at Object.raise (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:6930:17)\\n    at Object.unexpected (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8323:16)\\n    at Object.semicolon (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8305:40)\\n    at Object.parseExpressionStatement (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:11146:10)\\n    at Object.parseStatementContent (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10745:19)\\n    at Object.parseStatement (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10611:17)\\n    at Object.parseBlockOrModuleBlockBody (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:11187:25)\\n    at Object.parseBlockBody (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:11174:10)\\n    at Object.parseBlock (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:11158:10)\\n    at Object.parseFunctionBody (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10177:24)\\n    at Object.parseFunctionBodyAndFinish (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10147:10)\\n    at Object.parseMethod (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10101:10)\\n    at Object.parseObjectMethod (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10017:19)\\n    at Object.parseObjPropValue (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10059:23)\\n    at Object.parseObjectMember (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9983:10)\\n    at Object.parseObj (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9903:25)\\n    at Object.parseExprAtom (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9525:28)\\n    at Object.parseExprAtom (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:4082:20)\\n    at Object.parseExprSubscripts (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9165:23)\\n    at Object.parseMaybeUnary (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9145:21)\\n    at Object.parseExprOps (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9011:23)\\n    at Object.parseMaybeConditional (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8984:23)\\n    at Object.parseMaybeAssign (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8930:21)\\n    at Object.parseObjectProperty (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10034:101)\\n    at Object.parseObjPropValue (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10059:101)\\n    at Object.parseObjectMember (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9983:10)\\n    at Object.parseObj (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9903:25)\\n    at Object.parseExprAtom (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9525:28)\\n    at Object.parseExprAtom (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:4082:20)\\n    at Object.parseExprSubscripts (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9165:23)\\n    at Object.parseMaybeUnary (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9145:21)\\n    at Object.parseExprOps (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:9011:23)\\n    at Object.parseMaybeConditional (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8984:23)\\n    at Object.parseMaybeAssign (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:8930:21)\\n    at Object.parseExprListItem (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10252:18)\\n    at Object.parseExprList (/Users/stephenkwan/Desktop/MyOwnPrograms/FlavorDome/frontend/node_modules/@babel/parser/lib/index.js:10226:22)\");\n\n//# sourceURL=webpack:///./src/store/store.js?");
 
 /***/ })
 

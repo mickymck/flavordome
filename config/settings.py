@@ -98,6 +98,9 @@ CHANNEL_LAYERS = {
 # deployment host---
 # os.environ.get('REDIS_URL', 6379)
 
+# dev host ---
+# ('127.0.0.1', 6379)
+
 CACHES = {
     "default": {
          "BACKEND": "redis_cache.RedisCache",
