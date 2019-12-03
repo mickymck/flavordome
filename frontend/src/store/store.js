@@ -83,6 +83,10 @@ export const store = new Vuex.Store({
           'method':'setPlayers',
           'payload':state.playerCount
         }))
+        state.newSocket.send(JSON.stringify({
+          method:'setupState',
+          payload: state
+        }))
       }
     },
     removePlayer(state){

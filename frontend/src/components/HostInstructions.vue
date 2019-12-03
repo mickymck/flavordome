@@ -43,7 +43,10 @@ export default {
             this.readyClicked = true;
         },
         goBeyond: function() {
-            this.$store.commit('changeScene',"Beyond")
+            this.$store.state.newSocket.send(JSON.stringify({
+                method:'changeScene',
+                payload:"Beyond"
+            }))
         }
     },
 

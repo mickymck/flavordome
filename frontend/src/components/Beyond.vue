@@ -1,11 +1,9 @@
 <template>
   <div class='drag-list'>
     <draggable :list='challengers'>
-      <transition-group>
-        <div v-for='challenger in challengers' :key='challenger.challenger'>
-          <span class='draggee'>{{challenger.challenger}}</span>
-        </div>
-      </transition-group>
+      <div v-for='challenger in challengers' :key='challenger.challenger'>
+        <span class='draggee'>{{challenger.challenger}}</span>
+      </div>
     </draggable>
     <button @click='sendRankings'>Submit Rankings</button>
     <div class='chart-wrapper'>
@@ -28,7 +26,7 @@ export default {
       options:{
         responsive:true,
         scales:{
-          yAxes:[{
+          xAxes:[{
             ticks:{
               beginAtZero:true
             }
@@ -51,7 +49,7 @@ export default {
     }
   },
   created(){
-    this.challengers = this.$store.getters.getChallengers
+    this.challengers = this.$store.getters.getChallengers.map(a=>a)
   },
   computed:{
     chartData(){
@@ -78,6 +76,9 @@ export default {
   }
   
   .chart-wrapper{
-    height:10rem;
+    max-height:10rem;
+    max-width:50vw;
+    margin:auto;
+    position:relative;
   }
 </style>

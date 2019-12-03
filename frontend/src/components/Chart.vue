@@ -1,10 +1,12 @@
 
 
 <script>
-import {HorizontalBar} from 'vue-chartjs'
+import {HorizontalBar, mixins} from 'vue-chartjs'
+const {reactiveProp} = mixins
 export default {
   name:'Chart',
   extends: HorizontalBar,
+  mixins: [reactiveProp],
   props:{
     chartData:{
       type:Object,
@@ -16,24 +18,7 @@ export default {
     }
   },
   mounted(){
-    this.renderBarChart()
+    this.renderChart(this.chartData, this.options)
   },
-  computed:{
-    averages: function(){
-      return 
-    }
-  },
-  methods:{
-    renderBarChart: function(){
-      this.renderChart(
-        
-      )
-    }
-  },
-  watch:{
-    chartData(){
-      this.$data._chart.update()
-    }
-  }
 }
 </script>
