@@ -4,6 +4,7 @@
         <div class='logo-wrapper'>
             <div class='flavordome-logo'></div>
         </div>
+        <h1>HEAD TO HEAD</h1>
         <div class='challengers-container' id='four-plus-challengers' v-if='this.meleeWinners.length === 4'>
             <div class='h2h-container' v-if='round === 1'>
             <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.challenger1.challengerLetter}} and {{this.challenger2.challengerLetter}}?</p>

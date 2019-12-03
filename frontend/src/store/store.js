@@ -186,8 +186,11 @@ export const store = new Vuex.Store({
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
     },
-    setNextChallenger(state,nextChallenger){
+    sendNextChallenger(state, nextChallenger){
       state.currentChallenger = nextChallenger
+    },
+    chooseNextChallenger(state){
+      state.currentChallenger = state.remainingChallengers.pop()
     },
     setupFinalReveal(state, total, sortedChallengers){
       // if(total >= 3) state.finalReveal['third'] = false
@@ -241,10 +244,11 @@ export const store = new Vuex.Store({
       console.log(state.currentChallenger)
       return state.currentChallenger
     },
-    getNextChallenger(state){
-      //if remaining challengers.length === 0 it returns undefined
-      return state.remainingChallengers.pop()
-    },
+    // getNextChallenger(state){
+    //   //if remaining challengers.length === 0 it returns undefined
+      
+    //   return state.remainingChallengers.pop()
+    // },
     getFinalRevealChallengers(state){
       return state.finalRevealChallengers
     },

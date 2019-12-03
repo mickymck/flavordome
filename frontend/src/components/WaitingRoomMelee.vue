@@ -46,13 +46,22 @@ export default {
     
     forceNextMelee:function() {
       this.resetMeleeScoreCount()
-      let nextChallenger = this.$store.commit('getNextChallenger')
-      this.$store.commit('setNextChallenger')
+      this.$store.commit('chooseNextChallenger')
+      let nextChallenger = this.$store.getters.getCurrentChallenger
+      if(nextChallenger === undefined){
+        this.$store.state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload':'HeadToHead'
+        })) 
+      }
       this.$store.state.newSocket.send(JSON.stringify({
-        'method':'setNextChallenger', 
+        'method':'sendNextChallenger', 
         'payload':nextChallenger
       })) 
-      this.$store.commit('changeScene', "MeleeRating") 
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'changeScene', 
+        'payload': 'MeleeRating'
+      })) 
     }
   }
 }
