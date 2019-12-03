@@ -1,12 +1,12 @@
 <template>
   <div class='waiting-room-container'>
-    <div>
-      <p> logo here? something animated? </p>
+    <div class='logo-wrapper'>
+      <div class='flavordome-logo'></div>
     </div>
-    <div>
-      <h3>Waiting for other users</h3>
-      <h4>There are currently {{players}} judges for this taste test</h4>
-      <p>If you are the only current judge then something went wrong</p>
+    <div class='waiting-message'>
+      <h1>Waiting for other users</h1>
+      <p class='instruction-text'>There are currently {{players}} judges for this taste test</p>
+      <!-- <p>If you are the only current judge then something went wrong</p> -->
     </div>
     <div v-if="role==='host'">
       YOURE THE HOST
@@ -43,5 +43,9 @@ export default {
 </script>
 
 <style scoped>
+
+.waiting-message {
+  margin-top: 30px;
+}
 
 </style>

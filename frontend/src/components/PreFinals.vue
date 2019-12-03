@@ -24,8 +24,7 @@
 export default {
   name:'PreFinals',
   data:() =>{
-    return{
-      
+    return{ 
     }
   },
   computed:{

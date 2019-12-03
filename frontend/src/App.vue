@@ -18,6 +18,7 @@ import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
 import PreFinals from './components/PreFinals.vue'
+import WaitingRoomMelee from './components/WaitingRoomMelee.vue'
 
 export default {
   name: 'app',
@@ -32,7 +33,8 @@ export default {
     FinalRankings,
     HostInstructions,
     HostInstructionsTwo,
-    WaitingRoom
+    WaitingRoom,
+    WaitingRoomMelee
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -74,7 +76,7 @@ export default {
   color: #707070;
   /* color: #2c3e50; */
   margin-top: 0;
-  background: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-background-longer-3.png') no-repeat;
+  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;
   background-position: center top;
   background-size: 100%;
   height: 700px;
@@ -96,6 +98,7 @@ export default {
 h1 {
   margin: 0 auto;
   font-size: 30px;
+  color: white;
 }
 
 button {

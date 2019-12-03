@@ -242,6 +242,8 @@ export default {
                 this.resolveShortChallenge()
                 this.round += 1
             }
+
+            this.value = 5
         },
 
         collectSemiScores(challengerA, challengerB) {
