@@ -47,8 +47,12 @@ export default {
     handleSubmit:function(event){
       event.preventDefault()
       this.augmentScore(this.cardRating)
-      this.countMeleeScores()
-      this.cardRating = 5
+      if (this.$store.state.lastMeleeRound === true){
+        this.resolveMelee()
+      } else {
+        this.countMeleeScores()
+        this.cardRating = 5
+      }
       // if (this.remainingCards.length === 0){
       //   this.currentCard = null
       //   this.resolveMelee()
