@@ -2,7 +2,7 @@
   <div class='host-welcome-container'>
     <div id="host-welcome">
       <div class='logo-wrapper'>
-      <div class='flavordome-logo'></div>
+        <div class='flavordome-logo'></div>
       </div>
       <div>
         <!-- this is the first thing rendered, before the Host or Join buttons are clicked -->
@@ -12,7 +12,7 @@
         </div>
         <!-- if the Join button is clicked, this is the div that will be rendered, while the previous div is hidden -->
         <div v-if="tasterJoin" class='join-code-div'>
-          <input type="input" class='user-input-field' id="enter-code-field" v-model='roomNum' placeholder="Enter Code" />
+          <input type="input" class='user-input-field' id="enter-code-field" v-model='roomNum' placeholder="Enter Code" @keyup.enter="submitCode" />
           <div class='join-buttons'>
             <button id="submit-code-button" @click="submitCode">Submit</button>
             <button class="cancel-button" @click="cancelJoin">Cancel</button>
@@ -56,7 +56,6 @@ export default {
       this.$store.dispatch('joinSocket', roomNum)
       this.$store.commit('changeScene', 'WaitingRoom')
     },
-    
   }
 };
 </script>

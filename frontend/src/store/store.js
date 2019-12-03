@@ -17,7 +17,18 @@ export const store = new Vuex.Store({
     role:'guest',
     roomNum:'',
     readyCount:0,
-    categoryChoice:[]
+    categoryChoice:[],
+    remainingChallengers:[], //remaining challengers to rate in Melee rating populates in stateSetup
+    currentChallenger:null,
+    finalReveal: {
+      'loser':false,
+      'third':false,
+      'second':false,
+      'first':false,
+    },
+
+    finalRevealChallengers:[],
+
   },
   mutations:{
     addChallengers(state, challengers){
@@ -66,6 +77,17 @@ export const store = new Vuex.Store({
           challenger.challengerLetter = alphabet[state.letterMask.indexOf(challenger)]
         }
       }
+      //setup state.remainingChalleters
+      // Durstenfield Shuffle algorithm
+      let shuffledArray = state.challengers.slice()
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+      }
+      console.log(shuffledArray)
+      //setup state.currentChallenger
+      state.currentChallenger = shuffledArray.pop()
+      state.remainingChallengers = shuffledArray
     },
     changeScene(state, scene) {
       state.scene = scene
@@ -114,6 +136,8 @@ export const store = new Vuex.Store({
         }
       }
     },
+    resetMeleeScoreCount(state){
+      state.readyCount = 0
     bulkRanking(state, rankedChallengers){
       state.challengers.map(challenger => {
         for (let incoming of rankedChallengers){
@@ -170,10 +194,34 @@ export const store = new Vuex.Store({
     setupState(state, payload){
       state.testName = payload.testName
       state.challengers = payload.challengers
+      state.remainingChallengers = payload.remainingChallengers 
+      state.currentChallenger = payload.currentChallenger
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
-    }
+    },
+    sendNextChallenger(state, nextChallenger){
+      state.currentChallenger = nextChallenger
+    },
+    chooseNextChallenger(state){
+      state.currentChallenger = state.remainingChallengers.pop()
+    },
+    setupFinalReveal(state, total, sortedChallengers){
+      // if(total >= 3) state.finalReveal['third'] = false
+      // if(total >= 4) state.finalReveal['loser'] = false
+      state.finalRevealChallengers = sortedChallengers
+      
+    },
+    revealNext(state){
+      // console.log(state.finalReveal)
+      // state.finalReveal['loser'] = !state.finalReveal['loser']
+      for(let index in state.finalReveal){
+        if(state.finalReveal[index] === false){
+          state.finalReveal[index] = true
+          break
+        }
+      }
+    },
   },
   getters: {
     getTopFour(state) {
@@ -208,7 +256,32 @@ export const store = new Vuex.Store({
     },
     getReadyPlayers(state){
       return state.readyCount
-    }
+    },
+    getCurrentChallenger(state){
+      console.log(state.currentChallenger)
+      return state.currentChallenger
+    },
+    // getNextChallenger(state){
+    //   //if remaining challengers.length === 0 it returns undefined
+      
+    //   return state.remainingChallengers.pop()
+    // },
+    getFinalRevealChallengers(state){
+      return state.finalRevealChallengers
+    },
+    getFirstReveal(state){
+      return state.finalReveal['first']
+    },
+    getSecondReveal(state){
+      return state.finalReveal['second']
+    },
+    getThirdReveal(state){
+      return state.finalReveal['third']
+    },
+    getLoserReveal(state){
+      return state.finalReveal['loser']
+    },
+
   },
   actions:{
     createSocket({commit, dispatch, state}){

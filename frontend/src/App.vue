@@ -18,6 +18,7 @@ import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
 import PreFinals from './components/PreFinals.vue'
+import WaitingRoomMelee from './components/WaitingRoomMelee.vue'
 import Beyond from './components/Beyond.vue'
 
 export default {
@@ -34,6 +35,7 @@ export default {
     HostInstructions,
     HostInstructionsTwo,
     WaitingRoom,
+    WaitingRoomMelee,
     Beyond
   },
 
@@ -52,6 +54,9 @@ export default {
     },
     moveToHostInstructions() {
       this.$store.commit('changeScene',"HostInstructions")
+    },
+    waitForNextMeleeRound(){
+      this.$store.commit('changeScene',"MeleeWaitingRoom")
     }
   },
   computed:{
@@ -77,7 +82,7 @@ export default {
   color: #707070;
   /* color: #2c3e50; */
   margin-top: 0;
-  background: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-background-longer-3.png') no-repeat;
+  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;
   background-position: center top;
   background-size: 100%;
   height: 700px;
@@ -104,6 +109,7 @@ export default {
 h1 {
   margin: 0 auto;
   font-size: 30px;
+  color: white;
 }
 
 button {
