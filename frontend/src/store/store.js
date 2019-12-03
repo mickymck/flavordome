@@ -26,8 +26,8 @@ export const store = new Vuex.Store({
       'second':false,
       'first':false,
     },
-
     finalRevealChallengers:[],
+    lastMeleeRound: false,
 
   },
   mutations:{
@@ -84,7 +84,6 @@ export const store = new Vuex.Store({
         let j = Math.floor(Math.random() * (i + 1));
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
       }
-      console.log(shuffledArray)
       //setup state.currentChallenger
       state.currentChallenger = shuffledArray.pop()
       state.remainingChallengers = shuffledArray
@@ -97,7 +96,30 @@ export const store = new Vuex.Store({
     },
     notifyReady(state){
       state.readyCount += 1
+      if (state.readyCount === state.playerCount && state.role === 'host'){
+
+        state.currentChallenger = state.remainingChallengers.pop()
+
+        if (state.remainingChallengers.length === 0) {
+          state.lastMeleeRound = true
+          state.newSocket.send(JSON.stringify({
+            'method':'sendLastMeleeRound', 
+            'payload':state.lastMeleeRound
+          }))
+        }
+
+        state.newSocket.send(JSON.stringify({
+          'method':'sendNextChallenger', 
+          'payload':state.currentChallenger
+        }))
+        
+        state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload': 'MeleeRating'
+        }))
+      }
     },
+
     addPlayer(state){
       if (state.role === 'host'){
         state.playerCount += 1
@@ -138,6 +160,8 @@ export const store = new Vuex.Store({
     },
     resetMeleeScoreCount(state){
       state.readyCount = 0
+    },
+
     bulkRanking(state, rankedChallengers){
       state.challengers.map(challenger => {
         for (let incoming of rankedChallengers){
@@ -202,9 +226,13 @@ export const store = new Vuex.Store({
     },
     sendNextChallenger(state, nextChallenger){
       state.currentChallenger = nextChallenger
+      state.readyCount = 0
     },
     chooseNextChallenger(state){
       state.currentChallenger = state.remainingChallengers.pop()
+    },
+    sendLastMeleeRound(state, lastMeleeRound){
+      state.lastMeleeRound = lastMeleeRound
     },
     setupFinalReveal(state, total, sortedChallengers){
       // if(total >= 3) state.finalReveal['third'] = false
@@ -258,7 +286,6 @@ export const store = new Vuex.Store({
       return state.readyCount
     },
     getCurrentChallenger(state){
-      console.log(state.currentChallenger)
       return state.currentChallenger
     },
     // getNextChallenger(state){

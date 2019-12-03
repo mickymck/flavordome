@@ -6,10 +6,9 @@
       </div>
       <div class='waiting-melee-text'>
         <h1>Waiting for all scores</h1>
-        <p class='instruction-text-dark'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
+        <p class='instruction-text'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
       </div>
       <div v-if="role==='host'">
-        YOURE THE HOST
         <button @click ='forceNextMelee'>Force Next Round</button>
       </div>
     </div>
