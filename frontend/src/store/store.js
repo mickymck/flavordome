@@ -289,7 +289,7 @@ export const store = new Vuex.Store({
       const roomNum = Math.floor(100000 + Math.random()*900000)
       
       const newSocket = new WebSocket(
-        'ws://' + window.location.host +
+        'wss://' + window.location.host +
         '/ws/' + roomNum + '/'
       )
       newSocket.onopen = function(event){
@@ -302,7 +302,7 @@ export const store = new Vuex.Store({
     },
     joinSocket({commit, dispatch}, roomNum){
       const newSocket = new WebSocket(
-        'ws://'+ window.location.host + 
+        'wss://'+ window.location.host + 
         '/ws/' + roomNum + '/'
       )
       newSocket.onopen = function(event){
