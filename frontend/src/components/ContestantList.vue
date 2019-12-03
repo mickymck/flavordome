@@ -4,20 +4,21 @@
       <div v-if="contestants.length > 0">
         <!-- <div v-if="contestants.length >= 4"> -->
           <!-- <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button> -->
-
-        <div class='contestant-list'>
-          <ul>
-            <li v-for="contestant in contestants" v-bind:key='contestant' class='challenger-card'>
-              {{contestant}}
-              <button class='delete-x' v-on:click="$emit('deleteContestant', contestant)">
-                X
-              </button>
-            </li>
-          </ul>
+        <div class='challengers-and-button'>
+          <div class='contestant-list'>
+            <ul>
+              <li v-for="contestant in contestants" v-bind:key='contestant' class='challenger-card'>
+                {{contestant}}
+                <button class='delete-x' v-on:click="$emit('deleteContestant', contestant)">
+                  X
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class='bottom-taste-button' v-if="contestants.length > 1">
-        <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button>
+        <div class='bottom-taste-button' v-if="contestants.length > 1">
+          <button id='ready-to-taste-button' v-on:click="$emit('submitContestants')">I'm Ready to Taste</button>
+        </div>
       </div>
     </div>
   </div>
@@ -59,9 +60,13 @@ export default {
   justify-content: center;
 }
 
+.challengers-and-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #ready-to-taste-button {
-  position: absolute;
-  bottom: 40px;
   font-size: 20px;
 }
 

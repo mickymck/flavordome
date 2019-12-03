@@ -120,6 +120,33 @@ export const store = new Vuex.Store({
       }
     },
 
+    forceMelee(state){
+      state.readyCount += 1
+
+      if (state.role === 'host'){
+
+        state.currentChallenger = state.remainingChallengers.pop()
+
+        if (state.remainingChallengers.length === 0) {
+          state.lastMeleeRound = true
+          state.newSocket.send(JSON.stringify({
+            'method':'sendLastMeleeRound', 
+            'payload':state.lastMeleeRound
+          }))
+        }
+
+        state.newSocket.send(JSON.stringify({
+          'method':'sendNextChallenger', 
+          'payload':state.currentChallenger
+        }))
+        
+        state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload': 'MeleeRating'
+        }))
+      }
+    },
+
     addPlayer(state){
       if (state.role === 'host'){
         state.playerCount += 1
@@ -158,9 +185,9 @@ export const store = new Vuex.Store({
         }
       }
     },
-    resetMeleeScoreCount(state){
-      state.readyCount = 0
-    },
+    // resetMeleeScoreCount(state){
+    //   state.readyCount = 0
+    // },
 
     bulkRanking(state, rankedChallengers){
       state.challengers.map(challenger => {
