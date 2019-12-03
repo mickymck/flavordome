@@ -17,7 +17,18 @@ export const store = new Vuex.Store({
     role:'guest',
     roomNum:'',
     readyCount:0,
-    categoryChoice:[]
+    categoryChoice:[],
+    remainingChallengers:[], //remaining challengers to rate in Melee rating populates in stateSetup
+    currentChallenger:[],
+    finalReveal: {
+      'loser':false,
+      'third':false,
+      'second':false,
+      'first':false,
+    },
+
+    finalRevealChallengers:[],
+
   },
   mutations:{
     addChallengers(state, challengers){
@@ -155,10 +166,38 @@ export const store = new Vuex.Store({
     setupState(state, payload){
       state.testName = payload.testName
       state.challengers = payload.challengers
+      // Durstenfield Shuffle algorithm
+      let array = payload.challengers.slice()
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+        for(i of array){console.log(i.challenger)}
+      }
+      console.log(array)
+      state.remainingChallengers = array
     }, 
     saveRoomNumber(state, roomNum){
       state.roomNum = roomNum
-    }
+    },
+    setNextChallenger(state,nextChallenger){
+      state.currentChallenger[0] = nextChallenger
+    },
+    setupFinalReveal(state, total, sortedChallengers){
+      // if(total >= 3) state.finalReveal['third'] = false
+      // if(total >= 4) state.finalReveal['loser'] = false
+      state.finalRevealChallengers = sortedChallengers
+      
+    },
+    revealNext(state){
+      // console.log(state.finalReveal)
+      // state.finalReveal['loser'] = !state.finalReveal['loser']
+      for(let index in state.finalReveal){
+        if(state.finalReveal[index] === false){
+          state.finalReveal[index] = true
+          break
+        }
+      }
+    },
   },
   getters: {
     getTopFour(state) {
@@ -190,7 +229,27 @@ export const store = new Vuex.Store({
     },
     getReadyPlayers(state){
       return state.readyCount
-    }
+    },
+    getNextChallenger(state){
+      //if remaining challengers.length === 0 it returns undefined
+      return state.remainingChallengers.pop()
+    },
+    getFinalRevealChallengers(state){
+      return state.finalRevealChallengers
+    },
+    getFirstReveal(state){
+      return state.finalReveal['first']
+    },
+    getSecondReveal(state){
+      return state.finalReveal['second']
+    },
+    getThirdReveal(state){
+      return state.finalReveal['third']
+    },
+    getLoserReveal(state){
+      return state.finalReveal['loser']
+    },
+
   },
   actions:{
     createSocket({commit, dispatch, state}){

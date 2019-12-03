@@ -50,6 +50,9 @@ export default {
     },
     moveToHostInstructions() {
       this.$store.commit('changeScene',"HostInstructions")
+    },
+    waitForNextMeleeRound(){
+      this.$store.commit('changeScene',"MeleeWaitingRoom")
     }
   },
   computed:{

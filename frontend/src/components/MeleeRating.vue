@@ -44,7 +44,7 @@ export default {
   methods:{
     handleSubmit:function(event){
       event.preventDefault()
-      this.augmentScore(this.cardRating)
+      this.augmentScore(this.cardRating)//wait for next round
       if (this.remainingCards.length === 0){
         this.currentCard = null
         this.resolveMelee()
