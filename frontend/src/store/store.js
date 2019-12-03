@@ -138,6 +138,7 @@ export const store = new Vuex.Store({
     },
     resetMeleeScoreCount(state){
       state.readyCount = 0
+    },
     bulkRanking(state, rankedChallengers){
       state.challengers.map(challenger => {
         for (let incoming of rankedChallengers){
