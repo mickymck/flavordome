@@ -40,8 +40,15 @@ export default {
   },
   methods:{
     forceNext:function(event) {
+      this.$store.commit('shuffleTopFour')
+      let shuffleTopFour = this.$store.getters.getShuffledTopFour
+
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'setTopFour',
+        'payload':null
+      }))
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'sendShuffledTopFour',
         'payload':null
       }))
       this.$store.state.newSocket.send(JSON.stringify({

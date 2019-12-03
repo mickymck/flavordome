@@ -51,8 +51,9 @@ export default {
       if(nextChallenger === undefined){
         this.$store.state.newSocket.send(JSON.stringify({
           'method':'changeScene', 
-          'payload':'HeadToHead'
+          'payload':'PreFinals'
         })) 
+        return
       }
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'sendNextChallenger', 
