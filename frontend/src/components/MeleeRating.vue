@@ -4,7 +4,7 @@
       <div class='flavordome-logo'></div>
     </div>
     <div>
-      <p class='instruction-text'>Test the taste of challenger {{this.currentCard.challengerLetter}}</p>
+      <p class='instruction-text'>Test the taste of Challenger {{this.currentCard.challengerLetter}}</p>
       <div class='arena'>
         <Combatant v-bind:card='this.currentCard'/>
       </div>
@@ -34,6 +34,7 @@ export default {
     Combatant,
     VueSlider
   },
+
   data: () => {
     return {
       currentCard:null,
@@ -41,10 +42,13 @@ export default {
       cardRating:5
     }
   },
+
   methods:{
     handleSubmit:function(event){
       event.preventDefault()
       this.augmentScore(this.cardRating)
+      this.countMeleeScores()
+      this.cardRating = 5
       if (this.remainingCards.length === 0){
         this.currentCard = null
         this.resolveMelee()
@@ -65,6 +69,28 @@ export default {
         }))
       }
     },
+    // advanceMeleeRound:function(){
+    //   for (let challenger of this.$store.state.challengers){
+    //     if (challenger === this.currentCard){
+    //       console.log(challenger.scores.length)
+    //       if (challenger.scores.length > 0){
+    //         this.$store.state.newSocket.send(JSON.stringify({
+    //           'method':'changeScene',
+    //           'payload':'WaitingRoomMelee'
+    //         }))
+    //       }
+    //     }
+    //   }
+    // },
+
+    countMeleeScores:function(){
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'notifyReady',
+        'payload': null
+      }))
+      this.$store.commit('changeScene', "WaitingRoomMelee")
+    },
+
     resolveMelee:function(){
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'notifyReady',

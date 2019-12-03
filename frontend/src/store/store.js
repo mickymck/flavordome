@@ -110,6 +110,9 @@ export const store = new Vuex.Store({
         }
       }
     },
+    resetMeleeScoreCount(state){
+      state.readyCount = 0
+    },
     addSemiScores(state, semiChallenger) {
       for (let challenger of state.challengers) {
         if (challenger.challenger === semiChallenger.challenger) {

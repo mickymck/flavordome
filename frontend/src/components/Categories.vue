@@ -37,11 +37,11 @@
     {name: 'Chips',
     message: 'ex: Cape Cod Salt and Vinegar'},
 
-    {name: 'Bourbon',
-    message: 'ex: Eagle Rare'},
+    {name: 'Veggie Burgers',
+    message: 'ex: Morningstar Black Bean Burger'},
 
     {name: 'Cheese',
-    message: 'ex: Aged Cheddar'},
+    message: 'ex: Vermont Sharp Cheddar'},
 
     {name: 'Gummies',
     message: 'ex: Haribo Gummy Fruit Salad'},
@@ -58,8 +58,8 @@
     {name: 'Hot Dogs',
     message: 'ex: Hebrew National'},
 
-    {name: 'Beer',
-    message: 'ex: Wicked Weed Pernicious IPA'}
+    {name: 'Root Beer',
+    message: 'ex: Goose Island Root Beer'}
 
     // 'Chips',
     // 'Bourbon',
@@ -132,7 +132,6 @@
 }
 
 .cat-instructions {
-  font-size: 20px;
   text-align: center;
   margin: 0 auto 20px auto;
   padding-top: 20px;

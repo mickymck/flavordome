@@ -1,7 +1,7 @@
 <template>
     <div class='category-card-container'>
         <div class="category-card">
-            <h1 v-on:click="$emit('selectCategory',categoryName)">{{ categoryName.name }}</h1>
+            <p v-on:click="$emit('selectCategory',categoryName)">{{ categoryName.name }}</p>
         </div>
     </div>
 </template>
@@ -47,10 +47,12 @@ module.exports = {
     transition: transform .1s ease-out;
 }
 
-.category-card h1{
+.category-card p {
     font-size: 1rem;
     display:table-cell;
     vertical-align: middle;
+    color:#707070;
+    font-weight: 700;
 }
 
 .category-card:hover{

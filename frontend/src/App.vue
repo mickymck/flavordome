@@ -18,6 +18,7 @@ import HostInstructions from './components/HostInstructions.vue'
 import HostInstructionsTwo from './components/HostInstructionsTwo.vue'
 import WaitingRoom from './components/WaitingRoom.vue'
 import PreFinals from './components/PreFinals.vue'
+import WaitingRoomMelee from './components/WaitingRoomMelee.vue'
 
 export default {
   name: 'app',
@@ -32,7 +33,8 @@ export default {
     FinalRankings,
     HostInstructions,
     HostInstructionsTwo,
-    WaitingRoom
+    WaitingRoom,
+    WaitingRoomMelee
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -93,6 +95,7 @@ export default {
 h1 {
   margin: 0 auto;
   font-size: 30px;
+  color: white;
 }
 
 button {
