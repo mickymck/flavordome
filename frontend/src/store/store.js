@@ -110,6 +110,17 @@ export const store = new Vuex.Store({
         }
       }
     },
+    bulkRanking(state, rankedChallengers){
+      state.challengers.map(challenger => {
+        for (let incoming of rankedChallengers){
+          if (challenger.challenger === incoming.challenger){
+            challenger.scores.push(incoming.rating)
+            challenger.average = challenger.scores.reduce((a, b) => a + b, 0) / challenger.scores.length
+          }
+        }
+        return challenger
+      })
+    },
     addSemiScores(state, semiChallenger) {
       for (let challenger of state.challengers) {
         if (challenger.challenger === semiChallenger.challenger) {
@@ -180,7 +191,10 @@ export const store = new Vuex.Store({
       // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()
       // challengers.splice(challengers.indexOf(state.champion[0],1))
       // challengers.unshift(state.champion[0])
-      return state.challengers.slice()
+      return state.challengers.map(a => a)
+    },
+    getAvgScore(state){
+      return state.challengers.map(a => a.average)
     },
     getPlayerCount(state){
       return state.playerCount

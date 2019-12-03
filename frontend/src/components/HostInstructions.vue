@@ -18,6 +18,7 @@
                 </ul>
             </div>
             <button @click='instructionsStepTwo' id='ready-for-step-two-button'>Step Two</button>
+            <button @click='goBeyond'>Beyond</button>
         </div>
     </div>
 </template>
@@ -41,6 +42,9 @@ export default {
         readyForSetup: function() {
             this.readyClicked = true;
         },
+        goBeyond: function() {
+            this.$store.commit('changeScene',"Beyond")
+        }
     },
 
     created(){
