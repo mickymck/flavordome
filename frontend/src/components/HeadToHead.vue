@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class='h2h-container' v-if='round === 3'>
-            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
+                <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
                 <div class='challenger-cards'>
                     <div class='left-challenger-section'>
                         <ChallengerCard v-bind:challenger="finalist1"/>
@@ -183,13 +183,12 @@ export default {
     components: {
         ChallengerCard,
         Champions,
-        VueSlider
+        VueSlider,
     },
 
     props: [
 
     ],
-
     data: () => {
         return {
             challengers: [],
@@ -202,7 +201,17 @@ export default {
             scale: 100
         }
     },
-
+   computed:{
+    role(){
+      return this.$store.getters.getRole
+    },
+    players(){
+      return this.$store.getters.getPlayerCount
+    },
+    ready(){
+      return this.$store.getters.getReadyPlayers
+    }
+  },
     methods: {
 
         draftChallenger() {
@@ -291,8 +300,13 @@ export default {
         },
 
         resolveSemis(){
-            this.$store.commit('setFinalists')
-            this.finalists = this.$store.getters.getFinalists
+            // this.$store.commit('setFinalists')
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'readyFinals',
+                'payload':null
+            }))
+            this.$store.commit('changeScene',"FinalsWaitingRoom")
+            // this.finalists = this.$store.getters.getFinalists
         },
 
         resolveFinals(){
@@ -326,17 +340,17 @@ export default {
 
         // less than 4 challengers
 
-        // this.shortChallengers = this.$store.getters.getChallengersByNumber
-        //     if (this.shortChallengers.length === 3){
-        //         this.shortChallenger1 = this.draftShortChallenger()
-        //         this.shortChallenger2 = this.draftShortChallenger()
-        //         this.shortChallenger3 = this.draftShortChallenger()
-        //         this.meleeWinners = [this.challenger1, this.challenger2, this.challenger3]
-        //     } else if (this.shortChallengers.length === 2){
-        //         this.shortChallenger1 = this.draftShortChallenger()
-        //         this.shortChallenger2 = this.draftShortChallenger()
-        //         this.meleeWinners = [this.challenger1, this.challenger2]
-        // }
+        this.shortChallengers = this.$store.getters.getChallengersByNumber
+            if (this.shortChallengers.length === 3){
+                this.shortChallenger1 = this.draftShortChallenger()
+                this.shortChallenger2 = this.draftShortChallenger()
+                this.shortChallenger3 = this.draftShortChallenger()
+                this.meleeWinners = [this.challenger1, this.challenger2, this.challenger3]
+            } else if (this.shortChallengers.length === 2){
+                this.shortChallenger1 = this.draftShortChallenger()
+                this.shortChallenger2 = this.draftShortChallenger()
+                this.meleeWinners = [this.challenger1, this.challenger2]
+        }
     }
 }
 </script>

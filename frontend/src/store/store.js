@@ -27,8 +27,9 @@ export const store = new Vuex.Store({
       'second':false,
       'first':false,
     },
-
     finalRevealChallengers:[],
+    lastMeleeRound: false,
+    showFinalRankings:false,
 
   },
   mutations:{
@@ -85,7 +86,6 @@ export const store = new Vuex.Store({
         let j = Math.floor(Math.random() * (i + 1));
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
       }
-      console.log(shuffledArray)
       //setup state.currentChallenger
       state.currentChallenger = shuffledArray.pop()
       state.remainingChallengers = shuffledArray
@@ -98,6 +98,32 @@ export const store = new Vuex.Store({
     },
     notifyReady(state){
       state.readyCount += 1
+      if (state.readyCount === state.playerCount && state.role === 'host' && state.remainingChallengers.length !== 0){
+        state.currentChallenger = state.remainingChallengers.pop()
+        if (state.remainingChallengers.length === 0) {
+          state.lastMeleeRound = true
+          state.newSocket.send(JSON.stringify({
+            'method':'sendLastMeleeRound', 
+            'payload':state.lastMeleeRound
+          }))
+        }
+
+        state.newSocket.send(JSON.stringify({
+          'method':'sendNextChallenger', 
+          'payload':state.currentChallenger
+        }))
+        
+        state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload': 'MeleeRating'
+        }))
+      }
+    },
+    readyFinals(state){
+      state.readyCount +=1
+    },
+    readyRankings(state){
+      state.readyCount +=1
     },
     addPlayer(state){
       if (state.role === 'host'){
@@ -155,7 +181,7 @@ export const store = new Vuex.Store({
       for (let challenger of state.challengers) {
         if (challenger.challenger === semiChallenger.challenger) {
           challenger.semiScores.push(semiChallenger.rating)
-          // challenger.semiAvg = challenger.semiScores.reduce((a, b) => a + b, 0) / challenger.semiScores.length
+          challenger.semiAvg = challenger.semiScores.reduce((a, b) => a + b, 0) / challenger.semiScores.length
         }
       }
     },
@@ -183,16 +209,20 @@ export const store = new Vuex.Store({
     },
     shuffleTopFour(state){
       let shuffledArray = state.topFour.slice()
-
       for (let i = shuffledArray.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
       } 
-      console.log(shuffledArray)
       state.shuffledTopFour = shuffledArray
     },
-    sendShuffledTopFour(state, shuffledTopFour){
-      state.shuffledTopFour = shuffledTopFour
+    setupSemifinals(state, payload){
+      state.topFour = payload.topFour
+      state.shuffledTopFour = payload.shuffledTopFour
+      state.readyCount = 0
+    },
+    setupFinals(state,payload){
+      state.finalists = payload.finalists
+      state.readyCount = 0
     },
     setDirectHeadToHead(state){
       state.topFour = state.challengers.slice()
@@ -226,15 +256,36 @@ export const store = new Vuex.Store({
     },
     sendNextChallenger(state, nextChallenger){
       state.currentChallenger = nextChallenger
+      state.readyCount = 0
     },
     chooseNextChallenger(state){
       state.currentChallenger = state.remainingChallengers.pop()
     },
-    setupFinalReveal(state, total, sortedChallengers){
+    sendLastMeleeRound(state, lastMeleeRound){
+      state.lastMeleeRound = lastMeleeRound
+    },
+    setFinalRevealChallengers(state){
+      //shifts the first and second place to the beginning of the challenger array
+      let sortedChallengers = state.challengers.slice()
+      let champ1Index= -1, champ2Index= -1
+      if(sortedChallengers.length > 2){
+        for(let i = 0; i < sortedChallengers.length; i++){
+            if(sortedChallengers[i].challenger === state.champion[0].challenger) champ1Index = i
+            if(sortedChallengers[i].challenger === state.champion[1].challenger) champ2Index = i
+        }
+        let firstPlace = sortedChallengers.splice(champ1Index,1)
+        let secondPlace = sortedChallengers.splice(champ2Index,1)
+        sortedChallengers.unshift(secondPlace[0])
+        sortedChallengers.unshift(firstPlace[0])
+      }
+      state.finalRevealChallengers = sortedChallengers
+
+    },
+    setupFinalReveal(state,payload){
       // if(total >= 3) state.finalReveal['third'] = false
       // if(total >= 4) state.finalReveal['loser'] = false
-      state.finalRevealChallengers = sortedChallengers
-      
+      state.finalRevealChallengers = payload.finalRevealChallengers
+      state.finalReveal = payload.finalReveal
     },
     revealNext(state){
       // console.log(state.finalReveal)
@@ -246,6 +297,9 @@ export const store = new Vuex.Store({
         }
       }
     },
+    sendShowFinalRankings(state){
+      state.showFinalRankings = true
+    }
   },
   getters: {
     getTopFour(state) {
@@ -264,9 +318,6 @@ export const store = new Vuex.Store({
       return state.role
     },
     getChallengers(state){
-      // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()
-      // challengers.splice(challengers.indexOf(state.champion[0],1))
-      // challengers.unshift(state.champion[0])
       return state.challengers.map(a => a)
     },
     getAvgScore(state){
@@ -282,19 +333,13 @@ export const store = new Vuex.Store({
       return state.readyCount
     },
     getCurrentChallenger(state){
-      console.log(state.currentChallenger)
       return state.currentChallenger
     },
     getShuffledTopFour(state){
-      return state.shuffledTopFour
+      return state.shuffledTopFour.slice()
     },
-    // getNextChallenger(state){
-    //   //if remaining challengers.length === 0 it returns undefined
-      
-    //   return state.remainingChallengers.pop()
-    // },
     getFinalRevealChallengers(state){
-      return state.finalRevealChallengers
+      return state.finalRevealChallengers.slice()
     },
     getFirstReveal(state){
       return state.finalReveal['first']

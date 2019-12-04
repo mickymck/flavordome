@@ -1,6 +1,6 @@
 <template>
 <div class="rankings-container">
-    <div class="top-four-rankings" v-show="!finalRankingsShow">
+    <div class="top-four-rankings" v-show="!showFinalRankings">
             <h1>Champions!</h1>
         <div class='champion'>
             <!-- <div v-if="contestantsShowArray.length <= 2">
@@ -15,7 +15,7 @@
             </div>
             <div v-else> -->
                 <transition name="fade" enter-active-class="animated bounceInUp">
-                    <h2 v-show="revealFirst">Champion: {{ sortedChallengers[0].challenger }}</h2>
+                    <h2 v-show="revealFirst">Champion: {{ sortedChallengers[0].challenger }} ({{ sortedChallengers[0].challengerLetter }})</h2>
                 </transition>
             <!-- </div> -->
         </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div v-else> -->
                     <transition name="fade" enter-active-class="animated bounceInUp">
-                        <h3 v-show="revealSecond">2nd: {{ sortedChallengers[1].challenger }}</h3>
+                        <h3 v-show="revealSecond">2nd: {{ sortedChallengers[1].challenger }} ({{ sortedChallengers[1].challengerLetter }})</h3>
                     </transition>
                 <!-- </div> -->
         </div>
@@ -45,19 +45,19 @@
             </div>
             <div v-else> -->
                 <transition name="fade" enter-active-class="animated bounceInUp">
-                    <h4 v-show="revealThird">3rd: {{ sortedChallengers[2].challenger }}</h4>
+                    <h4 v-show="revealThird">3rd: {{ sortedChallengers[2].challenger }} ({{ sortedChallengers[2].challengerLetter }})</h4>
                 </transition>
             <!-- </div> -->
         </div> 
         <!-- <div class='loser' v-if='gteFourChallengers'> -->
         <div class='loser'>
             <transition name="fade" enter-active-class="animated bounceInUp">
-                <h4 v-show="revealLoser">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }}</h4>
+                <h4 v-show="revealLoser">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }} ({{ sortedChallengers[sortedChallengers.length - 1].challengerLetter }})</h4>
             </transition>
         </div>
-        <button class="next-champion-button" @click="presentChampion">Next</button>
+        <button v-if='role === "host"' class="next-champion-button" @click="presentChampion">Next</button>
     </div>
-    <FinalRankings v-show="finalRankingsShow" v-bind:sortedChallengers="sortedChallengers"></FinalRankings>
+    <FinalRankings v-show="showFinalRankings"></FinalRankings>
 </div>
 </template>
 
@@ -76,9 +76,9 @@ require("animate.css/animate.min.css")
             contestantsShowArray: [],
             count: 0,
             topFour:[],
-            sortedChallengers:[],
+            // sortedChallengers:[],
             challengers:[],
-            finalRankingsShow:false,
+            showChampions:true,
             champions:[],
             gteThreeChallengers:false,
             gteFourChallengers:false,
@@ -91,23 +91,22 @@ require("animate.css/animate.min.css")
         revealThird: state => state.finalReveal['third'],
         revealSecond: state => state.finalReveal['second'],
         revealFirst: state => state.finalReveal['first'],
+        sortedChallengers: state => state.finalRevealChallengers,
+        showFinalRankings: state => state.showFinalRankings,
+        role: state => state.role,
     }),
-        // revealLoser () {
-        //     return this.$store.state.finalReveal['loser']
-        // }
-
     methods:{
         presentChampion:function(){
-            this.$store.commit("revealNext")
-            
-            // if(this.count !== this.contestantsShowArray.length){
-            //     this.$set(this.contestantsShowArray, this.count, !this.contestantsShowArray[this.count])
-            //     this.count++
-            // }
-            // else{
-            //     //move to the next screen
-            //     this.finalRankingsShow = true;
-            // }
+            if(this.revealFirst){
+                this.$store.state.newSocket.send(JSON.stringify({
+                    'method':'sendShowFinalRankings',
+                    'payload':null
+                }))
+            }  
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'revealNext',
+                'payload':null
+            }))
         },
     },
     created:function(){
@@ -125,29 +124,29 @@ require("animate.css/animate.min.css")
             totalShown = 4
             console.log(totalShown)
         }
-        let champ1Index= -1, champ2Index= -1
+        // let champ1Index= -1, champ2Index= -1
 
         //shifts the first and second place to the beginning of the challenger array
-        if(this.sortedChallengers.length > 2){
-            for(let i = 0; i < sortedChallengers.length; i++){
-                if(sortedChallengers[i].challenger === champions[0].challenger) champ1Index = i
-                if(sortedChallengers[i].challenger === champions[1].challenger) champ2Index = i
-            }
-            let firstPlace = sortedChallengers.splice(champ1Index,1)
-            let secondPlace = sortedChallengers.splice(champ2Index,1)
-            sortedChallengers.unshift(secondPlace[0])
-            sortedChallengers.unshift(firstPlace[0])
-        }
-        this.$store.commit("setupFinalReveal", totalShown, sortedChallengers)
-        this.$store.watch(
-            (state)=>{
-                return this.$store.state.finalReveal['loser']
-            }
-        )
+        // if(this.sortedChallengers.length > 2){
+        //     for(let i = 0; i < sortedChallengers.length; i++){
+        //         if(sortedChallengers[i].challenger === champions[0].challenger) champ1Index = i
+        //         if(sortedChallengers[i].challenger === champions[1].challenger) champ2Index = i
+        //     }
+        //     let firstPlace = sortedChallengers.splice(champ1Index,1)
+        //     let secondPlace = sortedChallengers.splice(champ2Index,1)
+        //     sortedChallengers.unshift(secondPlace[0])
+        //     sortedChallengers.unshift(firstPlace[0])
+        // }
+        // this.$store.commit("setupFinalReveal", totalShown, sortedChallengers)
+        // this.$store.watch(
+        //     (state)=>{
+        //         return this.$store.state.finalReveal['loser']
+        //     }
+        // )
         // for(let i = 0; i < totalShown; i++) this.contestantsShowArray.push(false)
-        this.sortedChallengers = sortedChallengers
-        console.log(this.$store.finalRankingsShow) 
-        console.log(this.$store.finalRevealChallengers) 
+        // this.sortedChallengers = sortedChallengers
+        // console.log(this.$store.finalRankingsShow) 
+        // console.log(this.$store.finalRevealChallengers) 
     }
   }
 </script>
