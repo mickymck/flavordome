@@ -1,15 +1,17 @@
 <template>
   <div class='waiting-room-container'>
-      <div class='waiting-melee'>
+    <div class='waiting-melee'>
       <div class='logo-wrapper'>
         <div class='flavordome-logo'></div>
       </div>
-      <div class='waiting-melee-text'>
-        <h1>Waiting for all scores</h1>
-        <p class='instruction-text'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
-      </div>
-      <div v-if="role==='host'">
-        <button @click ='forceNextMelee'>Force Next Round</button>
+      <div class='waiting-melee-body'>
+        <div class='waiting-melee-text'>
+          <h1>Waiting for all scores</h1>
+          <p class='instruction-text-dark'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
+        </div>
+        <div v-if="role==='host'">
+          <button @click ='forceNextMelee'>Force Next Round</button>
+        </div>
       </div>
     </div>
   </div>
@@ -91,9 +93,21 @@ export default {
 
 <style scoped>
 
+h1 {
+  color: #ff73d5;
+}
+
 .waiting-room-container {
-  animation-name: 'white-flash';
-  animation-duration: 1s;
+  animation: 0.5s fadeIn;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+.waiting-melee-body {
+  padding-top: 100px;
 }
 
 .waiting-text {

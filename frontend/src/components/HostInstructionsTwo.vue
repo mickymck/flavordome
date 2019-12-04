@@ -11,7 +11,7 @@
                 <p class='instruction-text'>Move each numbered container to go with the corresponding letter:</p>
                 <ul>
                     <li v-for='challenger in letterMask' v-bind:key='challenger.challenger' class='challenger-card' id='number-to-letter-card'>
-                        {{challenger.challengerLetter}}) {{challenger.challengerNumber}}
+                        {{challenger.challengerNumber}} → {{challenger.challengerLetter}}
                     </li>
                 </ul>
             </div>
@@ -107,8 +107,7 @@ ul {
     display: flex;
     justify-content: space-around;
     width: 50%;
-    padding: 5px;
-    margin: 0 auto;
+    font-size: 20px;
 }
 
 #step-two-complete-button {
