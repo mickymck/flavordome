@@ -43,8 +43,21 @@ export default {
       }))
     },
 
-    forceNextMelee:function(){
-      console.log('forcing melee')
+    forceNextMelee:function() {
+      this.resetMeleeScoreCount()
+      this.$store.commit('chooseNextChallenger')
+      let nextChallenger = this.$store.getters.getCurrentChallenger
+      if(nextChallenger === undefined){
+        this.$store.state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload':'PreFinals'
+        })) 
+        return
+      }
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'sendNextChallenger', 
+        'payload':nextChallenger
+      })) 
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'forceMelee',
         'payload': null
