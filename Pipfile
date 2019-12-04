@@ -15,6 +15,7 @@ channels-redis = "*"
 djangorestframework = "*"
 redis = "*"
 django-redis-cache = "*"
+whitenoise = {extras = ["brotli"],version = "*"}
 
 [requires]
 python_version = "3.7"
