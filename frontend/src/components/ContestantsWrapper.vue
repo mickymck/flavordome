@@ -16,8 +16,7 @@
         </form>
       </div>
       <ContestantList v-bind:contestants='contestants' v-on:deleteContestant='handleDelete' v-on:submitContestants='handleLaunch'/>
-      <div>
-      </div>
+      <p v-if='contestants.length === 0' class='go-back-text' @click='goBack'>Go Back</p>
     </div>
   </div>
 </template>
@@ -52,6 +51,9 @@ export default {
         this.contestant=''
       }
     },
+    goBack: function(){
+      this.$emit('goBack')
+    },
     handleDelete: function(contestantToDelete){
       let newContestants = this.contestants.filter(contestant => contestant !== contestantToDelete)
       this.contestants = newContestants
@@ -78,6 +80,7 @@ export default {
       //   'payload': "HostInstructions"
       // }))
     }
+
   }
 }
 </script>

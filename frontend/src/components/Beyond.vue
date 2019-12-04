@@ -23,7 +23,7 @@
 <script>
 import draggable from 'vuedraggable'
 import Chart from './Chart.vue'
-
+import * as d3 from 'd3-scale-chromatic'
 export default {
   components:{
     draggable,
@@ -93,7 +93,7 @@ export default {
         labels:this.$store.getters.getChallengers.map(a=>a.challenger),
         datasets: [{
           data: this.$store.getters.getAvgScore,
-          background
+          backgroundColor: this.interpolateColors(this.challengers.length, d3.interpolateRainbow, {colorStart:0, colorEnd:1, useEndAsStart:false})
         }]
       }
     }
@@ -102,10 +102,6 @@ export default {
 </script>
 
 <style scoped>
-  .draggee{
-    padding:.5rem;
-  }
-  
   .drag-list{
     padding-top:2rem;
     max-width:80vw;

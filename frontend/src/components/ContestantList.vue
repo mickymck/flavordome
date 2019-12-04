@@ -44,17 +44,6 @@ export default {
   flex-direction: column;
 }
 
-.challenger-card {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px auto 0 auto;
-  color: #a600d8;
-  background-color: #fbfbfb;
-  box-shadow: -1px 2px 4px #b4b4b4;
-  padding: 10px;
-  max-width: 800px;
-}
-
 .bottom-taste-button {
   display: flex;
   justify-content: center;

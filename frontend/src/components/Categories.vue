@@ -19,11 +19,12 @@
             <button id="submit-button" type="submit">Submit</button>
             <!-- <input type="submit" value="Submit"> -->
           </form>
+          <p class='go-back-text' @click='startOver'>Start Over</p>
         </div>
       </div>
       <div class='contestants' v-show="categorySelected">
           <!-- <h1>{{ category }}</h1> -->
-        <ContestantsWrapper v-bind:category="category"></ContestantsWrapper>
+        <ContestantsWrapper @goBack='deselectCategory' v-bind:category="category"></ContestantsWrapper>
       </div>
     </div>
   </div>
@@ -96,9 +97,15 @@
         const formData = new FormData(form)
         this.category = formData.get('customCategoryName')
         this.categorySelected = !this.categorySelected
+      },
+      startOver: function(){
+        this.$store.commit('changeScene', 'HostWelcome')
+      },
+      deselectCategory: function() {
+        this.categorySelected = false
+        category = ''
       }
     },
-      
   }
 </script>
 

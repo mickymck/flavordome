@@ -1,6 +1,6 @@
 <template>
   <div class='waiting-room-container'>
-      <div class='waiting-melee'>
+    <div class='waiting-melee'>
       <div class='logo-wrapper'>
         <div class='flavordome-logo'></div>
       </div>
@@ -91,9 +91,21 @@ export default {
 
 <style scoped>
 
+h1 {
+  color: #ff73d5;
+}
+
 .waiting-room-container {
-  animation-name: 'white-flash';
-  animation-duration: 1s;
+  animation: 0.5s fadeIn;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+.waiting-melee-body {
+  padding-top: 100px;
 }
 
 .waiting-melee-text {
