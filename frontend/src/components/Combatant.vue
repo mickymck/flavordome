@@ -22,8 +22,8 @@ export default {
     width:30vw;
     margin:auto;
     height:30vw;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 200px;
+    max-height: 200px;
     font-size: 5rem;
     display:flex;
     flex-direction: column;

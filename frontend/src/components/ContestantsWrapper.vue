@@ -7,8 +7,8 @@
         </div>
         <form v-on:submit="this.handleSubmit">
           <div class="control">
-            <input type='text' name="contestant" class="user-input-field" v-if='category.message' :placeholder="[[category.message]]">
-            <input type='text' name="contestant" class="user-input-field" v-if='!category.message' placeholder="ex: Mom's Famous Beef Chili">
+            <input type='text' v-model='contestant' name="contestant" class="user-input-field" v-if='category.message' :placeholder="[[category.message]]">
+            <input type='text' v-model='contestant' name="contestant" class="user-input-field" v-if='!category.message' placeholder="ex: Mom's Famous Beef Chili">
           </div>
           <div class="control">
             <button action="submit">Add Challenger</button>
@@ -33,7 +33,8 @@ export default {
 
   data() {
     return {
-      contestants: []
+      contestants: [],
+      contestant:''
     }
   },
   components: {
@@ -43,10 +44,12 @@ export default {
 
     handleSubmit: function(event){
       event.preventDefault()
-      const form = event.target
-      const formData = new FormData(form)
-      form.reset()
-      this.contestants.unshift(formData.get('contestant'))
+      this.contestant = this.contestant.trim()
+      if (this.contestant){
+        this.contestants.unshift(this.contestant)
+        this.contestants = [...new Set(this.contestants)]
+        this.contestant=''
+      }
     },
     goBack: function(){
       this.$emit('goBack')
