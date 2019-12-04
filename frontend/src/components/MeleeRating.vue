@@ -37,9 +37,15 @@ export default {
 
   data: () => {
     return {
-      currentCard:null,
+      // currentCard:null,
       // remainingCards:[],
       cardRating:5
+    }
+  },
+
+  computed:{
+    currentCard(){
+      return this.$store.getters.getCurrentChallenger
     }
   },
 
@@ -47,8 +53,12 @@ export default {
     handleSubmit:function(event){
       event.preventDefault()
       this.augmentScore(this.cardRating)
-      this.countMeleeScores()
-      this.cardRating = 5
+      if (this.$store.state.lastMeleeRound === true){
+        this.resolveMelee()
+      } else {
+        this.countMeleeScores()
+        this.cardRating = 5
+      }
       // if (this.remainingCards.length === 0){
       //   this.currentCard = null
       //   this.resolveMelee()
@@ -98,12 +108,6 @@ export default {
       }))
       this.$store.commit('changeScene', "PreFinals")
     }
-  },
-  created:function(){
-    // this.remainingCards = this.$store.state.challengers.slice()
-    // this.chooseCard()
-    this.currentCard = this.$store.getters.getCurrentChallenger
-    console.log(this.currentCard)
   }
 }
 </script>

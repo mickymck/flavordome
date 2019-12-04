@@ -6,10 +6,9 @@
       </div>
       <div class='waiting-melee-text'>
         <h1>Waiting for all scores</h1>
-        <p class='instruction-text-dark'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
+        <p class='instruction-text'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
       </div>
       <div v-if="role==='host'">
-        YOURE THE HOST
         <button @click ='forceNextMelee'>Force Next Round</button>
       </div>
     </div>
@@ -43,31 +42,46 @@ export default {
         'payload': null
       }))
     },
+
+    forceNextMelee:function(){
+      console.log('forcing melee')
+      this.$store.state.newSocket.send(JSON.stringify({
+        'method':'forceMelee',
+        'payload': null
+      }))
+    },
+
     
-    forceNextMelee:function() {
-      this.resetMeleeScoreCount()
-      this.$store.commit('chooseNextChallenger')
-      let nextChallenger = this.$store.getters.getCurrentChallenger
-      if(nextChallenger === undefined){
-        this.$store.state.newSocket.send(JSON.stringify({
-          'method':'changeScene', 
-          'payload':'HeadToHead'
-        })) 
-      }
-      this.$store.state.newSocket.send(JSON.stringify({
-        'method':'sendNextChallenger', 
-        'payload':nextChallenger
-      })) 
-      this.$store.state.newSocket.send(JSON.stringify({
-        'method':'changeScene', 
-        'payload': 'MeleeRating'
-      })) 
-    }
+    
+    // forceNextMelee:function() {
+    //   this.resetMeleeScoreCount()
+    //   this.$store.commit('chooseNextChallenger')
+    //   let nextChallenger = this.$store.getters.getCurrentChallenger
+    //   if(nextChallenger === undefined){
+    //     this.$store.state.newSocket.send(JSON.stringify({
+    //       'method':'changeScene', 
+    //       'payload':'HeadToHead'
+    //     })) 
+    //   }
+    //   this.$store.state.newSocket.send(JSON.stringify({
+    //     'method':'sendNextChallenger', 
+    //     'payload':nextChallenger
+    //   })) 
+    //   this.$store.state.newSocket.send(JSON.stringify({
+    //     'method':'changeScene', 
+    //     'payload': 'MeleeRating'
+    //   })) 
+    // }
   }
 }
 </script>
 
 <style scoped>
+
+.waiting-room-container {
+  animation-name: 'white-flash';
+  animation-duration: 1s;
+}
 
 .waiting-text {
   margin-top: 30px;
