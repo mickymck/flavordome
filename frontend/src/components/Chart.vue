@@ -14,7 +14,7 @@ export default {
     },
     options:{
       type:Object,
-      default:null
+      default:null,
     }
   },
   mounted(){
@@ -22,3 +22,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  canvas{
+    background:rgba(255,255,255, 0.5)
+  }
+</style>

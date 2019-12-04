@@ -1,14 +1,20 @@
 <template>
-  <div class='drag-list'>
-    <ul>
-      <draggable :list='challengers'>
-        <li v-for='challenger in challengers' :key='challenger.challenger' class='challenger-card'>
-          <span class='draggee'>{{challenger.challenger}}</span>
-        </li>
-      </draggable>
-    </ul>
-    <button @click='sendRankings'>Submit Rankings</button>
-    <div class='chart-wrapper'>
+  <div class='beyond-wrapper'>
+    <div class='drag-list' v-show='!rankingsSent'>
+      
+      <ul>
+        <draggable :list='challengers'>
+          <li v-for='(challenger, index) in challengers' :key='challenger.challenger' class='challenger-card'>
+            <span class='draggee'>{{index+1}})  {{challenger.challenger}}</span>
+          </li>
+        </draggable>
+      </ul>
+      <button @click='sendRankings'>Submit Rankings</button>
+    </div>
+    <div class='chart-wrapper' v-show='rankingsSent'>
+      <div class='logo-wrapper'>
+        <div class='flavordome-logo'></div>
+      </div>
       <Chart :chartData='chartData' :options='options' />
     </div>
   </div>
@@ -27,6 +33,15 @@ export default {
     return{
       options:{
         responsive:true,
+        legend:{
+          display:false
+        },
+        layout:{
+          padding:{
+            top:20,
+            right:15
+          }
+        },
         scales:{
           xAxes:[{
             ticks:{
@@ -35,7 +50,8 @@ export default {
           }]
         }
       },
-      challengers:[]
+      challengers:[],
+      rankingsSent:false
     }
   },
   methods:{
@@ -48,6 +64,7 @@ export default {
         method:"bulkRanking",
         payload:this.challengers
       }))
+      this.rankingsSent=true
     }
   },
   created(){
@@ -58,7 +75,8 @@ export default {
       return {
         labels:this.$store.getters.getChallengers.map(a=>a.challenger),
         datasets: [{
-          data: this.$store.getters.getAvgScore
+          data: this.$store.getters.getAvgScore,
+          label:null
         }]
       }
     }
@@ -68,19 +86,21 @@ export default {
 
 <style scoped>
   .draggee{
-    background:white;
     padding:.5rem;
-    margin-bottom:.5rem;
   }
   
   .drag-list{
     padding-top:2rem;
+    max-width:80vw;
+    margin:auto;
   }
   
   .chart-wrapper{
-    max-height:10rem;
-    max-width:50vw;
+    max-width:60vw;
     margin:auto;
     position:relative;
+  }
+  .beyond-wrapper{
+    padding-top:1rem
   }
 </style>
