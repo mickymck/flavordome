@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from config.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 import json
 
 # Create your views here.
@@ -28,8 +29,12 @@ def send_results(request):
     email = data['email']
     for line in data['email-string']:
       message = message + line + '\n'
-  send_mail(subject,
-    message,
-    EMAIL_HOST_USER,
-    [email],
-    fail_silently = False)
+    sentEmails = send_mail(subject,
+                    message,
+                    EMAIL_HOST_USER,
+                    [email],
+                    fail_silently = False)
+    if sentEmails == 1:
+        return JsonResponse({'ok':True})
+  return JsonResponse({'ok':False})
+   
