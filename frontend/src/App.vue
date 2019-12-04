@@ -24,6 +24,7 @@ import FinalsWaitingRoom from './components/FinalsWaitingRoom.vue'
 import Finals from './components/Finals.vue'
 import RankingsWaitingRoom from './components/RankingsWaitingRoom.vue'
 
+
 export default {
   name: 'app',
   components: {

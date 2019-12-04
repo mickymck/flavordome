@@ -29,6 +29,7 @@ export const store = new Vuex.Store({
     },
     finalRevealChallengers:[],
     lastMeleeRound: false,
+    showFinalRankings:false,
 
   },
   mutations:{
@@ -263,11 +264,28 @@ export const store = new Vuex.Store({
     sendLastMeleeRound(state, lastMeleeRound){
       state.lastMeleeRound = lastMeleeRound
     },
-    setupFinalReveal(state, total, sortedChallengers){
+    setFinalRevealChallengers(state){
+      //shifts the first and second place to the beginning of the challenger array
+      let sortedChallengers = state.challengers.slice()
+      let champ1Index= -1, champ2Index= -1
+      if(sortedChallengers.length > 2){
+        for(let i = 0; i < sortedChallengers.length; i++){
+            if(sortedChallengers[i].challenger === state.champion[0].challenger) champ1Index = i
+            if(sortedChallengers[i].challenger === state.champion[1].challenger) champ2Index = i
+        }
+        let firstPlace = sortedChallengers.splice(champ1Index,1)
+        let secondPlace = sortedChallengers.splice(champ2Index,1)
+        sortedChallengers.unshift(secondPlace[0])
+        sortedChallengers.unshift(firstPlace[0])
+      }
+      state.finalRevealChallengers = sortedChallengers
+
+    },
+    setupFinalReveal(state,payload){
       // if(total >= 3) state.finalReveal['third'] = false
       // if(total >= 4) state.finalReveal['loser'] = false
-      state.finalRevealChallengers = sortedChallengers
-      
+      state.finalRevealChallengers = payload.finalRevealChallengers
+      state.finalReveal = payload.finalReveal
     },
     revealNext(state){
       // console.log(state.finalReveal)
@@ -279,6 +297,9 @@ export const store = new Vuex.Store({
         }
       }
     },
+    sendShowFinalRankings(state){
+      state.showFinalRankings = true
+    }
   },
   getters: {
     getTopFour(state) {
@@ -315,10 +336,10 @@ export const store = new Vuex.Store({
       return state.currentChallenger
     },
     getShuffledTopFour(state){
-      return state.shuffledTopFour
+      return state.shuffledTopFour.slice()
     },
     getFinalRevealChallengers(state){
-      return state.finalRevealChallengers
+      return state.finalRevealChallengers.slice()
     },
     getFirstReveal(state){
       return state.finalReveal['first']

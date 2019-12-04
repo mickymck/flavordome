@@ -37,12 +37,14 @@
 <script>
 
 require("animate.css/animate.min.css")
-// axios.defaults.xsrfCookieName = 'csrftoken' //need this for method:post
-// axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN' //need this for method:post
 
 export default {
   name:'FinalRankings',
-  props:['sortedChallengers'],
+  computed:{
+      sortedChallengers(){
+          return this.$store.getters.getFinalRevealChallengers
+      }
+  },
   methods: {
     ordinal_suffix:function(i) {
         var j = i % 10
@@ -61,7 +63,7 @@ export default {
     send_results:function(){
         let rankedSortedChallengers = []
         let component = this
-        this.$props.sortedChallengers.forEach(function(challenger,index) {
+        this.sortedChallengers.forEach(function(challenger,index) {
             let rank = index+1
             rankedSortedChallengers.push(component.ordinal_suffix(rank) + " " + challenger.challenger)
         })
