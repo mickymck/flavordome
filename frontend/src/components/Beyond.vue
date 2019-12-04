@@ -65,6 +65,23 @@ export default {
         payload:this.challengers
       }))
       this.rankingsSent=true
+    },
+    calculatePoint:function(i, intervalSize, colorRangeInfo){
+      const { colorStart, colorEnd, useEndAsStart } = colorRangeInfo
+      return (useEndAsStart ? (colorEnd - i*intervalSize): (colorStart + i*intervalSize))
+    },
+    interpolateColors:function(dataLength, colorScale, colorRangeInfo){
+      const {colorStart, colorEnd} = colorRangeInfo
+      const colorRange = colorEnd-colorStart
+      const intervalSize = colorRange/dataLength
+      let i, colorPoint
+      let colorArray = []
+      
+      for (i =0;i< dataLength; i++){
+        colorPoint = this.calculatePoint(i, intervalSize, colorRangeInfo)
+        colorArray.push(colorScale(colorPoint))
+      }
+      return colorArray
     }
   },
   created(){
@@ -76,7 +93,7 @@ export default {
         labels:this.$store.getters.getChallengers.map(a=>a.challenger),
         datasets: [{
           data: this.$store.getters.getAvgScore,
-          label:null
+          background
         }]
       }
     }

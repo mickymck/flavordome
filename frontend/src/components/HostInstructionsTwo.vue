@@ -11,7 +11,7 @@
                 <p class='instruction-text'>Move each numbered container to go with the corresponding letter:</p>
                 <ul>
                     <li v-for='challenger in letterMask' v-bind:key='challenger.challenger' class='challenger-card' id='number-to-letter-card'>
-                        {{challenger.challengerLetter}}) {{challenger.challengerNumber}}
+                        {{challenger.challengerNumber}} ---> {{challenger.challengerLetter}}
                     </li>
                 </ul>
             </div>
