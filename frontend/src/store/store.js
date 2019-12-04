@@ -237,9 +237,23 @@ export const store = new Vuex.Store({
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.finalists = sorted.slice(0, 2)
     },
-    setChampion(state) {
+    setChampions(state) {
       let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
+      let sortedChallengers = state.challengers.slice()
       state.champion = sorted.slice(0,2) 
+      let champion1 = state.challengers[0], champion2 =state.challengers[1]
+      let champ1Index= -1, champ2Index= -1
+      if(sortedChallengers.length > 2){
+        for(let i = 0; i < sortedChallengers.length; i++){
+            if(sortedChallengers[i].challenger === champion1.challenger) champ1Index = i
+            if(sortedChallengers[i].challenger === champion2.challenger) champ2Index = i
+        }
+        let firstPlace = sortedChallengers.splice(champ1Index,1)
+        let secondPlace = sortedChallengers.splice(champ2Index,1)
+        sortedChallengers.unshift(secondPlace[0])
+        sortedChallengers.unshift(firstPlace[0])
+      }
+      state.finalRevealChallengers = sortedChallengers
     },
     setShortChallengeChamp(state){
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
@@ -281,11 +295,27 @@ export const store = new Vuex.Store({
       state.finalRevealChallengers = sortedChallengers
 
     },
-    setupFinalReveal(state,payload){
+    setupFinalReveal(state){
       // if(total >= 3) state.finalReveal['third'] = false
       // if(total >= 4) state.finalReveal['loser'] = false
-      state.finalRevealChallengers = payload.finalRevealChallengers
-      state.finalReveal = payload.finalReveal
+      let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
+      let sortedChallengers = state.challengers.slice()
+      state.champion = sorted.slice(0,2) 
+      let champion1 = state.challengers[0], champion2 =state.challengers[1]
+      let champ1Index= -1, champ2Index= -1
+      if(sortedChallengers.length > 2){
+        for(let i = 0; i < sortedChallengers.length; i++){
+            if(sortedChallengers[i].challenger === champion1.challenger) champ1Index = i
+            if(sortedChallengers[i].challenger === champion2.challenger) champ2Index = i
+        }
+        let firstPlace = sortedChallengers.splice(champ1Index,1)
+        let secondPlace = sortedChallengers.splice(champ2Index,1)
+        sortedChallengers.unshift(secondPlace[0])
+        sortedChallengers.unshift(firstPlace[0])
+      }
+      state.finalRevealChallengers = sortedChallengers
+      // state.finalRevealChallengers = payload.finalRevealChallengers
+      // state.finalReveal = payload.finalReveal
     },
     revealNext(state){
       // console.log(state.finalReveal)
