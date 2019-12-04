@@ -1,5 +1,7 @@
 <template>
     <div class="host-instructions-container">
+        <button @click='showModal'>Tutorial</button>
+        <TutorialModal v-show="modalVisible" @closeModal='closeModal'/>
         <div class='first-instructions'>
             <div v-show="!readyClicked">
                 <h1>Taste Test Setup</h1>
@@ -24,13 +26,17 @@
 </template>
 
 <script>
+import TutorialModal from './TutorialModal.vue'
 export default {
     name:'HostInstructions',
-    
+    components:{
+        TutorialModal
+    },
     data: () => {
         return {
-        challengersToMask:[],
-        readyClicked: false
+            challengersToMask:[],
+            readyClicked: false,
+            modalVisible: false
         }
     },
 
@@ -47,6 +53,12 @@ export default {
                 method:'changeScene',
                 payload:"Beyond"
             }))
+        },
+        closeModal:function(){
+            this.modalVisible = false;
+        },
+        showModal:function(){
+            this.modalVisible = true;
         }
     },
 

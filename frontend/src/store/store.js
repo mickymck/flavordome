@@ -224,7 +224,7 @@ export const store = new Vuex.Store({
     addFinalistScores(state, finalChallenger) {
       for (let challenger of state.challengers) {
         // if (challenger.challenger === finalChallenger.challenger) {
-        if (challenger === finalChallenger) {
+        if (challenger.challenger === finalChallenger.challenger) {
           challenger.finalScores.push(finalChallenger.rating)
           challenger.finalAvg = challenger.finalScores.reduce((a, b) => a + b, 0) / challenger.finalScores.length
         }

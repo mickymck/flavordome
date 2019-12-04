@@ -1,10 +1,12 @@
 <template>
   <div class='drag-list'>
-    <draggable :list='challengers'>
-      <div v-for='challenger in challengers' :key='challenger.challenger'>
-        <span class='draggee'>{{challenger.challenger}}</span>
-      </div>
-    </draggable>
+    <ul>
+      <draggable :list='challengers'>
+        <li v-for='challenger in challengers' :key='challenger.challenger' class='challenger-card'>
+          <span class='draggee'>{{challenger.challenger}}</span>
+        </li>
+      </draggable>
+    </ul>
     <button @click='sendRankings'>Submit Rankings</button>
     <div class='chart-wrapper'>
       <Chart :chartData='chartData' :options='options' />
