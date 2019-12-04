@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     numberMask:[],
     letterMask:[],
     topFour:[],
+    shuffledTopFour:[],
     finalists: [],
     champion: [],//the top two challengers
     playerCount: 1,
@@ -96,10 +97,8 @@ export const store = new Vuex.Store({
     },
     notifyReady(state){
       state.readyCount += 1
-      if (state.readyCount === state.playerCount && state.role === 'host'){
-
+      if (state.readyCount === state.playerCount && state.role === 'host' && state.remainingChallengers.length !== 0){
         state.currentChallenger = state.remainingChallengers.pop()
-
         if (state.remainingChallengers.length === 0) {
           state.lastMeleeRound = true
           state.newSocket.send(JSON.stringify({
@@ -119,7 +118,12 @@ export const store = new Vuex.Store({
         }))
       }
     },
-
+    readyFinals(state){
+      state.readyCount +=1
+    },
+    readyRankings(state){
+      state.readyCount +=1
+    },
     addPlayer(state){
       if (state.role === 'host'){
         state.playerCount += 1
@@ -161,7 +165,6 @@ export const store = new Vuex.Store({
     resetMeleeScoreCount(state){
       state.readyCount = 0
     },
-
     bulkRanking(state, rankedChallengers){
       state.challengers.map(challenger => {
         for (let incoming of rankedChallengers){
@@ -181,9 +184,18 @@ export const store = new Vuex.Store({
         }
       }
     },
+    // sendSemiScores(state, semiChallenger, score){
+    //   for (let challenger of state.challengers) {
+    //     if (challenger.challenger === semiChallenger.challenger) {
+    //       challenger.semiScores.push(semiChallenger.rating)
+    //       challenger.semiAvg = challenger.semiScores.reduce((a, b) => a + b, 0) / challenger.semiScores.length
+    //     }
+    //   }
+    // },
     addFinalistScores(state, finalChallenger) {
       for (let challenger of state.challengers) {
-        if (challenger.challenger === finalChallenger.challenger) {
+        // if (challenger.challenger === finalChallenger.challenger) {
+        if (challenger === finalChallenger) {
           challenger.finalScores.push(finalChallenger.rating)
           challenger.finalAvg = challenger.finalScores.reduce((a, b) => a + b, 0) / challenger.finalScores.length
         }
@@ -193,6 +205,23 @@ export const store = new Vuex.Store({
         let sorted = state.challengers.sort((a, b) => (b.average - a.average))
         state.challengers = sorted
         state.topFour = sorted.slice(0,4)
+    },
+    shuffleTopFour(state){
+      let shuffledArray = state.topFour.slice()
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+      } 
+      state.shuffledTopFour = shuffledArray
+    },
+    setupSemifinals(state, payload){
+      state.topFour = payload.topFour
+      state.shuffledTopFour = payload.shuffledTopFour
+      state.readyCount = 0
+    },
+    setupFinals(state,payload){
+      state.finalists = payload.finalists
+      state.readyCount = 0
     },
     setDirectHeadToHead(state){
       state.topFour = state.challengers.slice()
@@ -268,9 +297,6 @@ export const store = new Vuex.Store({
       return state.role
     },
     getChallengers(state){
-      // let challengers = state.challengers.sort((a, b) => (b.average - a.average)).slice()
-      // challengers.splice(challengers.indexOf(state.champion[0],1))
-      // challengers.unshift(state.champion[0])
       return state.challengers.map(a => a)
     },
     getAvgScore(state){
@@ -288,11 +314,9 @@ export const store = new Vuex.Store({
     getCurrentChallenger(state){
       return state.currentChallenger
     },
-    // getNextChallenger(state){
-    //   //if remaining challengers.length === 0 it returns undefined
-      
-    //   return state.remainingChallengers.pop()
-    // },
+    getShuffledTopFour(state){
+      return state.shuffledTopFour
+    },
     getFinalRevealChallengers(state){
       return state.finalRevealChallengers
     },

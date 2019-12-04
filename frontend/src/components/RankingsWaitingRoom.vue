@@ -4,17 +4,17 @@
       <div class='flavordome-logo'></div>
     </div>
     <div>
-      <h1>Prepare for the Semifinals</h1>
+      <h1>Get Ready for the Results!</h1>
       <p class='instruction-text-dark'>Currently waiting on {{this.players - this.ready}} results to be submitted</p>
     </div>
     
     <div v-if="role==='host'">
       <!-- YOURE THE HOST -->
       <div v-if='players === ready'>
-        <button @click='forceNext'>On To The Semifinals</button>
+        <button @click='forceNext'>Get Results</button>
       </div>
       <div v-if='players !== ready'>
-        <button @click='forceNext'>Force To the Semifinals</button>
+        <button @click='forceNext'>Force to Results</button>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name:'PreFinals',
+  name:'RankingsWaitingRoom',
   data:() =>{
     return{ 
     }
@@ -40,22 +40,15 @@ export default {
   },
   methods:{
     forceNext:function(event) {
-      this.$store.state.newSocket.send(JSON.stringify({
-        'method':'setTopFour',
-        'payload':null
-      }))
-      this.$store.commit('setTopFour')
-      this.$store.commit('shuffleTopFour')
-      let shuffledTopFour = this.$store.getters.getShuffledTopFour
-      console.log("shuffled")
-      console.log(shuffledTopFour)
-      this.$store.state.newSocket.send(JSON.stringify({
-        'method':'setupSemifinals',
-        'payload':this.$store.state
-      }))
+      // this.$store.commit('setFinalists')
+      // this.$store.state.newSocket.send(JSON.stringify({
+      //   'method':'setupFinals',
+      //   'payload':this.$store.state
+      // }))
+      this.$store.commit('setChampion')
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'changeScene',
-        'payload':"HeadToHead"
+        'payload':"Champions"
       }))
     }
   }

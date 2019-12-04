@@ -20,6 +20,9 @@ import WaitingRoom from './components/WaitingRoom.vue'
 import PreFinals from './components/PreFinals.vue'
 import WaitingRoomMelee from './components/WaitingRoomMelee.vue'
 import Beyond from './components/Beyond.vue'
+import FinalsWaitingRoom from './components/FinalsWaitingRoom.vue'
+import Finals from './components/Finals.vue'
+import RankingsWaitingRoom from './components/RankingsWaitingRoom.vue'
 
 export default {
   name: 'app',
@@ -28,7 +31,6 @@ export default {
     Categories,
     HostWelcome,
     TasteTestSetup,
-    Champions,
     MeleeRating,
     HeadToHead,
     FinalRankings,
@@ -36,7 +38,11 @@ export default {
     HostInstructionsTwo,
     WaitingRoom,
     WaitingRoomMelee,
-    Beyond
+    Beyond,
+    FinalsWaitingRoom,
+    Finals,
+    RankingsWaitingRoom,
+    Champions
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
