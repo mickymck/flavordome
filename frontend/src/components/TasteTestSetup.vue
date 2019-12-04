@@ -56,7 +56,14 @@ export default {
     pushTestName() {
       this.testNameLock = true;
       this.$store.dispatch('createSocket')
+    },
+    handleBack() {
+      this.testNameLock = false
     }
+  },
+
+  activated:function(){
+    this.testNameLock = false
   }
 };
 

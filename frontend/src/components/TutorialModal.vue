@@ -2,10 +2,12 @@
   <transition name='modal-fade'>
     <div class='modal-backdrop'>
       <div class='modal'>
+        <p class='delete-x' @click='closeModal'>X</p>
         <div class='tutorial'>
-          THE TUTORIAL GOES HERE
+          <video src="https://flavordome.s3.us-east-2.amazonaws.com/flavordome_demo_video_2.mp4" poster="https://flavordome.s3.us-east-2.amazonaws.com/flavordome-logo-small.png" height="500px" autoplay controls preload="auto">
+          </video>
         </div>
-        <button @click='closeModal'>Close</button>
+        <!-- <button @click='closeModal'>Close</button> -->
       </div>
     </div>
   </transition>
@@ -47,5 +49,18 @@ export default {
   .modal-fade-enter-active, .modal-fade-leave-active{
     transition: opacity .5s ease;
   }
+  .delete-x {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    color: #ff73d5;
+    font-weight: 900;
+    padding: 0;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+.delete-x:hover {
+  cursor: pointer;
+}
   
 </style>

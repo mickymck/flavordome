@@ -23,6 +23,7 @@ import Beyond from './components/Beyond.vue'
 import FinalsWaitingRoom from './components/FinalsWaitingRoom.vue'
 import Finals from './components/Finals.vue'
 import RankingsWaitingRoom from './components/RankingsWaitingRoom.vue'
+import ContestantsWrapper from './components/ContestantsWrapper.vue'
 
 
 export default {
@@ -43,7 +44,8 @@ export default {
     FinalsWaitingRoom,
     Finals,
     RankingsWaitingRoom,
-    Champions
+    Champions,
+    ContestantsWrapper
   },
 
   // this will be responsible for determining which component is currently rendered in the app. default is HostWelcome, but it can be toggled
@@ -106,6 +108,12 @@ export default {
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
+  animation-duration: 4s;
+  animation-name: fadein;
+}
+
+@keyframes fadein {
+
 }
 
 .logo-wrapper {
@@ -174,7 +182,7 @@ input.user-input-field:focus {
   color: #bbbbbb;
 }
 
-.challenger-card {
+/* .challenger-card {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -182,6 +190,31 @@ input.user-input-field:focus {
   box-shadow: -1px 2px 4px #d3d3d3;
   padding-left: 5px;
   padding-right: 20px;
+} */
+
+.challenger-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto 0 auto;
+  color: #a600d8;
+  background-color: #fbfbfb;
+  box-shadow: -1px 2px 4px #b4b4b4;
+  padding: 10px;
+  max-width: 800px;
+}
+
+.go-back-text {
+  color: #ff73d5;
+  margin: 0 auto;
+  padding-top: 30px;
+  font-size: 24px;
+  font-weight: 500;
+  transition: transform .1s ease-out;
+}
+
+.go-back-text:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .scream-text {

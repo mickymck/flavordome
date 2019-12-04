@@ -1,6 +1,5 @@
 <template>
     <div class="host-instructions-container">
-        <button @click='showModal'>Tutorial</button>
         <TutorialModal v-show="modalVisible" @closeModal='closeModal'/>
         <div class='first-instructions'>
             <div v-show="!readyClicked">
@@ -22,6 +21,8 @@
             <button @click='instructionsStepTwo' id='ready-for-step-two-button'>Step Two</button>
             <button @click='goBeyond'>Beyond</button>
         </div>
+        <!-- <p class='go-back-text' @click='editChallengers'>Edit Taste Test</p> -->
+        <p @click='showModal' class='instruction-text-dark' id='tutorial-link'>Watch the Setup Tutorial?</p>
     </div>
 </template>
 
@@ -54,6 +55,9 @@ export default {
                 payload:"Beyond"
             }))
         },
+        // editChallengers: function() {
+        //     this.$store.commit('changeScene', "ContestantsWrapper")
+        // },
         closeModal:function(){
             this.modalVisible = false;
         },
@@ -72,6 +76,18 @@ export default {
 
 h1 {
     padding-top: 20px;
+}
+
+#tutorial-link {
+    text-align: right;
+    color: #a600d8;
+    padding-top: 40px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#tutorial-link:hover {
+    cursor: pointer;
 }
 
 .first-instructions {
