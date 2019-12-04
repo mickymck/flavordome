@@ -141,6 +141,7 @@ require("animate.css/animate.min.css")
 .title{
     margin: 1rem;
     font-size: 3rem;
+    color:white
 }
 .rankings-container{
     padding: 1rem 1rem 1rem 1rem;

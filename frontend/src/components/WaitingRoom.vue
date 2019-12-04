@@ -4,8 +4,8 @@
       <div class='flavordome-logo'></div>
     </div>
     <div class='waiting-message'>
-      <h1>Waiting for other users</h1>
-      <p class='instruction-text'>There are currently {{players}} judges for this taste test</p>
+      <h1 class='instruction-text-pink'>Waiting for other users</h1>
+      <p class='instruction-text-dark'>There are currently {{players}} judges for this taste test</p>
       <!-- <p>If you are the only current judge then something went wrong</p> -->
     </div>
     <div v-if="role==='host'">
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 
 .waiting-message {
-  margin-top: 30px;
+  margin-top: 35%;
 }
 
 </style>

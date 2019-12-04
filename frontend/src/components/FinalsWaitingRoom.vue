@@ -3,8 +3,8 @@
     <div class='logo-wrapper'>
       <div class='flavordome-logo'></div>
     </div>
-    <div>
-      <h1>Prepare for the Finals!</h1>
+    <div class="instructions-wrapper">
+      <h1 class='scream-text'>Prepare for the Finals!</h1>
       <p class='instruction-text-dark'>Currently waiting on {{this.players - this.ready}} results to be submitted</p>
     </div>
     
@@ -58,7 +58,10 @@ export default {
 
 h1 {
     padding-top: 20px;
-    color: white;
+    font-size:1.8rem;
+}
+.instructions-wrapper{
+  margin-top:18%;
 }
 
 .pre-finals-container p {
