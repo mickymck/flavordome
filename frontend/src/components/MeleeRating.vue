@@ -37,9 +37,15 @@ export default {
 
   data: () => {
     return {
-      currentCard:null,
+      // currentCard:null,
       // remainingCards:[],
       cardRating:5
+    }
+  },
+
+  computed:{
+    currentCard(){
+      return this.$store.getters.getCurrentChallenger
     }
   },
 
@@ -102,12 +108,6 @@ export default {
       }))
       this.$store.commit('changeScene', "PreFinals")
     }
-  },
-  created:function(){
-    // this.remainingCards = this.$store.state.challengers.slice()
-    // this.chooseCard()
-    this.currentCard = this.$store.getters.getCurrentChallenger
-    console.log(this.currentCard)
   }
 }
 </script>

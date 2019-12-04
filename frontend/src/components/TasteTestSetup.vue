@@ -4,7 +4,7 @@
       <div>
         <!-- if the taste test name has been entered, this will render -->
         <div class='taste-test-name' v-if="testNameLock">
-          <h1>{{ testName }}</h1>
+          <!-- <h1>{{ testName }}</h1> -->
           <Categories />
         </div>
       </div>
