@@ -36,12 +36,12 @@
             <transition leave-active-class="animated zoomOutRight">
                 <div class="email-container" v-if="!emailSent" >
                     <h3>Send Results to your email!</h3>
-                    <input class="user-input-field" type="text" placeholder="example@gmail.com" ref="email"><br>
+                    <input class="user-input-field email-input" type="text" placeholder="example@gmail.com" ref="email"><br>
                     <button @click="send_results">Send Results</button>
                 </div>
             </transition>
-            <div class="confirmation animated fadeIn" v-if="emailSent">
-                <h3>Email Sent!</h3>
+            <div class="confirmation animated slideInLeft email-confirmation" v-if="emailSent">
+                <h2>Email Sent!</h2>
             </div>
     </div>
     </transition>
@@ -98,8 +98,9 @@ export default {
             'email':this.$refs.email.value,
             'email-string':rankedSortedChallengers,
           })
-        }).then(res =>JSON.parse(res))
+        }).then(res => res.json())
         .then(res=>{
+            console.log(res)
             if(res['ok']){
                 this.emailSent = true
                 console.log("email sent!")
@@ -120,7 +121,7 @@ li{
     color: gold;
 }
 input{
-    margin-top:1rem;
+    margin-top:1rem !important;
 }
 h1{
     color:gold;
@@ -130,15 +131,23 @@ h1{
     text-shadow: 1px 1px 1px black;
     width:100%
 }
+.email-container{
+    margin-top: 3rem
+}
+.email-confirmation{
+    margin-top:1rem;
+    text-shadow: 1px 1px 5px wheat;
+    color: lightslategray;
+}
 .rank-container{
     width:100%;
     display:flex;
 }
 .rank-col{
-    width:25%;
+    width:30%;
 }
 .name-col{
-    width:75%;
+    width:70%;
     text-align: left;
 
 }

@@ -158,7 +158,7 @@ require("animate.css/animate.min.css")
 .champion{
     color: white;
     text-shadow: 1px 1px 10px gold;
-    margin: 3rem 0 3rem 0;
+    margin: 3rem 0 2rem 0;
 }
 .next-champion-button{
     margin-top: 1rem;
