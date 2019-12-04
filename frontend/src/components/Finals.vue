@@ -6,7 +6,7 @@
         </div>
         <div class='challengers-container' id='four-plus-challengers'>
             <div class='h2h-container'>
-                <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
+                <p class='matchup-text'>Choose Your Champion</p>
                 <div class='challenger-cards'>
                     <div class='left-challenger-section'>
                         <ChallengerCard v-bind:challenger="finalist1"/>
@@ -18,7 +18,6 @@
                         <p class='head-to-head-score'>Score: {{ value }}</p>
                     </div>
                 </div>
-                <h1>Choose Your Champion</h1>
                 <div class='slider'>
                     <vue-slider v-model='value' :min='0' :max='10' tooltip='none' :interval='0.5' />
                 </div>
@@ -99,9 +98,10 @@ export default {
 }
 
 .matchup-text {
-    color: white;
+    color: gold;
+    text-shadow: 1px 1px 3px grey;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 1.5px;
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
@@ -125,7 +125,10 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+.slider{
+    margin-top: 1.5rem;
 }
 
 </style>

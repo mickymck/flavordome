@@ -1,7 +1,7 @@
 <template>
 <div class="rankings-container">
     <div class="top-four-rankings" v-show="!showFinalRankings">
-            <h1>Champions!</h1>
+            <h1 class="title">Champions!</h1>
         <div class='champion'>
             <!-- <div v-if="contestantsShowArray.length <= 2">
                 <transition name="fade" enter-active-class="animated bounceInUp">
@@ -14,8 +14,8 @@
                 </transition>
             </div>
             <div v-else> -->
-                <transition name="fade" enter-active-class="animated bounceInUp">
-                    <h2 v-show="revealFirst">Champion: {{ sortedChallengers[0].challenger }} ({{ sortedChallengers[0].challengerLetter }})</h2>
+                <transition name="fade" enter-active-class="animated bounceInUp ">
+                    <h2 v-show="revealFirst">1st: {{ sortedChallengers[0].challenger }} ({{ sortedChallengers[0].challengerLetter }})</h2>
                 </transition>
             <!-- </div> -->
         </div>
@@ -45,7 +45,7 @@
             </div>
             <div v-else> -->
                 <transition name="fade" enter-active-class="animated bounceInUp">
-                    <h4 v-show="revealThird">3rd: {{ sortedChallengers[2].challenger }} ({{ sortedChallengers[2].challengerLetter }})</h4>
+                    <h3 v-show="revealThird">3rd: {{ sortedChallengers[2].challenger }} ({{ sortedChallengers[2].challengerLetter }})</h3>
                 </transition>
             <!-- </div> -->
         </div> 
@@ -55,7 +55,9 @@
                 <h4 v-show="revealLoser">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }} ({{ sortedChallengers[sortedChallengers.length - 1].challengerLetter }})</h4>
             </transition>
         </div>
-        <button v-if='role === "host"' class="next-champion-button" @click="presentChampion">Next</button>
+        <button v-if='role === "host" && !completeRankingsButton' class="next-champion-button" @click="presentChampion">Reveal Next Champ</button>
+        <button v-if='role === "host" && completeRankingsButton' class="next-champion-button" @click="presentChampion">Complete Rankings</button>
+
     </div>
     <FinalRankings v-show="showFinalRankings"></FinalRankings>
 </div>
@@ -82,6 +84,7 @@ require("animate.css/animate.min.css")
             champions:[],
             gteThreeChallengers:false,
             gteFourChallengers:false,
+            completeRankingsButton:false,
             
         }
     },
@@ -97,6 +100,7 @@ require("animate.css/animate.min.css")
     }),
     methods:{
         presentChampion:function(){
+            if(this.revealSecond) this.completeRankingsButton = true
             if(this.revealFirst){
                 this.$store.state.newSocket.send(JSON.stringify({
                     'method':'sendShowFinalRankings',
@@ -124,29 +128,6 @@ require("animate.css/animate.min.css")
             totalShown = 4
             console.log(totalShown)
         }
-        // let champ1Index= -1, champ2Index= -1
-
-        //shifts the first and second place to the beginning of the challenger array
-        // if(this.sortedChallengers.length > 2){
-        //     for(let i = 0; i < sortedChallengers.length; i++){
-        //         if(sortedChallengers[i].challenger === champions[0].challenger) champ1Index = i
-        //         if(sortedChallengers[i].challenger === champions[1].challenger) champ2Index = i
-        //     }
-        //     let firstPlace = sortedChallengers.splice(champ1Index,1)
-        //     let secondPlace = sortedChallengers.splice(champ2Index,1)
-        //     sortedChallengers.unshift(secondPlace[0])
-        //     sortedChallengers.unshift(firstPlace[0])
-        // }
-        // this.$store.commit("setupFinalReveal", totalShown, sortedChallengers)
-        // this.$store.watch(
-        //     (state)=>{
-        //         return this.$store.state.finalReveal['loser']
-        //     }
-        // )
-        // for(let i = 0; i < totalShown; i++) this.contestantsShowArray.push(false)
-        // this.sortedChallengers = sortedChallengers
-        // console.log(this.$store.finalRankingsShow) 
-        // console.log(this.$store.finalRevealChallengers) 
     }
   }
 </script>
@@ -157,26 +138,32 @@ require("animate.css/animate.min.css")
     margin:0;
     padding:0;
 }
-
+.title{
+    margin: 1rem;
+    font-size: 3rem;
+    color:white
+}
 .rankings-container{
-    padding: 1rem 2rem 2rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
     width:100%;
     height:100%;
 }
 
 .champion,.second,.third,.loser{
-    text-align: left;
-    position: absolute;
     width:100%;
     height:5rem;
     position:relative;
+    font-size: 1.5rem;
+    text-align: center;
 }
-.loser{
-    height: 1rem;
-    font-size: 1rem;
+.champion{
+    color: white;
+    text-shadow: 1px 1px 10px gold;
+    margin: 3rem 0 2rem 0;
 }
 .next-champion-button{
-    margin-top: 5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
     justify-self:center;
 }
 </style>
