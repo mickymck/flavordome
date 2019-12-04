@@ -14,7 +14,7 @@
                 <p class='instruction-text'>Here's where to put each of your challengers:</p>
                 <ul class='numbered-challenger-cards'>
                     <li v-for='challenger in challengersToMask' v-bind:key='challenger.challenger' class='challenger-card'>
-                        {{challenger.challenger}} ---> {{challenger.challengerNumber}}
+                        {{challenger.challenger}} → {{challenger.challengerNumber}}
                     </li>
                 </ul>
             </div>
