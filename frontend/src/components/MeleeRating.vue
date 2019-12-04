@@ -59,17 +59,9 @@ export default {
         this.countMeleeScores()
         this.cardRating = 5
       }
-      // if (this.remainingCards.length === 0){
-      //   this.currentCard = null
-      //   this.resolveMelee()
-      // } else {
-      //   this.chooseCard()
-      // }
+      
     },
-    // chooseCard:function(){
-    //   const randCardIndex = Math.floor(Math.random()*this.remainingCards.length)
-    //   this.currentCard = this.remainingCards.splice(randCardIndex,1)[0]
-    // },
+    
     augmentScore:function(rating){
       if (this.currentCard !== null){
         this.currentCard.rating=rating
@@ -79,19 +71,6 @@ export default {
         }))
       }
     },
-    // advanceMeleeRound:function(){
-    //   for (let challenger of this.$store.state.challengers){
-    //     if (challenger === this.currentCard){
-    //       console.log(challenger.scores.length)
-    //       if (challenger.scores.length > 0){
-    //         this.$store.state.newSocket.send(JSON.stringify({
-    //           'method':'changeScene',
-    //           'payload':'WaitingRoomMelee'
-    //         }))
-    //       }
-    //     }
-    //   }
-    // },
 
     countMeleeScores:function(){
       this.$store.state.newSocket.send(JSON.stringify({

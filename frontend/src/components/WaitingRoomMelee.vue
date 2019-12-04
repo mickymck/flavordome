@@ -5,8 +5,8 @@
         <div class='flavordome-logo'></div>
       </div>
       <div class='waiting-melee-text'>
-        <h1>Waiting for all scores</h1>
-        <p class='instruction-text'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
+        <h1 class='instruction-text-pink'>Waiting for all scores</h1>
+        <p class='instruction-text-dark'>We are still waiting for {{players - readyPlayers}} judges to give scores</p>
       </div>
       <div v-if="role==='host'">
         <button @click ='forceNextMelee'>Force Next Round</button>
@@ -96,8 +96,8 @@ export default {
   animation-duration: 1s;
 }
 
-.waiting-text {
-  margin-top: 30px;
+.waiting-melee-text {
+  margin-top: 20%;
 }
 
 </style>

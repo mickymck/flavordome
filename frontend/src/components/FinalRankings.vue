@@ -132,7 +132,7 @@ h1{
     width:100%
 }
 .email-container{
-    margin-top: 3rem
+    margin-top: 2rem
 }
 .email-confirmation{
     margin-top:1rem;
