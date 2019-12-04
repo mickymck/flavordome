@@ -119,6 +119,34 @@ export const store = new Vuex.Store({
         }))
       }
     },
+
+    forceMelee(state){
+      state.readyCount += 1
+
+      if (state.role === 'host'){
+
+        state.currentChallenger = state.remainingChallengers.pop()
+
+        if (state.remainingChallengers.length === 0) {
+          state.lastMeleeRound = true
+          state.newSocket.send(JSON.stringify({
+            'method':'sendLastMeleeRound', 
+            'payload':state.lastMeleeRound
+          }))
+        }
+
+        state.newSocket.send(JSON.stringify({
+          'method':'sendNextChallenger', 
+          'payload':state.currentChallenger
+        }))
+        
+        state.newSocket.send(JSON.stringify({
+          'method':'changeScene', 
+          'payload': 'MeleeRating'
+        }))
+      }
+    },
+
     readyFinals(state){
       state.readyCount +=1
     },
