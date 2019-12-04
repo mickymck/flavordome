@@ -4,7 +4,6 @@
         <div class='logo-wrapper'>
             <div class='flavordome-logo'></div>
         </div>
-        <h1>HEAD TO HEAD</h1>
         <div class='challengers-container' id='four-plus-challengers' v-if='this.meleeWinners.length === 4'>
             <div class='h2h-container' v-if='round === 1'>
             <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.challenger1.challengerLetter}} and {{this.challenger2.challengerLetter}}?</p>
@@ -47,7 +46,7 @@
                 </div>
             </div>
             <div class='h2h-container' v-if='round === 3'>
-            <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
+                <p class='matchup-text'>Head to Head Matchup:<br>How much do you prefer {{this.finalist1.challengerLetter}} and {{this.finalist2.challengerLetter}}?</p>
                 <div class='challenger-cards'>
                     <div class='left-challenger-section'>
                         <ChallengerCard v-bind:challenger="finalist1"/>
@@ -72,6 +71,9 @@
                 
             </div>
         </div>
+<!-- 3 and below -->
+
+
 
         <div class='challengers-container' id='three-challengers' v-if='this.meleeWinners.length === 3'>
             <div class='h2h-container' v-if='round === 1'>
@@ -181,13 +183,12 @@ export default {
     components: {
         ChallengerCard,
         Champions,
-        VueSlider
+        VueSlider,
     },
 
     props: [
 
     ],
-
     data: () => {
         return {
             challengers: [],
@@ -200,7 +201,17 @@ export default {
             scale: 100
         }
     },
-
+   computed:{
+    role(){
+      return this.$store.getters.getRole
+    },
+    players(){
+      return this.$store.getters.getPlayerCount
+    },
+    ready(){
+      return this.$store.getters.getReadyPlayers
+    }
+  },
     methods: {
 
         draftChallenger() {
@@ -251,8 +262,16 @@ export default {
             challengerA.rating = 10 - this.value
             challengerB.rating = this.value
 
-            this.$store.commit('addSemiScores', challengerA)
-            this.$store.commit('addSemiScores', challengerB)
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'addSemiScores',
+                'payload': challengerA
+            }))
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'addSemiScores',
+                'payload': challengerB
+            }))
+            // this.$store.commit('addSemiScores', challengerA)
+            // this.$store.commit('addSemiScores', challengerB)
 
             this.challengers.push(challengerA)
             this.challengers.push(challengerB)
@@ -281,8 +300,13 @@ export default {
         },
 
         resolveSemis(){
-            this.$store.commit('setFinalists')
-            this.finalists = this.$store.getters.getFinalists
+            // this.$store.commit('setFinalists')
+            this.$store.state.newSocket.send(JSON.stringify({
+                'method':'readyFinals',
+                'payload':null
+            }))
+            this.$store.commit('changeScene',"FinalsWaitingRoom")
+            // this.finalists = this.$store.getters.getFinalists
         },
 
         resolveFinals(){
@@ -298,14 +322,23 @@ export default {
 
     created:function(){
 
-        this.challengers = this.$store.getters.getTopFour
-        if (this.challengers.length === 4) {
-            this.challenger1 = this.draftChallenger()
-            this.challenger2 = this.draftChallenger()
-            this.challenger3 = this.draftChallenger()
-            this.challenger4 = this.draftChallenger()
+        // this.challengers = this.$store.getters.getTopFour
+        let shuffledTopChallengers = this.$store.getters.getShuffledTopFour
+        // let shuffledTopChallengers = this.$store.getters.draftTopFourChallengers
+        console.log(shuffledTopChallengers)
+        if (shuffledTopChallengers.length === 4) {
+            // this.challenger1 = this.draftChallenger()
+            // this.challenger2 = this.draftChallenger()
+            // this.challenger3 = this.draftChallenger()
+            // this.challenger4 = this.draftChallenger()
+            this.challenger1 = shuffledTopChallengers[0]
+            this.challenger2 = shuffledTopChallengers[1]
+            this.challenger3 = shuffledTopChallengers[2]
+            this.challenger4 = shuffledTopChallengers[3]
             this.meleeWinners = [this.challenger1, this.challenger2, this.challenger3, this.challenger4]
         }
+
+        // less than 4 challengers
 
         this.shortChallengers = this.$store.getters.getChallengersByNumber
             if (this.shortChallengers.length === 3){
