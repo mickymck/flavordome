@@ -1,35 +1,48 @@
 <template>
     <transition name="fade" enter-active-class="animated fadeInUp">
     <div class="final-rankings">
+        <div class="title">
             <h1>FINAL RANKINGS!</h1>
+        </div>
             <ul>
+
                 <li v-for="(challenger,index) in sortedChallengers"> 
-                        <div v-if="index == 0" class="champion animated flash infinite delay-2s slow" transition="champ">
-                            <div class="rank-container">
+                        <div v-if="index == 0" class="champion animated flash infinite delay-2s slow">
+                             <div class="rank-container">
                                 <div class="rank-col">
-                                    <h2>{{ ordinal_suffix(index+1) }}</h2>
+                                    <h2> {{ ordinal_suffix(index+1) }}</h2>
                                 </div>
                                 <div class="name-col">
-                                    <h2>........  {{ challenger.challenger }}</h2>
+                                    <h2>{{ challenger.challenger }}</h2>
                                 </div>
                             </div>
+                            <!-- <div class="rank-container">
+                                <h2>{{ ordinal_suffix(index+1) }} {{ challenger.challenger }}</h2>
+                                <h2>........  {{ challenger.challenger }}</h2>
+                            </div> -->
                         </div>
                         <div v-else>
                             <div class="rank-container">
-                            <div class="rank-col">
-                                <h3> {{ ordinal_suffix(index+1) }}</h3>
+                                <div class="rank-col">
+                                    <h3> {{ ordinal_suffix(index+1) }}</h3>
+                                </div>
+                                <div class="name-col">
+                                    <h3>{{ challenger.challenger }}</h3>
+                                </div>
                             </div>
-                            <div class="name-col">
-                                <h3>........  {{ challenger.challenger }}</h3>
-                            </div>
-                        </div>
                         </div>
                 </li> 
             </ul>
-            <h2>Send Results to your email!</h2>
-            <label for="user_email">Email: </label>
-            <input id="user_email" type="text" name="user_email" ref="email"><br>
-            <button @click="send_results">Send Results</button>
+            <transition leave-active-class="animated zoomOutRight">
+                <div class="email-container" v-if="!emailSent" >
+                    <h3>Send Results to your email!</h3>
+                    <input class="user-input-field email-input" type="text" placeholder="example@gmail.com" ref="email"><br>
+                    <button @click="send_results">Send Results</button>
+                </div>
+            </transition>
+            <div class="confirmation animated slideInLeft email-confirmation" v-if="emailSent">
+                <h2>Email Sent!</h2>
+            </div>
     </div>
     </transition>
 </template>
@@ -43,6 +56,11 @@ export default {
   computed:{
       sortedChallengers(){
           return this.$store.getters.getFinalRevealChallengers
+      }
+  },
+  data: function () {
+      return{
+        emailSent:false
       }
   },
   methods: {
@@ -80,9 +98,11 @@ export default {
             'email':this.$refs.email.value,
             'email-string':rankedSortedChallengers,
           })
-        }).then(res =>JSON.parse(res))
+        }).then(res => res.json())
         .then(res=>{
+            console.log(res)
             if(res['ok']){
+                this.emailSent = true
                 console.log("email sent!")
             }
         })
@@ -92,18 +112,42 @@ export default {
 </script>
 
 <style scoped>
+ul{
+    color:white;
+}
 li{
     list-style-type: none;
+    text-shadow: 1px 1px 1px black;
+    color: gold;
+}
+input{
+    margin-top:1rem !important;
+}
+h1{
+    color:gold;
+}
+.title{
+    margin: 1rem;
+    text-shadow: 1px 1px 1px black;
+    width:100%
+}
+.email-container{
+    margin-top: 3rem
+}
+.email-confirmation{
+    margin-top:1rem;
+    text-shadow: 1px 1px 5px wheat;
+    color: lightslategray;
 }
 .rank-container{
     width:100%;
     display:flex;
 }
 .rank-col{
-    width:25%;
+    width:30%;
 }
 .name-col{
-    width:75%;
+    width:70%;
     text-align: left;
 
 }
