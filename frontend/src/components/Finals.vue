@@ -101,7 +101,7 @@ export default {
     color: gold;
     text-shadow: 1px 1px 3px grey;
     font-weight: 700;
-    font-size: 1.5px;
+    font-size: 1.5rem;
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
