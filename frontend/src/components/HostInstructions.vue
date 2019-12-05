@@ -117,5 +117,8 @@ h1 {
 .challenger-number-sorting p {
     margin-top: 0;
 }
+.challenger-card{
+    text-align:center;
+}
 
 </style>
