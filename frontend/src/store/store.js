@@ -268,24 +268,23 @@ export const store = new Vuex.Store({
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.finalists = sorted.slice(0, 2)
     },
-    setChampions(state) {
-      let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      let sortedChallengers = state.challengers.slice()
-      state.champion = sorted.slice(0,2) 
-      let champion1 = state.challengers[0], champion2 =state.challengers[1]
-      let champ1Index= -1, champ2Index= -1
-      if(sortedChallengers.length > 2){
-        for(let i = 0; i < sortedChallengers.length; i++){
-            if(sortedChallengers[i].challenger === champion1.challenger) champ1Index = i
-            if(sortedChallengers[i].challenger === champion2.challenger) champ2Index = i
-        }
-        let firstPlace = sortedChallengers.splice(champ1Index,1)
-        let secondPlace = sortedChallengers.splice(champ2Index,1)
-        sortedChallengers.unshift(secondPlace[0])
-        sortedChallengers.unshift(firstPlace[0])
-      }
-      state.finalRevealChallengers = sortedChallengers
-    },
+    // setChampions(state) {
+    //   let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
+    //   let sortedChallengers = state.challengers.slice()
+    //   let champion1 = sorted[0], champion2 =sorted[1]
+    //   let champ1Index= null, champ2Index= null
+    //   if(sortedChallengers.length > 2){
+    //     for(let i = 0; i < sortedChallengers.length; i++){
+    //         if(sortedChallengers[i].challenger === champion1.challenger) champ1Index = i
+    //         if(sortedChallengers[i].challenger === champion2.challenger) champ2Index = i
+    //     }
+    //     let firstPlace = sortedChallengers.splice(champ1Index,1)
+    //     let secondPlace = sortedChallengers.splice(champ2Index,1)
+    //     sortedChallengers.unshift(secondPlace[0])
+    //     sortedChallengers.unshift(firstPlace[0])
+    //   }
+    //   state.finalRevealChallengers = sortedChallengers
+    // },
     setShortChallengeChamp(state){
       let sorted = state.challengers.sort((a, b) => (b.semiAvg - a.semiAvg))
       state.champion = sorted.slice()
@@ -309,48 +308,23 @@ export const store = new Vuex.Store({
     sendLastMeleeRound(state, lastMeleeRound){
       state.lastMeleeRound = lastMeleeRound
     },
-    setFinalRevealChallengers(state){
-      //shifts the first and second place to the beginning of the challenger array
-      let sortedChallengers = state.challengers.slice()
-      let champ1Index= -1, champ2Index= -1
-      if(sortedChallengers.length > 2){
-        for(let i = 0; i < sortedChallengers.length; i++){
-            if(sortedChallengers[i].challenger === state.champion[0].challenger) champ1Index = i
-            if(sortedChallengers[i].challenger === state.champion[1].challenger) champ2Index = i
-        }
-        let firstPlace = sortedChallengers.splice(champ1Index,1)
-        let secondPlace = sortedChallengers.splice(champ2Index,1)
-        sortedChallengers.unshift(secondPlace[0])
-        sortedChallengers.unshift(firstPlace[0])
-      }
-      state.finalRevealChallengers = sortedChallengers
-
-    },
+    
     setupFinalReveal(state){
-      // if(total >= 3) state.finalReveal['third'] = false
-      // if(total >= 4) state.finalReveal['loser'] = false
-      let sorted = state.finalists.sort((a, b) => (b.finalAvg - a.finalAvg))
-      let sortedChallengers = state.challengers.slice()
+      let sorted = state.challengers.slice().sort((a, b) => (b.finalAvg - a.finalAvg))
+      let sortedChallengers = state.challengers.filter(challenger => challenger.finalAvg === null).sort((a,b) => (b.average - a.average))
+      // for(let c of sorted){console.log(c.challengerLetter)}
       state.champion = sorted.slice(0,2) 
-      let champion1 = state.challengers[0], champion2 =state.challengers[1]
-      let champ1Index= -1, champ2Index= -1
-      if(sortedChallengers.length > 2){
-        for(let i = 0; i < sortedChallengers.length; i++){
-            if(sortedChallengers[i].challenger === champion1.challenger) champ1Index = i
-            if(sortedChallengers[i].challenger === champion2.challenger) champ2Index = i
-        }
-        let firstPlace = sortedChallengers.splice(champ1Index,1)
-        let secondPlace = sortedChallengers.splice(champ2Index,1)
-        sortedChallengers.unshift(secondPlace[0])
-        sortedChallengers.unshift(firstPlace[0])
-      }
+      let champion1 = sorted[0], champion2 = sorted[1]
+      let champ1Index= null, champ2Index= null
+      // console.log("sorted challengers should not have any with finalAvg")
+      // for(let c of sortedChallengers){console.log(c.challengerLetter)}
+      sortedChallengers.unshift(champion2)
+      sortedChallengers.unshift(champion1)
+      // console.log("sorted challengers after all unshifts")
+      // for(let c of sortedChallengers){console.log(c.challengerLetter)}
       state.finalRevealChallengers = sortedChallengers
-      // state.finalRevealChallengers = payload.finalRevealChallengers
-      // state.finalReveal = payload.finalReveal
     },
     revealNext(state){
-      // console.log(state.finalReveal)
-      // state.finalReveal['loser'] = !state.finalReveal['loser']
       for(let index in state.finalReveal){
         if(state.finalReveal[index] === false){
           state.finalReveal[index] = true

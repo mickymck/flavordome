@@ -57,7 +57,6 @@ export default {
       this.$store.commit('setTestName', this.testName)
       this.testNameLock = true;
       this.$store.dispatch('createSocket')
-      this.$store.state.commit('')
     },
     handleBack() {
       this.testNameLock = false

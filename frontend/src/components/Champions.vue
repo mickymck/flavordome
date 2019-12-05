@@ -55,10 +55,7 @@
                 <h4 v-show="revealLoser">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }} ({{ sortedChallengers[sortedChallengers.length - 1].challengerLetter }})</h4>
             </transition>
         </div>
-        <button v-if='role === "host" && loserButton && !thirdPlaceButton' class="next-champion-button" @click="presentChampion">Reveal the Worst</button>
-        <button v-if='role === "host" && thirdPlaceButton && !secondPlaceButton' class="next-champion-button" @click="presentChampion">Reveal 3rd Place</button>
-        <button v-if='role === "host" && secondPlaceButton && !championButton' class="next-champion-button" @click="presentChampion">Reveal 2nd Place</button>
-        <button v-if='role === "host" && championButton' class="next-champion-button" @click="presentChampion">The Champion</button>
+        <button v-if='role === "host" && !completeRankingsButton' class="next-champion-button" @click="presentChampion">Reveal Next Champ</button>
         <button v-if='role === "host" && completeRankingsButton' class="next-champion-button" @click="presentChampion">Complete Rankings</button>
 
     </div>
@@ -87,10 +84,6 @@ require("animate.css/animate.min.css")
             champions:[],
             gteThreeChallengers:false,
             gteFourChallengers:false,
-            loserButton:true,
-            thirdPlaceButton:false,
-            secondPlaceButton:false,
-            championButton:false,
             completeRankingsButton:false,
             testName: ''
         }
@@ -107,8 +100,6 @@ require("animate.css/animate.min.css")
     }),
     methods:{
         presentChampion:function(){
-            if(this.revealLoser) this.secondPlaceButton = true
-            if(this.revealThird) this.championButton = true
             if(this.revealSecond) this.completeRankingsButton = true
             if(this.revealFirst){
                 this.$store.state.newSocket.send(JSON.stringify({

@@ -40,8 +40,6 @@ export default {
   },
   methods:{
     forceNext:function(event) {
-      // this.$store.commit('setChampion')
-      // this.$store.commit('setFinalRevealChallengers')
       this.$store.state.newSocket.send(JSON.stringify({
         'method':'setupFinalReveal',
         'payload':this.$store.state

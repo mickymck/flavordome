@@ -17,7 +17,7 @@
           <button class="cancel-button" @click="cancelJoin">Cancel</button>
         </div>
       </div>
-      <input type='image' v-if="!tasterJoin" src='https://flavordome.s3.us-east-2.amazonaws.com/beyond-flavordome-logo-big.png' class='beyond-flavordome-logo' @click='goBeyond' id='beyond-button'/>
+      <!-- <input type='image' v-if="!tasterJoin" src='https://flavordome.s3.us-east-2.amazonaws.com/beyond-flavordome-logo-big.png' class='beyond-flavordome-logo' @click='goBeyond' id='beyond-button'/> -->
     </div>
   </div>
 </template>
@@ -65,10 +65,10 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 600px;
+  /* height: 600px; */
   text-align: center;
   align-content: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .welcome-buttons {
@@ -77,7 +77,7 @@ export default {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
 }
 
 #host-button {
