@@ -54,8 +54,10 @@ export default {
       this.$emit('cancelTestName');
     },
     pushTestName() {
+      this.$store.commit('setTestName', this.testName)
       this.testNameLock = true;
       this.$store.dispatch('createSocket')
+      this.$store.state.commit('')
     },
     handleBack() {
       this.testNameLock = false
@@ -81,6 +83,10 @@ export default {
   margin: 0 auto;
   padding-top: 50px;
   color: white;
+}
+
+.user-input-field {
+  margin-top: 60px;
 }
 
 .test-name-buttons {

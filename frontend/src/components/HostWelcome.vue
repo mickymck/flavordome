@@ -4,21 +4,20 @@
       <div class='logo-wrapper'>
         <div class='flavordome-logo'></div>
       </div>
-      <div>
         <!-- this is the first thing rendered, before the Host or Join buttons are clicked -->
-        <div v-if="!tasterJoin" class='welcome-buttons'>
-          <button id="host-button" @click="setupScene">Host</button>
-          <button id="join-button" @click="promptJoin">Join</button>
-        </div>
-        <!-- if the Join button is clicked, this is the div that will be rendered, while the previous div is hidden -->
-        <div v-if="tasterJoin" class='join-code-div'>
-          <input type="input" class='user-input-field' id="enter-code-field" v-model='roomNum' placeholder="Enter Code" @keyup.enter="submitCode" />
-          <div class='join-buttons'>
-            <button id="submit-code-button" @click="submitCode">Submit</button>
-            <button class="cancel-button" @click="cancelJoin">Cancel</button>
-          </div>
+      <div v-if="!tasterJoin" class='welcome-buttons'>
+        <button id="host-button" @click="setupScene">Host</button>
+        <button id="join-button" @click="promptJoin">Join</button>
+      </div>
+      <!-- if the Join button is clicked, this is the div that will be rendered, while the previous div is hidden -->
+      <div v-if="tasterJoin" class='join-code-div'>
+        <input type="input" class='user-input-field' id="enter-code-field" v-model='roomNum' placeholder="Enter Code" @keyup.enter="submitCode" />
+        <div class='join-buttons'>
+          <button id="submit-code-button" @click="submitCode">Submit</button>
+          <button class="cancel-button" @click="cancelJoin">Cancel</button>
         </div>
       </div>
+      <input type='image' v-if="!tasterJoin" src='https://flavordome.s3.us-east-2.amazonaws.com/beyond-flavordome-logo-big.png' class='beyond-flavordome-logo' @click='goBeyond' id='beyond-button'/>
     </div>
   </div>
 </template>
@@ -66,11 +65,11 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 600px;
   text-align: center;
   align-content: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-
 
 .welcome-buttons {
   width: 80%;
@@ -78,6 +77,7 @@ export default {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
+  padding-bottom: 200px;
 }
 
 #host-button {
@@ -104,6 +104,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  padding-bottom: 180px;
 }
 
 .join-buttons {
@@ -115,6 +116,5 @@ export default {
 /* #submit-code-button {
   margin-bottom: 40px;
 } */
-
 
 </style>

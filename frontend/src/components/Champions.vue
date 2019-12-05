@@ -1,7 +1,7 @@
 <template>
 <div class="rankings-container">
     <div class="top-four-rankings" v-show="!showFinalRankings">
-            <h1 class="title">Champions!</h1>
+            <h1 class="title">{{this.testName}} Results</h1>
         <div class='champion'>
             <!-- <div v-if="contestantsShowArray.length <= 2">
                 <transition name="fade" enter-active-class="animated bounceInUp">
@@ -55,7 +55,10 @@
                 <h4 v-show="revealLoser">Loser: {{ sortedChallengers[sortedChallengers.length - 1].challenger }} ({{ sortedChallengers[sortedChallengers.length - 1].challengerLetter }})</h4>
             </transition>
         </div>
-        <button v-if='role === "host" && !completeRankingsButton' class="next-champion-button" @click="presentChampion">Reveal Next Champ</button>
+        <button v-if='role === "host" && loserButton && !thirdPlaceButton' class="next-champion-button" @click="presentChampion">Reveal the Worst</button>
+        <button v-if='role === "host" && thirdPlaceButton && !secondPlaceButton' class="next-champion-button" @click="presentChampion">Reveal 3rd Place</button>
+        <button v-if='role === "host" && secondPlaceButton && !championButton' class="next-champion-button" @click="presentChampion">Reveal 2nd Place</button>
+        <button v-if='role === "host" && championButton' class="next-champion-button" @click="presentChampion">The Champion</button>
         <button v-if='role === "host" && completeRankingsButton' class="next-champion-button" @click="presentChampion">Complete Rankings</button>
 
     </div>
@@ -84,8 +87,12 @@ require("animate.css/animate.min.css")
             champions:[],
             gteThreeChallengers:false,
             gteFourChallengers:false,
+            loserButton:true,
+            thirdPlaceButton:false,
+            secondPlaceButton:false,
+            championButton:false,
             completeRankingsButton:false,
-            
+            testName: ''
         }
     },
     computed:mapState({
@@ -100,6 +107,8 @@ require("animate.css/animate.min.css")
     }),
     methods:{
         presentChampion:function(){
+            if(this.revealLoser) this.secondPlaceButton = true
+            if(this.revealThird) this.championButton = true
             if(this.revealSecond) this.completeRankingsButton = true
             if(this.revealFirst){
                 this.$store.state.newSocket.send(JSON.stringify({
@@ -115,6 +124,7 @@ require("animate.css/animate.min.css")
     },
     created:function(){
         // this.topFour = this.$store.getters.getTopFour
+        this.testName = this.$store.getters.getTestName
         let champions = this.$store.getters.getChampion //returns top two challengers
         let sortedChallengers = this.$store.getters.getChallengers
         let totalShown = 2
@@ -138,11 +148,11 @@ require("animate.css/animate.min.css")
     margin:0;
     padding:0;
 }
-.title{
+/* .title{
     margin: 1rem;
     font-size: 3rem;
     color:white
-}
+} */
 .rankings-container{
     padding: 1rem 1rem 1rem 1rem;
     width:100%;
