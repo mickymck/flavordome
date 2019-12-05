@@ -397,7 +397,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 </style>
