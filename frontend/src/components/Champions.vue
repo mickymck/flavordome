@@ -1,7 +1,7 @@
 <template>
 <div class="rankings-container">
     <div class="top-four-rankings" v-show="!showFinalRankings">
-            <h1 class="title">Champions!</h1>
+            <h1 class="title">{{this.testName}} Results</h1>
         <div class='champion'>
             <!-- <div v-if="contestantsShowArray.length <= 2">
                 <transition name="fade" enter-active-class="animated bounceInUp">
@@ -85,7 +85,7 @@ require("animate.css/animate.min.css")
             gteThreeChallengers:false,
             gteFourChallengers:false,
             completeRankingsButton:false,
-            
+            testName: ''
         }
     },
     computed:mapState({
@@ -115,6 +115,7 @@ require("animate.css/animate.min.css")
     },
     created:function(){
         // this.topFour = this.$store.getters.getTopFour
+        this.testName = this.$store.getters.getTestName
         let champions = this.$store.getters.getChampion //returns top two challengers
         let sortedChallengers = this.$store.getters.getChallengers
         let totalShown = 2
@@ -138,11 +139,11 @@ require("animate.css/animate.min.css")
     margin:0;
     padding:0;
 }
-.title{
+/* .title{
     margin: 1rem;
     font-size: 3rem;
     color:white
-}
+} */
 .rankings-container{
     padding: 1rem 1rem 1rem 1rem;
     width:100%;

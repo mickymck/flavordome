@@ -175,6 +175,9 @@ export const store = new Vuex.Store({
         }))
       }
     },
+    setTestName(state, testName){
+      state.testName = testName
+    },
     setCategory(state, category){
       state.category = category
     },
@@ -385,7 +388,9 @@ export const store = new Vuex.Store({
     getLoserReveal(state){
       return state.finalReveal['loser']
     },
-
+    getTestName(state){
+      return state.testName
+    }
   },
   actions:{
     createSocket({commit, dispatch, state}){

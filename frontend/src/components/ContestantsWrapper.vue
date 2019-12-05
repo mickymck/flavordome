@@ -104,8 +104,8 @@ button {
 font-size: 20px;
 }
 
-input.user-input-field {
-  margin-top: 50px;
+.user-input-field {
+  margin-top: 60px;
 }
 
 </style>

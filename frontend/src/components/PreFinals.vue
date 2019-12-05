@@ -4,17 +4,17 @@
       <div class='flavordome-logo'></div>
     </div>
     <div class="instructions-wrapper">
-      <h1 class="scream-text">Prepare for the Semifinals!</h1>
+      <h1>Prepare for the Semifinals!</h1>
       <p class='instruction-text-dark'>Currently waiting on {{this.players - this.ready}} results to be submitted</p>
     </div>
     
     <div v-if="role==='host'">
       <!-- YOURE THE HOST -->
       <div v-if='players === ready'>
-        <button @click='forceNext'>On To The Semifinals</button>
+        <button @click='forceNext'>On To The Semis</button>
       </div>
       <div v-if='players !== ready'>
-        <button @click='forceNext'>Force To the Semifinals</button>
+        <button @click='forceNext'>Force the Semis</button>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ export default {
 
 h1 {
     padding-top: 20px;
-    font-size: 1.5rem;
+    color: #ff73d5;
 }
 .instructions-wrapper{
   margin-top:18%;

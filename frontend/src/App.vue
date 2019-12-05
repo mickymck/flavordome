@@ -89,9 +89,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #707070;
-  /* color: #2c3e50; */
   margin-top: 0;
-  background: url('https://www.mockout.com/wp-content/uploads/2019/12/flavordome-background-new-1.png') no-repeat;
+  background: url('https://flavordome.s3.us-east-2.amazonaws.com/flavordome-background-mobile.png') no-repeat;
   background-position: center top;
   background-size: 100%;
   height: 700px;
@@ -103,17 +102,23 @@ export default {
   max-width: 500px;
   height: 100px;
   max-height: 210px;
-  background-image: url('https://www.mockout.com/wp-content/uploads/2019/11/flavordome-logo-green-2.png');
+  background-image: url('https://flavordome.s3.us-east-2.amazonaws.com/flavordome-logo-small.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
-  animation-duration: 4s;
-  animation-name: fadein;
 }
 
-@keyframes fadein {
-
+.beyond-flavordome-logo {
+  width: 40%;
+  min-width: 150px;
+  max-width: 200px;
+  min-height: 50px;
+  background-image: url('https://flavordome.s3.us-east-2.amazonaws.com/beyond-flavordome-logo-big.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
 }
 
 .logo-wrapper {
@@ -170,7 +175,7 @@ input.user-input-field {
   text-align: center;
   border: 2px solid #a600d8;
   color: #a600d8;
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
   border-radius: 5px;
 }
 
