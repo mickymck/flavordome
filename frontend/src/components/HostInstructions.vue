@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <button @click='instructionsStepTwo' id='ready-for-step-two-button'>Step Two</button>
-            <button @click='goBeyond'>Beyond</button>
+            <!-- <button @click='goBeyond'>Beyond</button> -->
         </div>
         <!-- <p class='go-back-text' @click='editChallengers'>Edit Taste Test</p> -->
         <p @click='showModal' class='instruction-text-dark' id='tutorial-link'>Watch the Setup Tutorial?</p>
@@ -116,6 +116,9 @@ h1 {
 
 .challenger-number-sorting p {
     margin-top: 0;
+}
+.challenger-card{
+    text-align:center;
 }
 
 </style>
