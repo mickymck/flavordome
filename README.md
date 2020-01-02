@@ -26,3 +26,5 @@ With FlavorDome as your guide, you and your friends can enjoy the ultimate taste
 FlavorDome has been deployed to Heroku, and can be found online at:
 
 https://flavordome.herokuapp.com/
+
+to run locally, go into `frontend` then `npm run watch` and then in another terminal tab, `npm run serve` and remember to change the store from `wss` (which is used for Heroku) to `ws` (necessary for a local server) and to make the necessary changes to the django `settings` under channel layers (commented for clarity)
